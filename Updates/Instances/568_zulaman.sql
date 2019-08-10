@@ -575,13 +575,14 @@ INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 
 (@CGUID+370, @CGUID+371, 3), -- Amani'shi Berserker -> Amani'shi Berserker
 
-(@CGUID+479, @CGUID+486, 3), -- Amani'shi Savage -> Amani'shi Savage
-(@CGUID+480, @CGUID+486, 3), -- Amani'shi Savage -> Amani'shi Savage
-(@CGUID+481, @CGUID+486, 3), -- Amani'shi Savage -> Amani'shi Savage
-(@CGUID+482, @CGUID+486, 3), -- Amani'shi Savage -> Amani'shi Savage
-(@CGUID+483, @CGUID+486, 3), -- Amani'shi Savage -> Amani'shi Savage
-(@CGUID+484, @CGUID+486, 3), -- Amani'shi Savage -> Amani'shi Savage
-(@CGUID+485, @CGUID+486, 3); -- Amani'shi Savage -> Amani'shi Savage
+(@CGUID+479, @CGUID+254, 7), -- Amani'shi Savage -> Zul'jin
+(@CGUID+480, @CGUID+254, 7), -- Amani'shi Savage -> Zul'jin
+(@CGUID+481, @CGUID+254, 7), -- Amani'shi Savage -> Zul'jin
+(@CGUID+482, @CGUID+254, 7), -- Amani'shi Savage -> Zul'jin
+(@CGUID+483, @CGUID+254, 7), -- Amani'shi Savage -> Zul'jin
+(@CGUID+484, @CGUID+254, 7), -- Amani'shi Savage -> Zul'jin
+(@CGUID+485, @CGUID+254, 7), -- Amani'shi Savage -> Zul'jin
+(@CGUID+486, @CGUID+254, 7); -- Amani'shi Savage -> Zul'jin
 
 REPLACE INTO `creature_linking_template` (`entry`, `map`, `master_entry`, `flag`, `search_range`) VALUES
 (23598, 568, 23578, 4096, 0), -- Amani Dragonhawk Hatchling -> Jan'alai
@@ -598,6 +599,9 @@ REPLACE INTO `creature_linking_template` (`entry`, `map`, `master_entry`, `flag`
 (24247, 568, 24239, 3, 0), -- Koragg -> Hex Lord Malacrass
 (24504, 568, 23578, 4112, 0), -- Amani'shi Hatcher -> Jan'alai
 (24858, 568, 23574, 4112, 0); -- Soaring Eagle -> Akil'zon
+
+INSERT INTO creature_spawn_entry (guid, entry) VALUES
+(@CGUID+57, 23542), (@CGUID+57, 23582); -- Amani'shi Axe Thrower, Amani'shi Tribesman
 
 INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `DeathState`, `MovementType`) VALUES
 (@CGUID+1, 1412, 568, 1, 43.882, 1356.5, 9.27985, 5.18073, 300, 300, 15, 0, 0, 1), -- Squirrel
@@ -656,7 +660,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 -- @CGUID+54 -- REUSE
 (@CGUID+55, 23582, 568, 1, 19.0948, 1420.57, 11.973, 5.8294, 7200, 7200, 0, 0, 0, 0), -- Amani'shi Tribesman
 (@CGUID+56, 23582, 568, 1, 14.5413, 1411.64, 11.982, 0.017453, 7200, 7200, 0, 0, 0, 0), -- Amani'shi Tribesman
-(@CGUID+57, 23582, 568, 1, -53.3283, 1416.59, 27.3666, 0.017453, 7200, 7200, 0, 0, 0, 0), -- Amani'shi Tribesman
+(@CGUID+57, 0, 568, 1, -53.3283, 1416.59, 27.3666, 0.017453, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
 (@CGUID+58, 23582, 568, 1, -50.7764, 1415.72, 27.4538, 0, 7200, 7200, 0, 0, 0, 0), -- Amani'shi Tribesman
 (@CGUID+59, 23584, 568, 1, -7.98126, 1482.39, 9.37306, 5.54282, 7200, 7200, 5, 0, 0, 1), -- Amani Bear
 (@CGUID+60, 23584, 568, 1, -18.8911, 1488.05, 13.9981, 0.540604, 7200, 7200, 5, 0, 0, 1), -- Amani Bear
@@ -795,8 +799,8 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+193, 23790, 568, 1, -147.696, 1333.27, 48.2572, 0.820305, 604800, 604800, 0, 0, 0, 0), -- Tanzar
 (@CGUID+194, 23807, 568, 1, -80.1, 1366.4, 40.8492, 4.64258, 7200, 7200, 0, 0, 0, 0), -- Zul'Aman - Bear God Invisman
 (@CGUID+195, 23813, 568, 1, -51.0977, 1150.07, 18.7896, 3.28122, 7200, 7200, 0, 0, 0, 0), -- Zul'Aman - Dragonhawk God Invisman
-(@CGUID+196, 23814, 568, 1, 369.811, 1088.4, 6.59559, 4.76475, 7200, 7200, 0, 0, 0, 0), -- Zul'Aman - Eagle God Invisman
-(@CGUID+197, 23815, 568, 1, 375.814, 1137.73, 6.50146, 4.77653, 25, 25, 0, 0, 0, 0), -- Zul'Aman - Lynx God Invisman
+(@CGUID+196, 23814, 568, 1, 347.3426, 1398.941, 74.42841, 4.066617, 7200, 7200, 0, 0, 0, 0), -- Zul'Aman - Eagle God Invisman
+(@CGUID+197, 23815, 568, 1, 369.811, 1088.4, 6.59559, 4.76475, 25, 25, 0, 0, 0, 0), -- Zul'Aman - Lynx God Invisman
 (@CGUID+198, 23817, 568, 1, -38.8813, 1084.2, 18.7948, 0.575959, 7200, 7200, 0, 0, 0, 0), -- Dragonhawk Egg
 (@CGUID+199, 23817, 568, 1, -40.7069, 1088.51, 18.7948, 0.017453, 7200, 7200, 0, 0, 0, 0), -- Dragonhawk Egg
 (@CGUID+200, 23817, 568, 1, -38.9577, 1207.25, 18.7947, 4.06662, 7200, 7200, 0, 0, 0, 0), -- Dragonhawk Egg
