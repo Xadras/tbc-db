@@ -29195,19 +29195,20 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 -- Amani'shi Reinforcement
 ('2358701','23587','0','0','75','1','2000','2000','8000','8000','0','0','11','43298','1','0','0','0','0','0','0','0','0','0','Amani''shi Reinforcement - Cast Strike'),
 ('2358702','23587','4','0','75','0','0','0','0','0','0','0','11','32323','1','0','0','0','0','0','0','0','0','0','Amani''shi Reinforcement - Cast Charge on Aggro'),
--- Amani'shi Flame Caster
-('2359601','23596','0','0','100','1','2000','2000','30000','30000','0','0','11','43242','0','0','0','0','0','0','0','0','0','0','Amani''shi Flame Caster - Cast Haste'),
-('2359602','23596','0','0','100','1','0','0','18000','18000','0','0','11','43240','1','0','0','0','0','0','0','0','0','0','Amani''shi Flame Caster - Cast Fireball Volley'),
-('2359603','23596','0','0','100','1','0','0','9700','9700','0','0','11','43245','1','0','0','0','0','0','0','0','0','0','Amani''shi Flame Caster - Cast Fire Blast'),
+-- Amani'shi Flame Caster 23596
+('2359601','23596','4','0','10','0','0','0','0','0','0','0','54','0','0','8','0','0','0','0','0','0','0','0','Amani''shi Flame Caster - Random Say on Aggro'),
+('2359602','23596','0','0','100','1','2000','2000','30000','30000','0','0','11','43242','0','0','0','0','0','0','0','0','0','0','Amani''shi Flame Caster - Cast Haste'),
+('2359603','23596','0','0','100','1','0','0','18000','18000','0','0','11','43240','1','0','0','0','0','0','0','0','0','0','Amani''shi Flame Caster - Cast Fireball Volley'),
+('2359604','23596','0','0','100','1','0','0','9700','9700','0','0','11','43245','1','0','0','0','0','0','0','0','0','0','Amani''shi Flame Caster - Cast Fire Blast'),
 -- Amani'shi Guardian 23597
-('2359701','23597','4','0','15','0','0','0','0','0','0','0','54','0','0','8','0','0','0','0','0','0','0','0','Amani''shi Guardian - Random Say on Aggro'),
-('2359702','23597','0','0','100','0','1500','1500','0','0','0','0','11','43249','0','0','0','0','0','0','0','0','0','0','Amani''shi Guardian - Cast Startling Roar'),
-('2359703','23597','0','0','100','1','5000','5000','12000','12000','0','0','11','43246','1','0','0','0','0','0','0','0','0','0','Amani''shi Guardian - Cast Rend'),
+('2359701','23597','4','0','10','0','0','0','0','0','0','0','54','0','0','8','0','0','0','0','0','0','0','0','Amani''shi Guardian - Random Say on Aggro'),
+('2359702','23597','0','0','100','1025','1500','12000','15000','25000','0','0','11','43249','17','0','0','0','0','0','0','0','0','0','Amani''shi Guardian - Cast Startling Roar'),
+('2359703','23597','0','0','100','1025','5000','5000','3000','7000','0','0','11','43246','1','0','0','0','0','0','0','0','0','0','Amani''shi Guardian - Cast Rend'),
 -- Amani Dragonhawk Hatchling
 ('2359801','23598','0','0','100','1','7000','9000','7000','9000','0','0','11','43299','4','0','0','0','0','0','0','0','0','0','Amani Dragonhawk Hatchling - Cast Flame Buffet'),
 -- Amani Healing Ward 23757 - TotemAI
--- Amani'shi Trainer
-('2377401','23774','4','0','15','0','0','0','0','0','0','0','54','0','0','8','0','0','0','0','0','0','0','0','Amani''shi Trainer - Random Say on Aggro'),
+-- Amani'shi Trainer 23774
+('2377401','23774','4','0','10','0','0','0','0','0','0','0','54','0','0','8','0','0','0','0','0','0','0','0','Amani''shi Trainer - Random Say on Aggro'),
 ('2377402','23774','0','0','100','1','4000','8000','7000','14000','0','0','11','20989','4','0','0','0','0','0','0','0','0','0','Amani''shi Trainer - Cast Sleep'),
 ('2377403','23774','16','0','100','1','43292','15','5000','15000','0','0','11','43292','12','0','0','0','0','0','0','0','0','0','Amani''shi Trainer - Cast Incite Frenzy on Friendly Missing Buff'),
 -- Dragonhawk God Invisman
@@ -29249,12 +29250,13 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 -- Spirit of the Lynx 24143 - boss_spirit_lynx
 -- Amani Eagle 24159
 ('2415901','24159','9','0','100','1','0','5','8000','10000','0','0','11','43517','1','0','0','0','0','0','0','0','0','0','Amani Eagle - Cast Talon'),
--- Amani'shi Wind Walker
-('2417901','24179','2','0','100','1','30','0','30000','30000','0','0','11','43527','0','1','0','0','0','0','0','0','0','0','Amani''shi Wind Walker - Cast Chain Heal'),
-('2417902','24179','0','0','100','1','0','0','9000','9000','0','0','11','43524','1','0','0','0','0','0','0','0','0','0','Amani''shi Wind Walker - Cast Frost Shock'),
-('2417903','24179','0','0','100','1','5000','5000','17500','17500','0','0','11','43526','1','0','0','0','0','0','0','0','0','0','Amani''shi Wind Walker - Cast Lightning Bolt'),
--- Amani'shi Protector
-('2418001','24180','4','0','15','0','0','0','0','0','0','0','54','0','0','8','0','0','0','0','0','0','0','0','Amani''shi Protector - Random Say on Aggro'),
+-- Amani'shi Wind Walker 24179
+('2417901','24179','4','0','10','0','0','0','0','0','0','0','54','0','0','8','0','0','0','0','0','0','0','0','Amani''shi Wind Walker - Random Say on Aggro'),
+('2417902','24179','2','0','100','1','30','0','30000','30000','0','0','11','43527','0','1','0','0','0','0','0','0','0','0','Amani''shi Wind Walker - Cast Chain Heal'),
+('2417903','24179','0','0','100','1','0','0','9000','9000','0','0','11','43524','1','0','0','0','0','0','0','0','0','0','Amani''shi Wind Walker - Cast Frost Shock'),
+('2417904','24179','0','0','100','1','5000','5000','17500','17500','0','0','11','43526','1','0','0','0','0','0','0','0','0','0','Amani''shi Wind Walker - Cast Lightning Bolt'),
+-- Amani'shi Protector 24180
+('2418001','24180','4','0','10','0','0','0','0','0','0','0','54','0','0','8','0','0','0','0','0','0','0','0','Amani''shi Protector - Random Say on Aggro'),
 ('2418003','24180','0','0','100','1','0','5000','15000','25000','0','0','11','43529','1','0','0','0','0','0','0','0','0','0','Amani''shi Protector - Cast Mortal Strike'),
 ('2418002','24180','0','0','100','1','7000','10000','7000','10000','0','0','11','15496','1','0','0','0','0','0','0','0','0','0','Amani''shi Protector - Cast Cleave'),
 ('2418004','24180','32','0','100','1','0','10','18000','40000','0','0','11','43530','0','0','0','0','0','0','0','0','0','0','Amani''shi Protector - Cast Piercing Howl in Range'),
@@ -29306,7 +29308,7 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 ('2453001','24530','2','0','100','1','30','0','90000','90000','0','0','11','34970','0','0','1','-46','0','0','0','0','0','0','Amani Elder Lynx - Cast Enrage at 30% HP'),
 ('2453002','24530','0','0','100','1','12000','12000','20000','25000','0','0','11','43357','1','0','0','0','0','0','0','0','0','0','Amani Elder Lynx - Cast Feral Swipe'),
 ('2453003','24530','0','0','100','1','1500','1500','9000','13000','0','0','11','43356','1','0','0','0','0','0','0','0','0','0','Amani Elder Lynx - Cast Pounce'),
--- Amani'shi Tempest 24549 - npc_amanishi_tempest
+-- Amani'shi Tempest 24549 - npc_amanishi_tempest "You be dead soon!" - '54','0','0','8'
 -- Soaring Eagle 24858 - mob_soaring_eagle
 
 
@@ -30687,7 +30689,7 @@ INSERT INTO `creature_ai_texts` (`entry`,`content_default`,`sound`,`type`,`langu
 ('-228','I gonna make you into mojo!','0','0','0','Common Troll Text','0'),
 ('-229','Killing you be easy.','0','0','0','Common Troll Text','0'),
 ('-230','You be dead soon!','0','0','0','Common Troll Text','0'),
-('-231','I\'ll cut you!','0','0','0','Common Troll Text','0'),
+('-231','I\'ll cut you!','0','0','0','Leper Gnome Text','0'),
 ('-232','The Brotherhood will not be hampered by insects.','0','0','0','6846','0'),
 ('-233','So much to do, so much to do! Where does the time go?','0','0','0','295','0'),
 ('-234','We live only to serve the ancient one. DIE INTERLOPER!','0','0','0','6911','0'),
@@ -32369,7 +32371,6 @@ INSERT INTO dbscript_random_templates (id, type, target_id, chance, comments) VA
 (7, 0, -1297, 0, 'Plagued/Injured Peasant - Random Texts on event'),
 (7, 0, -1298, 0, 'Plagued/Injured Peasant - Random Texts on event'),
 (7, 0, -1299, 0, 'Plagued/Injured Peasant - Random Texts on event'),
-(8, 0, -231, 0, 'Common Troll - Random Aggro Texts'),
 (8, 0, -230, 0, 'Common Troll - Random Aggro Texts'),
 (8, 0, -229, 0, 'Common Troll - Random Aggro Texts'),
 (8, 0, -228, 0, 'Common Troll - Random Aggro Texts'),
