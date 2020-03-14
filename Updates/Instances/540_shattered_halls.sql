@@ -218,18 +218,17 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+134, 10, 69.6013, 39.0919, -13.2298, 0, 0, 0),
 (@CGUID+134, 11, 65.8643, 14.4801, -13.2172, 0, 0, 0),
 (@CGUID+134, 12, 57.2744, 7.4202, -13.215, 0, 0, 0),
-(@CGUID+134, 13, 45.6987, 6.42616, -13.1906, 100, 2000, 7),
-(@CGUID+135, 1, 93.9537, 62.0803, -13.0053, 0, 1000, 5),
-(@CGUID+135, 2, 83.755, 57.2887, -13.114, 0, 0, 0),
-(@CGUID+135, 3, 73.5564, 52.4972, -13.2227, 0, 0, 0),
-(@CGUID+135, 4, 73.2092, 50.007, -13.2218, 0, 0, 0),
-(@CGUID+135, 5, 71.868, 40.3876, -13.2218, 0, 0, 0),
+(@CGUID+134, 13, 45.6987, 6.42616, -13.1906, 100, 2000, 1742001),
+(@CGUID+135, 1, 83.755, 57.2887, -13.114, 0, 1000, 5),
+(@CGUID+135, 2, 73.5564, 52.4972, -13.2227, 0, 0, 0),
+(@CGUID+135, 3, 73.2092, 50.007, -13.2218, 0, 0, 0),
+(@CGUID+135, 4, 71.868, 40.3876, -13.2218, 0, 0, 0),
+(@CGUID+135, 5, 70.8613, 33.1676, -13.2132, 0, 0, 0),
 (@CGUID+135, 6, 70.8613, 33.1676, -13.2132, 0, 0, 0),
-(@CGUID+135, 7, 70.8613, 33.1676, -13.2132, 0, 0, 0),
-(@CGUID+135, 8, 63.0987, 2.38798, -13.1956, 0, 0, 0),
-(@CGUID+135, 9, 36.6416, -1.55471, -13.1958, 0, 0, 0),
-(@CGUID+135, 10, 25.2589, -4.47658, -13.1882, 0, 0, 0),
-(@CGUID+135, 11, 12.3784, -2.32701, -13.1913, 100, 2000, 7),
+(@CGUID+135, 7, 63.0987, 2.38798, -13.1956, 0, 0, 0),
+(@CGUID+135, 8, 36.6416, -1.55471, -13.1958, 0, 0, 0),
+(@CGUID+135, 9, 25.2589, -4.47658, -13.1882, 0, 0, 0),
+(@CGUID+135, 10, 12.3784, -2.32701, -13.1913, 100, 2000, 1742001),
 (@CGUID+136, 1, 53.5243, 60.0879, -13.0071, 0, 1000, 5),
 (@CGUID+136, 2, 56.8458, 57.6507, -13.1151, 0, 0, 0),
 (@CGUID+136, 3, 60.1673, 55.2135, -13.223, 0, 0, 0),
@@ -243,23 +242,21 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+136, 11, 64.0192, 12.3123, -13.219, 0, 0, 0),
 (@CGUID+136, 12, 46.6975, 4.63054, -13.1906, 0, 0, 0),
 (@CGUID+136, 13, 33.7657, 6.79465, -13.1942, 0, 0, 0),
-(@CGUID+136, 14, 22.7783, 7.14236, -13.1889, 100, 2000, 7),
-(@CGUID+137, 1, 106.598, 60.561, -12.978, 0, 1000, 5),
-(@CGUID+137, 2, 90.0297, 57.4987, -13.1003, 0, 0, 0),
+(@CGUID+136, 14, 22.7783, 7.14236, -13.1889, 100, 2000, 1742001),
+(@CGUID+137, 1, 90.0297, 57.4987, -13.1003, 0, 1000, 5),
+(@CGUID+137, 2, 73.4619, 54.4364, -13.2227, 0, 0, 0),
 (@CGUID+137, 3, 73.4619, 54.4364, -13.2227, 0, 0, 0),
-(@CGUID+137, 4, 73.4619, 54.4364, -13.2227, 0, 0, 0),
-(@CGUID+137, 5, 71.4676, 45.247, -13.2218, 0, 0, 0),
-(@CGUID+137, 6, 70.8612, 26.3303, -13.191, 0, 0, 0),
-(@CGUID+137, 7, 69.0497, 8.98774, -13.2077, 0, 0, 0),
-(@CGUID+137, 8, 62.9846, -0.321715, -13.1952, 0, 0, 0),
-(@CGUID+137, 9, 57.8027, -0.197392, -13.2067, 100, 2000, 7),
-(@CGUID+138, 1, 102.326, 62.6656, -12.9871, 0, 1000, 5),
-(@CGUID+138, 2, 87.9912, 57.5445, -13.1049, 0, 0, 0),
-(@CGUID+138, 3, 73.6565, 52.4234, -13.2226, 0, 0, 0),
-(@CGUID+138, 4, 71.5909, 37.8002, -13.2262, 0, 0, 0),
-(@CGUID+138, 5, 70.0568, 10.5743, -13.2209, 0, 0, 0),
-(@CGUID+138, 6, 52.6026, -0.81406, -13.2027, 0, 0, 0),
-(@CGUID+138, 7, 37.0071, -1.50796, -13.1959, 100, 2000, 7),
+(@CGUID+137, 4, 71.4676, 45.247, -13.2218, 0, 0, 0),
+(@CGUID+137, 5, 70.8612, 26.3303, -13.191, 0, 0, 0),
+(@CGUID+137, 6, 69.0497, 8.98774, -13.2077, 0, 0, 0),
+(@CGUID+137, 7, 62.9846, -0.321715, -13.1952, 0, 0, 0),
+(@CGUID+137, 8, 57.8027, -0.197392, -13.2067, 100, 2000, 1742001),
+(@CGUID+138, 1, 87.9912, 57.5445, -13.1049, 0, 1000, 5),
+(@CGUID+138, 2, 73.6565, 52.4234, -13.2226, 0, 0, 0),
+(@CGUID+138, 3, 71.5909, 37.8002, -13.2262, 0, 0, 0),
+(@CGUID+138, 4, 70.0568, 10.5743, -13.2209, 0, 0, 0),
+(@CGUID+138, 5, 52.6026, -0.81406, -13.2027, 0, 0, 0),
+(@CGUID+138, 6, 37.0071, -1.50796, -13.1959, 100, 2000, 1742001),
 (@CGUID+169, 1, 488.894, 233.942, 0.326259, 0, 0, 0),
 (@CGUID+169, 2, 486.995, 226.79, 0.256551, 0, 0, 0),
 (@CGUID+169, 3, 478.431, 226.508, 0.262045, 0, 0, 0),
@@ -351,7 +348,58 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+291, 3, 282.0956, -88.32939, 2.11288, 100, 0, 0),
 (@CGUID+291, 4, 284.0128, -90.10754, 2.062754, 100, 0, 0),
 (@CGUID+303, 1, 517.5042, 110.2721, 1.933732, 100, 0, 0),
-(@CGUID+303, 2, 521.549011, 134.203003, 1.932780, 100, 0, 0);
+(@CGUID+303, 2, 521.549011, 134.203003, 1.932780, 100, 0, 0),
+(@CGUID+304, 1, 46.3248, 59.879, -12.9904, 0, 1000, 5),
+(@CGUID+304, 2, 53.246, 58.0863, -13.1067, 0, 0, 0),
+(@CGUID+304, 3, 60.1673, 56.2936, -13.223, 0, 0, 0),
+(@CGUID+304, 4, 62.0403, 55.8085, -13.2236, 0, 0, 0),
+(@CGUID+304, 5, 66.1605, 54.7413, -13.2229, 0, 0, 0),
+(@CGUID+304, 6, 66.8337, 51.6796, -13.2228, 0, 0, 0),
+(@CGUID+304, 7, 67.2014, 50.007, -13.2218, 0, 0, 0),
+(@CGUID+304, 8, 69.3164, 40.3876, -13.2218, 0, 0, 0),
+(@CGUID+304, 9, 69.6013, 39.0919, -13.2298, 0, 0, 0),
+(@CGUID+304, 10, 69.6013, 39.0919, -13.2298, 0, 0, 0),
+(@CGUID+304, 11, 65.8643, 14.4801, -13.2172, 0, 0, 0),
+(@CGUID+304, 12, 57.2744, 7.4202, -13.215, 0, 0, 0),
+(@CGUID+304, 13, 45.6987, 6.42616, -13.1906, 100, 2000, 1742001),
+(@CGUID+305, 2, 83.755, 57.2887, -13.114, 0, 1000, 5),
+(@CGUID+305, 3, 73.5564, 52.4972, -13.2227, 0, 0, 0),
+(@CGUID+305, 4, 73.2092, 50.007, -13.2218, 0, 0, 0),
+(@CGUID+305, 5, 71.868, 40.3876, -13.2218, 0, 0, 0),
+(@CGUID+305, 6, 70.8613, 33.1676, -13.2132, 0, 0, 0),
+(@CGUID+305, 7, 70.8613, 33.1676, -13.2132, 0, 0, 0),
+(@CGUID+305, 8, 63.0987, 2.38798, -13.1956, 0, 0, 0),
+(@CGUID+305, 9, 36.6416, -1.55471, -13.1958, 0, 0, 0),
+(@CGUID+305, 10, 25.2589, -4.47658, -13.1882, 0, 0, 0),
+(@CGUID+305, 11, 12.3784, -2.32701, -13.1913, 100, 2000, 1742001),
+(@CGUID+306, 1, 53.5243, 60.0879, -13.0071, 0, 1000, 5),
+(@CGUID+306, 2, 56.8458, 57.6507, -13.1151, 0, 0, 0),
+(@CGUID+306, 3, 60.1673, 55.2135, -13.223, 0, 0, 0),
+(@CGUID+306, 4, 61.37, 54.3309, -13.2237, 0, 0, 0),
+(@CGUID+306, 5, 64.9833, 51.6796, -13.2229, 0, 0, 0),
+(@CGUID+306, 6, 67.2627, 50.007, -13.2218, 0, 0, 0),
+(@CGUID+306, 7, 67.693, 49.6913, -13.2218, 0, 0, 0),
+(@CGUID+306, 8, 67.8674, 40.3876, -13.2218, 0, 0, 0),
+(@CGUID+306, 9, 67.8932, 39.0141, -13.2296, 0, 0, 0),
+(@CGUID+306, 10, 67.8932, 39.0141, -13.2296, 0, 0, 0),
+(@CGUID+306, 11, 64.0192, 12.3123, -13.219, 0, 0, 0),
+(@CGUID+306, 12, 46.6975, 4.63054, -13.1906, 0, 0, 0),
+(@CGUID+306, 13, 33.7657, 6.79465, -13.1942, 0, 0, 0),
+(@CGUID+306, 14, 22.7783, 7.14236, -13.1889, 100, 2000, 1742001),
+(@CGUID+307, 1, 90.0297, 57.4987, -13.1003, 0, 1000, 5),
+(@CGUID+307, 2, 73.4619, 54.4364, -13.2227, 0, 0, 0),
+(@CGUID+307, 3, 73.4619, 54.4364, -13.2227, 0, 0, 0),
+(@CGUID+307, 4, 71.4676, 45.247, -13.2218, 0, 0, 0),
+(@CGUID+307, 5, 70.8612, 26.3303, -13.191, 0, 0, 0),
+(@CGUID+307, 6, 69.0497, 8.98774, -13.2077, 0, 0, 0),
+(@CGUID+307, 7, 62.9846, -0.321715, -13.1952, 0, 0, 0),
+(@CGUID+307, 8, 57.8027, -0.197392, -13.2067, 100, 2000, 1742001),
+(@CGUID+308, 1, 87.9912, 57.5445, -13.1049, 0, 1000, 5),
+(@CGUID+308, 2, 73.6565, 52.4234, -13.2226, 0, 0, 0),
+(@CGUID+308, 3, 71.5909, 37.8002, -13.2262, 0, 0, 0),
+(@CGUID+308, 4, 70.0568, 10.5743, -13.2209, 0, 0, 0),
+(@CGUID+308, 5, 52.6026, -0.81406, -13.2027, 0, 0, 0),
+(@CGUID+308, 6, 37.0071, -1.50796, -13.1959, 100, 2000, 1742001);
 
 DELETE FROM creature_movement_template WHERE entry=16807;
 INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
@@ -378,11 +426,6 @@ INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_fl
 (@CGUID+81, 0, 0, 2, 0, 214, 0, NULL), -- Shattered Hand Sharpshooter
 (@CGUID+132, 0, 0, 0, 0, 333, 0, NULL), -- creature_spawn_entry
 (@CGUID+133, 0, 0, 0, 0, 333, 0, NULL), -- Shattered Hand Heathen
-(@CGUID+134, 0, 0, 0, 0, 333, 0, NULL), -- Shattered Hand Heathen
-(@CGUID+135, 0, 0, 0, 0, 333, 0, NULL), -- creature_spawn_entry
-(@CGUID+136, 0, 0, 0, 0, 333, 0, NULL), -- creature_spawn_entry
-(@CGUID+137, 0, 0, 0, 0, 333, 0, NULL), -- Shattered Hand Heathen
-(@CGUID+138, 0, 0, 0, 0, 333, 0, NULL), -- Shattered Hand Heathen
 (@CGUID+265, 0, 0, 0, 0, 389, 0, NULL), -- creature_spawn_entry
 (@CGUID+266, 0, 0, 0, 0, 389, 0, NULL), -- Shattered Hand Savage
 (@CGUID+267, 0, 0, 0, 0, 389, 0, NULL), -- creature_spawn_entry
@@ -409,20 +452,33 @@ REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath
 (17671, 0, 0, 0, 0, 333, 0, '12782 18950'), -- Shattered Hand Champion
 (17693, 0, 0, 0, 0, 0, 0, '18950'), -- Shattered Hand Scout
 (17695, 0, 0, 1, 16, 0, 0, '30991'), -- Shattered Hand Assassin
-(18370, 0, 0, 0, 0, 0, 0, '32250'), -- Wild Shadow Fissure
+(18370, 0, 0, 0, 0, 0, 0, NULL), -- Wild Shadow Fissure
 (20923, 0, 0, 0, 0, 0, 0, '18950'); -- Blood Guard Porung
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
-(@CGUID+134, @CGUID+74, 1024), -- Shattered Hand Savage -> Shattered Hand Legionnaire
-(@CGUID+135, @CGUID+74, 1024), -- creature_spawn_entry -> Shattered Hand Legionnaire
+-- link "leaders" to bosses
+(@CGUID+74, @CGUID+82, 1024), -- Shattered Hand Legionnaire -> Grand Warlock Nethekurse
+
+(@CGUID+134, @CGUID+74, 1024), -- creature_spawn_entry -> Shattered Hand Legionnaire
 (@CGUID+136, @CGUID+74, 1024), -- creature_spawn_entry -> Shattered Hand Legionnaire
-(@CGUID+137, @CGUID+74, 1024), -- Shattered Hand Heathen -> Shattered Hand Legionnaire
-(@CGUID+138, @CGUID+74, 1024), -- Shattered Hand Heathen -> Shattered Hand Legionnaire
+(@CGUID+135, @CGUID+74, 1024), -- creature_spawn_entry -> Shattered Hand Legionnaire
+(@CGUID+137, @CGUID+74, 1024), -- creature_spawn_entry -> Shattered Hand Legionnaire
+(@CGUID+138, @CGUID+74, 1024), -- creature_spawn_entry -> Shattered Hand Legionnaire
+
+(@CGUID+304, @CGUID+74, 1024), -- Shattered Hand Heathen -> Shattered Hand Legionnaire
+(@CGUID+305, @CGUID+74, 1024), -- Shattered Hand Heathen -> Shattered Hand Legionnaire
+(@CGUID+306, @CGUID+74, 1024), -- Shattered Hand Heathen -> Shattered Hand Legionnaire
+(@CGUID+307, @CGUID+74, 1024), -- Shattered Hand Heathen -> Shattered Hand Legionnaire
+(@CGUID+308, @CGUID+74, 1024), -- Shattered Hand Heathen -> Shattered Hand Legionnaire
+
 (@CGUID+52, @CGUID+53, 1167), -- Shattered Hand Sentry -> Shattered Hand Sentry
--- (@CGUID+219, @CGUID+139, 1167), -- Shadowmoon Darkcaster -> Shattered Hand Heathen -- or each side together
--- (@CGUID+67, @CGUID+142, 1167), -- Shadowmoon Acolyte -> Shattered Hand Heathen
--- (@CGUID+220, @CGUID+141, 1167), -- creature_spawn_entry -> creature_spawn_entry
--- (@CGUID+66, @CGUID+140, 1167), -- creature_spawn_entry -> creature_spawn_entry
+
+-- Hall of the Fathers - first room
+(@CGUID+219, @CGUID+139, 1167), -- Shadowmoon Darkcaster -> Shattered Hand Heathen
+(@CGUID+67, @CGUID+142, 1167), -- Shadowmoon Acolyte -> Shattered Hand Heathen
+(@CGUID+220, @CGUID+141, 1167), -- Shadowmoon Darkcaster -> Shattered Hand Heathen
+(@CGUID+66, @CGUID+140, 1167), -- Shadowmoon Acolyte -> Shattered Hand Heathen
+
 (@CGUID+54, @CGUID+55, 1167), -- Shattered Hand Sentry -> Shattered Hand Sentry
 (@CGUID+79, @CGUID+75, 1167), -- Shattered Hand Sharpshooter -> Shattered Hand Legionnaire
 (@CGUID+80, @CGUID+75, 1167), -- Shattered Hand Sharpshooter -> Shattered Hand Legionnaire
@@ -536,8 +592,11 @@ INSERT INTO `creature_spawn_entry` (`guid`, `entry`) VALUES
 (@CGUID+73, 16523), (@CGUID+73, 17420), -- Shattered Hand Savage, Shattered Hand Heathen
 (@CGUID+79, 16523), (@CGUID+79, 17420), -- Shattered Hand Savage, Shattered Hand Heathen
 (@CGUID+132, 16593), (@CGUID+132, 16594), -- Shattered Hand Brawler, Shadowmoon Acolyte
+(@CGUID+134, 16523), (@CGUID+134, 17420), -- Shattered Hand Savage, Shattered Hand Heathen
 (@CGUID+135, 16523), (@CGUID+135, 17420), -- Shattered Hand Savage, Shattered Hand Heathen
 (@CGUID+136, 16523), (@CGUID+136, 17420), -- Shattered Hand Savage, Shattered Hand Heathen
+(@CGUID+137, 16523), (@CGUID+137, 17420), -- Shattered Hand Savage, Shattered Hand Heathen
+(@CGUID+138, 16523), (@CGUID+138, 17420), -- Shattered Hand Savage, Shattered Hand Heathen
 -- (@CGUID+140, 16594), (@CGUID+140, 17420), -- Shadowmoon Acolyte, Shattered Hand Heathen
 -- (@CGUID+141, 16594), (@CGUID+141, 17420), -- Shadowmoon Acolyte, Shattered Hand Heathen
 -- (@CGUID+220, 17420), (@CGUID+220, 17694), -- Shattered Hand Heathen, Shadowmoon Darkcaster
@@ -615,7 +674,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+63, 16593, 540, 3, 43.5588, 265.281, -10.7783, 1.658063, 7200, 7200, 0, 0, 0, 0), -- Shattered Hand Brawler
 (@CGUID+64, 16593, 540, 3, 43.5914, 253.725, -10.9988, 1.58825, 7200, 7200, 0, 0, 0, 0), -- Shattered Hand Brawler
 (@CGUID+65, 16593, 540, 3, 69.6697, 286.034, -10.8391, 0.122173, 7200, 7200, 0, 0, 0, 0), -- Shattered Hand Brawler
-(@CGUID+66, 16594, 540, 3, 82.4351, 76.1707, -13.1121, 3.735, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+66, 16594, 540, 3, 82.4351, 76.1707, -13.1121, 3.735, 7200, 7200, 0, 0, 0, 0), -- Shadowmoon Acolyte
 (@CGUID+67, 16594, 540, 3, 65.4234, 84.6101, -13.1184, 4.60767, 7200, 7200, 0, 0, 0, 0), -- Shadowmoon Acolyte
 (@CGUID+68, 16594, 540, 3, 83.5451, 286.75, -10.8789, 3.036873, 7200, 7200, 0, 0, 0, 0), -- Shadowmoon Acolyte
 (@CGUID+69, 16699, 540, 3, 83.3397, 265.004, -13.1239, 3.66519, 7200, 7200, 0, 0, 0, 0), -- Shattered Hand Reaver
@@ -683,14 +742,17 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+131, 17357, 540, 3, 138.444, 191.164, -47.1833, 6.21809, 7200, 7200, 0, 0, 0, 0), -- Creeping Oozeling
 (@CGUID+132, 0, 540, 3, 66.2363, 130.973, -13.196, 4.80743, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
 (@CGUID+133, 16699, 540, 3, 67.1698, 183.923, -13.2365, 4.69381, 7200, 7200, 0, 0, 0, 0), -- Shattered Hand Reaver
-(@CGUID+134, 17420, 540, 3, 46.3248, 59.879, -12.9904, 0, 5, 5, 0, 0, 0, 2), -- Shattered Hand Heathen
-(@CGUID+135, 0, 540, 3, 12.37836, -2.327011, -13.19128, 2.976231, 5, 5, 0, 0, 0, 2), -- creature_spawn_entry
-(@CGUID+136, 0, 540, 3, 53.5243, 60.0879, -13.0071, 0, 5, 5, 0, 0, 0, 2), -- creature_spawn_entry
-(@CGUID+137, 17420, 540, 3, 106.598, 60.561, -12.978, 0, 5, 5, 0, 0, 0, 2), -- Shattered Hand Heathen
-(@CGUID+138, 17420, 540, 3, 102.326, 62.6656, -12.9871, 0, 5, 5, 0, 0, 0, 2), -- Shattered Hand Heathen
+
+-- First hallway in dungeon, random between Shattered Hand Heathen or Savage in normal mode only
+(@CGUID+134, 0, 540, 1, 46.3248, 59.879, -12.9904, 0, 5, 5, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+135, 0, 540, 1, 83.755, 57.2887, -13.114, 3.15, 5, 5, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+136, 0, 540, 1, 53.5243, 60.0879, -13.0071, 0, 5, 5, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+137, 0, 540, 1, 90.0297, 57.4987, -13.1003, 3.261756, 5, 5, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+138, 0, 540, 1, 87.9912, 57.5445, -13.1049, 3.2617, 5, 5, 0, 0, 0, 2), -- creature_spawn_entry
+
 (@CGUID+139, 17420, 540, 3, 54.4005, 77.7188, -13.1093, 5.55015, 7200, 7200, 0, 0, 0, 0), -- Shattered Hand Heathen
-(@CGUID+140, 17420, 540, 3, 84.0513, 74.3693, -13.1203, 3.71755, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
-(@CGUID+141, 17420, 540, 3, 75.3346, 83.7984, -13.1169, 4.13643, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+140, 17420, 540, 3, 84.0513, 74.3693, -13.1203, 3.71755, 7200, 7200, 0, 0, 0, 0), -- Shattered Hand Heathen
+(@CGUID+141, 17420, 540, 3, 75.3346, 83.7984, -13.1169, 4.13643, 7200, 7200, 0, 0, 0, 0), -- Shattered Hand Heathen
 (@CGUID+142, 17420, 540, 3, 63.3135, 84.0945, -13.1156, 4.66003, 7200, 7200, 0, 0, 0, 0), -- Shattered Hand Heathen
 (@CGUID+143, 17427, 540, 3, 514.5014, 319.6571, 2.042556, 3.368485, 7200, 7200, 0, 0, 0, 0), -- Shattered Hand Archer
 (@CGUID+144, 17427, 540, 3, 514.8049, 312.0412, 2.036432, 3.001966, 7200, 7200, 0, 0, 0, 0), -- Shattered Hand Archer
@@ -769,7 +831,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+217, 17687, 540, 3, 455.513, 317.784, 1.94178, 3.58176, 7200, 7200, 10, 0, 0, 1), -- Flame Arrow
 (@CGUID+218, 17693, 540, 3, 341.2886, 314.903, 2.012742, 3.141593, 7200, 7200, 0, 0, 0, 0), -- Shattered Hand Scout
 (@CGUID+219, 17694, 540, 3, 56.461, 79.2481, -13.0995, 5.46288, 7200, 7200, 0, 0, 0, 0), -- Shadowmoon Darkcaster
-(@CGUID+220, 17694, 540, 3, 77.3988, 82.8904, -13.1101, 3.9619, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+220, 17694, 540, 3, 77.3988, 82.8904, -13.1101, 3.9619, 7200, 7200, 0, 0, 0, 0), -- Shadowmoon Darkcaster
 (@CGUID+221, 16699, 540, 3, 72.871, 274.047, -13.1036, 4.08407, 7200, 7200, 0, 0, 0, 0), -- Shattered Hand Reaver
 -- (@CGUID+222, 17301, 540, 3, 0, 0, 152.8524, -83.63912, 2.021005, 0.06981317, 86400, 86400, 0, 0, 0, 0), -- Shattered Hand Executioner
 -- (@CGUID+223
@@ -852,7 +914,14 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+300, 17695, 540, 3, 467.415, 57.921, 1.936, 0.0064, 86400, 86400, 2, 0, 0, 1), -- Shattered Hand Assassin
 (@CGUID+301, 17695, 540, 3, 274.497, 317.332, -0.3597, 6.27, 86400, 86400, 2, 0, 0, 1), -- Shattered Hand Assassin
 (@CGUID+302, 17695, 540, 3, 519.4913, 265.4981, 1.943648, 1.67471, 86400, 86400, 2, 0, 0, 1), -- Shattered Hand Assassin
-(@CGUID+303, 17695, 540, 3, 518.3307, 125.028, 1.981626, 4.529583, 86400, 86400, 0, 0, 0, 2); -- Shattered Hand Assassin
+(@CGUID+303, 17695, 540, 3, 518.3307, 125.028, 1.981626, 4.529583, 86400, 86400, 0, 0, 0, 2), -- Shattered Hand Assassin
+
+-- First hallway in dungeon, all Shattered Hand Heathen in heroic mode only
+(@CGUID+304, 17420, 540, 2, 46.3248, 59.879, -12.9904, 0, 5, 5, 0, 0, 0, 2), -- Shattered Hand Heathen
+(@CGUID+305, 17420, 540, 2, 83.755, 57.2887, -13.114, 3.15, 5, 5, 0, 0, 0, 2), -- Shattered Hand Heathen
+(@CGUID+306, 17420, 540, 2, 53.5243, 60.0879, -13.0071, 0, 5, 5, 0, 0, 0, 2), -- Shattered Hand Heathen
+(@CGUID+307, 17420, 540, 2,  90.0297, 57.4987, -13.1003, 3.261756, 5, 5, 0, 0, 0, 2), -- Shattered Hand Heathen
+(@CGUID+308, 17420, 540, 2, 87.9912, 57.5445, -13.1049, 3.2617, 5, 5, 0, 0, 0, 2); -- Shattered Hand Heathen
 
 -- ===========
 -- GAMEOBJECTS
@@ -926,71 +995,88 @@ INSERT INTO `game_event_creature_data` (`guid`, `entry_id`, `modelid`, `equipmen
 -- =========
 
 DELETE FROM `dbscript_string` WHERE `entry` IN (2000020025,2000020026,2000020027,2000020028,2000020029,2000020030,2000020031,2000020032,2000020033,2000020034);
-INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
-(2000020025,'Show them no quarter! Form up!',10191,1,0,15,'Shattered Hand Legionnaire'),
-(2000020026,'Form ranks and make the intruders pay!',10190,1,0,15,'Shattered Hand Legionnaire'),
-(2000020027,'Get ready! This shouldn''t take long...',10189,1,0,15,'Shattered Hand Legionnaire'),
-(2000020028,'Form up! Let''s make quick work of them!',10188,1,0,15,'Shattered Hand Legionnaire'),
-(2000020029,'Line up and crush these fools!',10187,1,0,15,'Shattered Hand Legionnaire'),
+INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `broadcast_text_id`, `comment`) VALUES
+(2000020025,'Show them no quarter! Form up!',10191,1,0,15,16350,'Shattered Hand Legionnaire'),
+(2000020026,'Form ranks and make the intruders pay!',10190,1,0,15,17461,'Shattered Hand Legionnaire'),
+(2000020027,'Get ready! This shouldn''t take long...',10189,1,0,15,16349,'Shattered Hand Legionnaire'),
+(2000020028,'Form up! Let''s make quick work of them!',10188,1,0,15,16347,'Shattered Hand Legionnaire'),
+(2000020029,'Line up and crush these fools!',10187,1,0,15,16346,'Shattered Hand Legionnaire'),
 
-(2000020030,'Power to the Fel Horde!',0,0,0,5,'Shattered Hand Legionnaire'),
-(2000020031,'Break their bones!',0,0,0,5,'Shattered Hand Legionnaire'),
-(2000020032,'Know your master, you worthless mutts!',0,0,0,25,'Shattered Hand Legionnaire'),
+(2000020030,'Power to the Fel Horde!',0,0,0,5,12685,'Shattered Hand Legionnaire'),
+(2000020031,'Break their bones!',0,0,0,5,12686,'Shattered Hand Legionnaire'),
+(2000020032,'Know your master, you worthless mutts!',0,0,0,25,12687,'Shattered Hand Legionnaire'),
 
-(2000020033,'Serve the Fel Horde!',0,0,0,5,'Shattered Hand Legionnaire'),
-(2000020034,'We''ll drink their blood and feast on their bones!',0,0,0,15,'Shattered Hand Legionnaire');
+(2000020033,'Serve the Fel Horde!',0,0,0,5,12684,'Shattered Hand Legionnaire'),
+(2000020034,'We''ll drink their blood and feast on their bones!',0,0,0,15,12683,'Shattered Hand Legionnaire');
 
-DELETE FROM dbscripts_on_relay WHERE id IN (10113,10114,10115,10116,10117,10118,10119,10120);
-INSERT INTO `dbscripts_on_relay` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(10113,0,0,10051,0,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - random yell'),
-(10113,0,35,5,50,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - send Custom AI Event A'),
-(10114,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - pause waypoints'),
-(10114,3,37,0,0,0,17420,20,2,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - move to Heathen'),
-(10114,4,36,0,0,0,17420,20,0,0,0,0,0,0,0,0,0,'Shattered Hand Heathen - face Legionnaire'),
-(10114,4,36,0,0,0,17420,5,1,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - face Heathen'),
-(10114,5,1,66,0,0,17420,5,0,0,0,0,0,0,0,0,0,'Shattered Hand Heathen - OneShotSalute'),
-(10114,6,1,66,0,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - OneShotSalute'),
-(10114,7,1,1,0,0,17420,5,0,0,0,0,0,0,0,0,0,'Shattered Hand Heathen - OneShotTalk'),
-(10114,8,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - OneShotExclamation'),
-(10114,9,36,1,0,0,17420,5,0,0,0,0,0,0,0,0,0,'Shattered Hand Heathen - reset orientation'),
-(10114,10,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - unpause waypoints'),
+DELETE FROM dbscripts_on_relay WHERE id IN (10113,10114,10115,10116,10117,10118,10119,10120,10121);
+INSERT INTO `dbscripts_on_relay` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
+(10113,0,0,0,10051,0,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - random yell'),
+(10113,0,0,35,5,50,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - send Custom AI Event A'),
 
-(10115,5,45,0,10052,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - 50% force bow, 50% force cheer'),
+(10114,0,0,31,17420,6,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - Search for Heaven'),
+(10114,0,1,32,1,0,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - pause waypoints'),
+(10114,3000,0,37,0,0,2,17420,20,2,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - move to Heathen'),
+(10114,4000,0,36,0,0,0,17420,20,0,0,0,0,0,0,0,0,0,'Shattered Hand Heathen - face Legionnaire'),
+(10114,4000,0,36,0,0,0,17420,5,1,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - face Heathen'),
+(10114,5000,0,1,66,0,0,17420,5,0,0,0,0,0,0,0,0,0,'Shattered Hand Heathen - OneShotSalute'),
+(10114,7000,0,1,66,0,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - OneShotSalute'),
+(10114,9000,0,1,1,0,0,17420,5,0,0,0,0,0,0,0,0,0,'Shattered Hand Heathen - OneShotTalk'),
+(10114,10000,0,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - OneShotExclamation'),
+(10114,11000,0,36,1,0,0,17420,5,0,0,0,0,0,0,0,0,0,'Shattered Hand Heathen - reset orientation'),
+(10114,13000,0,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - unpause waypoints'),
 
-(10116,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,0,'Legionnaire - pause waypoints'),
-(10116,3,37,0,0,0,17420,20,2,0,0,0,0,0,0,0,0,'Legionnaire - move to Heathen'),
-(10116,5,36,0,0,0,17420,3,0,0,0,0,0,0,0,0,0,'Heathen - face Legionnaire'),
-(10116,5,36,0,0,0,17694,3,0,0,0,0,0,0,0,0,0,'Darkcaster - face Legionnaire'),
-(10116,5,36,0,0,0,16594,3,0,0,0,0,0,0,0,0,0,'Acolyte - face Legionnaire'),
-(10116,7,36,0,0,0,17420,3,1,0,0,0,0,0,0,0,0,'Legionnaire - face Heathen'),
-(10116,8,45,0,10053,0,0,0,0,0,0,0,0,0,0,0,0,'Legionnaire - 50% force kneel & laugh, 50% force stand & salute'),
-(10116,14,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'Legionnaire - unpause waypoints'),
+(10121,0,0,31,16523,6,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - Search for Savage'),
+(10121,0,1,32,1,0,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - pause waypoints'),
+(10121,3000,0,37,0,0,2,16523,20,2,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - move to Savage'),
+(10121,4000,0,36,0,0,0,16523,20,0,0,0,0,0,0,0,0,0,'Shattered Hand Savage - face Legionnaire'),
+(10121,4000,0,36,0,0,0,16523,5,1,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - face Savage'),
+(10121,5000,0,1,66,0,0,16523,5,0,0,0,0,0,0,0,0,0,'Shattered Hand Savage - OneShotSalute'),
+(10121,7000,0,1,66,0,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - OneShotSalute'),
+(10121,9000,0,1,1,0,0,16523,5,0,0,0,0,0,0,0,0,0,'Shattered Hand Savage - OneShotTalk'),
+(10121,10000,0,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - OneShotExclamation'),
+(10121,11000,0,36,1,0,0,16523,5,0,0,0,0,0,0,0,0,0,'Shattered Hand Savage - reset orientation'),
+(10121,13000,0,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - unpause waypoints'),
 
-(10117,0,28,8,0,0,17420,3,0,0,0,0,0,0,0,0,0,'Heathen - Kneel'),
-(10117,0,28,8,0,0,17694,3,0,0,0,0,0,0,0,0,0,'Darkcaster - Kneel'),
-(10117,0,28,8,0,0,16594,3,0,0,0,0,0,0,0,0,0,'Acolyte - Kneel'),
-(10117,2,0,0,0,0,0,0,0,2000020032,0,0,0,0,0,0,0,'Legionnaire - say'),
-(10117,4,1,11,0,0,0,0,0,0,0,0,0,0,0,0,0,'Legionnaire - Laugh'),
+(10115,5000,0,45,0,10052,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - 50% force bow, 50% force cheer'),
 
-(10118,0,28,0,0,0,17420,3,0,0,0,0,0,0,0,0,0,'Heathen - Stand'),
-(10118,0,28,0,0,0,17694,3,0,0,0,0,0,0,0,0,0,'Darkcaster - Stand'),
-(10118,0,28,0,0,0,16594,3,0,0,0,0,0,0,0,0,0,'Acolyte - Stand'),
-(10118,1,1,113,0,0,17420,3,0,0,0,0,0,0,0,0,0,'Heathen - Salute'),
-(10118,1,1,113,0,0,17694,3,0,0,0,0,0,0,0,0,0,'Darkcaster - Salute'),
-(10118,1,1,113,0,0,16594,3,0,0,0,0,0,0,0,0,0,'Acolyte - Salute'),
-(10118,3,0,0,0,0,0,0,0,2000020030,2000020031,0,0,0,0,0,0,'Legionnaire - say'),
+(10116,0,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,0,'Legionnaire - pause waypoints'),
+(10116,3000,0,37,0,0,2,17420,20,2,0,0,0,0,0,0,0,0,'Legionnaire - move to Heathen'),
+(10116,5000,0,36,0,0,0,17420,3,0,0,0,0,0,0,0,0,0,'Heathen - face Legionnaire'),
+(10116,5000,0,36,0,0,0,17694,3,0,0,0,0,0,0,0,0,0,'Darkcaster - face Legionnaire'),
+(10116,5000,0,36,0,0,0,16594,3,0,0,0,0,0,0,0,0,0,'Acolyte - face Legionnaire'),
+(10116,7000,0,36,0,0,0,17420,3,1,0,0,0,0,0,0,0,0,'Legionnaire - face Heathen'),
+(10116,8000,0,45,0,10053,0,0,0,0,0,0,0,0,0,0,0,0,'Legionnaire - 50% force kneel & laugh, 50% force stand & salute'),
+(10116,14000,0,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'Legionnaire - unpause waypoints'),
 
-(10119,0,0,0,0,0,0,0,0,2000020033,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - say'),
-(10119,0,35,7,40,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - send Custom AI Event C'),
+(10117,0,0,31,17420,5,0,0,0,0,0,0,0,0,0,0,0,0,'Terminate if Heathen not in range'),
+(10117,0,1,28,8,0,0,17420,3,0,0,0,0,0,0,0,0,0,'Heathen - Kneel'),
+(10117,0,1,28,8,0,0,17694,3,0,0,0,0,0,0,0,0,0,'Darkcaster - Kneel'),
+(10117,0,1,28,8,0,0,16594,3,0,0,0,0,0,0,0,0,0,'Acolyte - Kneel'),
+(10117,2000,0,0,0,0,0,0,0,0,2000020032,0,0,0,0,0,0,0,'Legionnaire - say'),
+(10117,4000,0,1,11,0,0,0,0,0,0,0,0,0,0,0,0,0,'Legionnaire - Laugh'),
 
-(10120,0,0,0,0,0,0,0,0,2000020034,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - say'),
-(10120,0,35,8,40,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - send Custom AI Event D');
+(10118,0,0,31,17420,5,0,0,0,0,0,0,0,0,0,0,0,0,'Terminate if Heathen not in range'),
+(10118,0,1,28,0,0,0,17420,5,0,0,0,0,0,0,0,0,0,'Heathen - Stand'),
+(10118,0,1,28,0,0,0,17694,5,0,0,0,0,0,0,0,0,0,'Darkcaster - Stand'),
+(10118,0,1,28,0,0,0,16594,5,0,0,0,0,0,0,0,0,0,'Acolyte - Stand'),
+(10118,1000,0,1,113,0,0,17420,5,0,0,0,0,0,0,0,0,0,'Heathen - Salute'),
+(10118,1000,0,1,113,0,0,17694,5,0,0,0,0,0,0,0,0,0,'Darkcaster - Salute'),
+(10118,1000,0,1,113,0,0,16594,5,0,0,0,0,0,0,0,0,0,'Acolyte - Salute'),
+(10118,3000,0,0,0,0,0,0,0,0,2000020030,2000020031,0,0,0,0,0,0,'Legionnaire - say'),
+
+(10119,0,0,0,0,0,0,0,0,0,2000020033,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - say'),
+(10119,0,0,35,7,40,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - send Custom AI Event C'),
+
+(10120,0,0,0,0,0,0,0,0,0,2000020034,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - say'),
+(10120,0,0,35,8,40,0,0,0,0,0,0,0,0,0,0,0,0,'Shattered Hand Legionnaire - send Custom AI Event D');
 
 DELETE FROM dbscript_random_templates WHERE id IN (10050,10051,10052,10053,10054);
 INSERT INTO dbscript_random_templates (id, type, target_id, chance, comments) VALUES
 (10050, 1, 10113, 10, 'Shattered Hand Legionnaire - yell'),
-(10050, 1, 10114, 10, 'Shattered Hand Legionnaire - approach ally'),
-(10050, 1, 0, 80, 'Shattered Hand Legionnaire - nothing'),
+(10050, 1, 10114, 10, 'Shattered Hand Legionnaire - approach ally Heathen'),
+(10050, 1, 10121, 10, 'Shattered Hand Legionnaire - approach ally Savage'),
+(10050, 1, 0, 70, 'Shattered Hand Legionnaire - nothing'),
 
 (10051, 0, 2000020025, 0, 'Shattered Hand Legionnaire - random yell 1'),
 (10051, 0, 2000020026, 0, 'Shattered Hand Legionnaire - random yell 2'),
@@ -1008,10 +1094,12 @@ INSERT INTO dbscript_random_templates (id, type, target_id, chance, comments) VA
 (10054, 1, 10116, 10, 'Shattered Hand Legionnaire - talk event'),
 (10054, 1, 0, 80, 'Shattered Hand Legionnaire - nothing');
 
-DELETE FROM dbscripts_on_creature_movement WHERE id IN (1670001,1670002);
+DELETE FROM dbscripts_on_creature_movement WHERE id IN (1670001,1670002,1742001);
 INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(1670001, 0, 45, 0, 10050, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Hand Legionnaire - 10% chance to yell, 10% chance to talk'),
-(1670002, 0, 45, 0, 10054, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Legionnaire - 10% force bow/cheer, 10% talk event');
+(1670001, 0, 45, 0, 10050, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Hand Legionnaire - 10% chance to yell, 20% chance to talk'),
+(1670002, 0, 45, 0, 10054, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Legionnaire - 10% force bow/cheer, 10% talk event'),
+(1742001, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Halls - Waypoint Pause'),
+(1742001, 1000, 2, 169, 333, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Halls - EMOTE_STATE_READY1H');
 
 -- INSERT INTO `dbscripts_on_event` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_spell` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES

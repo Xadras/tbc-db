@@ -1103,15 +1103,6 @@ INSERT INTO `dbscripts_on_relay` (`id`, `delay`, `command`, `datalong`, `datalon
 -- INSERT INTO `dbscripts_on_event` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_spell` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 
-DELETE FROM gossip_menu WHERE entry IN(7540,7520); -- NPC has two entries, has to be handled by SD2
-INSERT INTO gossip_menu VALUES
-('7520', '9119', '0', '0'),
-('7540', '9144', '0', '0');
-DELETE FROM gossip_menu_option WHERE menu_id IN(7540,7520);
-INSERT INTO gossip_menu_option(menu_id, id, option_icon, option_text, option_id, npc_option_npcflag, action_menu_id, action_poi_id, action_script_id, box_coded, box_money, box_text, condition_id) VALUES
-('7520', '0', '0', 'Alright, Bite, I\'ll let you out.', '1', '1', '0', '0', '7520', '0', '0', NULL, '0'),
-('7540', '0', '0', 'Naturalist, please grant me your boon.', '1', '1', '-1', '0', '7540', '0', '0', NULL, '0');
-
 DELETE FROM dbscripts_on_gossip WHERE id IN(7540,7520);
 INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 ('7520', '0', '8', '17893', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Naturalist Bite - Give Kill Credit to Group'),
@@ -1130,9 +1121,9 @@ INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalo
 -- INSERT INTO `dbscripts_on_quest_end` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 
 DELETE FROM `dbscript_string` WHERE `entry` IN (2000020039,2000020040);
-INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
-(2000020039,'Uh oh!  It would appear that all of the noise you''ve been making has attracted some unwanted attention!', '0', '0', '0', '0', 'Naturalist Bite on Waypoint 2'),
-(2000020040,'Intrudersss with the prisssoner!  Kill them!!!','0','1','0','0','Coilfang Champion on Releasing Naturalist Bite');
+INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `broadcast_text_id`, `comment`) VALUES
+(2000020039,'Uh oh!  It would appear that all of the noise you''ve been making has attracted some unwanted attention!', '0', '0', '0', '0', '14575', 'Naturalist Bite on Waypoint 2'),
+(2000020040,'Intrudersss with the prisssoner!  Kill them!!!','0','1','0','0','15896','Coilfang Champion on Releasing Naturalist Bite');
 
 -- INSERT INTO `dbscript_random_templates` (`id`, `type`, `target_id`, `chance`, `comments`) VALUES
 

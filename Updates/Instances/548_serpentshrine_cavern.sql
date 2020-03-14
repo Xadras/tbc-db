@@ -716,9 +716,9 @@ INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+191, @CGUID+39, 1024), -- Coilfang Serpentguard -> Fathom-Lord Karathress
 (@CGUID+192, @CGUID+39, 1024), -- Coilfang Serpentguard -> Fathom-Lord Karathress
 
-(@CGUID+281, @CGUID+39, 1159), -- Fathom-Guard Caribdis -> Fathom-Lord Karathress
-(@CGUID+282, @CGUID+39, 1159), -- Fathom-Guard Tidalvess -> Fathom-Lord Karathress
-(@CGUID+283, @CGUID+39, 1159), -- Fathom-Guard Sharkkis -> Fathom-Lord Karathress
+(@CGUID+281, @CGUID+39, 1159+4096), -- Fathom-Guard Caribdis -> Fathom-Lord Karathress
+(@CGUID+282, @CGUID+39, 1159+4096), -- Fathom-Guard Tidalvess -> Fathom-Lord Karathress
+(@CGUID+283, @CGUID+39, 1159+4096), -- Fathom-Guard Sharkkis -> Fathom-Lord Karathress
 
 (@CGUID+94, @CGUID+40, 1024), -- Greyheart Tidecaller -> Leotheras the Blind
 (@CGUID+96, @CGUID+40, 1024), -- Greyheart Tidecaller -> Leotheras the Blind
@@ -923,6 +923,7 @@ INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+273, @CGUID+275, 1167), -- Greyheart Spellbinder -> Greyheart Spellbinder
 (@CGUID+274, @CGUID+275, 1167); -- Greyheart Spellbinder -> Greyheart Spellbinder
 
+DELETE FROM creature_linking_template WHERE entry IN (21964,21965,21966);
 REPLACE INTO `creature_linking_template` (`entry`, `map`, `master_entry`, `flag`, `search_range`) VALUES
 (21806, 548, 21806, 3, 0), -- Greyheart Spellbinder -> Greyheart Spellbinder
 (21857, 548, 21215, 4112, 0), -- Inner Demon -> Leotheras the Blind
@@ -932,9 +933,6 @@ REPLACE INTO `creature_linking_template` (`entry`, `map`, `master_entry`, `flag`
 (21913, 548, 21213, 4112, 0), -- Water Globule -> Morogrim Tidewalker
 (21920, 548, 21213, 4112, 0), -- Tidewalker Lurker -> Morogrim Tidewalker
 (21958, 548, 21212, 4096, 0), -- Enchanted Elemental -> Lady Vashj
-(21964, 548, 21214, 7, 0), -- Fathom-Guard Caribdis -> Fathom-Lord Karathress
-(21965, 548, 21214, 7, 0), -- Fathom-Guard Tidalvess -> Fathom-Lord Karathress
-(21966, 548, 21214, 7, 0), -- Fathom-Guard Sharkkis -> Fathom-Lord Karathress
 (22009, 548, 21212, 4096, 0), -- Tainted Elemental -> Lady Vashj
 (22035, 548, 21216, 4112, 0), -- Pure Spawn of Hydross -> Hydross the Unstable
 (22036, 548, 21216, 4112, 0), -- Tainted Spawn of Hydross -> Hydross the Unstable
@@ -1336,125 +1334,125 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalon
 (2121807, 0, 45, 0, 10111, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Honor Guard - 25% chance (speak to Priestess)'),
 (2121808, 0, 45, 0, 10112, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Honor Guard - 25% chance (speak to Shatterer)'),
 (2125301, 0, 36, 0, 0, 0, 21216, 50, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Tainted Water Elemental - Face Hydross'),
-(2125301, 1, 15, 36461, 0, 0, 21216, 50, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Tainted Water Elemental - Force Hydross to cast Purify Elemental'),
-(2125301, 2, 44, 21260, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tainted Water Elemental - Change to Purified'),
+(2125301, 1000, 15, 36461, 0, 0, 21216, 50, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Tainted Water Elemental - Force Hydross to cast Purify Elemental'),
+(2125301, 2000, 44, 21260, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tainted Water Elemental - Change to Purified'),
 (2126301, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Greyheart Technician - Pause waypoints'),
 (2126301, 0, 1, 173, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Greyheart Technician - STATE_WORK'),
 -- (2126301,0,1,0,0,0,0,0,173,69,0,0,0,0,0,0,'Greyheart Technician - Random between STATE_WORK and STATE_USESTANDING'), -- STATE_USESTANDING doesn't work for Broken model creatures?
 (2126301, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Greyheart Technician - Run on'),
-(2126302, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Greyheart Technician - Bow'),
-(2126302, 4, 1, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Greyheart Technician - Beg'),
-(2129801, 1, 0, 0, 0, 0, 21299, 10, 0, 2000020064, 2000020065, 2000020066, 0, 0, 0, 0, 0, 'Coilfang Fathom-Witch - random say'),
-(2129801, 3, 0, 0, 0, 0, 0, 0, 0, 2000020067, 2000020068, 0, 0, 0, 0, 0, 0, 'Coilfang Serpentguard - random response');
+(2126302, 1000, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Greyheart Technician - Bow'),
+(2126302, 4000, 1, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Greyheart Technician - Beg'),
+(2129801, 1000, 0, 0, 0, 0, 21299, 10, 0, 2000020064, 2000020065, 2000020066, 0, 0, 0, 0, 0, 'Coilfang Fathom-Witch - random say'),
+(2129801, 3000, 0, 0, 0, 0, 0, 0, 0, 2000020067, 2000020068, 0, 0, 0, 0, 0, 0, 'Coilfang Serpentguard - random response');
 
 INSERT INTO `dbscripts_on_creature_death` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 (21214, 0, 18, 3600000, 0, 0, 22820, 100, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Despawn Seer Olum after 1 hour'),
 (21214, 0, 29, 3, 1, 0, 22820, 100, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Add Gossip/quest giver flag to Seer Olum'),
-(21214, 1, 13, 0, 0, 0, 185474, @OGUID+35, 17, 0, 0, 0, 0, 0, 0, 0, 0, 'Open Seer Olum''s cage'),
-(21214, 2, 3, 0, 0, 0, 22820, 100, 3, 0, 0, 0, 0, 457.031, -543.231, -7.54802, 0.39321, 'Move Seer Olum out of cage'),
-(21214, 3, 0, 0, 0, 0, 22820, 100, 3, 2000020069, 0, 0, 0, 0, 0, 0, 0, 'Force Seer Olum to say text');
+(21214, 1000, 13, 0, 0, 0, 185474, @OGUID+35, 17, 0, 0, 0, 0, 0, 0, 0, 0, 'Open Seer Olum''s cage'),
+(21214, 2000, 3, 0, 0, 0, 22820, 100, 3, 0, 0, 0, 0, 457.031, -543.231, -7.54802, 0.39321, 'Move Seer Olum out of cage'),
+(21214, 3000, 0, 0, 0, 0, 22820, 100, 3, 2000020069, 0, 0, 0, 0, 0, 0, 0, 'Force Seer Olum to say text');
 
 DELETE FROM dbscripts_on_relay WHERE id BETWEEN 10105 AND 10112;
 INSERT INTO `dbscripts_on_relay` (`id`, `delay`, `command`, `datalong`, `datalong2`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 (10105,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - pause waypoints'),
 (10105,0,3,0,0,0,0,0,0,0,0,0,-57.3285,-371.109,1.58651,0,'Honor Guard - move to center (platform 1)'),
-(10105,6,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
-(10105,12,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10105,15,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10105,17,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
+(10105,6000,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
+(10105,12000,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10105,15000,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10105,17000,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
 
 (10106,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - pause waypoints'),
 (10106,0,3,0,0,0,0,0,0,0,0,0,40.2521,-304.251,1.5865,0,'Honor Guard - move to center (platform 2)'),
-(10106,6,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
-(10106,12,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10106,15,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10106,17,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
+(10106,6000,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
+(10106,12000,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10106,15000,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10106,17000,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
 
 (10107,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - pause waypoints'),
 (10107,0,3,0,0,0,0,0,0,0,0,0,140.93,-353.593,1.58652,0,'Honor Guard - move to center (platform 3)'),
-(10107,6,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
-(10107,12,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10107,15,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10107,17,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
+(10107,6000,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
+(10107,12000,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10107,15000,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10107,17000,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
 
 (10108,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - pause waypoints'),
 (10108,0,3,0,0,0,0,0,0,0,0,0,141.894,-509.504,1.58652,0,'Honor Guard - move to center (platform 4)'),
-(10108,6,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
-(10108,12,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10108,15,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10108,17,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
+(10108,6000,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
+(10108,12000,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10108,15000,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10108,17000,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
 
 (10109,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - pause waypoints'),
 (10109,0,3,0,0,0,0,0,0,0,0,0,40.9439,-554.403,1.58541,0,'Honor Guard - move to center (platform 5)'),
-(10109,6,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
-(10109,12,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10109,15,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10109,17,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
+(10109,6000,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
+(10109,12000,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10109,15000,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10109,17000,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
 
 (10110,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - pause waypoints'),
 (10110,0,3,0,0,0,0,0,0,0,0,0,-57.0144,-482.826,1.58653,0,'Honor Guard - move to center (platform 6)'),
-(10110,6,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
-(10110,12,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10110,15,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10110,17,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
+(10110,6000,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
+(10110,12000,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10110,15000,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10110,17000,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
 
 (10111,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - pause waypoints'),
-(10111,1,37,0,0,21220,20,2,0,0,0,0,0,0,0,0,'Honor Guard - move to Priestess'),
-(10111,6,36,0,0,21220,20,0,0,0,0,0,0,0,0,0,'Priestess - face Honor Guard'),
-(10111,6,0,0,0,21220,5,0,2000020043,0,0,0,0,0,0,0,'Priestess - say'),
-(10111,7,36,0,0,21220,20,1,0,0,0,0,0,0,0,0,'Honor Guard - face Priestess'),
-(10111,9,0,10101,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - say random (template)'),
-(10111,12,0,0,0,21220,5,0,2000020052,2000020053,2000020054,2000020055,0,0,0,0,'Priestess - say random'),
-(10111,15,0,10102,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - say random (template)'),
-(10111,17,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
-(10111,17,36,1,0,21220,5,0,0,0,0,0,0,0,0,0,'Priestess - reset orientation'),
+(10111,1000,37,0,0,21220,20,2,0,0,0,0,0,0,0,0,'Honor Guard - move to Priestess'),
+(10111,6000,36,0,0,21220,20,0,0,0,0,0,0,0,0,0,'Priestess - face Honor Guard'),
+(10111,6000,0,0,0,21220,5,0,2000020043,0,0,0,0,0,0,0,'Priestess - say'),
+(10111,7000,36,0,0,21220,20,1,0,0,0,0,0,0,0,0,'Honor Guard - face Priestess'),
+(10111,9000,0,10101,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - say random (template)'),
+(10111,12000,0,0,0,21220,5,0,2000020052,2000020053,2000020054,2000020055,0,0,0,0,'Priestess - say random'),
+(10111,15000,0,10102,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - say random (template)'),
+(10111,17000,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
+(10111,17000,36,1,0,21220,5,0,0,0,0,0,0,0,0,0,'Priestess - reset orientation'),
 
 (10112,0,32,1,0,21301,40,0,0,0,0,0,0,0,0,0,'Shatterer - pause waypoints'),
 (10112,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - pause waypoints'),
-(10112,1,37,0,0,21301,40,2,0,0,0,0,0,0,0,0,'Honor Guard - move to Shatterer'),
-(10112,3,37,0,0,21301,40,0,0,0,0,0,0,0,0,0,'Shatterer - move to Honor Guard'),
-(10112,7,36,0,0,21301,40,0,0,0,0,0,0,0,0,0,'Shatterer - face Honor Guard'),
-(10112,7,36,0,0,21301,40,1,0,0,0,0,0,0,0,0,'Honor Guard - face Shatterer'),
-(10112,8,0,0,0,21301,10,0,2000020043,0,0,0,0,0,0,0,'Shatterer - say'),
-(10112,10,0,10101,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - say random (template)'),
-(10112,13,0,0,0,21301,10,0,2000020052,2000020053,2000020054,2000020055,0,0,0,0,'Shatterer - say random'),
-(10112,16,0,10102,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - say random (template)'),
-(10112,18,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
-(10112,18,32,0,0,21301,10,0,0,0,0,0,0,0,0,0,'Shatterer - unpause waypoints');
+(10112,1000,37,0,0,21301,40,2,0,0,0,0,0,0,0,0,'Honor Guard - move to Shatterer'),
+(10112,3000,37,0,0,21301,40,0,0,0,0,0,0,0,0,0,'Shatterer - move to Honor Guard'),
+(10112,7000,36,0,0,21301,40,0,0,0,0,0,0,0,0,0,'Shatterer - face Honor Guard'),
+(10112,7000,36,0,0,21301,40,1,0,0,0,0,0,0,0,0,'Honor Guard - face Shatterer'),
+(10112,8000,0,0,0,21301,10,0,2000020043,0,0,0,0,0,0,0,'Shatterer - say'),
+(10112,10000,0,10101,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - say random (template)'),
+(10112,13000,0,0,0,21301,10,0,2000020052,2000020053,2000020054,2000020055,0,0,0,0,'Shatterer - say random'),
+(10112,16000,0,10102,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - say random (template)'),
+(10112,18000,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
+(10112,18000,32,0,0,21301,10,0,0,0,0,0,0,0,0,0,'Shatterer - unpause waypoints');
 
 DELETE FROM `dbscript_string` WHERE `entry` IN (2000020041,2000020042,2000020043,2000020044,2000020045,2000020046,2000020047,2000020048,2000020049,2000020050,
 2000020051,2000020052,2000020053,2000020054,2000020055,2000020056,2000020057,2000020058,2000020059,2000020060,2000020061,2000020062,2000020063,2000020064,
 2000020065,2000020066,2000020067,2000020068,2000020069);
-INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
-(2000020041, 'You filthy little beings need to work faster!', 0, 0, 0, 1, 'Vashj''ir Honor Guard - discipline Technicians 1'),
-(2000020042, 'FASTER!!!!', 0, 0, 0, 15, 'Vashj''ir Honor Guard - discipline Technicians 2'),
-(2000020043, 'What''s on your mind, sir?', 0, 0, 0, 1, 'Coilfang Priestess/Shatterer - greet Vashj''r Honor Guard'),
-(2000020044, 'We will be at capacity soon enough.', 0, 0, 0, 1, 'Vashj''ir Honor Guard - response 1'),
-(2000020045, 'Soon all of Draenor''s water will be ours.', 0, 0, 0, 1, 'Vashj''ir Honor Guard - response 1'),
-(2000020046, 'The reservoir fills nicely.', 0, 0, 0, 1, 'Vashj''ir Honor Guard - response 1'),
-(2000020047, 'We appear to be on target.', 0, 0, 0, 1, 'Vashj''ir Honor Guard - response 1'),
-(2000020048, 'Purification seems to be ahead of schedule.', 0, 0, 0, 1, 'Vashj''ir Honor Guard - response 1'),
-(2000020049, 'Things are proceeding as planned.', 0, 0, 0, 1, 'Vashj''ir Honor Guard - response 1'),
-(2000020050, 'The pumps are working magnificently.', 0, 0, 0, 1, 'Vashj''ir Honor Guard - response 1'),
-(2000020051, 'If we can keep working at this rate, the Lady will be pleased.', 0, 0, 0, 1, 'Vashj''ir Honor Guard - response 1'),
-(2000020052, 'I couldn''t agree more.', 0, 0, 0, 1, 'Coilfang Priestess/Shatterer - response 1'),
-(2000020053, 'You speak the truth.', 0, 0, 0, 1, 'Coilfang Priestess/Shatterer - response 1'),
-(2000020054, 'My thoughts exactly.', 0, 0, 0, 1, 'Coilfang Priestess/Shatterer - response 1'),
-(2000020055, 'It''s as if you were reading my mind.', 0, 0, 0, 1, 'Coilfang Priestess/Shatterer - response 1'),
-(2000020056, 'Don''t let the levels get too low.', 0, 0, 0, 1, 'Vashj''ir Honor Guard - response 2'),
-(2000020057, 'Direct the flow from the western bog.', 0, 0, 0, 1, 'Vashj''ir Honor Guard - response 2'),
-(2000020058, 'Keep regulating the main valve to ensure steady flow.', 0, 0, 0, 1, 'Vashj''ir Honor Guard - response 2'),
-(2000020059, 'Open the purification valves and continue work.', 0, 0, 0, 1, 'Vashj''ir Honor Guard - response 2'),
-(2000020060, 'Don''t take your eyes off of these filthy Broken. I don''t trust them.', 0, 0, 0, 1, 'Vashj''ir Honor Guard - response 2'),
-(2000020061, 'Keep everyone working efficiently.', 0, 0, 0, 1, 'Vashj''ir Honor Guard - response 2'),
-(2000020062, 'Make sure these Broken are thoroughly cleaned before touching the water.', 0, 0, 0, 1, 'Vashj''ir Honor Guard - response 2'),
-(2000020063, 'Keep ample pressure on the southern pump.', 0, 0, 0, 1, 'Vashj''ir Honor Guard - response 2'),
-(2000020064, 'Be wary of intruders.', 0, 0, 0, 1, 'Coilfang Fathom-Witch - say to Coilfang Serpentguard'),
-(2000020065, 'Stay alert!', 0, 0, 0, 1, 'Coilfang Fathom-Witch - say to Coilfang Serpentguard'),
-(2000020066, 'We must not fail the master.', 0, 0, 0, 1, 'Coilfang Fathom-Witch - say to Coilfang Serpentguard'),
-(2000020067, 'Understood.', 0, 0, 0, 1, 'Coilfang Serpentguard - respond to Coilfang Fathom-Witch'),
-(2000020068, 'We will not fail.', 0, 0, 0, 1, 'Coilfang Serpentguard - respond to Coilfang Fathom-Witch'),
-(2000020069, 'The naga came close to breaking my will... but the secret is still safe, thanks to you.', 0, 0, 0, 1, 'Seer Olum - freed');
+INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `broadcast_text_id`, `comment`) VALUES
+(2000020041, 'You filthy little beings need to work faster!', 0, 0, 0, 1, 18910, 'Vashj''ir Honor Guard - discipline Technicians 1'),
+(2000020042, 'FASTER!!!!', 0, 0, 0, 15, 18911, 'Vashj''ir Honor Guard - discipline Technicians 2'),
+(2000020043, 'What''s on your mind, sir?', 0, 0, 0, 1, 18909, 'Coilfang Priestess/Shatterer - greet Vashj''r Honor Guard'),
+(2000020044, 'We will be at capacity soon enough.', 0, 0, 0, 1, 18893, 'Vashj''ir Honor Guard - response 1'),
+(2000020045, 'Soon all of Draenor''s water will be ours.', 0, 0, 0, 1, 18888, 'Vashj''ir Honor Guard - response 1'),
+(2000020046, 'The reservoir fills nicely.', 0, 0, 0, 1, 18889, 'Vashj''ir Honor Guard - response 1'),
+(2000020047, 'We appear to be on target.', 0, 0, 0, 1, 18891, 'Vashj''ir Honor Guard - response 1'),
+(2000020048, 'Purification seems to be ahead of schedule.', 0, 0, 0, 1, 18890, 'Vashj''ir Honor Guard - response 1'),
+(2000020049, 'Things are proceeding as planned.', 0, 0, 0, 1, 19344, 'Vashj''ir Honor Guard - response 1'),
+(2000020050, 'The pumps are working magnificently.', 0, 0, 0, 1, 18887, 'Vashj''ir Honor Guard - response 1'),
+(2000020051, 'If we can keep working at this rate, the Lady will be pleased.', 0, 0, 0, 1, 18892, 'Vashj''ir Honor Guard - response 1'),
+(2000020052, 'I couldn''t agree more.', 0, 0, 0, 1, 18903, 'Coilfang Priestess/Shatterer - response 1'),
+(2000020053, 'You speak the truth.', 0, 0, 0, 1, 18905, 'Coilfang Priestess/Shatterer - response 1'),
+(2000020054, 'My thoughts exactly.', 0, 0, 0, 1, 18902, 'Coilfang Priestess/Shatterer - response 1'),
+(2000020055, 'It''s as if you were reading my mind.', 0, 0, 0, 1, 18904, 'Coilfang Priestess/Shatterer - response 1'),
+(2000020056, 'Don''t let the levels get too low.', 0, 0, 0, 1, 18895, 'Vashj''ir Honor Guard - response 2'),
+(2000020057, 'Direct the flow from the western bog.', 0, 0, 0, 1, 18897, 'Vashj''ir Honor Guard - response 2'), -- blizzlike here would be "Direct the flow from from the western bog."
+(2000020058, 'Keep regulating the main valve to ensure steady flow.', 0, 0, 0, 1, 18900, 'Vashj''ir Honor Guard - response 2'),
+(2000020059, 'Open the purification valves and continue work.', 0, 0, 0, 1, 18898, 'Vashj''ir Honor Guard - response 2'),
+(2000020060, 'Don''t take your eyes off of these filthy Broken. I don''t trust them.', 0, 0, 0, 1, 18901, 'Vashj''ir Honor Guard - response 2'),
+(2000020061, 'Keep everyone working efficiently.', 0, 0, 0, 1, 18894, 'Vashj''ir Honor Guard - response 2'),
+(2000020062, 'Make sure these Broken are thoroughly cleaned before touching the water.', 0, 0, 0, 1, 18899, 'Vashj''ir Honor Guard - response 2'),
+(2000020063, 'Keep ample pressure on the southern pump.', 0, 0, 0, 1, 18896, 'Vashj''ir Honor Guard - response 2'),
+(2000020064, 'Be wary of intruders.', 0, 0, 0, 1, 17713, 'Coilfang Fathom-Witch - say to Coilfang Serpentguard'),
+(2000020065, 'Stay alert!', 0, 0, 0, 1, 17711, 'Coilfang Fathom-Witch - say to Coilfang Serpentguard'),
+(2000020066, 'We must not fail the master.', 0, 0, 0, 1, 18145, 'Coilfang Fathom-Witch - say to Coilfang Serpentguard'),
+(2000020067, 'Understood.', 0, 0, 0, 1, 18146, 'Coilfang Serpentguard - respond to Coilfang Fathom-Witch'),
+(2000020068, 'We will not fail.', 0, 0, 0, 1, 18410, 'Coilfang Serpentguard - respond to Coilfang Fathom-Witch'),
+(2000020069, 'The naga came close to breaking my will... but the secret is still safe, thanks to you.', 0, 0, 0, 1, 20460, 'Seer Olum - freed');
 
 DELETE FROM `dbscript_random_templates` WHERE `id` IN (10101,10102,10105,10106,10107,10108,10109,10110,10111,10112);
 INSERT INTO dbscript_random_templates (id, type, target_id, chance) VALUES

@@ -3137,7 +3137,53 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 (@OGUID+289, 185324, 532, 1, -11080.6, -1876.43, 219.869, -1.79769, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Chessboard
 (@OGUID+290, 185521, 532, 1, -11186.2, -1665.14, 281.398, 0.671952, 0, 0, 0, 0, 43200, 43200, 100, 0), -- Massive Door
 (@OGUID+291, 181958, 532, 1, -11126.9, -1874.45, 91.4726, 0, 0, 0, 0, 1, 180, 180, 0, 1), -- Master's Terrace Focus
-(@OGUID+292, 181958, 532, 1, -11164.4, -1906.24, 91.47, 0, 0, 0, 0, 0, 180, 180, 0, 1); -- Master's Terrace Focus
+(@OGUID+292, 181958, 532, 1, -11164.4, -1906.24, 91.47, 0, 0, 0, 0, 0, 180, 180, 0, 1), -- Master's Terrace Focus
+(@OGUID+293, 183750, 532, 1, -11106.8, -1676.07, 278.235, 0.665477, 0, 0, 0.326632, 0.945151, 7200, 7200, 255, 1), -- Chair
+(@OGUID+294, 183751, 532, 1, -11165.1, -1574.05, 278.268, 1.65952, 0, 0, 0.737768, 0.675054, 7200, 7200, 255, 1), -- Chair
+(@OGUID+295, 183752, 532, 1, -11170, -1576.16, 278.234, 3.19649, 0, 0, -0.999623, 0.027446, 7200, 7200, 255, 1), -- Chair
+(@OGUID+296, 183753, 532, 1, -11182.5, -1585.89, 278.253, 5.61029, 0, 0, -0.330137, 0.943933, 7200, 7200, 255, 1), -- Chair
+(@OGUID+297, 183754, 532, 1, -11200.5, -1600.33, 278.234, 4.61937, 0, 0, -0.739217, 0.673468, 7200, 7200, 255, 1), -- Chair
+(@OGUID+298, 183755, 532, 1, -11179.3, -1583.93, 278.234, 4.61937, 0, 0, -0.739217, 0.673468, 7200, 7200, 255, 1), -- Chair
+(@OGUID+299, 181768, 532, 1, -11170.5, -1847.28, 136.023, 4.38078, 0, 0, -0.814116, 0.580703, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+300, 181768, 532, 1, -11194.6, -1867.78, 204.79, 3.9619, 0, 0, -0.91706, 0.39875, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+301, 181768, 532, 1, -11153.6, -1789.07, 135.992, 5.2709, 0, 0, -0.484809, 0.87462, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+302, 181768, 532, 1, -11238.9, -1912.13, 242.268, 1.44862, 0, 0, 0.66262, 0.748956, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+303, 181768, 532, 1, -11221.5, -1727.62, 136.023, 1.69297, 0, 0, 0.748956, 0.66262, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+304, 181768, 532, 1, -11163.8, -1765.43, 251.17, 4.2237, 0, 0, -0.857167, 0.515038, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+305, 181768, 532, 1, -11242.4, -1686.54, 210.879, 4.93928, 0, 0, -0.622514, 0.782609, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+306, 181768, 532, 1, -11395, -1846.05, 260.629, 2.44346, 0, 0, 0.939692, 0.342021, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+307, 181837, 532, 1, -11153.7, -1793.67, 136.012, 4.24115, 0, 0, -0.85264, 0.522499, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+308, 181837, 532, 1, -11269.8, -1827.98, 135.645, 6.02139, 0, 0, -0.130526, 0.991445, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+309, 181837, 532, 1, -11189.1, -1743.22, 136.023, 2.32129, 0, 0, 0.91706, 0.39875, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+310, 181837, 532, 1, -11219.9, -1735.85, 136.023, 2.30383, 0, 0, 0.913545, 0.406738, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+311, 181837, 532, 1, -11275.8, -1721.98, 136.025, 2.30383, 0, 0, 0.913545, 0.406738, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+312, 181839, 532, 1, -11160.4, -1795.18, 135.998, 1.309, 0, 0, 0.608761, 0.793354, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+313, 181843, 532, 1, -11164.8, -1762.66, 201.287, 2.70526, 0, 0, 0.976295, 0.216442, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+314, 181845, 532, 1, -11195.8, -1875.33, 204.802, 2.68781, 0, 0, 0.97437, 0.224951, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+315, 181846, 532, 1, -11174.8, -1847.97, 136.023, 4.66003, 0, 0, -0.725374, 0.688355, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+316, 181846, 532, 1, -11173, -1846.56, 136.023, 2.1293, 0, 0, 0.874619, 0.48481, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+317, 181846, 532, 1, -11182.8, -1859.97, 152.059, 5.48033, 0, 0, -0.390731, 0.920505, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+318, 181846, 532, 1, -11139.1, -1795.76, 136.023, 5.16618, 0, 0, -0.529919, 0.848048, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+319, 181846, 532, 1, -11198.7, -1866.77, 204.79, 6.14356, 0, 0, -0.0697555, 0.997564, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+320, 181846, 532, 1, -11235.2, -1838.26, 136.023, 1.11701, 0, 0, 0.529919, 0.848048, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+321, 181846, 532, 1, -11153.4, -1850.3, 238.167, 0.366518, 0, 0, 0.182235, 0.983255, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+322, 181846, 532, 1, -11200.1, -1784.39, 136.013, 0.680677, 0, 0, 0.333806, 0.942642, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+323, 181846, 532, 1, -11207.1, -1780.46, 136.023, 3.4383, 0, 0, -0.989016, 0.147811, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+324, 181846, 532, 1, -11185.4, -1745.27, 136.023, 5.3058, 0, 0, -0.469471, 0.882948, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+325, 181846, 532, 1, -11282.6, -1725.65, 136.031, 2.23402, 0, 0, 0.898793, 0.438373, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+326, 181846, 532, 1, -11315.5, -1810.96, 265.165, 2.21656, 0, 0, 0.894934, 0.446199, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+327, 181846, 532, 1, -11367.6, -1765.29, 179.734, 1.0821, 0, 0, 0.515037, 0.857168, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+328, 181846, 532, 1, -11220.5, -1689.72, 240.979, 3.15906, 0, 0, -0.999962, 0.00873464, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+329, 181846, 532, 1, -11239.2, -1696.26, 290.348, 3.47321, 0, 0, -0.986285, 0.16505, 1800, 1800, 255, 0),  -- Sealed Tome
+(@OGUID+330, 181847, 532, 1, -11193.1, -1873.44, 204.81, 6.16101, 0, 0, -0.0610485, 0.998135, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+331, 181847, 532, 1, -11290.8, -1797.31, 179.734, 2.35619, 0, 0, 0.92388, 0.382683, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+332, 181847, 532, 1, -11231.4, -1699.49, 210.879, 1.97222, 0, 0, 0.833885, 0.551938, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+333, 181847, 532, 1, -11231.9, -1710.75, 290.348, 4.69494, 0, 0, -0.71325, 0.70091, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+334, 181848, 532, 1, -11176.9, -1912.48, 232.009, 1.18682, 0, 0, 0.559193, 0.829038, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+335, 181848, 532, 1, -11191.7, -1870.89, 204.801, 1.76278, 0, 0, 0.771625, 0.636078, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+336, 181848, 532, 1, -11147.4, -1848.47, 238.167, 6.26573, 0, 0, -0.00872612, 0.999962, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+337, 181848, 532, 1, -11232.3, -1821.82, 223.944, 4.95674, 0, 0, -0.615661, 0.788011, 1800, 1800, 255, 1),  -- Sealed Tome
+(@OGUID+338, 181848, 532, 1, -11335.7, -1908.36, 240.541, 1.78023, 0, 0, 0.777145, 0.629321, 1800, 1800, 255, 0);  -- Sealed Tome
 
 -- ======
 -- EVENTS
@@ -3151,8 +3197,6 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 -- POOLING
 -- =======
 
-
-
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (@PGUID+1, 1, 'Karazhan - Trapped Soul/Ghastly Haunt - Pool 1'),
 (@PGUID+2, 1, 'Karazhan - Trapped Soul/Ghastly Haunt - Pool 2'),
@@ -3163,7 +3207,15 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (@PGUID+7, 1, 'Karazhan - Trapped Soul/Ghastly Haunt - Pool 7'),
 (@PGUID+8, 1, 'Karazhan - Trapped Soul/Ghastly Haunt - Pool 8'),
 (@PGUID+9, 1, 'Karazhan - Trapped Soul/Ghastly Haunt - Pool 9'),
-(@PGUID+10, 1, 'Karazhan - Trapped Soul/Ghastly Haunt - Pool 10');
+(@PGUID+10, 1, 'Karazhan - Trapped Soul/Ghastly Haunt - Pool 10'),
+
+(@PGUID+11, 1, 'Karazhan - Sealed Tome - Pool 1'),
+(@PGUID+12, 1, 'Karazhan - Sealed Tome - Pool 2'),
+(@PGUID+13, 1, 'Karazhan - Sealed Tome - Pool 3'),
+(@PGUID+14, 1, 'Karazhan - Sealed Tome - Pool 4'),
+(@PGUID+15, 1, 'Karazhan - Sealed Tome - Pool 5'),
+(@PGUID+16, 1, 'Karazhan - Sealed Tome - Pool 6'),
+(@PGUID+17, 1, 'Karazhan - Sealed Tome - Pool 7');
 
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES
 (@CGUID+550, @PGUID+1, 0, 'Karazhan - Ghastly Haunt'),
@@ -3189,7 +3241,29 @@ INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALU
 
 -- INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
 -- INSERT INTO `pool_creature_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
--- INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES
+
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES
+(@OGUID+299, @PGUID+11, 0, 'Karazhan - Sealed Tome - Pool 1'), 
+(@OGUID+59, @PGUID+11, 0, 'Karazhan - Sealed Tome - Pool 1'),
+
+(@OGUID+312, @PGUID+12, 0, 'Karazhan - Sealed Tome - Pool 2'),
+(@OGUID+44, @PGUID+12, 0, 'Karazhan - Sealed Tome - Pool 2'),
+
+(@OGUID+317, @PGUID+13, 0, 'Karazhan - Sealed Tome - Pool 3'),
+(@OGUID+46, @PGUID+13, 0, 'Karazhan - Sealed Tome - Pool 3'),
+
+(@OGUID+318, @PGUID+14, 0, 'Karazhan - Sealed Tome - Pool 4'),
+(@OGUID+48, @PGUID+14, 0, 'Karazhan - Sealed Tome - Pool 4'),
+
+(@OGUID+322, @PGUID+15, 0, 'Karazhan - Sealed Tome - Pool 5'),
+(@OGUID+49, @PGUID+15, 0, 'Karazhan - Sealed Tome - Pool 5'),
+
+(@OGUID+327, @PGUID+16, 0, 'Karazhan - Sealed Tome - Pool 6'),
+(@OGUID+50, @PGUID+16, 0, 'Karazhan - Sealed Tome - Pool 6'),
+
+(@OGUID+336, @PGUID+17, 0, 'Karazhan - Sealed Tome - Pool 7'),
+(@OGUID+45, @PGUID+17, 0, 'Karazhan - Sealed Tome - Pool 7');
+
 -- INSERT INTO `pool_gameobject_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
 -- =========
@@ -3199,77 +3273,77 @@ INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALU
 DELETE FROM dbscripts_on_creature_movement WHERE id IN (1568701,1568702,1568703,1568704,1568705,1568706,1641501,1641502,1642601,1642607,1642611,1646801,1647001,1640701,1555101);
 INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 (1568701, 0, 31, 17007, 30, 0, 0, 0, 0, -25000, 0, 0, 0, 0, 0, 0, 0, 'Terminate Script If Lady Keira Berrybuck Is Not Found in Range'),
-(1568701, 1, 0, 0, 0, 0, 17007, 30, 3, 2000020017, 2000020018, 0, 0, 0, 0, 0, 0, 'Lady Keira Berrybuck Random Say'),
-(1568701, 6, 0, 0, 0, 0, 17007, 30, 1, 2000020019, 2000020020, 2000020021, 0, 0, 0, 0, 0, 'Moroes Random Say'),
+(1568701, 1000, 0, 0, 0, 0, 17007, 30, 3, 2000020017, 2000020018, 0, 0, 0, 0, 0, 0, 'Lady Keira Berrybuck Random Say'),
+(1568701, 6000, 0, 0, 0, 0, 17007, 30, 1, 2000020019, 2000020020, 2000020021, 0, 0, 0, 0, 0, 'Moroes Random Say'),
 (1568702, 0, 31, 19872, 30, 0, 0, 0, 0, -25000, 0, 0, 0, 0, 0, 0, 0, 'Terminate Script If Lady Catriona Von''Indi Is Not Found in Range'),
-(1568702, 1, 0, 0, 0, 0, 19872, 30, 3, 2000020017, 2000020018, 0, 0, 0, 0, 0, 0, 'Lady Catriona Von''Indi Random Say'),
-(1568702, 6, 0, 0, 0, 0, 19872, 30, 1, 2000020019, 2000020020, 2000020021, 0, 0, 0, 0, 0, 'Moroes Random Say'),
+(1568702, 1000, 0, 0, 0, 0, 19872, 30, 3, 2000020017, 2000020018, 0, 0, 0, 0, 0, 0, 'Lady Catriona Von''Indi Random Say'),
+(1568702, 6000, 0, 0, 0, 0, 19872, 30, 1, 2000020019, 2000020020, 2000020021, 0, 0, 0, 0, 0, 'Moroes Random Say'),
 (1568703, 0, 31, 19873, 30, 0, 0, 0, 0, -25000, 0, 0, 0, 0, 0, 0, 0, 'Terminate Script If Lord Crispin Ference Is Not Found in Range'),
-(1568703, 1, 0, 0, 0, 0, 19873, 30, 3, 2000020017, 2000020018, 0, 0, 0, 0, 0, 0, 'Lord Crispin Ference Random Say'),
-(1568703, 6, 0, 0, 0, 0, 19873, 30, 1, 2000020019, 2000020020, 2000020021, 0, 0, 0, 0, 0, 'Moroes Random Say'),
+(1568703, 1000, 0, 0, 0, 0, 19873, 30, 3, 2000020017, 2000020018, 0, 0, 0, 0, 0, 0, 'Lord Crispin Ference Random Say'),
+(1568703, 6000, 0, 0, 0, 0, 19873, 30, 1, 2000020019, 2000020020, 2000020021, 0, 0, 0, 0, 0, 'Moroes Random Say'),
 (1568704, 0, 31, 19874, 30, 0, 0, 0, 0, -25000, 0, 0, 0, 0, 0, 0, 0, 'Terminate Script If Baron Rafe Dreuger Is Not Found in Range'),
-(1568704, 1, 0, 0, 0, 0, 19874, 30, 3, 2000020017, 2000020018, 0, 0, 0, 0, 0, 0, 'Baron Rafe Dreuger Random Say'),
-(1568704, 6, 0, 0, 0, 0, 19874, 30, 1, 2000020019, 2000020020, 2000020021, 0, 0, 0, 0, 0, 'Moroes Random Say'),
+(1568704, 1000, 0, 0, 0, 0, 19874, 30, 3, 2000020017, 2000020018, 0, 0, 0, 0, 0, 0, 'Baron Rafe Dreuger Random Say'),
+(1568704, 6000, 0, 0, 0, 0, 19874, 30, 1, 2000020019, 2000020020, 2000020021, 0, 0, 0, 0, 0, 'Moroes Random Say'),
 (1568705, 0, 31, 19875, 30, 0, 0, 0, 0, -25000, 0, 0, 0, 0, 0, 0, 0, 'Terminate Script If Baroness Dorothea Millstipe Is Not Found in Range'),
-(1568705, 1, 0, 0, 0, 0, 19875, 30, 3, 2000020017, 2000020018, 0, 0, 0, 0, 0, 0, 'Baroness Dorothea Millstipe Random Say'),
-(1568705, 6, 0, 0, 0, 0, 19875, 30, 1, 2000020019, 2000020020, 2000020021, 0, 0, 0, 0, 0, 'Moroes Random Say'),
+(1568705, 1000, 0, 0, 0, 0, 19875, 30, 3, 2000020017, 2000020018, 0, 0, 0, 0, 0, 0, 'Baroness Dorothea Millstipe Random Say'),
+(1568705, 6000, 0, 0, 0, 0, 19875, 30, 1, 2000020019, 2000020020, 2000020021, 0, 0, 0, 0, 0, 'Moroes Random Say'),
 (1568706, 0, 31, 19876, 30, 0, 0, 0, 0, -25000, 0, 0, 0, 0, 0, 0, 0, 'Terminate Script If Lord Robin Daris Is Not Found in Range'),
-(1568706, 1, 0, 0, 0, 0, 19876, 30, 3, 2000020017, 2000020018, 0, 0, 0, 0, 0, 0, 'Lord Robin Daris Random Say'),
-(1568706, 6, 0, 0, 0, 0, 19876, 30, 1, 2000020019, 2000020020, 2000020021, 0, 0, 0, 0, 0, 'Moroes Random Say'),
+(1568706, 1000, 0, 0, 0, 0, 19876, 30, 3, 2000020017, 2000020018, 0, 0, 0, 0, 0, 0, 'Lord Robin Daris Random Say'),
+(1568706, 6000, 0, 0, 0, 0, 19876, 30, 1, 2000020019, 2000020020, 2000020021, 0, 0, 0, 0, 0, 'Moroes Random Say'),
 (1641501, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Waiter - EMOTE_ONESHOT_TALK'),
-(1641502, 2, 1, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Waiter - EMOTE_STATE_USESTANDING'),
-(1641502, 6, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Waiter - EMOTE_ONESHOT_NONE'),
+(1641502, 2000, 1, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Waiter - EMOTE_STATE_USESTANDING'),
+(1641502, 6000, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Waiter - EMOTE_ONESHOT_NONE'),
 (1642601, 0, 31, 16424, 50, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Terminate Script If Spectral Sentry Found in Range'),
-(1642601, 1, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Set Movement To Idle'),
+(1642601, 1000, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Set Movement To Idle'),
 (1642607, 0, 31, 16424, 6, 0, 0, 0, 0, -15000, 0, 0, 0, 0, 0, 0, 0, 'Terminate Script If No Spectral Sentry Found in Range'),
-(1642607, 1, 0, 0, 0, 0, 0, 0, 0, 2000020015, 0, 0, 0, 0, 0, 0, 0, 'Bennett Say'),
-(1642607, 1, 32, 0, 0, 0, 16424, 6, 7, 1, 0, 0, 0, 0, 0, 0, 0, 'Spectral Sentry - Pause Waypoints'),
-(1642607, 1, 32, 0, 0, 0, 16425, 6, 7, 1, 0, 0, 0, 0, 0, 0, 0, 'Phantom Guardsman - Pause Waypoints'),
-(1642607, 3, 3, 0, 0, 0, 16424, 6, 3, 0, 0, 0, 0, 0, 0, 0, 2.21167, 'Spectral Sentry - Face Bennett'),
-(1642607, 3, 3, 0, 0, 0, 16425, 6, 3, 0, 0, 0, 0, 0, 0, 0, 2.21167, 'Phantom Guardsman - Face Bennett'),
-(1642607, 4, 1, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 'Bennett Emote'),
-(1642607, 8, 0, 0, 0, 0, 16424, 6, 3, 2000020016, 0, 0, 0, 0, 0, 0, 0, 'Spectral Sentry Say'),
-(1642607, 8, 0, 0, 0, 0, 16425, 6, 3, 2000020016, 0, 0, 0, 0, 0, 0, 0, 'Phantom Guardsman Say'),
-(1642607, 10, 32, 0, 0, 0, 16425, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Phantom Guardsman - Resume Waypoints'),
-(1642607, 10, 32, 0, 0, 0, 16424, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Sentry - Resume Waypoints'),
+(1642607, 1000, 0, 0, 0, 0, 0, 0, 0, 2000020015, 0, 0, 0, 0, 0, 0, 0, 'Bennett Say'),
+(1642607, 1000, 32, 0, 0, 0, 16424, 6, 7, 1, 0, 0, 0, 0, 0, 0, 0, 'Spectral Sentry - Pause Waypoints'),
+(1642607, 1000, 32, 0, 0, 0, 16425, 6, 7, 1, 0, 0, 0, 0, 0, 0, 0, 'Phantom Guardsman - Pause Waypoints'),
+(1642607, 3000, 3, 0, 0, 0, 16424, 6, 3, 0, 0, 0, 0, 0, 0, 0, 2.21167, 'Spectral Sentry - Face Bennett'),
+(1642607, 3000, 3, 0, 0, 0, 16425, 6, 3, 0, 0, 0, 0, 0, 0, 0, 2.21167, 'Phantom Guardsman - Face Bennett'),
+(1642607, 4000, 1, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 'Bennett Emote'),
+(1642607, 8000, 0, 0, 0, 0, 16424, 6, 3, 2000020016, 0, 0, 0, 0, 0, 0, 0, 'Spectral Sentry Say'),
+(1642607, 8000, 0, 0, 0, 0, 16425, 6, 3, 2000020016, 0, 0, 0, 0, 0, 0, 0, 'Phantom Guardsman Say'),
+(1642607, 10000, 32, 0, 0, 0, 16425, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Phantom Guardsman - Resume Waypoints'),
+(1642607, 10000, 32, 0, 0, 0, 16424, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Sentry - Resume Waypoints'),
 (1642611, 0, 31, 16424, 6, 0, 0, 0, 0, -15000, 0, 0, 0, 0, 0, 0, 0, 'Terminate Script If No Spectral Sentry Found in Range'),
-(1642611, 1, 0, 0, 0, 0, 0, 0, 0, 2000020015, 0, 0, 0, 0, 0, 0, 0, 'Bennett Say'),
-(1642611, 1, 32, 0, 0, 0, 16424, 6, 7, 1, 0, 0, 0, 0, 0, 0, 0, 'Spectral Sentry - Pause Waypoints'),
-(1642611, 1, 32, 0, 0, 0, 16425, 6, 7, 1, 0, 0, 0, 0, 0, 0, 0, 'Phantom Guardsman - Pause Waypoints'),
-(1642611, 3, 3, 0, 0, 0, 16424, 6, 3, 0, 0, 0, 0, 0, 0, 0, 1.28804, 'Spectral Sentry - Face Bennett'),
-(1642611, 3, 3, 0, 0, 0, 16425, 6, 3, 0, 0, 0, 0, 0, 0, 0, 1.28804, 'Phantom Guardsman - Face Bennett'),
-(1642611, 4, 1, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 'Bennett Emote'),
-(1642611, 8, 0, 0, 0, 0, 16424, 6, 3, 2000020016, 0, 0, 0, 0, 0, 0, 0, 'Spectral Sentry Say'),
-(1642611, 8, 0, 0, 0, 0, 16425, 6, 3, 2000020016, 0, 0, 0, 0, 0, 0, 0, 'Phantom Guardsman Say'),
-(1642611, 10, 32, 0, 0, 0, 16424, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Sentry - Resume Waypoints'),
-(1642611, 10, 32, 0, 0, 0, 16425, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Phantom Guardsman - Resume Waypoints'),
-(1646801, 1, 1, 1, 0, 0, 0, 0, 0, 6, 273, 274, 11, 0, 0, 0, 0, 'Spectral Patron - EMOTE_ONESHOT_TALK'),
-(1647001, 1, 1, 274, 0, 0, 0, 0, 0, 1, 11, 6, 273, 0, 0, 0, 0, 'Ghostly Philanthropist - EMOTE_ONESHOT_NO'),
+(1642611, 1000, 0, 0, 0, 0, 0, 0, 0, 2000020015, 0, 0, 0, 0, 0, 0, 0, 'Bennett Say'),
+(1642611, 1000, 32, 0, 0, 0, 16424, 6, 7, 1, 0, 0, 0, 0, 0, 0, 0, 'Spectral Sentry - Pause Waypoints'),
+(1642611, 1000, 32, 0, 0, 0, 16425, 6, 7, 1, 0, 0, 0, 0, 0, 0, 0, 'Phantom Guardsman - Pause Waypoints'),
+(1642611, 3000, 3, 0, 0, 0, 16424, 6, 3, 0, 0, 0, 0, 0, 0, 0, 1.28804, 'Spectral Sentry - Face Bennett'),
+(1642611, 3000, 3, 0, 0, 0, 16425, 6, 3, 0, 0, 0, 0, 0, 0, 0, 1.28804, 'Phantom Guardsman - Face Bennett'),
+(1642611, 4000, 1, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 'Bennett Emote'),
+(1642611, 8000, 0, 0, 0, 0, 16424, 6, 3, 2000020016, 0, 0, 0, 0, 0, 0, 0, 'Spectral Sentry Say'),
+(1642611, 8000, 0, 0, 0, 0, 16425, 6, 3, 2000020016, 0, 0, 0, 0, 0, 0, 0, 'Phantom Guardsman Say'),
+(1642611, 10000, 32, 0, 0, 0, 16424, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Sentry - Resume Waypoints'),
+(1642611, 10000, 32, 0, 0, 0, 16425, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Phantom Guardsman - Resume Waypoints'),
+(1646801, 1000, 1, 1, 0, 0, 0, 0, 0, 6, 273, 274, 11, 0, 0, 0, 0, 'Spectral Patron - EMOTE_ONESHOT_TALK'),
+(1647001, 1000, 1, 274, 0, 0, 0, 0, 0, 1, 11, 6, 273, 0, 0, 0, 0, 'Ghostly Philanthropist - EMOTE_ONESHOT_NO'),
 (1640701, 0, 0, 0, 0, 0, 0, 0, 0, 2000020012, 2000020013, 2000020014, 0, 0, 0, 0, 0, 'Spectral Servant - Random Say'),
-(1640701, 5, 31, 16159, 80, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Servant - Search for 16159'),
-(1640701, 6, 0, 0, 0, 0, 16159, 60, 3, 2000020010, 2000020011, 0, 0, 0, 0, 0, 0, 'Force Calliard - Random Say'),
+(1640701, 5000, 31, 16159, 55, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Servant - Search for 16159'),
+(1640701, 6000, 0, 0, 0, 0, 16159, 60, 3, 2000020010, 2000020011, 0, 0, 0, 0, 0, 0, 'Force Calliard - Random Say'),
 (1555101, 0, 0, 0, 0, 0, 0, 0, 0, 2000020008, 2000020009, 2000020128, 0, 0, 0, 0, 0, 'Spectral Stable Hand - Random Say'),
 (1555101, 0, 1, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Stable Hand - STATE_USESTANDING'),
-(1555101, 5, 31, 16159, 80, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Stable Hand - Search for 16159'),
-(1555101, 6, 0, 0, 0, 0, 16159, 60, 3, 2000020010, 2000020011, 0, 0, 0, 0, 0, 0, 'Force Calliard - Random Say');
+(1555101, 5000, 31, 16159, 55, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Stable Hand - Search for 16159'),
+(1555101, 6000, 0, 0, 0, 0, 16159, 60, 3, 2000020010, 2000020011, 0, 0, 0, 0, 0, 0, 'Force Calliard - Random Say');
 
 DELETE FROM `dbscript_string` WHERE `entry` IN (2000020008,2000020009,2000020010,2000020011,2000020012,2000020013,2000020014,2000020015,2000020016,2000020017,2000020018,2000020019,2000020020,2000020021,2000020128);
-INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
-(2000020008, '<sigh> Seems like I''ve been at this forever...', 0, 0, 0, 1, 'Spectral Stable Hand - Say 1'),
-(2000020009, 'Another day, another stable to muck out.', 0, 0, 0, 1, 'Spectral Stable Hand - Say 2'),
-(2000020010, 'Am I hearing things?', 0, 0, 0, 1, 'Calliard - Say 1'),
-(2000020011, 'Who goes there?', 0, 0, 0, 1, 'Calliard - Say 2'),
-(2000020012, 'They''ll never know we''re missing.', 0, 0, 0, 1, 'Spectral Servant - Say 1'),
-(2000020013, 'The rest are fine without us.', 0, 0, 0, 1, 'Spectral Servant - Say 2'),
-(2000020014, 'If we dawdle much longer, there''ll be hell to pay!', 0, 0, 0, 1, 'Spectral Servant - Say 3'),
-(2000020015, 'You had better straighten up, or you''ll answer to me!', 0, 0, 0, 5, 'Bennett'),
-(2000020016, 'Yes. sir!', 0, 0, 0, 66, 'Spectral Sentry or Phantom Guardsman'),
-(2000020017, 'Where is the master?', 0, 0, 0, 1, 'Moroes Adds Random Say 1'),
-(2000020018, 'Why can we not talk to the master?', 0, 0, 0, 1, 'Moroes Adds Random Say 2'),
-(2000020019, 'The Master is deep in study.', 0, 0, 0, 1, 'Moroes Random Say 1'),
-(2000020020, 'The Master will return from Stormwind soon...', 0, 0, 0, 1, 'Moroes Random Say 2'),
-(2000020021, 'The Master is meeting with his apprentice.', 0, 0, 0, 1, 'Moroes Random Say 3'),
-(2000020128, 'I grow tired of this routine.', 0, 0, 0, 1, 'Spectral Stable Hand - Say 3');
+INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `broadcast_text_id`, `comment`) VALUES
+(2000020008, '<sigh> Seems like I''ve been at this forever...', 0, 0, 0, 1, 13806, 'Spectral Stable Hand - Say 1'),
+(2000020009, 'Another day, another stable to muck out.', 0, 0, 0, 1, 13804, 'Spectral Stable Hand - Say 2'),
+(2000020010, 'Am I hearing things?', 0, 0, 0, 1, 13252, 'Calliard - Say 1'),
+(2000020011, 'Who goes there?', 0, 0, 0, 1, 13251, 'Calliard - Say 2'),
+(2000020012, 'They''ll never know we''re missing.', 0, 0, 0, 1, 13828, 'Spectral Servant - Say 1'),
+(2000020013, 'The rest are fine without us.', 0, 0, 0, 1, 13827, 'Spectral Servant - Say 2'),
+(2000020014, 'If we dawdle much longer, there''ll be hell to pay!', 0, 0, 0, 1, 13826, 'Spectral Servant - Say 3'),
+(2000020015, 'You had better straighten up, or you''ll answer to me!', 0, 0, 0, 5, 13302, 'Bennett'),
+(2000020016, 'Yes, sir!', 0, 0, 0, 66, 13307, 'Spectral Sentry or Phantom Guardsman'),
+(2000020017, 'Where is the master?', 0, 0, 0, 1, 13198, 'Moroes Adds Random Say 1'),
+(2000020018, 'Why can we not talk to the master?', 0, 0, 0, 1, 13201, 'Moroes Adds Random Say 2'),
+(2000020019, 'The Master is deep in study.', 0, 0, 0, 1, 13202, 'Moroes Random Say 1'),
+(2000020020, 'The Master will return from Stormwind soon...', 0, 0, 0, 1, 13204, 'Moroes Random Say 2'),
+(2000020021, 'The Master is meeting with his apprentice.', 0, 0, 0, 1, 13206, 'Moroes Random Say 3'),
+(2000020128, 'I grow tired of this routine.', 0, 0, 0, 1, 13805, 'Spectral Stable Hand - Say 3');
 
 -- INSERT INTO `dbscripts_on_creature_death` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES

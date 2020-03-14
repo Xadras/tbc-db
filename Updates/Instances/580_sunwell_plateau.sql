@@ -437,7 +437,7 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 -- Pathing for Shadowsword Commander Entry: 25837
 (@CGUID+316, 1, 1682.332, 537.6241, 85.33395, 2.076942, 50000, 2583701),
 -- Pathing for Shadowsword Manafiend Entry: 25483
-(@CGUID+326, 1, 1796.504, 565.1455, 53.83252, 100, 0, 2548301),
+(@CGUID+326, 1, 1796.504, 565.1455, 53.83252, 100, 5000, 2548301), -- emote and set idle movement
 -- Pathing for Shadowsword Vanquisher Entry: 25486
 (@CGUID+327, 1, 1812.618, 586.0417, 50.79887, 3.717551, 0, 2548601), -- Yell text
 (@CGUID+327, 2, 1806.641, 586.4019, 51.12543, 0, 0, 0),
@@ -1403,10 +1403,10 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalon
 (2537001, 0, 15, 46319, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Sunblade Dusk Priest - Cast Felblood Channel'),
 (2537101, 0, 15, 46319, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Sunblade Dawn Priest - Cast Felblood Channel'),
 (2563901, 0, 28, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Anchorite Elbadon - STATE_KNEEL'),
-(2563901, 7, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Anchorite Elbadon - STATE_STAND'),
+(2563901, 7000, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Anchorite Elbadon - STATE_STAND'),
 (2563902, 0, 15, 45859, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Anchorite Elbadon - Cast Renew'),
-(2563902, 1, 0, 0, 0, 0, 0, 0, 0, 2000020120, 2000020121, 2000020122, 0, 0, 0, 0, 0, 'Anchorite Elbadon - Say random text after casting Renew'),
-(2564401, 1, 28, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Neophyte Narama - STATE_KNEEL'),
+(2563902, 1000, 0, 0, 0, 0, 0, 0, 0, 2000020120, 2000020121, 2000020122, 0, 0, 0, 0, 0, 'Anchorite Elbadon - Say random text after casting Renew'),
+(2564401, 1000, 28, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Neophyte Narama - STATE_KNEEL'),
 (2564402, 0, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Neophyte Narama - STATE_STAND'),
 (2548601, 0, 0, 0, 0, 0, 0, 0, 0, 2000020123, 0, 0, 0, 0, 0, 0, 0, 'Shadowsword Vanquisher - Yell on proximity'),
 (2548301, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Shadowsword Manafiend - Set MovementType 0'),
@@ -1418,12 +1418,12 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalon
 (2584801, 0, 15, 46214, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Gauntlet Imp Trigger - Cast Summon Imp');
 
 DELETE FROM `dbscript_string` WHERE `entry` IN (2000020120, 2000020121, 2000020122, 2000020123); -- , 2000020124);
-INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
-(2000020120, 'May the light bless you.', 0, 0, 0, 0, ''),
-(2000020121, 'Your wounds are severe, but you will live.', 0, 0, 0, 0, ''),
-(2000020122, 'Rest now, you have fought well today.', 0, 0, 0, 0, ''),
-(2000020123, 'Intruders! Do not let them into the Sanctum!', 0, 1, 0, 0, '');
--- (2000020124, 'Bring forth the imps!', 0, 1, 0, 0, '');
+INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `broadcast_text_id`, `comment`) VALUES
+(2000020120, 'May the light bless you.', 0, 0, 0, 0, 24856, ''),
+(2000020121, 'Your wounds are severe, but you will live.', 0, 0, 0, 0, 24857, ''),
+(2000020122, 'Rest now, you have fought well today.', 0, 0, 0, 0, 24858, ''),
+(2000020123, 'Intruders! Do not let them into the Sanctum!', 0, 1, 0, 0, 25482, '');
+-- (2000020124, 'Bring forth the imps!', 0, 1, 0, 0, 25050, '');
 
 -- INSERT INTO `dbscripts_on_creature_death` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES

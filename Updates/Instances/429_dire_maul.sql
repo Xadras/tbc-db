@@ -397,7 +397,7 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+366, 46, 91.9604, -353.353, -4.07654, 0, 0, 0),
 (@CGUID+366, 47, 107.185, -344.784, -4.05063, 0, 0, 0),
 (@CGUID+366, 48, 110.969, -320.819, -4.06031, 0, 0, 0),
-(@CGUID+367, 1, -64.3225, -359.79, -55.9148, 0, 0, 0),
+(@CGUID+367, 1, -64.3225, -359.79, -55.9148, 0, 0, 5), -- Run
 (@CGUID+367, 2, -70.1586, -334.176, -54.2529, 0, 0, 0),
 (@CGUID+367, 3, -89.8989, -318.031, -56.8601, 0, 0, 0),
 (@CGUID+367, 4, -110.25, -285.87, -57.6282, 0, 0, 0),
@@ -407,7 +407,7 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+367, 8, -110.25, -285.87, -57.6282, 0, 0, 0),
 (@CGUID+367, 9, -89.8989, -318.031, -56.8601, 0, 0, 0),
 (@CGUID+367, 10, -70.1586, -334.176, -54.2529, 0, 0, 0),
-(@CGUID+368, 1, -30.6938, -300.574, -54.0977, 0, 0, 0),
+(@CGUID+368, 1, -30.6938, -300.574, -54.0977, 0, 0, 5), -- Run
 (@CGUID+368, 2, -36.8599, -271.41, -56.6059, 0, 0, 0),
 (@CGUID+368, 3, -53.9806, -245.188, -58.0849, 0, 0, 0),
 (@CGUID+368, 4, -89.4328, -232.741, -56.2437, 0, 0, 0),
@@ -415,11 +415,11 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+368, 6, -36.8599, -271.41, -56.6059, 0, 0, 0),
 (@CGUID+368, 7, -30.6938, -300.574, -54.0977, 0, 0, 0),
 (@CGUID+368, 8, -32.4841, -327.263, -50.4792, 0, 0, 0),
-(@CGUID+369, 1, -17.7006, -293.797, -54.1351, 0, 0, 0),
+(@CGUID+369, 1, -17.7006, -293.797, -54.1351, 0, 0, 5), -- Run
 (@CGUID+369, 2, -32.7729, -250.078, -57.9774, 0, 0, 0),
 (@CGUID+369, 3, -17.7006, -293.797, -54.1351, 0, 0, 0),
 (@CGUID+369, 4, -16.1746, -336.135, -51.9377, 0, 0, 0),
-(@CGUID+370, 1, 81.8962, -283.248, -55.1609, 0, 0, 0),
+(@CGUID+370, 1, 81.8962, -283.248, -55.1609, 0, 0, 5), -- Run
 (@CGUID+370, 2, 109.442, -273.878, -55.8719, 0, 0, 0),
 (@CGUID+370, 3, 117.836, -254.708, -56.6087, 0, 0, 0),
 (@CGUID+370, 4, 109.442, -273.878, -55.8719, 0, 0, 0),
@@ -427,7 +427,7 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+370, 6, 65.0599, -313.114, -54.3235, 0, 0, 0),
 (@CGUID+370, 7, 76.6939, -356.838, -55.4615, 0, 0, 0),
 (@CGUID+370, 8, 65.0599, -313.114, -54.3235, 0, 0, 0),
-(@CGUID+371, 1, 38.298, -314.189, -52.4531, 0, 0, 0),
+(@CGUID+371, 1, 38.298, -314.189, -52.4531, 0, 0, 5), -- Run
 (@CGUID+371, 2, 20.0477, -273.791, -52.9925, 0, 0, 0),
 (@CGUID+371, 3, -5.26121, -245.339, -54.4131, 0, 0, 0),
 (@CGUID+371, 4, -12.3469, -205.185, -53.4168, 0, 0, 0),
@@ -713,9 +713,9 @@ INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_
 (14354, 0, 37, 21.7663, -676.581, -12.6426, 0, 0, 0),
 (14354, 0, 38, 12.7601, -706.167, -12.6426, 0, 1000, 1435402),
 -- Dread Guard
-(14483, 0, 0, -38.48, 812.93, -29.535, 0, 0, 0),
+(14483, 0, 0, -38.48, 812.93, -29.535, 0, 5000, 0),
 -- Xorothian Imp
-(14482, 0, 0, -38.48, 812.93, -29.535, 0, 0, 0),
+(14482, 0, 0, -38.48, 812.93, -29.535, 0, 5000, 0),
 -- Ironbark the Redeemed
 (14241, 0, 1, -46.5029, -268.536, -57.4978, 0, 0, 0),
 (14241, 0, 2, -10.6115, -281.676, -53.7415, 0, 0, 0),
@@ -1817,16 +1817,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+974, 14361, 429, 151.987, 467.9, -48.4656, 2.35581, 7200, 7200, 0, 0, 0, 0), -- Shen'dralar Wisp
 (@CGUID+975, 14361, 429, 104.389, 539.327, -4.40493, 4.75068, 7200, 7200, 0, 0, 0, 0), -- Shen'dralar Wisp
 (@CGUID+976, 14361, 429, 88.1588, 828.997, -24.5805, 5.23879, 7200, 7200, 0, 0, 0, 0), -- Shen'dralar Wisp
-(@CGUID+977, 14366, 429, -6.88932, -199.657, -4.04868, -0.453785, 7200, 7200, 0, 0, 0, 0), -- Warpwood Spores
-(@CGUID+978, 14366, 429, 133.884, -261.99, -4.06127, -0.488691, 7200, 7200, 0, 0, 0, 0), -- Warpwood Spores
-(@CGUID+979, 14366, 429, 44.7922, -627.469, -25.0196, -2.47837, 7200, 7200, 0, 0, 0, 0), -- Warpwood Spores
-(@CGUID+980, 14366, 429, 65.7951, -400.292, -58.5124, -0.628317, 7200, 7200, 0, 0, 0, 0), -- Warpwood Spores
-(@CGUID+981, 14366, 429, -93.5294, -406.001, -58.4613, 0, 7200, 7200, 0, 0, 0, 0), -- Warpwood Spores
-(@CGUID+982, 14366, 429, 242.933, -420.132, -119.878, -0.069812, 7200, 7200, 0, 0, 0, 0), -- Warpwood Spores
-(@CGUID+983, 14366, 429, 468.206, 258.98, 6.53153, 1.02974, 7200, 7200, 0, 0, 0, 0), -- Warpwood Spores
-(@CGUID+984, 14366, 429, -156.753, -320.209, -4.06367, 1.25664, 7200, 7200, 0, 0, 0, 0), -- Warpwood Spores
-(@CGUID+985, 14366, 429, 21.9326, -408.795, -58.5319, 0, 7200, 7200, 0, 0, 0, 0), -- Warpwood Spores
-(@CGUID+986, 14366, 429, -26.4736, -403.435, -58.5319, 0.226892, 7200, 7200, 0, 0, 0, 0), -- Warpwood Spores
+-- reuse 977 - 986
 (@CGUID+987, 14368, 429, 164.335, 522.497, -48.3836, 3.07178, 7200, 7200, 0, 0, 0, 0), -- Lorekeeper Lydros
 (@CGUID+988, 14369, 429, 121.172, 468.779, -48.3799, 4.67748, 7200, 7200, 0, 0, 0, 0), -- Shen'dralar Zealot
 (@CGUID+989, 14369, 429, 121.754, 476.583, -48.3816, 1.58825, 7200, 7200, 0, 0, 0, 0), -- Shen'dralar Zealot
@@ -2812,55 +2803,55 @@ INSERT INTO `game_event_creature_data` (`guid`, `entry_id`, `modelid`, `equipmen
 -- =========
 
 INSERT INTO `dbscripts_on_creature_death` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(11489, 1, 10, 14566, 1200000, 0, 0, 0, 0, 0, 0, 0, 0, 33.76, 491.548, -23.281, 3.16, 'spawns - Ancient Equine Spirit'),
-(14354, 1, 21, 0, 0, 0, 0, 0, 0x04, 0, 0, 0, 0, 0, 0, 0, 0, 'unactive');
+(11489, 1000, 10, 14566, 1200000, 0, 0, 0, 0, 0, 0, 0, 0, 33.76, 491.548, -23.281, 3.16, 'spawns - Ancient Equine Spirit'),
+(14354, 1000, 21, 0, 0, 0, 0, 0, 0x04, 0, 0, 0, 0, 0, 0, 0, 0, 'unactive');
 
 -- INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 
 INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 (179672, 0, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
-(179672, 5, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
-(179672, 10, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
-(179672, 15, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
-(179672, 20, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
-(179672, 25, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
-(179672, 30, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
-(179672, 35, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
-(179672, 40, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
-(179672, 45, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
+(179672, 5000, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
+(179672, 10000, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
+(179672, 15000, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
+(179672, 20000, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
+(179672, 25000, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
+(179672, 30000, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
+(179672, 35000, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
+(179672, 40000, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
+(179672, 45000, 15, 23120, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Black March Blessing on Ritual Mob'),
 (179673, 0, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
-(179673, 5, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
-(179673, 10, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
-(179673, 15, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
-(179673, 20, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
-(179673, 25, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
-(179673, 30, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
-(179673, 35, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
-(179673, 40, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
-(179673, 45, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
+(179673, 5000, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
+(179673, 10000, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
+(179673, 15000, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
+(179673, 20000, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
+(179673, 25000, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
+(179673, 30000, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
+(179673, 35000, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
+(179673, 40000, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
+(179673, 45000, 15, 23226, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Candle Aura on Ritual Mob'),
 (179674, 0, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob'),
-(179674, 5, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob'),
-(179674, 10, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob'),
-(179674, 15, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob'),
-(179674, 20, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob'),
-(179674, 25, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob'),
-(179674, 30, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob'),
-(179674, 35, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob'),
-(179674, 40, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob'),
-(179674, 45, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob');
+(179674, 5000, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob'),
+(179674, 10000, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob'),
+(179674, 15000, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob'),
+(179674, 20000, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob'),
+(179674, 25000, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob'),
+(179674, 30000, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob'),
+(179674, 35000, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob'),
+(179674, 40000, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob'),
+(179674, 45000, 15, 23117, 0, 0, 14501, 40, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Ritual Bell Aura on Ritual Mob');
 
 DELETE FROM dbscripts_on_creature_movement WHERE id IN (14241,1149201,1149202,1432501,1435301,1435307,1435308,1435401,1435402,1435101,1435102);
 INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(14241, 1, 1, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'ironbark redeemed - emote'),
-(14241, 6, 1, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'ironbark redeemed - emote'),
-(14241, 9, 11, @OGUID+28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'ironbark redeemed - open door entry 176907'),
-(14241, 14, 28, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'ironbark redeemed - fake dead'),
-(14241, 25, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'ironbark redeemed - despawn self'),
-(14241, 25, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'ironbark redeemed - set not active'),
+(14241, 1000, 1, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'ironbark redeemed - emote'),
+(14241, 6000, 1, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'ironbark redeemed - emote'),
+(14241, 9000, 11, @OGUID+28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'ironbark redeemed - open door entry 176907'),
+(14241, 14000, 28, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'ironbark redeemed - fake dead'),
+(14241, 25000, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'ironbark redeemed - despawn self'),
+(14241, 25000, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'ironbark redeemed - set not active'),
 
 (1149201, 0, 15, 21157, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Dark Channeling'),
 (1149202, 0, 20, 1, 5, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Switch to random movement around the current position'),
-(1149202, 75, 20, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Switch back to waypoint movement'),
+(1149202, 75000, 20, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Switch back to waypoint movement'),
 
 (1432501, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Captain Kromcrush - stop WP movement'),
 (1432501, 0, 2, 46, 32768, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Captain Kromcrush - Remove Unselectable UnitFlags'),
@@ -2868,7 +2859,7 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalon
 (1432501, 0, 22, 45, 0x01, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Captain Kromcrush - Change faction to Ogre'),
 (1432501, 0, 0, 0, 0, 0, 0, 0, 0, 2000000269, 0, 0, 0, 0, 0, 0, 0, 'Captain Kromcrush - 2st yell'),
 
-(1435301, 1, 0, 0, 0, 0, 0, 0, 0, 2000005822, 0, 0, 0, 0, 0, 0, 0, 'Mizzle - say new king 1'),
+(1435301, 1000, 0, 0, 0, 0, 0, 0, 0, 2000005822, 0, 0, 0, 0, 0, 0, 0, 'Mizzle - say new king 1'),
 
 (1435307, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Mizzle - pause WP Movement'),
 (1435307, 0, 0, 0, 0, 0, 0, 0, 0, 2000005823, 0, 0, 0, 0, 0, 0, 0, 'Mizzle - say new king 2'),
@@ -2890,41 +2881,41 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalon
 
 DELETE FROM `dbscripts_on_event` WHERE `id` IN (8175, 8420, 8428);
 INSERT INTO `dbscripts_on_event` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(8175, 5, 10, 14351, 900000, 0, 0, 0, 0, 0, 0, 0, 0, 545.955, 535.318, 25.501, 0.00616291, ''),
+(8175, 5000, 10, 14351, 900000, 0, 0, 0, 0, 0, 0, 0, 0, 545.955, 535.318, 25.501, 0.00616291, ''),
 (8175, 0, 25, 1, 0, 0, 14351, 500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Gordok Bushwacker - set run ON'),
 (8175, 0, 20, 2, 0, 0, 14351, 500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Gordok Bushwacker - set WP movement'),
 -- Warlock ritual event start
 (8420, 0, 34, 3147, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Terminate if encounter is not in FAIL or NOT_STARTED status (SD2 condition)'),
 (8420, 0, 31, 14501, 100, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Terminate event if Ritual Mob is already spawned'),
-(8420, 1, 10, 14501, 900000, 0, 0, 0, 0, 1, 0, 0, 0, -37.9392, 812.805, -29.4525, 0, 'Spawn Ritual Mob'),
-(8420, 1, 10, 14500, 48500, 0, 0, 0, 0, 1, 0, 0, 0, -37.9392, 812.805, -29.4525, 0, 'Spawn J''eevee'),
-(8420, 2, 0, 0, 0, 0, 14500, 40, 0, 2000007708, 0, 0, 0, 0, 0, 0, 0, 'J''eevee yell on spawn'),
-(8420, 7, 0, 0, 0, 0, 14500, 40, 0, 2000007709, 0, 0, 0, 0, 0, 0, 0, 'J''eevee say 1'),
-(8420, 8, 3, 0, 0, 0, 14500, 40, 0, 0, 0, 0, 0, -27.001, 813.741, -29.5358, 0, 'J''eevee move to Bell of Dethmoora'),
-(8420, 14, 15, 23140, 0, 0, 14500, 40, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'J''eevee cast summon object'),
-(8420, 16, 9, @OGUID+344, 410, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Respawn Bell of Dethmoora'),
-(8420, 17, 13, 0, 0, 0, 179674, 40, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Activate Bell of Dethmoora'),
-(8420, 18, 0, 0, 0, 0, 14500, 40, 0, 2000007710, 0, 0, 0, 0, 0, 0, 0, 'J''eevee say 2'),
-(8420, 19, 3, 0, 0, 0, 14500, 40, 0, 0, 0, 0, 0, -45.8222, 821.969, -29.5358, 0, 'J''eevee move to Wheel of the Black March'),
-(8420, 25, 15, 23140, 0, 0, 14500, 40, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'J''eevee cast summon object'),
-(8420, 27, 9, @OGUID+342, 900, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Respawn Wheel of the Black March'),
-(8420, 28, 13, 0, 0, 0, 179672, 40, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Activate Wheel of the Black March'),
-(8420, 29, 0, 0, 0, 0, 14500, 40, 0, 2000007711, 0, 0, 0, 0, 0, 0, 0, 'J''eevee say 3'),
-(8420, 30, 3, 0, 0, 0, 14500, 40, 0, 0, 0, 0, 0, -43.6275, 802.103, -29.5358, 0, 'J''eevee move to Doomsday Candle'),
-(8420, 36, 15, 23140, 0, 0, 14500, 40, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'J''eevee cast summon object'),
-(8420, 38, 9, @OGUID+343, 900, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Respawn Doomsday Candle'),
-(8420, 39, 13, 0, 0, 0, 179673, 40, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Activate Doomsday Candle'),
-(8420, 40, 3, 0, 0, 0, 14500, 40, 0, 0, 0, 0, 0, -38.7195, 812.015, -29.5358, 0, 'J''eevee move to center'),
-(8420, 44, 0, 0, 0, 0, 14500, 40, 3, 2000007712, 0, 0, 0, 0, 0, 0, 0, 'J''eevee say 4'),
-(8420, 44, 36, 0, 0, 0, 14500, 40, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'J''eevee face player'),
-(8420, 48, 15, 21649, 0, 0, 14500, 40, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'J''eevee cast teleport'),
+(8420, 1000, 10, 14501, 900000, 0, 0, 0, 0, 1, 0, 0, 0, -37.9392, 812.805, -29.4525, 0, 'Spawn Ritual Mob'),
+(8420, 1000, 10, 14500, 48500, 0, 0, 0, 0, 1, 0, 0, 0, -37.9392, 812.805, -29.4525, 0, 'Spawn J''eevee'),
+(8420, 2000, 0, 0, 0, 0, 14500, 40, 0, 2000007708, 0, 0, 0, 0, 0, 0, 0, 'J''eevee yell on spawn'),
+(8420, 7000, 0, 0, 0, 0, 14500, 40, 0, 2000007709, 0, 0, 0, 0, 0, 0, 0, 'J''eevee say 1'),
+(8420, 8000, 3, 0, 0, 0, 14500, 40, 0, 0, 0, 0, 0, -27.001, 813.741, -29.5358, 0, 'J''eevee move to Bell of Dethmoora'),
+(8420, 14000, 15, 23140, 0, 0, 14500, 40, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'J''eevee cast summon object'),
+(8420, 16000, 9, @OGUID+344, 410, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Respawn Bell of Dethmoora'),
+(8420, 17000, 13, 0, 0, 0, 179674, 40, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Activate Bell of Dethmoora'),
+(8420, 18000, 0, 0, 0, 0, 14500, 40, 0, 2000007710, 0, 0, 0, 0, 0, 0, 0, 'J''eevee say 2'),
+(8420, 19000, 3, 0, 0, 0, 14500, 40, 0, 0, 0, 0, 0, -45.8222, 821.969, -29.5358, 0, 'J''eevee move to Wheel of the Black March'),
+(8420, 25000, 15, 23140, 0, 0, 14500, 40, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'J''eevee cast summon object'),
+(8420, 27000, 9, @OGUID+342, 900, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Respawn Wheel of the Black March'),
+(8420, 28000, 13, 0, 0, 0, 179672, 40, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Activate Wheel of the Black March'),
+(8420, 29000, 0, 0, 0, 0, 14500, 40, 0, 2000007711, 0, 0, 0, 0, 0, 0, 0, 'J''eevee say 3'),
+(8420, 30000, 3, 0, 0, 0, 14500, 40, 0, 0, 0, 0, 0, -43.6275, 802.103, -29.5358, 0, 'J''eevee move to Doomsday Candle'),
+(8420, 36000, 15, 23140, 0, 0, 14500, 40, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'J''eevee cast summon object'),
+(8420, 38000, 9, @OGUID+343, 900, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Respawn Doomsday Candle'),
+(8420, 39000, 13, 0, 0, 0, 179673, 40, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Activate Doomsday Candle'),
+(8420, 40000, 3, 0, 0, 0, 14500, 40, 0, 0, 0, 0, 0, -38.7195, 812.015, -29.5358, 0, 'J''eevee move to center'),
+(8420, 44000, 0, 0, 0, 0, 14500, 40, 3, 2000007712, 0, 0, 0, 0, 0, 0, 0, 'J''eevee say 4'),
+(8420, 44000, 36, 0, 0, 0, 14500, 40, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'J''eevee face player'),
+(8420, 48000, 15, 21649, 0, 0, 14500, 40, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'J''eevee cast teleport'),
 -- Dreadsteed boss event
 (8428, 0, 31, 14502, 150, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Terminate event if Xorothian Dreadsteed is already spawned'),
 (8428, 0, 31, 14504, 150, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Terminate event if Dreadsteed Spirit is already spawned'),
 (8428, 0, 34, 3148, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Terminate if encounter is not in SPECIAL status (SD2 condition)'),
-(8428, 1, 9, @OGUID+345, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Spawn boss Dreadsteed Portal'),
-(8428, 2, 43, 0, 0, 0, 179668, 40, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Despawn Warlock Mount Ritual Circle'),
-(8428, 7, 10, 14502, 9000000, 0, 0, 0, 0, 0, 0, 0, 0, -39.0447, 812.591, -29.4525, 1.39626, 'Spawn Xorothian Dreadsteed');
+(8428, 1000, 9, @OGUID+345, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Spawn boss Dreadsteed Portal'),
+(8428, 2000, 43, 0, 0, 0, 179668, 40, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Despawn Warlock Mount Ritual Circle'),
+(8428, 7000, 10, 14502, 9000000, 0, 0, 0, 0, 0, 0, 0, 0, -39.0447, 812.591, -29.4525, 1.39626, 'Spawn Xorothian Dreadsteed');
 
 -- INSERT INTO `dbscripts_on_spell` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 
@@ -2933,53 +2924,53 @@ INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalo
 -- Pusilin chase event
 (570901, 0, 29, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'npc_flag removed'),
 (570901, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'UNPAUSE'),
-(570901, 1, 0, 0, 0, 0, 0, 0, 0, 2000005460, 0, 0, 0, 0, 0, 0, 0, 'Pusilin 1'),
-(570901, 1, 21, 1, 0, 0, 0, 0, 0x04, 0, 0, 0, 0, 0, 0, 0, 0, 'active'),
+(570901, 1000, 0, 0, 0, 0, 0, 0, 0, 2000005460, 0, 0, 0, 0, 0, 0, 0, 'Pusilin 1'),
+(570901, 1000, 21, 1, 0, 0, 0, 0, 0x04, 0, 0, 0, 0, 0, 0, 0, 0, 'active'),
 
 (570902, 0, 29, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'npc_flag removed'),
 (570902, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'UNPAUSE'),
-(570902, 1, 0, 0, 0, 0, 0, 0, 0, 2000005461, 0, 0, 0, 0, 0, 0, 0, 'Pusilin 2'),
+(570902, 1000, 0, 0, 0, 0, 0, 0, 0, 2000005461, 0, 0, 0, 0, 0, 0, 0, 'Pusilin 2'),
 
 (570903, 0, 29, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'npc_flag removed'),
 (570903, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'UNPAUSE'),
-(570903, 1, 0, 0, 0, 0, 0, 0, 0, 2000005462, 0, 0, 0, 0, 0, 0, 0, 'Pusilin 3'),
+(570903, 1000, 0, 0, 0, 0, 0, 0, 0, 2000005462, 0, 0, 0, 0, 0, 0, 0, 'Pusilin 3'),
 
 (570904, 0, 29, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'npc_flag removed'),
 (570904, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'UNPAUSE'),
-(570904, 1, 0, 0, 0, 0, 0, 0, 0, 2000005463, 0, 0, 0, 0, 0, 0, 0, 'Pusilin 4'),
+(570904, 1000, 0, 0, 0, 0, 0, 0, 0, 2000005463, 0, 0, 0, 0, 0, 0, 0, 'Pusilin 4'),
 
 (570905, 0, 29, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'npc_flag removed'),
-(570905, 1, 0, 0, 0, 0, 0, 0, 0, 2000005464, 0, 0, 0, 0, 0, 0, 0, 'Pusilin 5'),
-(570905, 4, 15, 22735, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'TRANSFORM'),
-(570905, 3, 10, 13276, 120000, 0, 0, 0, 0, 0, 0, 0, 0, 14.7965, -696.322, -12.6426, 4.4823, 'summon - Wildspawn Imp'),
-(570905, 3, 10, 13276, 120000, 0, 0, 0, 0, 0, 0, 0, 0, 18.8891, -697.389, -12.6426, 4.35271, 'summon - Wildspawn Imp'),
-(570905, 3, 10, 13276, 120000, 0, 0, 0, 0, 0, 0, 0, 0, 21.4274, -700.227, -12.6426, 4.06997, 'summon - Wildspawn Imp'),
-(570905, 3, 10, 13276, 120000, 0, 0, 0, 0, 0, 0, 0, 0, 22.2017, -705.459, -12.6426, 3.48092, 'summon - Wildspawn Imp'),
-(570905, 4, 22, 90, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'set DemonFaction'),
+(570905, 1000, 0, 0, 0, 0, 0, 0, 0, 2000005464, 0, 0, 0, 0, 0, 0, 0, 'Pusilin 5'),
+(570905, 4000, 15, 22735, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'TRANSFORM'),
+(570905, 3000, 10, 13276, 120000, 0, 0, 0, 0, 0, 0, 0, 0, 14.7965, -696.322, -12.6426, 4.4823, 'summon - Wildspawn Imp'),
+(570905, 3000, 10, 13276, 120000, 0, 0, 0, 0, 0, 0, 0, 0, 18.8891, -697.389, -12.6426, 4.35271, 'summon - Wildspawn Imp'),
+(570905, 3000, 10, 13276, 120000, 0, 0, 0, 0, 0, 0, 0, 0, 21.4274, -700.227, -12.6426, 4.06997, 'summon - Wildspawn Imp'),
+(570905, 3000, 10, 13276, 120000, 0, 0, 0, 0, 0, 0, 0, 0, 22.2017, -705.459, -12.6426, 3.48092, 'summon - Wildspawn Imp'),
+(570905, 4000, 22, 90, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'set DemonFaction'),
 
 (573801, 0, 15, 8599, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Captain Kromcrush - cast Enrage'),
 (573801, 0, 0, 0, 0, 0, 0, 0, 0, 2000000268, 0, 0, 0, 0, 0, 0, 0, 'Captain Kromcrush - 1st yell'),
 (573801, 0, 2, 46, 32768+33554432, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Captain Kromcrush - Set UnitFlags to Unselectable'),
-(573801, 1, 21, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Captain Kromcrush - set active'),
-(573801, 1, 29, 3, 0x02, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Captain Kromcrush - npcFlags removed'),
-(573801, 1, 20, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Captain Kromcrush - Start WP movement'),
-(573801, 1, 14, 8599, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Captain Kromcrush - remove Enrage aura'),
+(573801, 1000, 21, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Captain Kromcrush - set active'),
+(573801, 1000, 29, 3, 0x02, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Captain Kromcrush - npcFlags removed'),
+(573801, 1000, 20, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Captain Kromcrush - Start WP movement'),
+(573801, 1000, 14, 8599, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Captain Kromcrush - remove Enrage aura'),
 
 (574001, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Mizzle - resume WP Movement'),
 (574001, 0, 29, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Mizzle - npc_flag removed'),
 
 (574301, 0, 7, 7482, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(574301, 2, 3, 0, 0, 0, 14368, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0.7, ''),
-(574301, 4, 0, 0, 0, 0, 14368, 20, 0, 2000000455, 0, 0, 0, 0, 0, 0, 0, ''),
-(574301, 7, 0, 0, 0, 0, 14368, 20, 0, 2000000456, 0, 0, 0, 0, 0, 0, 0, ''),
-(574301, 13, 0, 0, 0, 0, 14368, 20, 0, 2000000457, 0, 0, 0, 0, 0, 0, 0, ''),
-(574301, 20, 3, 0, 0, 0, 14368, 20, 0, 0, 0, 0, 0, 0, 0, 0, 3.07178, ''),
+(574301, 2000, 3, 0, 0, 0, 14368, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0.7, ''),
+(574301, 4000, 0, 0, 0, 0, 14368, 20, 0, 2000000455, 0, 0, 0, 0, 0, 0, 0, ''),
+(574301, 7000, 0, 0, 0, 0, 14368, 20, 0, 2000000456, 0, 0, 0, 0, 0, 0, 0, ''),
+(574301, 13000, 0, 0, 0, 0, 14368, 20, 0, 2000000457, 0, 0, 0, 0, 0, 0, 0, ''),
+(574301, 20000, 3, 0, 0, 0, 14368, 20, 0, 0, 0, 0, 0, 0, 0, 0, 3.07178, ''),
 (574302, 0, 7, 7481, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(574302, 2, 3, 0, 0, 0, 14368, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0.7, ''),
-(574302, 4, 0, 0, 0, 0, 14368, 20, 0, 2000000455, 0, 0, 0, 0, 0, 0, 0, ''),
-(574302, 7, 0, 0, 0, 0, 14368, 20, 0, 2000000456, 0, 0, 0, 0, 0, 0, 0, ''),
-(574302, 13, 0, 0, 0, 0, 14368, 20, 0, 2000000457, 0, 0, 0, 0, 0, 0, 0, ''),
-(574302, 20, 3, 0, 0, 0, 14368, 20, 0, 0, 0, 0, 0, 0, 0, 0, 3.07178, ''),
+(574302, 2000, 3, 0, 0, 0, 14368, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0.7, ''),
+(574302, 4000, 0, 0, 0, 0, 14368, 20, 0, 2000000455, 0, 0, 0, 0, 0, 0, 0, ''),
+(574302, 7000, 0, 0, 0, 0, 14368, 20, 0, 2000000456, 0, 0, 0, 0, 0, 0, 0, ''),
+(574302, 13000, 0, 0, 0, 0, 14368, 20, 0, 2000000457, 0, 0, 0, 0, 0, 0, 0, ''),
+(574302, 20000, 3, 0, 0, 0, 14368, 20, 0, 0, 0, 0, 0, 0, 0, 0, 3.07178, ''),
 
 (570801, 0, 15, 22799, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Mizzle - cast King of the Gordok');
 
@@ -2992,36 +2983,36 @@ INSERT INTO `dbscripts_on_quest_end` (`id`, `delay`, `command`, `datalong`, `dat
 -- Free Knot!
 (5525, 0, 0, 0, 0, 0, 0, 0, 0, 2000000543, 0, 0, 0, 0, 0, 0, 0, ''),
 (5525, 0, 29, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'remove flag'),
-(5525, 1, 9, @OGUID+42, 43200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'spawn cache'),
-(5525, 2, 13, 0, 0, 0, 179511, 10, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'remove ball and chains'),
-(5525, 4, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'run on'),
-(5525, 6, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500.42, 540.966, -25.3846, 2.72271, 'WP movement'),
-(5525, 15, 18, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'despawn');
+(5525, 1000, 9, @OGUID+42, 43200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'spawn cache'),
+(5525, 2000, 13, 0, 0, 0, 179511, 10, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'remove ball and chains'),
+(5525, 4000, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'run on'),
+(5525, 6000, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500.42, 540.966, -25.3846, 2.72271, 'WP movement'),
+(5525, 15000, 18, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'despawn');
 
 DELETE FROM `dbscript_string` WHERE `entry` IN (2000000268,2000000269,2000000455,2000000456,2000000457,2000000543,2000007708,2000007709,2000007710,2000007711,2000007712,2000005822,2000005823,2000005460,2000005461,2000005462,2000005463,2000005464);
-INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
-(2000000268, 'Hey, who Fengus callin\' a gnoll lover?!  Take da prisoners to da king; you smart to bring them with their weapons and show da king that they a threat.  I\'ll go see if Fengus talk smack when I give him da beatdown!  HAR!', 0, 6, 0, 0, 'Captain Kromcrush - Yell Fengus 1'),
-(2000000269, 'OK Fengus, where you at?!  You come call me a gnoll lover while I give you da hammer upside da head!', 0, 6, 0, 0, 'Captain Kromcrush - Yell Fengus 2'),
+INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `broadcast_text_id`, `comment`) VALUES
+(2000000268, 'Hey, who Fengus callin\' a gnoll lover?!  Take da prisoners to da king; you smart to bring them with their weapons and show da king that they a threat.  I\'ll go see if Fengus talk smack when I give him da beatdown!  HAR!', 0, 6, 0, 0, 9416, 'Captain Kromcrush - Yell Fengus 1'),
+(2000000269, 'OK Fengus, where you at?!  You come call me a gnoll lover while I give you da hammer upside da head!', 0, 6, 0, 0, 9424, 'Captain Kromcrush - Yell Fengus 2'),
 
-(2000000455, 'I very much doubt that he will have anything to say, stranger...', 0, 0, 0, 1, 'Lorekeeper Lydros 14368 - Say 1 (q. 7481 & 7482)'),
-(2000000456, 'I personally didn\'t mind him. It was the Prince who took exception to a high elf in his domain. Alas, I am not one to question the Prince. In his defense, he did not incinerate Master Winthalus immediately.', 0, 0, 0, 1, 'Lorekeeper Lydros 14368 - Say 2 (q. 7481 & 7482)'),
-(2000000457, 'We most definitely do not need any more attention drawn to us, stranger. Return to those that sent you in search of the lost master and tell them that nothing could be found. When this is done - and I will know when it is so - return and I shall reveal the secrets of the deceased.', 0, 0, 0, 1, 'Lorekeeper Lydros 14368 - Say 3 (q. 7481 & 7482)'),
+(2000000455, 'I very much doubt that he will have anything to say, stranger...', 0, 0, 0, 1, 9446, 'Lorekeeper Lydros 14368 - Say 1 (q. 7481 & 7482)'),
+(2000000456, 'I personally didn''t mind him. It was the Prince who took exception to a high elf in his domain. Alas, I am not one to question the Prince. In his defense, he did not incinerate Master Winthalus immediately.', 0, 0, 0, 1, 9447, 'Lorekeeper Lydros 14368 - Say 2 (q. 7481 & 7482)'),
+(2000000457, 'We most definitely do not need anymore attention drawn to us, stranger. Return to those that sent you in search of the lost master and tell them that nothing could be found. When this is done - and I will know when it is so - return and I shall reveal the secrets of the deceased.', 0, 0, 0, 1, 9448, 'Lorekeeper Lydros 14368 - Say 3 (q. 7481 & 7482)'),
 
-(2000000543, '$N, I''ll make sure all my friends in the Cartel know that you''ve saved my life today. Here - I''m going to need to be able to travel light, so please help yourself to my cache of tailoring and leatherworking supplies! Thanks again - see ya!', 0, 0, 0, 4, 'Knot Thimblejack'),
-(2000007708, 'Ah, freedom! Although brief, so sweet it is...', 0, 1, 0, 0, 'J''eevee yell on spawn'),
-(2000007709, 'Well duties call, yes? First, the bell... to give you vigor!', 0, 0, 0, 0, 'J''eevee say 1'),
-(2000007710, 'Next, I''ll place the wheel... to protect you from harm.', 0, 0, 0, 0, 'J''eevee say 2'),
-(2000007711, 'And finally the candle... to burn those who would thwart you!', 0, 0, 0, 0, 'J''eevee say 3'),
-(2000007712, '$N, my duties are complete and I shall now take my leave. Luck to you my fellow, and remember to keep the Bell, Wheel and Candle working!', 0, 0, 0, 0, 'J''eevee say 4'),
+(2000000543, '$N, I''ll make sure all my friends in the Cartel know that you''ve saved my life today.  Here - I''m going to need to be able to travel light, so please help yourself to my cache of tailoring and leatherworking supplies!  Thanks again - see ya!', 0, 0, 0, 4, 9346, 'Knot Thimblejack'),
+(2000007708, 'Ah, freedom!  Although brief, so sweet it is...', 0, 1, 0, 0, 9705, 'J''eevee yell on spawn'),
+(2000007709, 'Well duties call, yes?  First, the bell... to give you vigor!', 0, 0, 0, 0, 9702, 'J''eevee say 1'),
+(2000007710, 'Next, I''ll place the wheel... to protect you from harm.', 0, 0, 0, 0, 9703, 'J''eevee say 2'),
+(2000007711, 'And finally the candle... to burn those who would thwart you!', 0, 0, 0, 0, 9704, 'J''eevee say 3'),
+(2000007712, '$N, my duties are complete and I shall now take my leave.  Luck to you my $gfellow:lady;, and remember to keep the Bell, Wheel and Candle working!', 0, 0, 0, 0, 9706, 'J''eevee say 4'),
 
-(2000005822, 'OH NOES! Da king is dead! Uh... hail to da new king! Yeah!', 0, 1, 0, 0, 'mizzle the crafty - new king 1'),
-(2000005823, 'Yar, he\'s dead all right. That makes you da new king... well, all of you! Gordok is yours now, boss! You should talk to me so you can learn everything there is about being da king! I was... is his assistant! Yeah, that\'s why I\'m called da crafty one!', 0, 0, 0, 0, 'mizzle the crafty - new king 2'),
+(2000005822, 'OH NOES!  Da king is dead!  Uh... hail to da new king!  Yeah!', 0, 1, 0, 0, 9348, 'mizzle the crafty - new king 1'),
+(2000005823, 'Yar, he''s dead all right.  That makes you da new king... well, all of you!  Gordok is yours now, boss!  You should talk to me so you can learn everything there is about being da king!  I was... is his assistant!  Yeah, that''s why I''m called da crafty one!', 0, 0, 0, 0, 9411, 'mizzle the crafty - new king 2'),
 
-(2000005460, 'If you want the key, you''ll have to catch me!', 0, 0, 0, 0, 'Pusilin 1'),
-(2000005461, 'Chase me if you dare! I run without a care!', 0, 0, 0, 0, 'Pusilin 2'),
-(2000005462, 'Why would you ever want to harm me!? Come. Friends we can be!', 0, 0, 0, 0, 'Pusilin 3'),
-(2000005463, 'DIE?! You make Pusillin cry!', 0, 0, 0, 0, 'Pusilin 4'),
-(2000005464, 'Say hello to my little friends!', 0, 0, 0, 0, 'Pusilin 5');
+(2000005460, 'If you want the key, you''ll have to catch me!', 0, 0, 0, 0, 9349, 'Pusilin 1'),
+(2000005461, 'Chase me if you dare! I run without a care!', 0, 0, 0, 0, 9353, 'Pusilin 2'),
+(2000005462, 'Why would you ever want to harm me!? Come. Friends we can be!', 0, 0, 0, 0, 9357, 'Pusilin 3'),
+(2000005463, 'DIE?! You make Pusillin cry!', 0, 0, 0, 0, 9360, 'Pusilin 4'),
+(2000005464, 'Say hello to my little friends!', 0, 0, 0, 0, 9363, 'Pusilin 5');
 
 -- INSERT INTO `dbscript_random_templates` (`id`, `type`, `target_id`, `chance`, `comments`) VALUES
 

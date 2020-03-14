@@ -1853,13 +1853,8 @@ INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+349, @CGUID+351, 515), -- Lordaeron Watchman -> Lordaeron Sentry
 (@CGUID+350, @CGUID+351, 515), -- Lordaeron Watchman -> Lordaeron Sentry
 (@CGUID+363, @CGUID+364, 3), -- Durnholde Sentry -> Durnholde Sentry
-(@CGUID+369, @CGUID+404, 3), -- Durnholde Sentry -> Durnholde Rifleman
-(@CGUID+371, @CGUID+370, 3), -- Durnholde Sentry -> Durnholde Sentry
 (@CGUID+372, @CGUID+409, 3), -- Durnholde Sentry -> Durnholde Warden
 (@CGUID+373, @CGUID+374, 3), -- Durnholde Sentry -> Durnholde Sentry
-(@CGUID+376, @CGUID+397, 3), -- Durnholde Sentry -> Durnholde Rifleman
-(@CGUID+377, @CGUID+397, 3), -- Durnholde Sentry -> Durnholde Rifleman
-(@CGUID+378, @CGUID+417, 3), -- Durnholde Sentry -> Durnholde Warden
 (@CGUID+380, @CGUID+412, 3), -- Durnholde Sentry -> Durnholde Warden
 (@CGUID+383, @CGUID+382, 3), -- Durnholde Sentry -> Durnholde Sentry
 (@CGUID+384, @CGUID+408, 3), -- Durnholde Sentry -> Durnholde Warden
@@ -1869,14 +1864,11 @@ INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+390, @CGUID+404, 3), -- Durnholde Rifleman -> Durnholde Rifleman
 (@CGUID+391, @CGUID+408, 3), -- Durnholde Rifleman -> Durnholde Warden
 (@CGUID+393, @CGUID+409, 3), -- Durnholde Rifleman -> Durnholde Warden
-(@CGUID+395, @CGUID+417, 3), -- Durnholde Rifleman -> Durnholde Warden
-(@CGUID+396, @CGUID+417, 3), -- Durnholde Rifleman -> Durnholde Warden
 (@CGUID+398, @CGUID+412, 3), -- Durnholde Rifleman -> Durnholde Warden
 (@CGUID+400, @CGUID+381, 3), -- Durnholde Rifleman -> Durnholde Sentry
 (@CGUID+401, @CGUID+361, 3), -- Durnholde Rifleman -> Durnholde Sentry
 (@CGUID+402, @CGUID+408, 3), -- Durnholde Rifleman -> Durnholde Warden
 (@CGUID+403, @CGUID+370, 3), -- Durnholde Rifleman -> Durnholde Sentry
-(@CGUID+405, @CGUID+397, 3), -- Durnholde Rifleman -> Durnholde Rifleman
 (@CGUID+406, @CGUID+404, 3), -- Durnholde Warden -> Durnholde Rifleman
 (@CGUID+407, @CGUID+370, 3), -- Durnholde Warden -> Durnholde Sentry
 (@CGUID+410, @CGUID+374, 3), -- Durnholde Warden -> Durnholde Sentry
@@ -2838,30 +2830,30 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalon
 
 (1809201, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Guardsman - Pause Waypoints'),
 (1809201, 0, 15, 33133, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Guardsman - Cast Transform'),
-(1809201, 1, 44, 18170, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Guardsman - Morph to Infinite Slayer'),
-(1809201, 1, 5, 46, 768, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Guardsman - Remove Unit Flag IMMUNE_TO_PLAYER and IMMUNE_TO_NPC'),
-(1809201, 2, 26, 0, 0, 0, 17876, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Guardsman - Attack Thrall'),
+(1809201, 1000, 44, 18170, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Guardsman - Morph to Infinite Slayer'),
+(1809201, 1000, 5, 46, 768, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Guardsman - Remove Unit Flag IMMUNE_TO_PLAYER and IMMUNE_TO_NPC'),
+(1809201, 2000, 26, 0, 0, 0, 17876, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Guardsman - Attack Thrall'),
 
 (1809301, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Protector - Pause Waypoints'),
 (1809301, 0, 15, 33133, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Protector - Cast Transform'),
-(1809301, 1, 44, 18172, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Protector - Morph to Infinite Saboteor'),
-(1809301, 1, 5, 46, 768, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Protector - Remove Unit Flag IMMUNE_TO_PLAYER and IMMUNE_TO_NPC'),
-(1809301, 2, 0, 0, 0, 0, 0, 0, 0, 2000020110, 2000020111, 2000020112, 2000020113, 0, 0, 0, 0, 'Tarren Mill Protector - Random Say'),
-(1809301, 2, 26, 0, 0, 0, 17876, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Protector - Attack Thrall'),
+(1809301, 1000, 44, 18172, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Protector - Morph to Infinite Saboteor'),
+(1809301, 1000, 5, 46, 768, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Protector - Remove Unit Flag IMMUNE_TO_PLAYER and IMMUNE_TO_NPC'),
+(1809301, 2000, 0, 0, 0, 0, 0, 0, 0, 2000020110, 2000020111, 2000020112, 2000020113, 0, 0, 0, 0, 'Tarren Mill Protector - Random Say'),
+(1809301, 2000, 26, 0, 0, 0, 17876, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Protector - Attack Thrall'),
 
 (1809401, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Lookout - Pause Waypoints'),
 (1809401, 0, 15, 33133, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Lookout - Cast Transform'),
-(1809401, 1, 44, 18171, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Lookout - Morph to Infinite Defiler'),
-(1809401, 1, 5, 46, 768, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Lookout - Remove Unit Flag IMMUNE_TO_PLAYER and IMMUNE_TO_NPC'),
-(1809401, 2, 26, 0, 0, 0, 17876, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Lookout - Attack Thrall');
+(1809401, 1000, 44, 18171, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Lookout - Morph to Infinite Defiler'),
+(1809401, 1000, 5, 46, 768, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Lookout - Remove Unit Flag IMMUNE_TO_PLAYER and IMMUNE_TO_NPC'),
+(1809401, 2000, 26, 0, 0, 0, 17876, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Tarren Mill Lookout - Attack Thrall');
 
 DELETE FROM `dbscript_string` WHERE `entry` IN (2000020110,2000020111,2000020112,2000020113,2000020114);
-INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
-(2000020110, 'All that you know... will be undone.', 0, 0, 0, 0, ''),
-(2000020111, 'We have all the time in the world....', 0, 0, 0, 0, ''),
-(2000020112, 'You cannot escape us!', 0, 0, 0, 0, ''),
-(2000020113, 'Do not think you can win!', 0, 0, 0, 0, ''),
-(2000020114, 'You there, fetch water quickly! Get these flames out before they spread to the rest of the keep! Hurry, damn you!', 10428, 1, 0, 25, '17848');
+INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `broadcast_text_id`, `comment`) VALUES
+(2000020110, 'All that you know... will be undone.', 0, 0, 0, 0, 19537, ''),
+(2000020111, 'We have all the time in the world....', 0, 0, 0, 0, 19536, ''),
+(2000020112, 'You cannot escape us!', 0, 0, 0, 0, 19538, ''),
+(2000020113, 'Do not think you can win!', 0, 0, 0, 0, 19534, ''),
+(2000020114, 'You there, fetch water quickly! Get these flames out before they spread to the rest of the keep! Hurry, damn you!', 10428, 1, 0, 25, 15737, '17848');
 
 -- INSERT INTO `dbscripts_on_creature_death` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES

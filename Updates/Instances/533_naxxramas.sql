@@ -402,10 +402,6 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+730, 4, 2889.02, -3298.33, 298.146, 0, 0, 0),
 (@CGUID+730, 5, 2879.74, -3293.5, 298.146, 0, 0, 0),
 (@CGUID+730, 6, 2882.14, -3275.98, 298.141, 0, 0, 0),
-(@CGUID+759, 1, 3487.76, -2911.2, 319.406, 3.90954, 0, 0),
-(@CGUID+759, 2, 3487.76, -2911.2, 319.406, 3.90954, 0, 0),
-(@CGUID+760, 1, 3527.81, -2952.38, 319.326, 3.90954, 0, 0),
-(@CGUID+760, 2, 3527.81, -2952.38, 319.326, 3.90954, 0, 0),
 (@CGUID+844, 1, 3178.613, -3263.671, 316.428, 100, 0, 0),
 (@CGUID+844, 2, 3174.119, -3267.95, 316.7845, 100, 0, 0),
 (@CGUID+845, 1, 3196.852, -3246.524, 315.1048, 100, 0, 0),
@@ -743,7 +739,9 @@ INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_fl
 (@CGUID+725, 0, 9, 1, 0, 0, 0, NULL), -- Stoneskin Gargoyle
 (@CGUID+726, 0, 9, 1, 0, 0, 0, NULL), -- Stoneskin Gargoyle
 (@CGUID+727, 0, 0, 1, 0, 173, 0, NULL), -- Skeletal Smith
-(@CGUID+728, 0, 0, 1, 0, 173, 0, NULL); -- Skeletal Smith
+(@CGUID+728, 0, 0, 1, 0, 173, 0, NULL), -- Skeletal Smith
+(@CGUID+759, 0, 0, 1, 16, 0, 0, '28097'), -- Tesla Coil
+(@CGUID+760, 0, 0, 1, 16, 0, 0, '28109'); -- Tesla Coil
 
 REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
 (15928, 0, 0, 1, 16, 0, 0, NULL), -- Thaddius
@@ -824,13 +822,15 @@ REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath
 (16451, 0, 0, 1, 16, 0, 0, NULL), -- Deathknight Vindicator
 (16452, 0, 0, 1, 16, 0, 0, NULL), -- Necro Knight Guardian
 (16453, 0, 0, 1, 16, 0, 0, NULL), -- Necro Stalker
+(16474, 0, 0, 1, 16, 0, 0, '28534'), -- Blizzard
 (16505, 0, 0, 1, 16, 0, 0, NULL), -- Naxxramas Follower
 (16506, 0, 0, 1, 16, 0, 0, NULL), -- Naxxramas Worshipper
 (16573, 0, 0, 1, 16, 0, 0, NULL), -- Crypt Guard
 (16803, 0, 0, 0, 0, 333, 0, '18950 29068'), -- Deathknight Understudy
 (16861, 0, 0, 1, 16, 0, 0, NULL), -- Death Lord
 (16980, 0, 0, 1, 16, 0, 0, NULL), -- The Lich King
-(16998, 0, 0, 1, 16, 0, 0, NULL); -- Mr. Bigglesworth
+(16998, 0, 0, 1, 16, 0, 0, NULL), -- Mr. Bigglesworth
+(17286, 0, 0, 1, 16, 0, 0, '28782'); -- Invisible Man
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+168, @CGUID+821, 3), -- Dread Creeper -> Necropolis Acolyte
@@ -930,6 +930,8 @@ INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+691, @CGUID+670, 515), -- Death Touched Warrior -> Deathknight
 (@CGUID+709, @CGUID+704, 515), -- Necro Knight -> Shade of Naxxramas
 (@CGUID+710, @CGUID+704, 515), -- Necro Knight -> Shade of Naxxramas
+(@CGUID+759, @CGUID+143, 1+4+128+1024), -- Tesla Coil -> Stalagg
+(@CGUID+760, @CGUID+144, 1+4+128+1024), -- Tesla Coil -> Feugen
 (@CGUID+852, @CGUID+851, 3), -- Plagued Gargoyle -> Plagued Gargoyle
 (@CGUID+853, @CGUID+854, 3), -- Plagued Gargoyle -> Plagued Gargoyle
 (@CGUID+855, @CGUID+856, 3), -- Plagued Gargoyle -> Plagued Gargoyle
@@ -1802,8 +1804,8 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+756, 16216, 533, 2739.77, -3219.47, 267.539, 4.46863, 3600, 3600, 5, 0, 0, 1), -- Unholy Swords
 (@CGUID+757, 16216, 533, 2731.77, -3230.92, 267.679, 4.46872, 3600, 3600, 5, 0, 0, 1), -- Unholy Swords
 (@CGUID+758, 16216, 533, 2708.13, -3174.65, 267.605, 0.418879, 3600, 3600, 0, 0, 0, 0), -- Unholy Swords
-(@CGUID+759, 16218, 533, 3487.76, -2911.2, 319.406, 3.90954, 120, 120, 0, 0, 0, 2), -- Tesla Coil
-(@CGUID+760, 16218, 533, 3527.81, -2952.38, 319.326, 3.90954, 120, 120, 0, 0, 0, 2), -- Tesla Coil
+(@CGUID+759, 16218, 533, 3487.76, -2911.2, 319.406, 3.90954, 120, 120, 0, 0, 0, 0), -- Tesla Coil
+(@CGUID+760, 16218, 533, 3527.81, -2952.38, 319.326, 3.90954, 120, 120, 0, 0, 0, 0), -- Tesla Coil
 (@CGUID+761, 16236, 533, 2761.28, -3765.37, 275.08, 1.24, 46, 46, 0, 0, 0, 0), -- Eye Stalk
 (@CGUID+762, 16236, 533, 2770.17, -3782.11, 275.08, 1.33, 46, 46, 0, 0, 0, 0), -- Eye Stalk
 (@CGUID+763, 16236, 533, 2798.11, -3788.94, 275.08, 2.35, 46, 46, 0, 0, 0, 0), -- Eye Stalk
@@ -2075,7 +2077,15 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+1029, 16803, 533, 2758.28, -3111.99, 267.86, 4.22, 4224, 4224, 0, 0, 0, 0), -- Deathknight Understudy
 (@CGUID+1030, 16861, 533, 2931.33, -3190.24, 273.371, 3.1229, 3520, 3520, 0, 0, 0, 2), -- Death Lord
 (@CGUID+1031, 16980, 533, 3762.38, -5115.86, 143.938, 0.191986, 300, 300, 0, 0, 0, 0), -- The Lich King
-(@CGUID+1032, 16998, 533, 2960.72, -3433.41, 298.227, 2.94052, 3600, 3600, 5, 0, 0, 1); -- Mr. Bigglesworth
+(@CGUID+1032, 16998, 533, 2960.72, -3433.41, 298.227, 2.94052, 3600, 3600, 5, 0, 0, 1), -- Mr. Bigglesworth
+(@CGUID+1033, 17286, 533, 3489.61, -3839.83, 322, 1.53865, 3600, 3600, 0, 0, 0, 0), -- Invisible Man
+(@CGUID+1034, 17286, 533, 3507.45, -3838.96, 322, 1.5198, 3600, 3600, 0, 0, 0, 0), -- Invisible Man
+(@CGUID+1035, 17286, 533, 3526.49, -3842.83, 322, 1.04228, 3600, 3600, 0, 0, 0, 0), -- Invisible Man
+(@CGUID+1036, 17286, 533, 3541.51, -3852.34, 322, 0.602457, 3600, 3600, 0, 0, 0, 0), -- Invisible Man
+(@CGUID+1037, 17286, 533, 3551.26, -3865.88, 322, 0.458729, 3600, 3600, 0, 0, 0, 0), -- Invisible Man
+(@CGUID+1038, 17286, 533, 3558.49, -3883.9, 321.5, 0.113154, 3600, 3600, 0, 0, 0, 0), -- Invisible Man
+(@CGUID+1039, 17293, 533, 2772.57, -3685.28, 273.749, 6.21337, 3600, 3600, 0, 0, 0, 0); -- Plague Wave
+
 
 -- ===========
 -- GAMEOBJECTS
@@ -2107,7 +2117,7 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 (@OGUID+23, 181211, 533, 2991.58, -3448.51, 300.972, 3.14159, 0, 0, -1, 0, 180, 180, 0, 1), -- Plague Wing Eye Portal Ramp
 (@OGUID+24, 181212, 533, 3020.08, -3448.65, 300.972, 3.14159, 0, 0, -1, 0, 180, 180, 0, 1), -- Spider Wing Eye Portal Ramp
 (@OGUID+25, 181213, 533, 3019.93, -3420.31, 300.972, 3.14159, 0, 0, -1, 0, 180, 180, 0, 1), -- Abom Wing Eye Portal Ramp
-(@OGUID+26, 181225, 533, 3536.81, -5158.41, 142.862, -1.77151, 0, 0, -0.774392, 0.632706, 604800, 604800, 0, 1), -- Frostwyrm Waterfall Door
+(@OGUID+26, 181225, 533, 3536.81, -5158.41, 142.862, -1.77151, 0, 0, -0.774392, 0.632706, 604800, 604800, 100, 1), -- Frostwyrm Waterfall Door
 (@OGUID+27, 181228, 533, 3635.36, -5090.29, 142.983, -1.77151, 0, 0, -0.774393, 0.632705, 180, 180, 255, 0), -- KelThuzad Door
 (@OGUID+28, 181229, 533, 3005.78, -3434.36, 300.328, 3.14159, 0, 0, 1, 0.00000126759, 180, 180, 0, 1), -- Portal
 (@OGUID+29, 181230, 533, 2493.02, -2921.78, 241.193, 3.14159, 0, 0, -1, 0, 180, 180, 0, 1), -- Deathknight Wing Eye Portal Boss
@@ -2311,33 +2321,33 @@ INSERT INTO `game_event_creature` (`guid`, `event`) VALUES
 
 DELETE FROM dbscripts_on_creature_movement WHERE id IN (1614603,1614602,1593101,1606102,1606101);
 INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(1614603,1,1,36,0,0,16145,8,0,0,0,0,0,0,0,0,0,'Deathknight captain attacks'),
-(1614603,2,1,43,0,0,0,0,0,0,0,0,0,0,0,0,0,'Deathknight parries'),
-(1614603,5,1,1,0,0,16145,8,0,0,0,0,0,0,0,0,0,'Deathknight captain talks'),
-(1614603,7,1,36,0,0,16145,8,0,0,0,0,0,0,0,0,0,'Deathknight captain attacks'),
-(1614603,8,1,43,0,0,0,0,0,0,0,0,0,0,0,0,0,'Deathknight parries'),
-(1614603,14,1,60,0,0,16145,8,0,0,0,0,0,0,0,0,0,'Deathknight captain kicks'),
-(1614603,15,1,43,0,0,0,0,0,0,0,0,0,0,0,0,0,'Deathknight parries'),
-(1614602,1,1,22,0,0,16145,8,0,0,0,0,0,0,0,0,0,'Deathknight Captain shout'),
-(1614602,3,1,36,0,0,16146,8,0,0,0,0,0,0,0,0,0,'Deathknight buddy attacks combat dummy'),
-(1614602,5,1,36,0,0,0,0,0,0,0,0,0,0,0,0,0,'Deathknight attacks combat dummy'),
-(1614602,12,1,36,0,0,16146,8,0,0,0,0,0,0,0,0,0,'Deathknight buddy attacks combat dummy'),
-(1614602,13,1,36,0,0,0,0,0,0,0,0,0,0,0,0,0,'Deathknight attacks combat dummy'),
-(1614602,20,1,36,0,0,0,0,0,0,0,0,0,0,0,0,0,'Deathknight attacks combat dummy'),
-(1614602,21,1,36,0,0,16146,8,0,0,0,0,0,0,0,0,0,'Deathknight buddy attacks combat dummy'),
+(1614603,1000,1,36,0,0,16145,8,0,0,0,0,0,0,0,0,0,'Deathknight captain attacks'),
+(1614603,2000,1,43,0,0,0,0,0,0,0,0,0,0,0,0,0,'Deathknight parries'),
+(1614603,5000,1,1,0,0,16145,8,0,0,0,0,0,0,0,0,0,'Deathknight captain talks'),
+(1614603,7000,1,36,0,0,16145,8,0,0,0,0,0,0,0,0,0,'Deathknight captain attacks'),
+(1614603,8000,1,43,0,0,0,0,0,0,0,0,0,0,0,0,0,'Deathknight parries'),
+(1614603,14000,1,60,0,0,16145,8,0,0,0,0,0,0,0,0,0,'Deathknight captain kicks'),
+(1614603,15000,1,43,0,0,0,0,0,0,0,0,0,0,0,0,0,'Deathknight parries'),
+(1614602,1000,1,22,0,0,16145,8,0,0,0,0,0,0,0,0,0,'Deathknight Captain shout'),
+(1614602,3000,1,36,0,0,16146,8,0,0,0,0,0,0,0,0,0,'Deathknight buddy attacks combat dummy'),
+(1614602,5000,1,36,0,0,0,0,0,0,0,0,0,0,0,0,0,'Deathknight attacks combat dummy'),
+(1614602,12000,1,36,0,0,16146,8,0,0,0,0,0,0,0,0,0,'Deathknight buddy attacks combat dummy'),
+(1614602,13000,1,36,0,0,0,0,0,0,0,0,0,0,0,0,0,'Deathknight attacks combat dummy'),
+(1614602,20000,1,36,0,0,0,0,0,0,0,0,0,0,0,0,0,'Deathknight attacks combat dummy'),
+(1614602,21000,1,36,0,0,16146,8,0,0,0,0,0,0,0,0,0,'Deathknight buddy attacks combat dummy'),
 
-(1593101,1,15,28280,0,0,0,0,0,0,0,0,0,0,0,0,0,'cast summon sewage slime'),
-(1593101,3,15,28280,0,0,0,0,0,0,0,0,0,0,0,0,0,'cast summon sewage slime'),
-(1593101,5,15,28280,0,0,0,0,0,0,0,0,0,0,0,0,0,'cast summon sewage slime'),
+(1593101,1000,15,28280,0,0,0,0,0,0,0,0,0,0,0,0,0,'cast summon sewage slime'),
+(1593101,3000,15,28280,0,0,0,0,0,0,0,0,0,0,0,0,0,'cast summon sewage slime'),
+(1593101,5000,15,28280,0,0,0,0,0,0,0,0,0,0,0,0,0,'cast summon sewage slime'),
 (1606102,0,1,36,0,0,16803,60,0,0,0,0,0,0,0,0,0,'Understudy attacks combat dummy'),
 (1606101,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,1.4396,'Turns toward trainee'),
-(1606101,1,1,26,0,0,16803,5,0,0,0,0,0,0,0,0,0,'change emote state: stand'),
-(1606101,2,3,0,0,0,16803,5,0,0,0,0,0,0,0,0,4.4563,'Turns toward Razuvious'),
-(1606101,3,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,'Shouts'),
-(1606101,5,1,1,0,0,16803,5,0,0,0,0,0,0,0,0,0,'talks'),
-(1606101,8,1,66,0,0,16803,5,0,0,0,0,0,0,0,0,0,'salutes'),
-(1606101,11,3,0,0,0,16803,5,0,0,0,0,0,0,0,0,2.03,'Turns toward dummy'),
-(1606101,11,1,333,0,0,16803,5,0,0,0,0,0,0,0,0,0,'change emote state: train');
+(1606101,1000,1,26,0,0,16803,5,0,0,0,0,0,0,0,0,0,'change emote state: stand'),
+(1606101,2000,3,0,0,0,16803,5,0,0,0,0,0,0,0,0,4.4563,'Turns toward Razuvious'),
+(1606101,3000,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,'Shouts'),
+(1606101,5000,1,1,0,0,16803,5,0,0,0,0,0,0,0,0,0,'talks'),
+(1606101,8000,1,66,0,0,16803,5,0,0,0,0,0,0,0,0,0,'salutes'),
+(1606101,11000,3,0,0,0,16803,5,0,0,0,0,0,0,0,0,2.03,'Turns toward dummy'),
+(1606101,11000,1,333,0,0,16803,5,0,0,0,0,0,0,0,0,0,'change emote state: train');
 
 -- INSERT INTO `dbscripts_on_creature_death` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
