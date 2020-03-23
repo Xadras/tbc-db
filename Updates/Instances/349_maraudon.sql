@@ -73,11 +73,11 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+39, 10, 8.187, -127.348, -123.845, 5.134, 0, 0),
 (@CGUID+39, 11, 62.416, -207.188, -109.659, 1.94569, 0, 0),
 (@CGUID+39, 12, 79.0383, -255.555, -108.677, 5.96536, 0, 0),
-(@CGUID+139, 1, 870.034, -329.385, -48.798, 0.279253, 1, 1179001),
-(@CGUID+162, 1, 742.923, -127.961, -56.2506, 3.29867, 1, 1179101),
-(@CGUID+163, 1, 739.91, -122.194, -56.5653, 3.97935, 1, 1179101),
-(@CGUID+164, 1, 758.122, -42.8355, -55.9574, 2.1293, 1, 1179101),
-(@CGUID+165, 1, 750.123, -42.8777, -56.1531, 0.959931, 1, 1179101),
+(@CGUID+139, 1, 870.034, -329.385, -48.798, 0.279253, 1000, 1179001),
+(@CGUID+162, 1, 742.923, -127.961, -56.2506, 3.29867, 1000, 1179101),
+(@CGUID+163, 1, 739.91, -122.194, -56.5653, 3.97935, 1000, 1179101),
+(@CGUID+164, 1, 758.122, -42.8355, -55.9574, 2.1293, 1000, 1179101),
+(@CGUID+165, 1, 750.123, -42.8777, -56.1531, 0.959931, 1000, 1179101),
 (@CGUID+181, 1, 784.514, -329.119, -50.0284, 100, 0, 0),
 (@CGUID+181, 2, 764.984, -324.438, -51.5668, 100, 0, 0),
 (@CGUID+181, 3, 749.575, -337.565, -50.711, 100, 0, 0),
@@ -571,6 +571,11 @@ REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath
 (15556, 0, 0, 1, 16, 0, 0, '25824'); -- Elder Splitrock
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
+(@CGUID+205, @CGUID+204, 3), -- Primordial Behemoth -> Primordial Behemoth
+(@CGUID+211, @CGUID+209, 3), -- Primordial Behemoth -> Primordial Behemoth
+(@CGUID+214, @CGUID+212, 3), -- Primordial Behemoth -> Primordial Behemoth
+(@CGUID+215, @CGUID+213, 3), -- Primordial Behemoth -> Primordial Behemoth
+(@CGUID+218, @CGUID+217, 3), -- Primordial Behemoth -> Primordial Behemoth
 (@CGUID+179, @CGUID+484, 3), -- Putridus Shadowstalker -> Lord Vyletongue
 (@CGUID+180, @CGUID+484, 3), -- Putridus Shadowstalker -> Lord Vyletongue
 (@CGUID+573, @CGUID+576, 512), -- Stolid Snapjaw -> Stolid Snapjaw
@@ -1317,7 +1322,7 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 -- DBSCRIPTS
 -- =========
 
-DELETE FROM dbscripts_on_creature_movement WHERE id IN (1179101,1371601,1371602,1371603,1353301);
+DELETE FROM dbscripts_on_creature_movement WHERE id IN (1179001,1179101,1371601,1371602,1371603,1353301);
 INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 (1179001, 0, 15, 21157, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Putridus Satyr - Cast Dark Channeling'),
 (1179101, 0, 15, 21157, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Putridus Trickster - Cast Dark Channeling'),
