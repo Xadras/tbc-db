@@ -15,54 +15,36 @@ SET @PGUID := 48500; -- pools
 -- =========
 
 INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
-(@CGUID+2, 1, 62.3906, -285.428, 32.4225, 0, 0, 0),
-(@CGUID+2, 2, 84.3246, -278.996, 32.2227, 0, 0, 0),
-(@CGUID+2, 3, 96.1979, -287.668, 32.193, 0, 0, 0),
-(@CGUID+2, 4, 99.2227, -306.218, 32.2372, 0, 0, 0),
-(@CGUID+2, 5, 96.7146, -326.102, 33.0259, 0, 0, 0),
-(@CGUID+2, 6, 100.885, -335.997, 32.9329, 0, 0, 0),
-(@CGUID+2, 7, 105.837, -343.213, 33.1692, 0, 0, 0),
-(@CGUID+2, 8, 102.557, -353.438, 33.34, 0, 0, 0),
-(@CGUID+2, 9, 87.7988, -359.124, 32.9724, 0, 0, 0),
-(@CGUID+2, 10, 94.9425, -350.576, 33.2872, 0, 0, 0),
-(@CGUID+2, 11, 95.6895, -336, 33.1454, 0, 0, 0),
-(@CGUID+2, 12, 97.553, -322.399, 32.9633, 0, 0, 0),
-(@CGUID+2, 13, 98.9178, -306.005, 32.234, 0, 0, 0),
-(@CGUID+2, 14, 94.7655, -287.677, 32.1834, 0, 0, 0),
-(@CGUID+2, 15, 82.611, -279.856, 32.2059, 0, 0, 0),
-(@CGUID+2, 16, 68.648, -281.995, 32.1377, 0, 0, 0),
-(@CGUID+2, 17, 52.9245, -291.139, 33.0841, 0, 0, 0),
-(@CGUID+2, 18, 42.6055, -296.852, 32.5825, 0, 0, 0),
-(@CGUID+4, 1, 161.1251, -70.36053, 27.06263, 100, 0, 0),
-(@CGUID+4, 2, 153.0262, -93.89476, 26.35261, 100, 0, 0),
-(@CGUID+4, 3, 161.1251, -70.36053, 27.06263, 100, 0, 0),
-(@CGUID+4, 4, 176.592, -61.29988, 26.51584, 100, 0, 0),
-(@CGUID+4, 5, 190.1826, -52.50665, 26.63335, 100, 0, 0),
-(@CGUID+4, 6, 176.592, -61.29988, 26.51584, 100, 0, 0),
-(@CGUID+5, 1, -49.6079, -226.464, -4.53726, 0, 0, 0),
-(@CGUID+5, 2, -71.8849, -228.623, -4.53726, 0, 0, 0),
-(@CGUID+5, 3, -94.7028, -227.169, -4.42672, 0, 0, 0),
-(@CGUID+5, 4, -115.076, -222.684, -4.2268, 0, 0, 0),
-(@CGUID+5, 5, -94.4642, -227.416, -4.43295, 0, 0, 0),
-(@CGUID+5, 6, -84.6416, -228.985, -4.53687, 0, 0, 0),
-(@CGUID+5, 7, -70.676, -228.825, -4.53687, 0, 0, 0),
-(@CGUID+6, 1, -53.5886, -282.635, -4.53655, 0, 0, 0),
-(@CGUID+6, 2, -60.7925, -291.382, -4.53553, 0, 0, 0),
-(@CGUID+6, 3, -80.7083, -297.585, -4.5355, 0, 0, 0),
-(@CGUID+6, 4, -95.6855, -303.655, -4.5355, 0, 0, 0),
-(@CGUID+6, 5, -80.7411, -296.923, -4.53504, 0, 0, 0),
-(@CGUID+6, 6, -59.7556, -290.012, -4.53489, 0, 0, 0),
-(@CGUID+6, 7, -53.1103, -282.506, -4.53489, 0, 0, 0),
-(@CGUID+6, 8, -44.4014, -268.686, -4.53489, 0, 0, 0),
-(@CGUID+10, 1, -10.0184, -335.983, 30.5336, 0, 0, 0),
-(@CGUID+10, 2, 4.66667, -325.538, 30.6897, 0, 0, 0),
-(@CGUID+10, 3, 17.9423, -312.11, 31.8369, 0, 0, 0),
-(@CGUID+10, 4, 37.0049, -300.393, 32.391, 0, 0, 0),
-(@CGUID+10, 5, 23.6562, -306.835, 32.0061, 0, 0, 0),
-(@CGUID+10, 6, 16.1901, -314.345, 31.7554, 0, 0, 0),
-(@CGUID+10, 7, 4.18543, -326.219, 30.6163, 0, 0, 0),
-(@CGUID+10, 8, -10.6039, -335.549, 30.6277, 0, 0, 0),
-(@CGUID+10, 9, -23.295, -342.433, 31.1087, 0, 0, 0),
+(@CGUID+2, 1, 93.06754, -360.3329, 33.21555, 100, 0, 0),
+(@CGUID+2, 2, 101.4254, -344.6663, 32.97791, 100, 0, 0),
+(@CGUID+2, 3, 96.96455, -311.3638, 32.52911, 100, 0, 0),
+(@CGUID+2, 4, 88.84355, -286.0164, 32.12873, 100, 0, 0),
+(@CGUID+2, 5, 68.26116, -284.1465, 32.08228, 100, 0, 0),
+(@CGUID+2, 6, 42.47691, -293.7711, 32.69076, 100, 0, 0),
+(@CGUID+2, 7, 19.44412, -308.6361, 31.89284, 100, 0, 0),
+(@CGUID+2, 8, 42.47691, -293.7711, 32.69076, 100, 0, 0),
+(@CGUID+2, 9, 68.26116, -284.1465, 32.08228, 100, 0, 0),
+(@CGUID+2, 10, 88.84355, -286.0164, 32.12873, 100, 0, 0),
+(@CGUID+2, 11, 96.96455, -311.3638, 32.52911, 100, 0, 0),
+(@CGUID+2, 12, 101.4254, -344.6663, 32.97791, 100, 0, 0),
+(@CGUID+4, 1, 153.0262, -93.89476, 26.35261, 100, 0, 0),
+(@CGUID+4, 2, 161.1251, -70.36053, 27.06263, 100, 0, 0),
+(@CGUID+4, 3, 176.592, -61.29988, 26.51584, 100, 0, 0),
+(@CGUID+4, 4, 190.1826, -52.50665, 26.63335, 100, 0, 0),
+(@CGUID+4, 5, 176.592, -61.29988, 26.51584, 100, 0, 0),
+(@CGUID+4, 6, 161.1251, -70.36053, 27.06263, 100, 0, 0),
+(@CGUID+5, 1, -50.81743, -226.4811, -4.536586, 100, 0, 0),
+(@CGUID+5, 2, -69.68027, -228.8656, -4.537007, 100, 0, 0),
+(@CGUID+5, 3, -96.71855, -227.7162, -4.376232, 100, 0, 0),
+(@CGUID+5, 4, -69.68027, -228.8656, -4.537007, 100, 0, 0),
+(@CGUID+6, 1, -59.19425, -289.6774, -4.534918, 100, 0, 0),
+(@CGUID+6, 2, -92.30222, -302.198, -4.535712, 100, 0, 0),
+(@CGUID+6, 3, -59.19425, -289.6774, -4.534918, 100, 0, 0),
+(@CGUID+6, 4, -42.62119, -269.5001, -4.535499, 100, 0, 0),
+(@CGUID+10, 1, -21.11057, -342.8836, 30.82127, 100, 0, 0),
+(@CGUID+10, 2, 1.211546, -323.1523, 30.92621, 100, 0, 0),
+(@CGUID+10, 3, 27.59817, -304.3645, 32.14, 100, 0, 0),
+(@CGUID+10, 4, 1.211546, -323.1523, 30.92621, 100, 0, 0),
 (@CGUID+11, 1, 47.6626, -42.7119, -2.75061, 0, 0, 5),
 (@CGUID+11, 2, 62.1311, -52.4546, -2.74982, 0, 0, 0),
 (@CGUID+11, 3, 74.7862, -61.7448, -2.75402, 0, 0, 0),
@@ -240,11 +222,11 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+119, 2, 268.777, -256.844, 26.6499, 100, 0, 0),
 (@CGUID+119, 3, 268.675, -203.632, 28.8667, 100, 0, 0),
 (@CGUID+119, 4, 249.744, -147.077, 28.5912, 100, 0, 0),
-(@CGUID+120, 1, 193.615, -133.5648, 28.52531, 100, 0, 0),
-(@CGUID+120, 2, 217.0552, -131.515, 26.75314, 100, 0, 0),
+(@CGUID+120, 1, 158.53, -167.4191, 32.28274, 100, 0, 0),
+(@CGUID+120, 2, 169.5463, -135.7898, 28.33598, 100, 0, 0),
 (@CGUID+120, 3, 193.615, -133.5648, 28.52531, 100, 0, 0),
-(@CGUID+120, 4, 169.5463, -135.7898, 28.33598, 100, 0, 0),
-(@CGUID+120, 5, 158.53, -167.4191, 32.28274, 100, 0, 0),
+(@CGUID+120, 4, 217.0552, -131.515, 26.75314, 100, 0, 0),
+(@CGUID+120, 5, 193.615, -133.5648, 28.52531, 100, 0, 0),
 (@CGUID+120, 6, 169.5463, -135.7898, 28.33598, 100, 0, 0),
 -- Large AOI Underbat (18409)
 (@CGUID+121,1,-76.80704,-115.076,68.56723,100,0,5), -- run on
@@ -526,71 +508,71 @@ INSERT INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`
 (20465, 0, 0, 1, 16, 0, 0, '18943 18950'); -- Underbog Frenzy
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
-(@CGUID+42, @CGUID+37, 1167), -- Underbog Lurker -> Underbog Lurker
-(@CGUID+110, @CGUID+37, 1167), -- Underbog Shambler -> Underbog Lurker
-(@CGUID+43, @CGUID+112, 1167), -- Underbog Lurker -> Underbog Shambler
-(@CGUID+44, @CGUID+112, 1167), -- Underbog Lurker -> Underbog Shambler
-(@CGUID+38, @CGUID+17, 1167), -- creature_spawn_entry -> creature_spawn_entry
-(@CGUID+39, @CGUID+17, 1167), -- creature_spawn_entry -> creature_spawn_entry
+(@CGUID+42, @CGUID+37, 1155), -- Underbog Lurker -> Underbog Lurker
+(@CGUID+110, @CGUID+37, 1155), -- Underbog Shambler -> Underbog Lurker
+(@CGUID+43, @CGUID+112, 1155), -- Underbog Lurker -> Underbog Shambler
+(@CGUID+44, @CGUID+112, 1155), -- Underbog Lurker -> Underbog Shambler
+(@CGUID+38, @CGUID+17, 1155), -- creature_spawn_entry -> creature_spawn_entry
+(@CGUID+39, @CGUID+17, 1155), -- creature_spawn_entry -> creature_spawn_entry
 (@CGUID+36, @CGUID+35, 1679), -- Underbat -> Underbat
 (@CGUID+16, @CGUID+13, 1679), -- Underbat -> Underbat
 (@CGUID+19, @CGUID+13, 1679), -- Underbat -> Underbat
 (@CGUID+15, @CGUID+14, 1679), -- Underbat -> Underbat
 (@CGUID+18, @CGUID+14, 1679), -- Underbat -> Underbat
-(@CGUID+24, @CGUID+40, 1167), -- Underbat -> Underbog Lurker
-(@CGUID+111, @CGUID+40, 1167), -- Underbog Shambler -> Underbog Lurker
+(@CGUID+24, @CGUID+40, 1155), -- Underbat -> Underbog Lurker
+(@CGUID+111, @CGUID+40, 1155), -- Underbog Shambler -> Underbog Lurker
 (@CGUID+34, @CGUID+33, 1679), -- Underbat -> Underbat
-(@CGUID+41, @CGUID+33, 1167), -- Underbog Lurker -> Underbat
-(@CGUID+25, @CGUID+45, 1167), -- creature_spawn_entry -> creature_spawn_entry
-(@CGUID+113, @CGUID+45, 1167), -- creature_spawn_entry -> creature_spawn_entry
+(@CGUID+41, @CGUID+33, 1155), -- Underbog Lurker -> Underbat
+(@CGUID+25, @CGUID+45, 1155), -- creature_spawn_entry -> creature_spawn_entry
+(@CGUID+113, @CGUID+45, 1155), -- creature_spawn_entry -> creature_spawn_entry
 (@CGUID+27, @CGUID+26, 1679), -- Underbat -> Underbat
-(@CGUID+46, @CGUID+26, 1167), -- Underbog Lurker -> Underbat
-(@CGUID+47, @CGUID+114, 1167), -- Underbog Lurker -> Underbog Shambler
-(@CGUID+48, @CGUID+114, 1167), -- Underbog Lurker -> Underbog Shambler
+(@CGUID+46, @CGUID+26, 1155), -- Underbog Lurker -> Underbat
+(@CGUID+47, @CGUID+114, 1155), -- Underbog Lurker -> Underbog Shambler
+(@CGUID+48, @CGUID+114, 1155), -- Underbog Lurker -> Underbog Shambler
 (@CGUID+28, @CGUID+49, 1679), -- creature_spawn_entry -> Underbog Lurker
 (@CGUID+29, @CGUID+49, 1679), -- creature_spawn_entry -> Underbog Lurker
 (@CGUID+31, @CGUID+30, 1679), -- Underbat -> Underbat
 (@CGUID+32, @CGUID+30, 1679), -- Underbat -> Underbat
-(@CGUID+8, @CGUID+7, 1167), -- Bog Giant -> Bog Giant
+(@CGUID+8, @CGUID+7, 1155), -- Bog Giant -> Bog Giant
 (@CGUID+20, @CGUID+23, 1679), -- Underbat -> Underbat
 (@CGUID+21, @CGUID+23, 1679), -- Underbat -> Underbat
 (@CGUID+22, @CGUID+23, 1679), -- Underbat -> Underbat
 (@CGUID+50, @CGUID+51, 1679), -- Wrathfin Myrmidon -> Wrathfin Myrmidon
-(@CGUID+57, @CGUID+56, 1167), -- Wrathfin Sentry -> Wrathfin Sentry
-(@CGUID+96, @CGUID+58, 1167), -- Wrathfin Warrior -> creature_spawn_entry
-(@CGUID+102, @CGUID+58, 1167), -- creature_spawn_entry -> creature_spawn_entry
-(@CGUID+103, @CGUID+58, 1167), -- creature_spawn_entry -> creature_spawn_entry
+(@CGUID+57, @CGUID+56, 1155), -- Wrathfin Sentry -> Wrathfin Sentry
+(@CGUID+96, @CGUID+58, 1155), -- Wrathfin Warrior -> creature_spawn_entry
+(@CGUID+102, @CGUID+58, 1155), -- creature_spawn_entry -> creature_spawn_entry
+(@CGUID+103, @CGUID+58, 1155), -- creature_spawn_entry -> creature_spawn_entry
 (@CGUID+53, @CGUID+52, 1679), -- Wrathfin Myrmidon -> Wrathfin Myrmidon
-(@CGUID+59, @CGUID+104, 1167), -- creature_spawn_entry -> creature_spawn_entry
-(@CGUID+60, @CGUID+104, 1167), -- creature_spawn_entry -> creature_spawn_entry
-(@CGUID+67, @CGUID+75, 1167), -- creature_spawn_entry -> creature_spawn_entry
-(@CGUID+71, @CGUID+75, 1167), -- creature_spawn_entry -> creature_spawn_entry
+(@CGUID+59, @CGUID+104, 1155), -- creature_spawn_entry -> creature_spawn_entry
+(@CGUID+60, @CGUID+104, 1155), -- creature_spawn_entry -> creature_spawn_entry
+(@CGUID+67, @CGUID+75, 1155), -- creature_spawn_entry -> creature_spawn_entry
+(@CGUID+71, @CGUID+75, 1155), -- creature_spawn_entry -> creature_spawn_entry
 (@CGUID+61, @CGUID+97, 1679), -- creature_spawn_entry -> Wrathfin Warrior
 (@CGUID+62, @CGUID+97, 1679), -- creature_spawn_entry -> Wrathfin Warrior
 (@CGUID+70, @CGUID+97, 1679), -- creature_spawn_entry -> Wrathfin Warrior
-(@CGUID+63, @CGUID+98, 1167), -- Murkblood Tribesman -> Wrathfin Warrior
-(@CGUID+64, @CGUID+98, 1167), -- Murkblood Tribesman -> Wrathfin Warrior
-(@CGUID+73, @CGUID+98, 1167), -- Murkblood Healer -> Wrathfin Warrior
-(@CGUID+65, @CGUID+105, 1167), -- creature_spawn_entry -> creature_spawn_entry
-(@CGUID+74, @CGUID+105, 1167), -- creature_spawn_entry -> creature_spawn_entry
+(@CGUID+63, @CGUID+98, 1155), -- Murkblood Tribesman -> Wrathfin Warrior
+(@CGUID+64, @CGUID+98, 1155), -- Murkblood Tribesman -> Wrathfin Warrior
+(@CGUID+73, @CGUID+98, 1155), -- Murkblood Healer -> Wrathfin Warrior
+(@CGUID+65, @CGUID+105, 1155), -- creature_spawn_entry -> creature_spawn_entry
+(@CGUID+74, @CGUID+105, 1155), -- creature_spawn_entry -> creature_spawn_entry
 (@CGUID+55, @CGUID+54, 1679), -- Wrathfin Myrmidon -> Wrathfin Myrmidon
-(@CGUID+66, @CGUID+99, 1167), -- creature_spawn_entry -> Wrathfin Warrior
-(@CGUID+106, @CGUID+99, 1167), -- creature_spawn_entry -> Wrathfin Warrior
-(@CGUID+107, @CGUID+99, 1167), -- creature_spawn_entry -> Wrathfin Warrior
-(@CGUID+68, @CGUID+72, 1167), -- creature_spawn_entry -> creature_spawn_entry
-(@CGUID+69, @CGUID+72, 1167), -- creature_spawn_entry -> creature_spawn_entry
-(@CGUID+100, @CGUID+72, 1167), -- Wrathfin Warrior -> creature_spawn_entry
+(@CGUID+66, @CGUID+99, 1155), -- creature_spawn_entry -> Wrathfin Warrior
+(@CGUID+106, @CGUID+99, 1155), -- creature_spawn_entry -> Wrathfin Warrior
+(@CGUID+107, @CGUID+99, 1155), -- creature_spawn_entry -> Wrathfin Warrior
+(@CGUID+68, @CGUID+72, 1155), -- creature_spawn_entry -> creature_spawn_entry
+(@CGUID+69, @CGUID+72, 1155), -- creature_spawn_entry -> creature_spawn_entry
+(@CGUID+100, @CGUID+72, 1155), -- Wrathfin Warrior -> creature_spawn_entry
 (@CGUID+77, @CGUID+76, 1679), -- Fen Ray -> Fen Ray
 (@CGUID+78, @CGUID+76, 1679), -- Fen Ray -> Fen Ray
-(@CGUID+85, @CGUID+79, 1167), -- Fen Ray -> Fen Ray
-(@CGUID+86, @CGUID+79, 1167), -- Fen Ray -> Fen Ray
+(@CGUID+85, @CGUID+79, 1155), -- Fen Ray -> Fen Ray
+(@CGUID+86, @CGUID+79, 1155), -- Fen Ray -> Fen Ray
 (@CGUID+91, @CGUID+118, 1679), -- Lykul Wasp -> Lykul Stinger
 (@CGUID+92, @CGUID+118, 1679), -- Lykul Wasp -> Lykul Stinger
-(@CGUID+88, @CGUID+87, 1167), -- Fen Ray -> Fen Ray
-(@CGUID+89, @CGUID+87, 1167), -- Fen Ray -> Fen Ray
-(@CGUID+83, @CGUID+84, 1167), -- Fen Ray -> creature_spawn_entry
-(@CGUID+80, @CGUID+90, 1167), -- Fen Ray -> Lykul Wasp
-(@CGUID+81, @CGUID+90, 1167), -- Fen Ray -> Lykul Wasp
+(@CGUID+88, @CGUID+87, 1155), -- Fen Ray -> Fen Ray
+(@CGUID+89, @CGUID+87, 1155), -- Fen Ray -> Fen Ray
+(@CGUID+83, @CGUID+84, 1155), -- Fen Ray -> creature_spawn_entry
+(@CGUID+80, @CGUID+90, 1155), -- Fen Ray -> Lykul Wasp
+(@CGUID+81, @CGUID+90, 1155), -- Fen Ray -> Lykul Wasp
 (@CGUID+94, @CGUID+119, 1679), -- Lykul Wasp -> Lykul Stinger
 (@CGUID+95, @CGUID+119, 1679); -- Lykul Wasp -> Lykul Stinger
 
@@ -632,15 +614,15 @@ INSERT INTO `creature_spawn_entry` (`guid`, `entry`) VALUES
 
 INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `DeathState`, `MovementType`) VALUES
 (@CGUID+1, 17723, 546, 3, 10.63608, -206.855, -4.449889, 4.590884, 7200, 7200, 3, 0, 0, 1), -- Bog Giant
-(@CGUID+2, 17723, 546, 3, 45.1773, -294.602, 32.6927, 0.456166, 7200, 7200, 0, 0, 0, 2), -- Bog Giant
+(@CGUID+2, 17723, 546, 3, 93.06754, -360.3329, 33.21555, 0.456166, 7200, 7200, 0, 0, 0, 2), -- Bog Giant
 (@CGUID+3, 17723, 546, 3, 73.758, -384.513, 33.2459, 0.965887, 7200, 7200, 5, 0, 0, 1), -- Bog Giant
-(@CGUID+4, 17734, 546, 3, 187.8494, -54.14987, 26.64619, 3.707449, 7200, 7200, 0, 0, 0, 2), -- Underbog Lord
-(@CGUID+5, 17723, 546, 3, -70.8978, -227.653, -4.53726, 6.12987, 7200, 7200, 0, 0, 0, 2), -- Bog Giant
-(@CGUID+6, 17723, 546, 3, -43.9061, -270.25, -4.53655, 3.97552, 7200, 7200, 0, 0, 0, 2), -- Bog Giant
+(@CGUID+4, 17734, 546, 3, 153.0262, -93.89476, 26.35261, 3.707449, 7200, 7200, 0, 0, 0, 2), -- Underbog Lord
+(@CGUID+5, 17723, 546, 3, -50.81743, -226.4811, -4.536586, 6.12987, 7200, 7200, 0, 0, 0, 2), -- Bog Giant
+(@CGUID+6, 17723, 546, 3, -59.19425, -289.6774, -4.534918, 3.97552, 7200, 7200, 0, 0, 0, 2), -- Bog Giant
 (@CGUID+7, 17723, 546, 3, -129.9212, -342.1138, 33.34631, 0.9948376, 7200, 7200, 0, 0, 0, 0), -- Bog Giant
 (@CGUID+8, 17723, 546, 3, -97.88883, -348.7764, 32.95102, 1.658063, 7200, 7200, 0, 0, 0, 0), -- Bog Giant
 (@CGUID+9, 17723, 546, 3, 4.89774, -377.926, 27.2163, 2.80529, 7200, 7200, 4, 0, 0, 1), -- Bog Giant
-(@CGUID+10, 17723, 546, 3, -24.5847, -343.96, 31.1541, 0.764037, 7200, 7200, 0, 0, 0, 2), -- Bog Giant
+(@CGUID+10, 17723, 546, 3, -21.11057, -342.8836, 30.82127, 0.764037, 7200, 7200, 0, 0, 0, 2), -- Bog Giant
 (@CGUID+11, 17724, 546, 3, 71.087, -58.3801, -2.75326, 5.65408, 7200, 7200, 0, 0, 0, 2), -- Underbat
 (@CGUID+12, 17724, 546, 3, 72.2916, -66.0613, -2.75166, 2.78659, 7200, 7200, 0, 0, 0, 2), -- Underbat
 (@CGUID+13, 17724, 546, 3, 33.7465, -218.262, -4.53228, 4.92976, 7200, 7200, 0, 0, 0, 2), -- Underbat
@@ -750,7 +732,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+117, 18105, 546, 3, 231.066, -472.396, 48.0885, 4.84644, 86400, 86400, 0, 0, 0, 2), -- Ghaz'an
 (@CGUID+118, 19632, 546, 3, 298.968, -306.99, 18.7388, 2.64678, 7200, 7200, 0, 0, 0, 2), -- Lykul Stinger
 (@CGUID+119, 19632, 546, 3, 248.699, -144.806, 28.3781, 5.9569, 7200, 7200, 0, 0, 0, 2), -- Lykul Stinger
-(@CGUID+120, 17734, 546, 3, 165.843, -138.6171, 29.2732, 0.6520659, 7200, 7200, 0, 0, 0, 2), -- Underbog Lord
+(@CGUID+120, 17734, 546, 3, 158.53, -167.4191, 32.28274, 0.6520659, 7200, 7200, 0, 0, 0, 2), -- Underbog Lord
 (@CGUID+121, 18409, 546, 3, -76.80704, -115.076, 68.56723, 0, 7200, 7200, 0, 0, 0, 2), -- Large AOI Underbat
 (@CGUID+122, 18409, 546, 3, -82.51579, -343.9641, 6.295911, 0, 7200, 7200, 0, 0, 0, 2), -- Large AOI Underbat
 (@CGUID+123, 18409, 546, 3, -7.396929, -326.5323, 60.3266, 0, 7200, 7200, 0, 0, 0, 2), -- Large AOI Underbat
@@ -876,7 +858,7 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 (@OGUID+3, 181270, 546, 3, -90.72054, -420.4993, 36.07394, 0.4886912, 0, 0, 0.2419214, 0.9702958, 86400, 86400, 100, 1), -- Felweed
 (@OGUID+4, 181275, 546, 3, 376.4293, -453.1408, 33.19949, 4.031712, 0, 0, -0.902585, 0.4305117, 86400, 86400, 100, 1), -- Ragveil
 (@OGUID+5, 181275, 546, 3, 278.9159, -236.0371, 29.17045, 2.705255, 0, 0, 0.9762955, 0.2164421, 86400, 86400, 100, 1), -- Ragveil
-(@OGUID+6, 184935, 546, 3, 270.4417, -177.5935, 29.54572, 2.809975, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Fel Iron Chest
+-- (@OGUID+6,
 (@OGUID+7, 181278, 546, 3, 77.43577, -75.22554, -2.756693, 2.897245, 0, 0, 0.9925461, 0.12187, 86400, 86400, 100, 1), -- Ancient Lichen
 (@OGUID+8, 181278, 546, 3, 356.161, -519.4705, 31.77328, 3.560473, 0, 0, -0.9781475, 0.2079121, 86400, 86400, 100, 1), -- Ancient Lichen
 (@OGUID+9, 181278, 546, 3, 24.36164, -368.393, 27.25731, 1.378809, 0, 0, 0.6360779, 0.7716249, 86400, 86400, 100, 1), -- Ancient Lichen
@@ -895,9 +877,9 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 (@OGUID+22, 181278, 546, 3, -91.54044, -300.0656, -4.535956, 2.635444, 0, 0, 0.9681473, 0.2503814, 86400, 86400, 100, 1), -- Ancient Lichen
 (@OGUID+23, 184199, 546, 2, 4.613999, -12.32211, -3.214006, 5.228889, 0, 0, -0.5030708, 0.8642452, 0, 0, 0, 0), -- Instance_Portal_Difficulty_1
 (@OGUID+24, 184200, 546, 1, 4.613999, -12.32211, -3.214006, 5.228889, 0, 0, -0.5030708, 0.8642452, 0, 0, 0, 0), -- Instance_Portal_Difficulty_0
-(@OGUID+25, 184935, 546, 3, 74.7062, -252.385, -4.50239, 2.04204, 0, 0, 0.85264, 0.522499, 86400, 86400, 100, 1), -- Solid Fel Iron Chest
-(@OGUID+26, 184937, 546, 3, 258.718, -214.395, 27.9184, 5.81769, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
-(@OGUID+27, 184934, 546, 3, 237.7724, -380.0579, 48.28535, 3.019413, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Fel Iron Chest
+-- (@OGUID+25,
+-- (@OGUID+26,
+-- (@OGUID+27,
 (@OGUID+28, 181270, 546, 3, 203.8416, 27.02369, 27.56251, 1.954769, 0, 0, 0.8290377, 0.5591928, 86400, 86400, 100, 1), -- Felweed
 (@OGUID+29, 181270, 546, 3, 134.608, -84.8074, 26.6971, 6.1444, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Felweed
 (@OGUID+30, 181270, 546, 3, 272.366, -119.9198, 29.85154, 3.246347, 0, 0, -0.9986286, 0.05235322, 86400, 86400, 100, 1), -- Felweed
@@ -972,7 +954,23 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 (@OGUID+103, 181556, 546, 3, -93.78931, -248.9611, 27.40, 3.176533, 0, 0, -0.9998474, 0.01746928, 86400, 86400, 255, 1), -- Adamantite Deposit			// Z = 26.10961
 (@OGUID+104, 181569, 546, 3, -93.78931, -248.9611, 27.40, 3.176533, 0, 0, -0.9998474, 0.01746928, 86400, 86400, 100, 1), -- Rich Adamantite Deposite	// Z = 26.10961
 (@OGUID+105, 181556, 546, 3, -36.64338, -199.1346, -4.535348, 3.979355, 0, 0, -0.9135447, 0.4067384, 86400, 86400, 255, 1), -- Adamantite Deposit
-(@OGUID+106, 181557, 546, 3, -36.64338, -199.1346, -4.535348, 3.979355, 0, 0, -0.9135447, 0.4067384, 86400, 86400, 255, 1); -- Khorium Vein
+(@OGUID+106, 181557, 546, 3, -36.64338, -199.1346, -4.535348, 3.979355, 0, 0, -0.9135447, 0.4067384, 86400, 86400, 255, 1), -- Khorium Vein
+(@OGUID+107, 184934, 546, 1, 74.7062, -252.385, -4.50239, 2.04204, 0, 0, 0.85264, 0.522499, 86400, 86400, 100, 1), -- Bound Fel Iron Chest
+(@OGUID+108, 184935, 546, 1, 74.7062, -252.385, -4.50239, 2.04204, 0, 0, 0.85264, 0.522499, 86400, 86400, 100, 1), -- Solid Fel Iron Chest
+(@OGUID+109, 184936, 546, 2, 74.7062, -252.385, -4.50239, 2.04204, 0, 0, 0.85264, 0.522499, 86400, 86400, 100, 1), -- Bound Adamantite Chest
+(@OGUID+110, 184937, 546, 2, 74.7062, -252.385, -4.50239, 2.04204, 0, 0, 0.85264, 0.522499, 86400, 86400, 100, 1), -- Solid Adamantite Chest
+(@OGUID+111, 184934, 546, 1, 237.7724, -380.0579, 48.28535, 3.019413, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Fel Iron Chest
+(@OGUID+112, 184935, 546, 1, 237.7724, -380.0579, 48.28535, 3.019413, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Fel Iron Chest
+(@OGUID+113, 184936, 546, 2, 237.7724, -380.0579, 48.28535, 3.019413, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Adamantite Chest
+(@OGUID+114, 184937, 546, 2, 237.7724, -380.0579, 48.28535, 3.019413, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
+(@OGUID+115, 184934, 546, 1, 258.718, -214.395, 27.9184, 5.81769, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Fel Iron Chest
+(@OGUID+116, 184935, 546, 1, 258.718, -214.395, 27.9184, 5.81769, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Fel Iron Chest
+(@OGUID+117, 184936, 546, 2, 258.718, -214.395, 27.9184, 5.81769, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Adamantite Chest
+(@OGUID+118, 184937, 546, 2, 258.718, -214.395, 27.9184, 5.81769, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
+(@OGUID+119, 184934, 546, 1, 270.4417, -177.5935, 29.54572, 2.809975, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Fel Iron Chest
+(@OGUID+120, 184935, 546, 1, 270.4417, -177.5935, 29.54572, 2.809975, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Fel Iron Chest
+(@OGUID+121, 184936, 546, 2, 270.4417, -177.5935, 29.54572, 2.809975, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Adamantite Chest
+(@OGUID+122, 184937, 546, 2, 270.4417, -177.5935, 29.54572, 2.809975, 0, 0, 0, 0, 86400, 86400, 100, 1); -- Solid Adamantite Chest
 
 -- ======
 -- EVENTS
@@ -1005,12 +1003,15 @@ INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALU
 (@PGUID+65, @PGUID+22, 0, 'Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein - #6'),
 (@PGUID+66, @PGUID+22, 0, 'Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein - #7'),
 (@PGUID+67, @PGUID+22, 0, 'Adamantite Deposit / Rich Adamantite Deposit - #8'),
-(@PGUID+68, @PGUID+22, 0, 'Adamantite Deposit / Khorium Vein - #9');
+(@PGUID+68, @PGUID+22, 0, 'Adamantite Deposit / Khorium Vein - #9'),
+(@PGUID+91, @PGUID+90, 0, 'The Underbog - Chest - #1'),
+(@PGUID+92, @PGUID+90, 0, 'The Underbog - Chest - #2'),
+(@PGUID+93, @PGUID+90, 0, 'The Underbog - Chest - #3'),
+(@PGUID+94, @PGUID+90, 0, 'The Underbog - Chest - #4');
 
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 -- (@PGUID+21, 1, 'The Underbog - Master Herb Pool'), -- gameobject
 (@PGUID+22, 5, 'The Underbog - Master Mineral Pool'),
-(@PGUID+24, 1, 'The Underbog - Master Chest Pool'),
 (@PGUID+28, 2, 'The Underbog - Master Ancient Lichen (181278) Pool'),
 (@PGUID+29, 2, 'The Underbog - Master Felweed (181270) Pool'),
 (@PGUID+30, 2, 'The Underbog - Master Ragveil (181275) / Flame Cap (181276) Pool'),
@@ -1030,7 +1031,12 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (@PGUID+65, 1, 'The Underbog - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein - #6'),
 (@PGUID+66, 1, 'The Underbog - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein - #7'),
 (@PGUID+67, 1, 'The Underbog - Adamantite Deposit / Rich Adamantite Deposit - #8'),
-(@PGUID+68, 1, 'The Underbog - Adamantite Deposit / Khorium Vein - #9');
+(@PGUID+68, 1, 'The Underbog - Adamantite Deposit / Khorium Vein - #9'),
+(@PGUID+90, 1, 'The Underbog - Master Chest Pool'),
+(@PGUID+91, 1, 'The Underbog - Chest - #1'),
+(@PGUID+92, 1, 'The Underbog - Chest - #2'),
+(@PGUID+93, 1, 'The Underbog - Chest - #3'),
+(@PGUID+94, 1, 'The Underbog - Chest - #4');
 
 INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES
 (@OGUID+14, @PGUID+22, 0, 'The Underbog - Adamantite Deposit (181556)'),
@@ -1040,10 +1046,6 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 (@OGUID+90, @PGUID+22, 0, 'The Underbog - Adamantite Deposit (181556)'),
 (@OGUID+94, @PGUID+22, 0, 'The Underbog - Adamantite Deposit (181556)'),
 (@OGUID+95, @PGUID+22, 0, 'The Underbog - Adamantite Deposit (181556)'),
-(@OGUID+6, @PGUID+24, 0, 'The Underbog - Solid Fel Iron Chest (184935)'),
-(@OGUID+25, @PGUID+24, 0, 'The Underbog - Solid Fel Iron Chest (184935)'),
-(@OGUID+26, @PGUID+24, 0, 'The Underbog - Solid Adamantite Chest (184937)'),
-(@OGUID+27, @PGUID+24, 0, 'The Underbog - Bound Fel Iron Chest (184934)'),
 (@OGUID+7, @PGUID+28, 0, 'The Underbog - Ancient Lichen (181278)'),
 (@OGUID+8, @PGUID+28, 0, 'The Underbog - Ancient Lichen (181278)'),
 (@OGUID+9, @PGUID+28, 0, 'The Underbog - Ancient Lichen (181278)'),
@@ -1127,7 +1129,23 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 (@OGUID+103, @PGUID+67, 0, 'The Underbog - Adamantite Deposit (181556) - #8'),
 (@OGUID+104, @PGUID+67, 0, 'The Underbog - Rich Adamantite Deposit (181569) - #8'),
 (@OGUID+105, @PGUID+68, 0, 'The Underbog - Adamantite Deposit (181556) - #9'),
-(@OGUID+106, @PGUID+68, 20, 'The Underbog - Khorium Vein (181557) - #9');
+(@OGUID+106, @PGUID+68, 20, 'The Underbog - Khorium Vein (181557) - #9'),
+(@OGUID+107, @PGUID+91, 0, 'The Underbog - Bound Fel Iron Chest (184934) - #1'),
+(@OGUID+108, @PGUID+91, 0, 'The Underbog - Solid Fel Iron Chest (184935) - #1'),
+(@OGUID+109, @PGUID+91, 0, 'The Underbog - Bound Adamantite Chest (184936) - #1'),
+(@OGUID+110, @PGUID+91, 0, 'The Underbog - Solid Adamantite Chest (184937) - #1'),
+(@OGUID+111, @PGUID+92, 0, 'The Underbog - Bound Fel Iron Chest (184934) - #2'),
+(@OGUID+112, @PGUID+92, 0, 'The Underbog - Solid Fel Iron Chest (184935) - #2'),
+(@OGUID+113, @PGUID+92, 0, 'The Underbog - Bound Adamantite Chest (184936) - #2'),
+(@OGUID+114, @PGUID+92, 0, 'The Underbog - Solid Adamantite Chest (184937) - #2'),
+(@OGUID+115, @PGUID+93, 0, 'The Underbog - Bound Fel Iron Chest (184934) - #3'),
+(@OGUID+116, @PGUID+93, 0, 'The Underbog - Solid Fel Iron Chest (184935) - #3'),
+(@OGUID+117, @PGUID+93, 0, 'The Underbog - Bound Adamantite Chest (184936) - #3'),
+(@OGUID+118, @PGUID+93, 0, 'The Underbog - Solid Adamantite Chest (184937) - #3'),
+(@OGUID+119, @PGUID+94, 0, 'The Underbog - Bound Fel Iron Chest (184934) - #4'),
+(@OGUID+120, @PGUID+94, 0, 'The Underbog - Solid Fel Iron Chest (184935) - #4'),
+(@OGUID+121, @PGUID+94, 0, 'The Underbog - Bound Adamantite Chest (184936) - #4'),
+(@OGUID+122, @PGUID+94, 0, 'The Underbog - Solid Adamantite Chest (184937) - #4');
 
 -- INSERT INTO `pool_gameobject_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 

@@ -63,6 +63,8 @@ UPDATE gameobject_template SET data8=1221 WHERE entry IN (68865, 21530, 21277);
 -- Thaurissan Relic - original tbc-db value 0, classic-db (and classic sniff) value 3702 - the quest which involves actually using this object is 3701
 UPDATE gameobject_template SET data1=3701 WHERE entry=153556;
 
+UPDATE `gameobject` SET `position_z` = 133.60325 WHERE `guid` = 132224 AND `id` = 176589; -- Black Lotus Sniff Z = -61.28984
+
 -- ============================================================
 -- TBC section
 -- ============================================================
@@ -74,6 +76,17 @@ UPDATE gameobject_template SET data8=1 WHERE entry IN (181831,181838,181840,1818
 UPDATE gameobject_template SET data2=19660800 WHERE entry IN (182349,182350);
 -- Consuming Flames Trap
 UPDATE gameobject_template SET data3=0, data8=1 WHERE entry=178673; -- 21650, 0
+
+-- -------------------------------
+-- Item custom changes
+-- -------------------------------
+
+-- ============================================================
+-- Classic section
+-- ============================================================
+
+-- Mana Agate should have class=0 like all other mana gems
+UPDATE item_template SET class=0 WHERE entry=5514;
 
 -- -------------------------------
 -- Creature custom changes
