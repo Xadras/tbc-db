@@ -65,6 +65,16 @@ UPDATE gameobject_template SET data1=3701 WHERE entry=153556;
 
 UPDATE `gameobject` SET `position_z` = 133.60325 WHERE `guid` = 132224 AND `id` = 176589; -- Black Lotus Sniff Z = -61.28984
 
+-- Make object 181444 (Kel'Thuzad Trigger) despawnable on usage
+UPDATE gameobject_template SET data4=1 WHERE entry=181444;
+
+-- Ritual Candle Aura
+UPDATE gameobject_template SET `data8`=1 WHERE entry=179688; -- add serverside attribute so that it's not visible to players
+UPDATE gameobject_template SET `faction`=1375 WHERE entry=179688; -- "Treasure" faction 1375 here is guessed based on when patch 1.4 was released, and the fact that it's hostile to Demon faction 90
+
+-- Make PX-238 Winter Wondervolt TRAP GO server-side (visible by GM only)
+UPDATE gameobject_template SET `data8`=1 WHERE entry=180797; 
+
 -- ============================================================
 -- TBC section
 -- ============================================================
@@ -76,6 +86,9 @@ UPDATE gameobject_template SET data8=1 WHERE entry IN (181831,181838,181840,1818
 UPDATE gameobject_template SET data2=19660800 WHERE entry IN (182349,182350);
 -- Consuming Flames Trap
 UPDATE gameobject_template SET data3=0, data8=1 WHERE entry=178673; -- 21650, 0
+
+-- Zul'Aman - Tanzar's Trunk - Is not subject to group loot per blizzlike data but all the other chests are. Confirmed data in sniff to be 0, however no such issues reported on retail. Confirmation that blizz sends unfixed GO template data???
+UPDATE gameobject_template SET data15=1 WHERE entry IN(186648);
 
 -- -------------------------------
 -- Item custom changes

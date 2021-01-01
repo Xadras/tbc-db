@@ -440,18 +440,18 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 DELETE FROM creature_movement_template WHERE entry IN (18731);
 INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
 -- Ambassador Hellmaw
-(18731, 0, 0, -156.6754, 4.982729, 8.156394, 4.677482, 2000, 1873101),
-(18731, 0, 1, -159.5139, -2.139098, 8.073091, 0, 0, 0),
-(18731, 0, 2, -163.4486, -7.553354, 8.073133, 0, 0, 0),
-(18731, 0, 3, -168.1755, -9.746803, 8.073169, 0, 0, 0),
-(18731, 0, 4, -171.3253, -13.19836, 8.073106, 0, 0, 0),
-(18731, 0, 5, -172.7835, -25.98619, 8.073088, 0, 0, 0),
-(18731, 0, 6, -173.6684, -54.10063, 8.073081, 0, 0, 0),
-(18731, 0, 7, -156.659, -72.118, 8.073, 0, 0, 0), -- nonsniff
-(18731, 0, 8, -142.292, -59.423, 8.073, 0, 0, 0),
-(18731, 0, 9, -141.779, -38.972, 8.073, 0, 0, 0),
-(18731, 0, 10, -142.922, -18.95, 8.073, 0, 0, 0),
-(18731, 0, 11, -157.366, 2.177, 8.073, 0, 0, 0);
+(18731, 0, 1, -156.6754, 4.982729, 8.156394, 4.677482, 2000, 1873101),
+(18731, 0, 2, -159.5139, -2.139098, 8.073091, 0, 0, 0),
+(18731, 0, 3, -163.4486, -7.553354, 8.073133, 0, 0, 0),
+(18731, 0, 4, -168.1755, -9.746803, 8.073169, 0, 0, 0),
+(18731, 0, 5, -171.3253, -13.19836, 8.073106, 0, 0, 0),
+(18731, 0, 6, -172.7835, -25.98619, 8.073088, 0, 0, 0),
+(18731, 0, 7, -173.6684, -54.10063, 8.073081, 0, 0, 0),
+(18731, 0, 8, -156.659, -72.118, 8.073, 0, 0, 0), -- nonsniff
+(18731, 0, 9, -142.292, -59.423, 8.073, 0, 0, 0),
+(18731, 0, 10, -141.779, -38.972, 8.073, 0, 0, 0),
+(18731, 0, 11, -142.922, -18.95, 8.073, 0, 0, 0),
+(18731, 0, 12, -157.366, 2.177, 8.073, 0, 0, 0);
 
 INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
 (@CGUID+37, 0, 1, 1, 16, 0, 0, ''), -- creature_spawn_entry
@@ -1143,9 +1143,9 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 (@OGUID+83, 181569, 555, 3, -362.0406, -24.65191, 16.78804, 1.832595, 0, 0, 0.7933531, 0.6087617, 86400, 86400, 255, 1), -- Rich Adamantite Deposit
 (@OGUID+84, 181569, 555, 3, -444.7061, -134.0397, 9.709791, 2.879789, 0, 0, 0.9914446, 0.1305283, 86400, 86400, 255, 1), -- Rich Adamantite Deposit
 (@OGUID+85, 181569, 555, 3, -413.9675, -148.7516, 12.09024, 1.710422, 0, 0, 0.7547092, 0.6560594, 86400, 86400, 255, 1), -- Rich Adamantite Deposit
-(@OGUID+86, 181557, 555, 3, -343.0129, -289.6252, 18.65376, 3.926996, 0, 0, -0.9238787, 0.3826855, 86400, 86400, 255, 1), -- Khorium
-(@OGUID+87, 181557, 555, 3, -352.1901, -60.70448, 17.71093, 5.759588, 0, 0, -0.2588186, 0.9659259, 86400, 86400, 255, 1), -- Khorium
-(@OGUID+88, 181557, 555, 3, -413.9675, -148.7516, 12.09024, 1.710422, 0, 0, 0.7547092, 0.6560594, 86400, 86400, 255, 1), -- Khorium
+(@OGUID+86, 181557, 555, 3, -343.0129, -289.6252, 18.65376, 3.926996, 0, 0, -0.9238787, 0.3826855, 86400, 86400, 255, 1), -- Khorium Vein
+(@OGUID+87, 181557, 555, 3, -352.1901, -60.70448, 17.71093, 5.759588, 0, 0, -0.2588186, 0.9659259, 86400, 86400, 255, 1), -- Khorium Vein
+(@OGUID+88, 181557, 555, 3, -413.9675, -148.7516, 12.09024, 1.710422, 0, 0, 0.7547092, 0.6560594, 86400, 86400, 255, 1), -- Khorium Vein
 (@OGUID+89, 184940, 555, 3, -290.183, -91.233, 8.07305, 0.349066, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Adamantite Chest
 (@OGUID+90, 184941, 555, 3, -290.183, -91.233, 8.07305, 0.349066, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
 (@OGUID+91, 184940, 555, 3, -455.751, -197.417, 12.6891, 0.523599, 0, 0, 0.2588186, 0.9659259, 86400, 86400, 100, 1), -- Bound Adamantite Chest
@@ -1160,7 +1160,8 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 (@OGUID+100, 184941, 555, 3, -287.9515, 21.96442, 8.073029, -0.8028509, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
 (@OGUID+101, 184940, 555, 3, -326.1286, -240.5086, 12.68316, -1.797689, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Adamantite Chest
 (@OGUID+102, 184941, 555, 3, -326.1286, -240.5086, 12.68316, -1.797689, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
-(@OGUID+103, 181569, 555, 3, -234.0617, -97.60569, 15.50827, 0.7504908, 0, 0, 0.3665009, 0.9304177, 86400, 86400, 255, 1); -- Adamantite Deposit
+(@OGUID+103, 181569, 555, 3, -234.0617, -97.60569, 15.50827, 0.7504908, 0, 0, 0.3665009, 0.9304177, 86400, 86400, 255, 1), -- Adamantite Deposit
+(@OGUID+104, 181557, 555, 3, -461.4516, -168.9303, 21.16686, 3.612838, 0, 0, -0.9723692, 0.2334484, 86400, 86400, 255, 1); -- Khorium Vein
 
 -- ======
 -- EVENTS
@@ -1177,13 +1178,13 @@ INSERT INTO `game_event_creature_data` (`guid`, `entry_id`, `modelid`, `equipmen
 -- =======
 
 INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
-(@PGUID+24, @PGUID+23, 0, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium - Pool 1'),
+(@PGUID+24, @PGUID+23, 0, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein - Pool 1'),
 (@PGUID+25, @PGUID+23, 0, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit - Pool 2'),
 (@PGUID+26, @PGUID+23, 0, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit - Pool 3'),
-(@PGUID+27, @PGUID+23, 0, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium - Pool 4'),
+(@PGUID+27, @PGUID+23, 0, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein - Pool 4'),
 (@PGUID+28, @PGUID+23, 0, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit - Pool 5'),
 (@PGUID+29, @PGUID+23, 0, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit - Pool 6'),
-(@PGUID+30, @PGUID+23, 0, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium - Pool 7'),
+(@PGUID+30, @PGUID+23, 0, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein - Pool 7'),
 (@PGUID+31, @PGUID+21, 0, 'Shadow Labyrinth - Bound / Solid Adamantite Chest - Pool 1'),
 (@PGUID+32, @PGUID+21, 0, 'Shadow Labyrinth - Bound / Solid Adamantite Chest - Pool 2'),
 (@PGUID+33, @PGUID+21, 0, 'Shadow Labyrinth - Bound / Solid Adamantite Chest - Pool 3'),
@@ -1200,13 +1201,13 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (@PGUID+21, 2, 'Shadow Labyrinth - Master Chest Pool'), -- gameobject
 (@PGUID+22, 4, 'Shadow Labyrinth - Master Ancient Lichen (181278) Pool'),
 (@PGUID+23, 3, 'Shadow Labyrinth - Master Mineral Pool'),
-(@PGUID+24, 1, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium - Pool 1'),
+(@PGUID+24, 1, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein - Pool 1'),
 (@PGUID+25, 1, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit - Pool 2'),
 (@PGUID+26, 1, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit - Pool 3'),
-(@PGUID+27, 1, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium - Pool 4'),
+(@PGUID+27, 1, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein - Pool 4'),
 (@PGUID+28, 1, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit - Pool 5'),
 (@PGUID+29, 1, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit - Pool 6'),
-(@PGUID+30, 1, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium - Pool 7'),
+(@PGUID+30, 1, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein - Pool 7'),
 (@PGUID+31, 1, 'Shadow Labyrinth - Bound / Solid Adamantite Chest - Pool 1'),
 (@PGUID+32, 1, 'Shadow Labyrinth - Bound / Solid Adamantite Chest - Pool 2'),
 (@PGUID+33, 1, 'Shadow Labyrinth - Bound / Solid Adamantite Chest - Pool 3'),
@@ -1277,7 +1278,7 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 (@OGUID+69, @PGUID+22, 0, 'Shadow Labyrinth - Ancient Lichen (181278)'),
 (@OGUID+70, @PGUID+22, 0, 'Shadow Labyrinth - Ancient Lichen (181278)'),
 (@OGUID+71, @PGUID+38, 0, 'Shadow Labyrinth - Adamantite Deposit (181556) - #8'),
-(@OGUID+72, @PGUID+26, 0, 'Shadow Labyrinth - Adamantite Deposit (181556) - Pool 3'),
+(@OGUID+72, @PGUID+26, 0, 'Shadow Labyrinth - Adamantite Deposit (181556) - #3'),
 (@OGUID+73, @PGUID+23, 0, 'Shadow Labyrinth - Adamantite Deposit (181556)'),
 (@OGUID+74, @PGUID+27, 0, 'Shadow Labyrinth - Adamantite Deposit (181556) - Pool 4'),
 (@OGUID+75, @PGUID+28, 0, 'Shadow Labyrinth - Adamantite Deposit (181556) - Pool 5'),
@@ -1285,15 +1286,15 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 (@OGUID+77, @PGUID+30, 0, 'Shadow Labyrinth - Adamantite Deposit (181556) - Pool 7'),
 (@OGUID+78, @PGUID+23, 0, 'Shadow Labyrinth - Adamantite Deposit (181556)'),
 (@OGUID+79, @PGUID+24, 0, 'Shadow Labyrinth - Rich Adamantite Deposit (181569) - Pool 1'),
-(@OGUID+80, @PGUID+26, 0, 'Shadow Labyrinth - Rich Adamantite Deposit (181569) - Pool 3'),
+(@OGUID+80, @PGUID+26, 0, 'Shadow Labyrinth - Rich Adamantite Deposit (181569) - #3'),
 (@OGUID+81, @PGUID+25, 0, 'Shadow Labyrinth - Rich Adamantite Deposit (181569) - Pool 2'),
 (@OGUID+82, @PGUID+27, 0, 'Shadow Labyrinth - Rich Adamantite Deposit (181569) - Pool 4'),
 (@OGUID+83, @PGUID+28, 0, 'Shadow Labyrinth - Rich Adamantite Deposit (181569) - Pool 5'),
 (@OGUID+84, @PGUID+29, 0, 'Shadow Labyrinth - Rich Adamantite Deposit (181569) - Pool 6'),
 (@OGUID+85, @PGUID+30, 0, 'Shadow Labyrinth - Rich Adamantite Deposit (181569) - Pool 7'),
-(@OGUID+86, @PGUID+24, 0, 'Shadow Labyrinth - Khorium (181557) - Pool 1'),
-(@OGUID+87, @PGUID+27, 0, 'Shadow Labyrinth - Khorium (181557) - Pool 4'),
-(@OGUID+88, @PGUID+30, 0, 'Shadow Labyrinth - Khorium (181557) - Pool 7'),
+(@OGUID+86, @PGUID+24, 0, 'Shadow Labyrinth - Khorium Vein (181557) - Pool 1'),
+(@OGUID+87, @PGUID+27, 0, 'Shadow Labyrinth - Khorium Vein (181557) - Pool 4'),
+(@OGUID+88, @PGUID+30, 0, 'Shadow Labyrinth - Khorium Vein (181557) - Pool 7'),
 (@OGUID+89, @PGUID+31, 0, 'Shadow Labyrinth - Bound Adamantite Chest (184940)'),
 (@OGUID+90, @PGUID+31, 0, 'Shadow Labyrinth - Solid Adamantite Chest (184941)'),
 (@OGUID+91, @PGUID+32, 0, 'Shadow Labyrinth - Bound Adamantite Chest (184940)'),
@@ -1308,7 +1309,8 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 (@OGUID+100, @PGUID+36, 0, 'Shadow Labyrinth - Solid Adamantite Chest (184941)'),
 (@OGUID+101, @PGUID+37, 0, 'Shadow Labyrinth - Bound Adamantite Chest (184940)'),
 (@OGUID+102, @PGUID+37, 0, 'Shadow Labyrinth - Solid Adamantite Chest (184941)'),
-(@OGUID+103, @PGUID+38, 0, 'Shadow Labyrinth - Rich Adamantite Deposit (181569) - #8');
+(@OGUID+103, @PGUID+38, 0, 'Shadow Labyrinth - Rich Adamantite Deposit (181569) - #8'),
+(@OGUID+104, @PGUID+26, 0, 'Shadow Labyrinth - Khorium Vein (181557) - #3');
 
 -- INSERT INTO `pool_gameobject_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 

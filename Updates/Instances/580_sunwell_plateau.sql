@@ -491,6 +491,7 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+338, 2, 1758.39, 570.5671, 85.12949, 0, 0, 0),
 (@CGUID+338, 3, 1752.362, 564.8392, 85.1283, 0, 0, 0),
 (@CGUID+338, 4, 1758.39, 570.5671, 85.12949, 0, 0, 0),
+-- Gauntlet Imp Trigger
 (@CGUID+342, 1, 1697.917, 502.315, 86.48821, 1.658063, 10000, 2584801);
 
 DELETE FROM `creature_movement_template` WHERE `entry` IN (25485,25502,25319); -- nonstatic spawns
@@ -599,8 +600,7 @@ INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_
 (25644, 0, 15, 1755.888, 924.1495, 15.58635, 100, 18000, 2564401),
 (25644, 0, 16, 1755.888, 924.1495, 15.58635, 100, 0, 2564402),
 -- Shadowsword Deathbringer 25485 - ZoneCombatPulse would pull all surrounding groups which is not intended - HACK
-(25485, 0, 0, 1680.382, 542.687, 85.27053, 0, 0, 5), -- spawnpoint - hack due to movementtype change and waypoint script execution delay
-(25485, 0, 1, 1680.382, 542.687, 85.27053, 0, 0, 5), -- spawnpoint - hack due to movementtype change and waypoint script execution delay
+(25485, 0, 1, 1676.9564, 547.49713, 85.14562, 0, 0, 0),
 (25485, 0, 2, 1666.52, 562.1425, 85.08298, 0, 0, 0),
 (25485, 0, 3, 1650.734, 568.0248, 85.12753, 0, 0, 0),
 (25485, 0, 4, 1632.968, 584.8542, 84.9715, 0, 0, 0),
@@ -624,10 +624,9 @@ INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_
 (25485, 0, 22, 1572.274, 537.1907, 38.79183, 0, 0, 0),
 (25485, 0, 23, 1583.751, 521.8306, 32.67748, 0, 0, 0),
 (25485, 0, 24, 1588.915, 506.6923, 32.80248, 0, 0, 0),
-(25485, 0, 25, 1588.915, 506.6923, 32.80248, 0, 0, 1),
+(25485, 0, 25, 1588.915, 506.6923, 32.80248, 0, 1, 1),
 -- Pathing for Volatile Fiend Entry: 25851
-(25851, 0, 0, 1697.917, 502.315, 86.48821, 0, 0, 5), -- spawnpoint - hack due to movementtype change and waypoint script execution delay
-(25851, 0, 1, 1697.917, 502.315, 86.48821, 0, 0, 5), -- spawnpoint - hack due to movementtype change and waypoint script execution delay
+(25851, 0, 1, 1676.9564, 547.49713, 85.14562, 0, 0, 0),
 (25851, 0, 2, 1666.52, 562.1425, 85.08298, 0, 0, 0),
 (25851, 0, 3, 1650.734, 568.0248, 85.12753, 0, 0, 0),
 (25851, 0, 4, 1632.968, 584.8542, 84.9715, 0, 0, 0),
@@ -651,7 +650,7 @@ INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_
 (25851, 0, 22, 1572.274, 537.1907, 38.79183, 0, 0, 0),
 (25851, 0, 23, 1583.751, 521.8306, 32.67748, 0, 0, 0),
 (25851, 0, 24, 1588.915, 506.6923, 32.80248, 0, 0, 0),
-(25851, 0, 25, 1588.915, 506.6923, 32.80248, 0, 0, 1);
+(25851, 0, 25, 1588.915, 506.6923, 32.80248, 0, 1, 1);
 
 -- shield orb
 INSERT INTO `creature_movement_template` (`entry`,`pathId`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
@@ -938,6 +937,10 @@ INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+314, @CGUID+312, 1167), -- Shadowsword Vanquisher -> Shadowsword Manafiend
 (@CGUID+315, @CGUID+312, 1167), -- Shadowsword Lifeshaper -> Shadowsword Manafiend
 (@CGUID+316, @CGUID+312, 1167), -- Shadowsword Commander -> Shadowsword Manafiend
+-- Gauntlet Spawn Control
+(@CGUID+342, @CGUID+316, 144), -- Gauntlet Imp Trigger -> Shadowsword Commander
+(@CGUID+343, @CGUID+316, 144), -- Gauntlet Imp Trigger -> Shadowsword Commander
+(@CGUID+344, @CGUID+316, 144), -- Gauntlet Imp Trigger -> Shadowsword Commander
 -- Shadowsword Group #5
 (@CGUID+318, @CGUID+317, 1167), -- Shadowsword Soulbinder -> Shadowsword Soulbinder
 (@CGUID+319, @CGUID+317, 1167), -- Shadowsword Soulbinder -> Shadowsword Soulbinder
@@ -1067,7 +1070,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+60, 23472, 580, 1, 1555.983, 520.8634, 28.07638, 0.5934119, 7200, 7200, 0, 0, 0, 0), -- World Trigger (Large AOI Not Immune PC/NPC)
 (@CGUID+61, 24850, 580, 1, 1704.215, 924.7576, 53.16081, 1.53589, 7200, 7200, 0, 0, 0, 0), -- Kalecgos
 (@CGUID+62, 24882, 580, 1, 1463.828, 611.512, 21.57002, 1.623156, 7200, 7200, 0, 0, 0, 0), -- Brutallus
-(@CGUID+63, 24891, 580, 1, 1709.094, 927.5035, -74.28364, 2.932153, 7200, 7200, 0, 0, 0, 0), -- Kalecgos
+-- (@CGUID+63 RE-USE
 (@CGUID+64, 24892, 580, 1, 1699.906, 929.0208, -74.28365, 6.161012, 7200, 7200, 0, 0, 0, 0), -- Sathrovarr the Corruptor
 (@CGUID+65, 24928, 580, 1, 2053.962, 798.5794, 50.3158, 0.01745329, 7200, 7200, 0, 0, 0, 0), -- Sunwell Daily Bunny x 1.00
 (@CGUID+66, 25357, 580, 1, 1468.38, 730.267, 60.08333, 5.078908, 7200, 7200, 0, 0, 0, 0), -- Felmyst Flight Target – Left
@@ -1310,7 +1313,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+338, 25837, 580, 1, 1752.243, 564.6907, 85.20719, 0.7629684, 7200, 7200, 0, 0, 0, 2), -- Shadowsword Commander PATH 2
 -- Imp Triggers not grouped "Imp spawning starts on spawn."
 (@CGUID+339, 25848, 580, 1, 1589.505, 514.9243, 33.22498, 2.164208, 7200, 7200, 0, 0, 0, 0), -- Gauntlet Imp Trigger "bottom - This is the trigger imps path to"
-(@CGUID+340, 25848, 580, 1, 1680.382, 542.687, 85.27053, 2.007129, 7200, 7200, 0, 0, 0, 0), -- Gauntlet Imp Trigger "When reached imp spawning stops"
+(@CGUID+340, 25848, 580, 1, 1680.382, 542.687, 85.27053, 2.007129, 7200, 7200, 0, 0, 0, 0), -- Gauntlet Imp Trigger
 (@CGUID+341, 25848, 580, 1, 1684.981, 507.9774, 88.1204, 1.151917, 7200, 7200, 0, 0, 0, 0), -- Gauntlet Imp Trigger "Channel"
 (@CGUID+342, 25848, 580, 1, 1697.917, 502.315, 86.48821, 1.658063, 7200, 7200, 0, 0, 0, 2), -- Gauntlet Imp Trigger "Spawner" every 10 seconds
 (@CGUID+343, 25848, 580, 1, 1698.092, 502.2403, 86.49195, 1.570796, 7200, 7200, 0, 0, 0, 0), -- Gauntlet Imp Trigger "Spawner" Summon Visual
