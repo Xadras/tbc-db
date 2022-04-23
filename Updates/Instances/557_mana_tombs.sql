@@ -13,7 +13,7 @@ SET @PGUID := 49400; -- pools
 -- CREATURES
 -- =========
 
-INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+INSERT INTO `creature_movement` (`id`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 (@CGUID+47, 1, -68.4671, -16.5295, -0.946325, 1.00453, 0, 0),
 (@CGUID+47, 2, -50.0854, 1.97216, -0.948157, 0.717857, 0, 0),
 (@CGUID+47, 3, -38.5007, 3.36018, -0.954319, 6.24392, 0, 0),
@@ -126,25 +126,25 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+173, 4, -360.753, -170.636, -0.959199, 0, 0, 0),
 (@CGUID+173, 5, -365.623, -154.894, -0.959199, 0, 0, 0);
 
--- INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+-- INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 
--- INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
+-- INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
 
-REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(18309, 0, 0, 1, 16, 0, 0, NULL), -- Ethereal Scavenger
-(18311, 0, 0, 1, 16, 0, 0, NULL), -- Ethereal Crypt Raider
-(18312, 0, 0, 1, 16, 0, 0, NULL), -- Ethereal Spellbinder
-(18313, 0, 0, 1, 16, 0, 0, NULL), -- Ethereal Sorcerer
-(18314, 0, 0, 1, 16, 0, 0, NULL), -- Nexus Stalker
-(18315, 0, 0, 1, 16, 0, 0, NULL), -- Ethereal Theurgist
-(18317, 0, 0, 1, 16, 0, 0, NULL), -- Ethereal Priest
-(18331, 0, 0, 1, 16, 0, 0, '16592'), -- Ethereal Darkcaster
-(18341, 0, 0, 1, 16, 0, 0, NULL), -- Pandemonius
-(18343, 0, 0, 1, 16, 0, 0, NULL), -- Tavarok
-(18344, 0, 0, 1, 16, 0, 0, NULL), -- Nexus-Prince Shaffar
-(18431, 0, 0, 1, 16, 0, 0, '32368'), -- Ethereal Beacon
-(19306, 0, 0, 1, 16, 0, 0, NULL), -- Mana Leech
-(19307, 0, 0, 1, 16, 0, 0, NULL); -- Nexus Terror
+REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(18309, 0, 0, 1, 0, 0, NULL), -- Ethereal Scavenger
+(18311, 0, 0, 1, 0, 0, NULL), -- Ethereal Crypt Raider
+(18312, 0, 0, 1, 0, 0, NULL), -- Ethereal Spellbinder
+(18313, 0, 0, 1, 0, 0, NULL), -- Ethereal Sorcerer
+(18314, 0, 0, 1, 0, 0, NULL), -- Nexus Stalker
+(18315, 0, 0, 1, 0, 0, NULL), -- Ethereal Theurgist
+(18317, 0, 0, 1, 0, 0, NULL), -- Ethereal Priest
+(18331, 0, 0, 1, 0, 0, '16592'), -- Ethereal Darkcaster
+(18341, 0, 0, 1, 0, 0, NULL), -- Pandemonius
+(18343, 0, 0, 1, 0, 0, NULL), -- Tavarok
+(18344, 0, 0, 1, 0, 0, NULL), -- Nexus-Prince Shaffar
+(18431, 0, 0, 1, 0, 0, '32368'), -- Ethereal Beacon
+(19306, 0, 0, 1, 0, 0, NULL), -- Mana Leech
+(19307, 0, 0, 1, 0, 0, NULL); -- Nexus Terror
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+41, @CGUID+48, 1155), -- Ethereal Scavenger -> Ethereal Crypt Raider
@@ -684,7 +684,6 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 -- INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_start` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_end` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
--- INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
 -- INSERT INTO `dbscript_random_templates` (`id`, `type`, `target_id`, `chance`, `comments`) VALUES
 
 

@@ -1,7 +1,7 @@
 /* DBScriptData
 DBName: Shadowfang Keep
 DBScriptName: instance_shadowfang_keep
-DB%Complete: 75
+DB%Complete: 80
 DBComment:
 EndDBScriptData */
 
@@ -13,7 +13,7 @@ SET @PGUID := 45000; -- pools
 -- CREATURES
 -- =========
 
-INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+INSERT INTO `creature_movement` (`id`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 (@CGUID+13, 1, -120.853, 2167.94, 139.287, 0, 0, 0),
 (@CGUID+13, 2, -118.518, 2175.52, 140.471, 0, 0, 0),
 (@CGUID+13, 3, -118.981, 2181.69, 141.463, 0, 0, 0),
@@ -440,41 +440,65 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+133, 10, -238.155, 2189.58, 97.3452, 0, 0, 0),
 (@CGUID+133, 11, -233.807, 2207.58, 97.3452, 0, 0, 0);
 
--- INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+DELETE FROM `creature_movement_template` WHERE `entry` IN (4627);
+INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
+(4627,0,1,-159.547,2178.11,128.944,100,0,0), -- Arugal Voidwalker - top of stairs
+(4627,0,2,-171.113,2182.69,129.255,100,0,0),
+(4627,0,3,-177.613,2175.59,128.161,100,0,0),
+(4627,0,4,-185.396,2178.35,126.413,100,0,0),
+(4627,0,5,-184.004,2188.31,124.122,100,0,0),
+(4627,0,6,-172.781,2188.71,121.611,100,0,0),
+(4627,0,7,-173.245,2176.93,119.085,100,0,0),
+(4627,0,8,-183.145,2176.04,116.995,100,0,0),
+(4627,0,9,-185.551,2185.77,114.784,100,0,0),
+(4627,0,10,-177.502,2190.75,112.681,100,0,0),
+(4627,0,11,-171.218,2182.61,110.314,100,0,0),
+(4627,0,12,-173.857,2175.1,109.255,100,0,0), -- Arugal Voidwalker - bottom of stairs
+(4627,0,13,-171.218,2182.61,110.314,100,0,0),
+(4627,0,14,-177.502,2190.75,112.681,100,0,0),
+(4627,0,15,-185.551,2185.77,114.784,100,0,0),
+(4627,0,16,-183.145,2176.04,116.995,100,0,0),
+(4627,0,17,-173.245,2176.93,119.085,100,0,0),
+(4627,0,18,-172.781,2188.71,121.611,100,0,0),
+(4627,0,19,-184.004,2188.31,124.122,100,0,0),
+(4627,0,20,-185.396,2178.35,126.413,100,0,0),
+(4627,0,21,-177.613,2175.59,128.161,100,0,0),
+(4627,0,22,-171.113,2182.69,129.255,100,0,0),
+(4627,0,23,-159.547,2178.11,128.944,100,0,0);
 
--- INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
+-- INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
 
-REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(2529, 0, 0, 1, 16, 0, 0, NULL), -- Son of Arugal
-(3849, 0, 0, 1, 16, 0, 0, NULL), -- Deathstalker Adamant
-(3850, 0, 0, 1, 16, 0, 0, NULL), -- Sorcerer Ashcrombe
-(3851, 0, 0, 1, 16, 0, 0, '12544'), -- Shadowfang Whitescalp
-(3853, 0, 0, 1, 16, 0, 0, NULL), -- Shadowfang Moonwalker
-(3854, 0, 0, 1, 16, 0, 0, NULL), -- Shadowfang Wolfguard
-(3855, 0, 0, 1, 16, 0, 0, NULL), -- Shadowfang Darksoul
-(3857, 0, 0, 1, 16, 0, 0, NULL), -- Shadowfang Glutton
-(3859, 0, 0, 1, 16, 0, 0, NULL), -- Shadowfang Ragetooth
-(3861, 0, 0, 1, 16, 0, 0, NULL), -- Bleak Worg
-(3862, 0, 0, 1, 16, 0, 0, ''), -- Slavering Worg
-(3863, 0, 0, 1, 16, 0, 0, NULL), -- Lupine Horror
-(3864, 0, 0, 1, 16, 0, 0, NULL), -- Fel Steed
-(3866, 0, 0, 1, 16, 0, 0, NULL), -- Vile Bat
-(3868, 0, 0, 1, 16, 0, 0, NULL), -- Blood Seeker
-(3872, 0, 0, 1, 16, 0, 0, '7165'), -- Deathsworn Captain
-(3873, 0, 0, 1, 16, 0, 0, NULL), -- Tormented Officer
-(3875, 0, 0, 1, 16, 0, 0, NULL), -- Haunted Servitor
-(3877, 0, 0, 1, 16, 0, 0, NULL), -- Wailing Guardsman
-(3886, 0, 0, 1, 16, 0, 0, NULL), -- Razorclaw the Butcher
-(3887, 0, 0, 1, 16, 0, 0, NULL), -- Baron Silverlaine
-(3914, 0, 0, 1, 16, 0, 0, NULL), -- Rethilgore
-(3927, 0, 0, 1, 16, 0, 0, NULL), -- Wolf Master Nandos
-(4274, 0, 0, 1, 16, 0, 0, NULL), -- Fenrus the Devourer
-(4275, 0, 0, 1, 16, 0, 0, NULL), -- Archmage Arugal
-(4278, 0, 0, 1, 16, 0, 0, NULL), -- Commander Springvale
-(4279, 0, 0, 1, 16, 0, 0, NULL), -- Odo the Blindwatcher
-(4444, 0, 7, 1, 16, 0, 0, NULL), -- Deathstalker Vincent
-(5058, 0, 0, 1, 16, 0, 0, NULL), -- Wolfguard Worg
-(10000, 0, 0, 1, 16, 0, 0, NULL); -- Arugal
+REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(2529, 0, 0, 1, 0, 0, NULL), -- Son of Arugal
+(3849, 0, 0, 1, 0, 0, NULL), -- Deathstalker Adamant
+(3850, 0, 0, 1, 0, 0, NULL), -- Sorcerer Ashcrombe
+(3851, 0, 0, 1, 0, 0, '12544'), -- Shadowfang Whitescalp
+(3853, 0, 0, 1, 0, 0, NULL), -- Shadowfang Moonwalker
+(3854, 0, 0, 1, 0, 0, NULL), -- Shadowfang Wolfguard
+(3855, 0, 0, 1, 0, 0, NULL), -- Shadowfang Darksoul
+(3857, 0, 0, 1, 0, 0, NULL), -- Shadowfang Glutton
+(3859, 0, 0, 1, 0, 0, NULL), -- Shadowfang Ragetooth
+(3861, 0, 0, 1, 0, 0, NULL), -- Bleak Worg
+(3862, 0, 0, 1, 0, 0, ''), -- Slavering Worg
+(3863, 0, 0, 1, 0, 0, NULL), -- Lupine Horror
+(3864, 0, 0, 1, 0, 0, NULL), -- Fel Steed
+(3866, 0, 0, 1, 0, 0, NULL), -- Vile Bat
+(3868, 0, 0, 1, 0, 0, NULL), -- Blood Seeker
+(3872, 0, 0, 1, 0, 0, '7165'), -- Deathsworn Captain
+(3873, 0, 0, 1, 0, 0, NULL), -- Tormented Officer
+(3875, 0, 0, 1, 0, 0, NULL), -- Haunted Servitor
+(3877, 0, 0, 1, 0, 0, NULL), -- Wailing Guardsman
+(3886, 0, 0, 1, 0, 0, NULL), -- Razorclaw the Butcher
+(3887, 0, 0, 1, 0, 0, NULL), -- Baron Silverlaine
+(3914, 0, 0, 1, 0, 0, NULL), -- Rethilgore
+(3927, 0, 0, 1, 0, 0, NULL), -- Wolf Master Nandos
+(4274, 0, 0, 1, 0, 0, NULL), -- Fenrus the Devourer
+(4275, 0, 0, 1, 0, 0, NULL), -- Archmage Arugal
+(4278, 0, 0, 1, 0, 0, NULL), -- Commander Springvale
+(4279, 0, 0, 1, 0, 0, NULL), -- Odo the Blindwatcher
+(4444, 0, 7, 1, 0, 0, NULL), -- Deathstalker Vincent
+(5058, 0, 0, 1, 0, 0, NULL), -- Wolfguard Worg
+(10000, 0, 0, 1, 0, 0, NULL); -- Arugal
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+86, @CGUID+74, 3), -- Lupine Horror -> Bleak Worg
@@ -505,10 +529,10 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+10, 2110, 33, -121.052, 2152.03, 101.517, 3.00286, 7200, 7200, 3, 0, 0, 1), -- Black Rat
 (@CGUID+11, 2110, 33, -256.649, 2241.38, 100.892, 0.181911, 7200, 7200, 5, 0, 0, 1), -- Black Rat
 (@CGUID+12, 2110, 33, -126.499, 2153.87, 155.678, 5.60377, 7200, 7200, 3, 0, 0, 1), -- Black Rat
-(@CGUID+13, 2529, 33, -121.846, 2162.59, 138.697, 4.52578, 7200, 7200, 3, 0, 0, 2), -- Son of Arugal
+(@CGUID+13, 2529, 33, -121.846, 2162.59, 138.697, 4.52578, 7200, 7200, 0, 0, 0, 2), -- Son of Arugal
 (@CGUID+14, 2529, 33, -107.516, 2153.47, 101.603, 4.31096, 7200, 7200, 2, 0, 0, 1), -- Son of Arugal
 (@CGUID+15, 2529, 33, -134.141, 2163.83, 94.1253, 6.17846, 7200, 7200, 3, 0, 0, 1), -- Son of Arugal
-(@CGUID+16, 2529, 33, -172.131, 2180.1, 109.786, 1.52493, 7200, 7200, 2, 0, 0, 2), -- Son of Arugal
+(@CGUID+16, 2529, 33, -172.131, 2180.1, 109.786, 1.52493, 7200, 7200, 0, 0, 0, 2), -- Son of Arugal
 (@CGUID+17, 2529, 33, -94.8525, 2150.37, 145.004, 3.07178, 7200, 7200, 5, 0, 0, 1), -- Son of Arugal
 (@CGUID+18, 2529, 33, -106.86, 2133.2, 145.004, 2.70526, 7200, 7200, 5, 0, 0, 1), -- Son of Arugal
 (@CGUID+19, 2529, 33, -90.1872, 2131.41, 145.004, 6.26573, 7200, 7200, 3, 0, 0, 1), -- Son of Arugal
@@ -536,30 +560,30 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+41, 3853, 33, -223.663, 2209.45, 79.8438, 3.46964, 7200, 7200, 0, 0, 0, 0), -- Shadowfang Moonwalker
 (@CGUID+42, 3853, 33, -169.525, 2220.66, 80.5822, 0.715585, 7200, 7200, 0, 0, 0, 0), -- Shadowfang Moonwalker
 (@CGUID+43, 3853, 33, -217.143, 2225.19, 79.8432, 4.5204, 7200, 7200, 0, 0, 0, 0), -- Shadowfang Moonwalker
-(@CGUID+44, 3854, 33, -225.25, 2303.56, 94.6765, 2.77875, 7200, 7200, 10, 0, 0, 2), -- Shadowfang Wolfguard
+(@CGUID+44, 3854, 33, -225.25, 2303.56, 94.6765, 2.77875, 7200, 7200, 0, 0, 0, 2), -- Shadowfang Wolfguard
 (@CGUID+45, 3855, 33, -266.808, 2314.64, 95.9498, 0.488692, 7200, 7200, 2, 0, 0, 1), -- Shadowfang Darksoul
-(@CGUID+46, 3855, 33, -278.912, 2323.63, 95.8664, 5.92198, 7200, 7200, 2, 0, 0, 2), -- Shadowfang Darksoul
+(@CGUID+46, 3855, 33, -278.912, 2323.63, 95.8664, 5.92198, 7200, 7200, 0, 0, 0, 2), -- Shadowfang Darksoul
 (@CGUID+47, 3855, 33, -258.117, 2319.79, 96.9054, 6.23082, 7200, 7200, 2, 0, 0, 1), -- Shadowfang Darksoul
 (@CGUID+48, 3855, 33, -277.793, 2322.1, 95.9498, 3.49066, 7200, 7200, 2, 0, 0, 1), -- Shadowfang Darksoul
 (@CGUID+49, 3855, 33, -284.357, 2277.18, 95.9498, 0.314159, 7200, 7200, 3, 0, 0, 1), -- Shadowfang Darksoul
 (@CGUID+50, 3855, 33, -194.644, 2289.77, 95.899, 2.57587, 7200, 7200, 3, 0, 0, 1), -- Shadowfang Darksoul
 (@CGUID+51, 3855, 33, -299.004, 2295.8, 93.1101, 0.296706, 7200, 7200, 2, 0, 0, 1), -- Shadowfang Darksoul
-(@CGUID+52, 3855, 33, -186.911, 2284.36, 95.9823, 6.21337, 7200, 7200, 2, 0, 0, 2), -- Shadowfang Darksoul
+(@CGUID+52, 3855, 33, -186.911, 2284.36, 95.9823, 6.21337, 7200, 7200, 0, 0, 0, 2), -- Shadowfang Darksoul
 (@CGUID+53, 3855, 33, -273.394, 2273.13, 95.9498, 2.04204, 7200, 7200, 3, 0, 0, 1), -- Shadowfang Darksoul
 (@CGUID+54, 3855, 33, -251.357, 2307.46, 95.9498, 3.89208, 7200, 7200, 2, 0, 0, 1), -- Shadowfang Darksoul
-(@CGUID+55, 3855, 33, -294.707, 2279.39, 95.8665, 6.26476, 7200, 7200, 2, 0, 0, 2), -- Shadowfang Darksoul
-(@CGUID+56, 3855, 33, -193.978, 2271.01, 90.8411, 4.24008, 7200, 7200, 3, 0, 0, 2), -- Shadowfang Darksoul
+(@CGUID+55, 3855, 33, -294.707, 2279.39, 95.8665, 6.26476, 7200, 7200, 0, 0, 0, 2), -- Shadowfang Darksoul
+(@CGUID+56, 3855, 33, -193.978, 2271.01, 90.8411, 4.24008, 7200, 7200, 0, 0, 0, 2), -- Shadowfang Darksoul
 (@CGUID+57, 3857, 33, -235.827, 2276.78, 75.0827, 3.45575, 7200, 7200, 5, 0, 0, 1), -- Shadowfang Glutton
 (@CGUID+58, 3857, 33, -251.413, 2294.92, 75.0826, 1.88496, 7200, 7200, 2, 0, 0, 1), -- Shadowfang Glutton
-(@CGUID+59, 3857, 33, -226.455, 2278.76, 74.9993, 4.36755, 7200, 7200, 2, 0, 0, 2), -- Shadowfang Glutton
+(@CGUID+59, 3857, 33, -226.455, 2278.76, 74.9993, 4.36755, 7200, 7200, 0, 0, 0, 2), -- Shadowfang Glutton
 (@CGUID+60, 3857, 33, -245.364, 2280.52, 75.0826, 0.139626, 7200, 7200, 5, 0, 0, 1), -- Shadowfang Glutton
-(@CGUID+61, 3859, 33, -140.88, 2182.66, 110.256, 5.97856, 7200, 7200, 1, 0, 0, 2), -- Shadowfang Ragetooth
+(@CGUID+61, 3859, 33, -140.88, 2182.66, 110.256, 5.97856, 7200, 7200, 0, 0, 0, 2), -- Shadowfang Ragetooth
 (@CGUID+62, 3859, 33, -181.282, 2189.59, 113.5, 5.90112, 7200, 7200, 2, 0, 0, 1), -- Shadowfang Ragetooth
-(@CGUID+63, 3859, 33, -181.106, 2172.01, 97.4733, 1.09956, 7200, 7200, 2, 0, 0, 2), -- Shadowfang Ragetooth
+(@CGUID+63, 3859, 33, -181.106, 2172.01, 97.4733, 1.09956, 7200, 7200, 0, 0, 0, 2), -- Shadowfang Ragetooth
 (@CGUID+64, 3859, 33, -143.452, 2162.7, 94.1247, 0.069813, 7200, 7200, 0, 0, 0, 0), -- Shadowfang Ragetooth
 (@CGUID+65, 3859, 33, -169.686, 2171.7, 94.0461, 5.93232, 7200, 7200, 0, 0, 0, 0), -- Shadowfang Ragetooth
 (@CGUID+66, 3859, 33, -149.101, 2174.34, 99.9595, 2.86234, 7200, 7200, 3, 0, 0, 1), -- Shadowfang Ragetooth
-(@CGUID+67, 3859, 33, -164.462, 2192.41, 138.287, 1.03908, 7200, 7200, 3, 0, 0, 2), -- Shadowfang Ragetooth
+(@CGUID+67, 3859, 33, -164.462, 2192.41, 138.287, 1.03908, 7200, 7200, 0, 0, 0, 2), -- Shadowfang Ragetooth
 (@CGUID+68, 3859, 33, -120.542, 2161.02, 101.603, 6.03884, 7200, 7200, 2, 0, 0, 1), -- Shadowfang Ragetooth
 (@CGUID+69, 3861, 33, -212.892, 2102.81, 76.9773, 6.00393, 7200, 7200, 0, 0, 0, 0), -- Bleak Worg
 (@CGUID+70, 3861, 33, -236.623, 2118.53, 87.0845, 6.00393, 7200, 7200, 0, 0, 0, 0), -- Bleak Worg
@@ -570,7 +594,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+75, 3861, 33, -204.481, 2139.15, 86.5832, 1.42291, 7200, 7200, 0, 0, 0, 0), -- Bleak Worg
 (@CGUID+76, 3861, 33, -197.316, 2111.16, 81.1401, 5.9909, 7200, 7200, 0, 0, 0, 0), -- Bleak Worg
 (@CGUID+77, 3862, 33, -139.407, 2182.91, 155.762, 5.09636, 7200, 7200, 0, 0, 0, 0), -- Slavering Worg
-(@CGUID+78, 3862, 33, -205.823, 2213.78, 79.7605, 4.8275, 7200, 7200, 5, 0, 0, 2), -- Slavering Worg
+(@CGUID+78, 3862, 33, -205.823, 2213.78, 79.7605, 4.8275, 7200, 7200, 0, 0, 0, 2), -- Slavering Worg
 (@CGUID+79, 3862, 33, -220.82, 2153.53, 81.2106, 4.72984, 7200, 7200, 0, 0, 0, 0), -- Slavering Worg
 (@CGUID+80, 3862, 33, -214.404, 2146.14, 80.9466, 2.11928, 7200, 7200, 0, 0, 0, 2), -- Slavering Worg
 (@CGUID+81, 3862, 33, -192.438, 2222.95, 79.8431, 2.94961, 7200, 7200, 5, 0, 0, 1), -- Slavering Worg
@@ -624,8 +648,8 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+129, 3877, 33, -248.504, 2183.63, 93.9309, 4.4644, 7200, 7200, 2, 0, 0, 1), -- Wailing Guardsman
 (@CGUID+130, 3877, 33, -255.961, 2149.2, 91.913, 4.22951, 7200, 7200, 0, 0, 0, 2), -- Wailing Guardsman
 (@CGUID+131, 3877, 33, -251.156, 2175.53, 94.02, 1.61463, 7200, 7200, 2, 0, 0, 1), -- Wailing Guardsman
-(@CGUID+132, 3877, 33, -252.301, 2168.82, 93.9366, 1.09352, 7200, 7200, 2, 0, 0, 2), -- Wailing Guardsman
-(@CGUID+133, 3877, 33, -232.178, 2212.89, 97.3452, 4.49351, 7200, 7200, 2, 0, 0, 2), -- Wailing Guardsman
+(@CGUID+132, 3877, 33, -252.301, 2168.82, 93.9366, 1.09352, 7200, 7200, 0, 0, 0, 2), -- Wailing Guardsman
+(@CGUID+133, 3877, 33, -232.178, 2212.89, 97.3452, 4.49351, 7200, 7200, 0, 0, 0, 2), -- Wailing Guardsman
 (@CGUID+134, 3886, 33, -202.596, 2257.96, 76.2846, 3.97935, 43200, 43200, 5, 0, 0, 1), -- Razorclaw the Butcher
 (@CGUID+135, 3887, 33, -275.342, 2297.35, 76.2365, 5.89921, 43200, 43200, 0, 0, 0, 0), -- Baron Silverlaine
 (@CGUID+136, 3914, 33, -252.091, 2123.11, 81.1795, 0.919918, 43200, 43200, 0, 0, 0, 0), -- Rethilgore
@@ -637,8 +661,9 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+142, 4444, 33, -217.991, 2150.77, 81.1327, 2.79253, 7200, 7200, 0, 0, 0, 0), -- Deathstalker Vincent
 (@CGUID+143, 5058, 33, -149.213, 2163.18, 155.762, 0.10472, 7200, 7200, 0, 0, 0, 0), -- Wolfguard Worg
 (@CGUID+144, 10000, 33, -219.345, 2154.02, 81.2098, 5.58505, 43200, 43200, 0, 0, 0, 0), -- Arugal
+(@CGUID+145, 14682, 33, -225.131, 2302.95, 94.7599, 6.02139, 604800, 604800, 0, 0, 0, 0), -- Sever
 
--- TBC+ only
+-- TBC+
 -- Landen Stilwell - q.9692 The Path of the Adept
 (@CGUID+200, 17822, 33, -239.492, 2132.84, 81.2629, 2.87979, 7200, 7200, 0, 0, 0, 0);
 
@@ -646,49 +671,65 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 -- GAMEOBJECTS
 -- ===========
 
+INSERT INTO gameobject_spawn_entry (guid, entry) VALUES
+(@OGUID+12, 3659), (@OGUID+12, 3695), -- Barrel of Melon Juice, Food Crate
+(@OGUID+13, 3659), (@OGUID+13, 3695), -- Barrel of Melon Juice, Food Crate
+(@OGUID+14, 3659), (@OGUID+14, 3695), -- Barrel of Melon Juice, Food Crate
+(@OGUID+15, 3659), (@OGUID+15, 3695), -- Barrel of Melon Juice, Food Crate
+(@OGUID+38, 75293), (@OGUID+38, 75295), -- Large Battered Chest, Large Iron Bound Chest
+(@OGUID+39, 75293), (@OGUID+39, 75295), -- Large Battered Chest, Large Iron Bound Chest
+(@OGUID+40, 75293), (@OGUID+40, 75295), -- Large Battered Chest, Large Iron Bound Chest
+(@OGUID+41, 75293), (@OGUID+41, 75295), -- Large Battered Chest, Large Iron Bound Chest
+(@OGUID+42, 75295), (@OGUID+42, 75298), -- Large Iron Bound Chest, Large Solid Chest
+(@OGUID+43, 75295), (@OGUID+43, 75298), -- Large Iron Bound Chest, Large Solid Chest
+(@OGUID+44, 75295), (@OGUID+44, 75298), -- Large Iron Bound Chest, Large Solid Chest
+(@OGUID+45, 75295), (@OGUID+45, 75298), -- Large Iron Bound Chest, Large Solid Chest
+(@OGUID+46, 75295), (@OGUID+46, 75298), -- Large Iron Bound Chest, Large Solid Chest
+(@OGUID+47, 75295), (@OGUID+47, 75298); -- Large Iron Bound Chest, Large Solid Chest
+
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`) VALUES
 -- 1-11
-(@OGUID+12, 3659, 33, -197.138, 2268.28, 76.2013, -2.21657, 0, 0, 0.894934, -0.446198, 180, 180, 100, 1), -- Barrel of Melon Juice
-(@OGUID+13, 3659, 33, -232.514, 2290.86, 74.9993, -2.02458, 0, 0, 0.848048, -0.529919, 180, 180, 100, 1), -- Barrel of Melon Juice
-(@OGUID+14, 3695, 33, -206.199, 2249.48, 76.2013, 1.16937, 0, 0, 0.551937, 0.833886, 180, 180, 100, 1), -- Food Crate
-(@OGUID+15, 3695, 33, -257.011, 2279.7, 74.9993, 1.23918, 0, 0, 0.580703, 0.814116, 180, 180, 100, 1), -- Food Crate
+(@OGUID+12, 0, 33, -197.138, 2268.28, 76.2013, -2.21657, 0, 0, 0.894934, -0.446198, 86400, 86400, 100, 1), -- Barrel of Melon Juice, Food Crate
+(@OGUID+13, 0, 33, -232.514, 2290.86, 74.9993, -2.02458, 0, 0, 0.848048, -0.529919, 86400, 86400, 100, 1), -- Barrel of Melon Juice, Food Crate
+(@OGUID+14, 0, 33, -206.19854736328125, 2249.477783203125, 76.2012786865234375, 1.169370651245117187, 0, 0, 0.551936984062194824, 0.833885848522186279, 86400, 86400, 100, 1), -- Barrel of Melon Juice, Food Crate
+(@OGUID+15, 0, 33, -257.011, 2279.7, 74.9993, 1.23918, 0, 0, 0.580703, 0.814116, 86400, 86400, 100, 1), -- Barrel of Melon Juice, Food Crate
 (@OGUID+16, 18895, 33, -242.581, 2159.05, 90.6226, -1.94604, 0, 0, -0.82659, 0.562805, 5400, 5400, 100, 1), -- Courtyard Door
 (@OGUID+17, 18899, 33, -113.762, 2165.08, 157.855, 4.71239, 0.694697, -0.131892, 0.694697, 0.131892, 5400, 5400, 100, 1), -- Lever
-(@OGUID+18, 18900, 33, -252.696, 2114.22, 82.8052, 4.71239, -0.131892, -0.694697, -0.131892, 0.694697, 5400, 5400, 100, 1), -- Lever
-(@OGUID+19, 18901, 33, -249.22, 2123.1, 82.8052, 4.71239, -0.131892, -0.694697, -0.131892, 0.694697, 5400, 5400, 100, 1), -- Lever
+(@OGUID+18, 18900, 33, -252.69586181640625, 2114.2236328125, 82.80517578125, 4.712388992309570312, -0.13189232349395751, -0.69469738006591796, -0.13189232349395751, 0.694697380065917968, 5400, 5400, 100, 1), -- Lever
+(@OGUID+19, 18901, 33, -249.220138549804687, 2123.100830078125, 82.80517578125, 4.712388992309570312, -0.13189232349395751, -0.69469738006591796, -0.13189232349395751, 0.694697380065917968, 5400, 5400, 100, 1), -- Lever
 (@OGUID+20, 18934, 33, -251.244, 2116.38, 81.218, -0.375245, 0, 0, -0.186524, 0.98245, 5400, 5400, 100, 1), -- Cell Door
 (@OGUID+21, 18935, 33, -244.14, 2134.41, 81.0625, -0.375245, 0, 0, -0.186524, 0.98245, 5400, 5400, 100, 1), -- Cell Door
 (@OGUID+22, 18936, 33, -247.757, 2125.23, 81.0625, -0.375245, 0, 0, -0.186524, 0.98245, 5400, 5400, 100, 1), -- Cell Door
 (@OGUID+23, 18971, 33, -118.11, 2161.86, 155.678, 2.76635, 0, 0, 0.98245, 0.186524, 5400, 5400, 100, 1), -- Arugal's Lair
 (@OGUID+24, 18972, 33, -129.034, 2166.16, 129.187, -0.375245, 0, 0, -0.186524, 0.98245, 5400, 5400, 100, 1), -- Sorcerer's Gate
-(@OGUID+25, 18973, 33, -146.391, 2173, 150.543, -1.94604, 0, 0, -0.82659, 0.562805, 5400, 5400, 100, 1), -- Arugal's Focus
-(@OGUID+26, 22563, 33, -326.002, 2090.32, 25.3409, 1.56207, 0, 0, 0.704015, 0.710186, 5400, 5400, 100, 1), -- Cozy Fire
-(@OGUID+27, 22564, 33, -326.139, 2089.7, 30.2577, -1.91986, 0, 0, -0.819152, 0.573577, 5400, 5400, 100, 1), -- Cozy Fire
-(@OGUID+28, 22565, 33, -325.573, 2089.16, 25.3409, 0.270526, 0, 0, 0.134851, 0.990866, 5400, 5400, 100, 1), -- Cozy Fire
-(@OGUID+29, 22566, 33, -326.355, 2089.7, 25.3409, -1.91986, 0, 0, -0.819152, 0.573577, 5400, 5400, 100, 1), -- Cozy Fire
-(@OGUID+30, 22567, 33, -325.356, 2089.16, 30.2577, 0.270526, 0, 0, 0.134851, 0.990866, 5400, 5400, 100, 1), -- Cozy Fire
-(@OGUID+31, 35593, 33, -220.578, 2258.18, 77.338, -0.375245, 0, 0, -0.186524, 0.98245, 5400, 5400, 100, 1), -- Roaring Fire
-(@OGUID+32, 35594, 33, -219.694, 2259.45, 77.338, -2.73144, 0, 0, 0.979045, -0.203642, 5400, 5400, 100, 1), -- Roaring Fire
-(@OGUID+33, 35595, 33, -218.509, 2260.46, 77.338, 0.802852, 0, 0, 0.390731, 0.920505, 5400, 5400, 100, 1), -- Roaring Fire
+(@OGUID+25, 18973, 33, -146.3912353515625, 2172.99853515625, 150.5432586669921875, -1.94604182243347167, 0, 0, -0.82658964395523071, 0.562805056571960449, 5400, 5400, 100, 1), -- Arugal's Focus
+(@OGUID+26, 22563, 33, -326.001739501953125, 2090.319580078125, 25.34088706970214843, 1.562069177627563476, 0, 0, 0.704014539718627929, 0.710185587406158447, 5400, 5400, 100, 1), -- Cozy Fire
+(@OGUID+27, 22564, 33, -326.138641357421875, 2089.697998046875, 30.25774002075195312, -1.91986072063446044, 0, 0, -0.81915163993835449, 0.573577046394348144, 5400, 5400, 100, 1), -- Cozy Fire
+(@OGUID+28, 22565, 33, -325.572540283203125, 2089.161865234375, 25.34088706970214843, 0.27052578330039978, 0, 0, 0.134850800037384033, 0.990865945816040039, 5400, 5400, 100, 1), -- Cozy Fire
+(@OGUID+29, 22566, 33, -326.354705810546875, 2089.696044921875, 25.34088706970214843, -1.91986072063446044, 0, 0, -0.81915163993835449, 0.573577046394348144, 5400, 5400, 100, 1), -- Cozy Fire
+(@OGUID+30, 22567, 33, -325.356475830078125, 2089.163818359375, 30.25774002075195312, 0.27052578330039978, 0, 0, 0.134850800037384033, 0.990865945816040039, 5400, 5400, 100, 1), -- Cozy Fire
+(@OGUID+31, 35593, 33, -220.577880859375, 2258.1826171875, 77.33797454833984375, -0.37524491548538208, 0, 0, -0.18652360141277313, 0.982450485229492187, 5400, 5400, 100, 1), -- Roaring Fire
+(@OGUID+32, 35594, 33, -219.694412231445312, 2259.4462890625, 77.33797454833984375, -2.73143935203552246, 0, 0, 0.979045391082763671, -0.20364223420619964, 5400, 5400, 100, 1), -- Roaring Fire
+(@OGUID+33, 35595, 33, -218.508529663085937, 2260.462158203125, 77.33797454833984375, 0.802851974964141845, 0, 0, 0.390731364488601684, 0.920504748821258544, 5400, 5400, 100, 1), -- Roaring Fire
 (@OGUID+34, 35596, 33, -215.003, 2270.45, 77.338, -1.94604, 0, 0, -0.82659, 0.562805, 5400, 5400, 100, 1), -- Roaring Fire
 (@OGUID+35, 35597, 33, -214.755, 2272.27, 77.338, -2.47837, 0, 0, 0.945518, -0.325569, 5400, 5400, 100, 1), -- Roaring Fire
 (@OGUID+36, 35598, 33, -213.2, 2273.37, 77.338, -3.12414, 0, 0, 0.999962, -0.008727, 5400, 5400, 100, 1), -- Roaring Fire
-(@OGUID+37, 36738, 33, -155.171, 2185.61, 130.643, 0.785398, 0, 0, 0.382683, 0.92388, 2, 2, 100, 1), -- The Book of Ur
-(@OGUID+38, 74448, 33, -191.652, 2161.52, 79.7475, -0.453785, 0, 0, -0.224951, 0.97437, 5200, 5200, 255, 1), -- Large Solid Chest
-(@OGUID+39, 74448, 33, -214.509, 2150.94, 81.0577, 2.18365, 0, 0, 0.887469, 0.460867, 5200, 5200, 100, 1), -- Large Solid Chest
-(@OGUID+40, 74448, 33, -179.471, 2253.05, 86.6287, 5.7415, 0, 0, 0.267544, -0.963546, 5200, 5200, 100, 1), -- Large Solid Chest
-(@OGUID+41, 74448, 33, -236.728, 2299.61, 94.6765, 0.436332, 0, 0, 0.216439, 0.976296, 5200, 5200, 255, 1), -- Large Solid Chest
-(@OGUID+42, 74448, 33, -247.776, 2186.88, 93.9226, 4.30581, 0, 0, 0.835305, -0.549787, 5200, 5200, 100, 1), -- Large Solid Chest
-(@OGUID+43, 74448, 33, -254.871, 2166.57, 93.9367, 5.90488, 0, 0, 0.188027, -0.982164, 5200, 5200, 100, 1), -- Large Solid Chest
-(@OGUID+44, 74448, 33, -133.986, 2183.01, 113.132, -1.91986, 0, 0, -0.819151, 0.573577, 5200, 5200, 255, 1), -- Large Solid Chest
-(@OGUID+45, 75293, 33, -190.976, 2225.68, 79.7585, -1.23918, 0, 0, -0.580701, 0.814117, 5200, 5200, 100, 1), -- Large Battered Chest
-(@OGUID+46, 75295, 33, -189.568, 2122.88, 97.3899, 1.39626, 0, 0, 0.642788, 0.766044, 5400, 5400, 100, 1), -- Large Iron Bound Chest
-(@OGUID+47, 75298, 33, -106.541, 2164.01, 101.52, 3.03687, 0, 0, 0.99863, 0.052336, 86400, 86400, 100, 1), -- Large Solid Chest
-(@OGUID+48, 91138, 33, -218.464, 2237.2, 80.7977, -2.18166, 0, 0, 0.887011, -0.461749, 300, 300, 100, 1), -- Jordan's Hammer
-(@OGUID+49, 101811, 33, -245.598, 2132.32, 82.8052, 4.71239, -0.131892, -0.694697, -0.131892, 0.694697, 5400, 5400, 100, 1), -- Lever
-(@OGUID+50, 101812, 33, -236.251, 2164.04, 91.1562, 1.5708, 0.584487, 0.397963, 0.584487, -0.397963, 5400, 5400, 100, 1), -- Lever
+(@OGUID+37, 36738, 33, -155.1708984375, 2185.612548828125, 130.6430206298828125, 0.78539818525314331, 0, 0, 0.382683455944061279, 0.923879504203796386, 2, 2, 100, 1), -- The Book of Ur
+(@OGUID+38, 0, 33, -214.325, 2151.88, 81.1066, 2.3911, 0, 0, 0.930417, 0.366502, 86400, 86400, 100, 1), -- Large Battered Chest, Large Iron Bound Chest
+(@OGUID+39, 0, 33, -191.652, 2161.52, 79.7475, 5.8294, 0, 0, -0.224951, 0.97437, 86400, 86400, 100, 1), -- Large Battered Chest, Large Iron Bound Chest
+(@OGUID+40, 0, 33, -190.976211547851562, 2225.68359375, 79.758453369140625, -1.23918378353118896, 0, 0, 0.580702960491180419, -0.81411552429199218, 86400, 86400, 100, 1), -- Large Battered Chest
+(@OGUID+41, 0, 33, -178.815, 2252.85, 86.6049, 5.68977, 0, 0, -0.292372, 0.956305, 86400, 86400, 100, 1), -- Large Battered Chest, Large Iron Bound Chest
+(@OGUID+42, 0, 33, -247.776, 2186.88, 93.9226, 4.30581, 0, 0, 0.835305, -0.549787, 86400, 86400, 100, 1), -- Large Iron Bound Chest, Large Solid Chest
+(@OGUID+43, 0, 33, -255.201, 2166.04, 93.9366, 5.88176, 0, 0, -0.199367, 0.979925, 86400, 86400, 100, 1), -- Large Iron Bound Chest, Large Solid Chest
+(@OGUID+44, 0, 33, -189.5677490234375, 2122.8818359375, 97.389923095703125, 1.3962632417678833, 0, 0, 0.642787575721740722, 0.766044437885284423, 86400, 86400, 100, 1), -- Large Iron Bound Chest, Large Solid Chest
+(@OGUID+45, 0, 33, -236.728, 2299.61, 94.6765, 0.436332, 0, 0, 0.216439, 0.976296, 86400, 86400, 100, 1), -- Large Iron Bound Chest, Large Solid Chest
+(@OGUID+46, 0, 33, -133.986, 2183.01, 113.132, 4.36332, 0, 0, -0.819152, 0.573577, 86400, 86400, 100, 1), -- Large Iron Bound Chest, Large Solid Chest
+(@OGUID+47, 0, 33, -106.541, 2164.01, 101.52, 3.03687, 0, 0, 0.99863, 0.052336, 86400, 86400, 100, 1), -- Large Iron Bound Chest, Large Solid Chest
+(@OGUID+48, 91138, 33, -218.463592529296875, 2237.203857421875, 80.79766845703125, -2.18166136741638183, 0, 0, 0.887010812759399414, -0.46174865961074829, 300, 300, 100, 1), -- Jordan's Hammer
+(@OGUID+49, 101811, 33, -245.598464965820312, 2132.318115234375, 82.80517578125, 4.712388992309570312, -0.13189232349395751, -0.69469738006591796, -0.13189232349395751, 0.694697380065917968, 5400, 5400, 100, 1), -- Lever
+(@OGUID+50, 101812, 33, -236.251129150390625, 2164.044677734375, 91.15622711181640625, 1.570796370506286621, 0.584487318992614746, 0.397963404655456542, 0.584487020969390869, -0.39796313643455505, 5400, 5400, 100, 1), -- Lever
 
--- TBC+ only
+-- TBC+
 (@OGUID+51, 182011, 33, -207.395, 2245.31, 79.7689, -1.90241, 0, 0, 0.814116, -0.580703, 300, 300, 100, 1); -- Crate of Ingots
 
 -- ======
@@ -697,7 +738,8 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 
 -- INSERT INTO `game_event_gameobject` (`guid`, `event`) VALUES
 
--- INSERT INTO `game_event_creature` (`guid`, `event`) VALUES
+INSERT INTO `game_event_creature` (`guid`, `event`) VALUES
+(@CGUID+145, 89); -- Sever
 
 -- INSERT INTO `game_event_creature_data` (`guid`, `entry_id`, `modelid`, `equipment_id`, `spell_start`, `spell_end`, `event`) VALUES
 
@@ -705,29 +747,40 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 -- POOLING
 -- =======
 
--- INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
+INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
+(@PGUID+91, @PGUID+90, 0, 'Shadowfang Keep (Courtyard) - Chest Pool'),
+(@PGUID+92, @PGUID+90, 0, 'Shadowfang Keep (Wall) - Chest Pool'),
+(@PGUID+93, @PGUID+90, 0, 'Shadowfang Keep - Chest Pool');
 
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
-(@PGUID+1, 3, 'Shadowfang Keep - Master Chest Pool'),
-(@PGUID+2, 1, 'Shadowfang Keep - Deathsworn Captain Spawn Pool');
+(@PGUID+1, 1, 'Shadowfang Keep - Deathsworn Captain Spawn Pool'),
+(@PGUID+70, 2, 'Shadowfang Keep - Barrel of Melon Juice & Food Crate Pool'),
+(@PGUID+90, 3, 'Shadowfang Keep - Master Chest Pool'),
+(@PGUID+91, 1, 'Shadowfang Keep (Courtyard) - Chest Pool'),
+(@PGUID+92, 1, 'Shadowfang Keep (Wall) - Chest Pool'),
+(@PGUID+93, 1, 'Shadowfang Keep - Chest Pool');
 
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES
-(@CGUID+98, @PGUID+2, 30, 'Shadowfang Keep - Deathsworn Captain (3872)'),
-(@CGUID+100, @PGUID+2, 70, 'Shadowfang Keep - Alternate creature to Deathsworn Captain (3872)');
+(@CGUID+98, @PGUID+1, 30, 'Shadowfang Keep - Deathsworn Captain (3872)'),
+(@CGUID+100, @PGUID+1, 70, 'Shadowfang Keep - Alternate creature to Deathsworn Captain (3872)');
 
 -- INSERT INTO `pool_creature_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
 INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES
-(@OGUID+38, @PGUID+1, 0, 'Shadowfang Keep - Large Solid Chest (74448)'),
-(@OGUID+39, @PGUID+1, 0, 'Shadowfang Keep - Large Solid Chest (74448)'),
-(@OGUID+40, @PGUID+1, 0, 'Shadowfang Keep - Large Solid Chest (74448)'),
-(@OGUID+41, @PGUID+1, 0, 'Shadowfang Keep - Large Solid Chest (74448)'),
-(@OGUID+42, @PGUID+1, 0, 'Shadowfang Keep - Large Solid Chest (74448)'),
-(@OGUID+43, @PGUID+1, 0, 'Shadowfang Keep - Large Solid Chest (74448)'),
-(@OGUID+44, @PGUID+1, 0, 'Shadowfang Keep - Large Solid Chest (74448)'),
-(@OGUID+45, @PGUID+1, 0, 'Shadowfang Keep - Large Battered Chest (75293)'),
-(@OGUID+46, @PGUID+1, 0, 'Shadowfang Keep - Large Iron Bound Chest (75295)'),
-(@OGUID+47, @PGUID+1, 0, 'Shadowfang Keep - Large Solid Chest (75298)');
+(@OGUID+12, @PGUID+70, 0, 'Shadowfang Keep - Barrel of Melon Juice & Food Crate (3659,3695)'),
+(@OGUID+13, @PGUID+70, 0, 'Shadowfang Keep - Barrel of Melon Juice & Food Crate (3659,3695)'),
+(@OGUID+14, @PGUID+70, 0, 'Shadowfang Keep - Barrel of Melon Juice & Food Crate (3659,3695)'),
+(@OGUID+15, @PGUID+70, 0, 'Shadowfang Keep - Barrel of Melon Juice & Food Crate (3659,3695)'),
+(@OGUID+38, @PGUID+91, 0, 'Shadowfang Keep (Courtyard) - Large Battered Chest, Large Iron Bound Chest (75293,75295)'),
+(@OGUID+39, @PGUID+91, 0, 'Shadowfang Keep (Courtyard) - Large Battered Chest, Large Iron Bound Chest (75293,75295)'),
+(@OGUID+40, @PGUID+91, 0, 'Shadowfang Keep (Courtyard) - Large Battered Chest, Large Iron Bound Chest (75293,75295)'),
+(@OGUID+41, @PGUID+91, 0, 'Shadowfang Keep (Courtyard) - Large Battered Chest, Large Iron Bound Chest (75293,75295)'),
+(@OGUID+42, @PGUID+92, 0, 'Shadowfang Keep (Wall) - Large Iron Bound Chest, Large Solid Chest (75295,75298)'),
+(@OGUID+43, @PGUID+92, 0, 'Shadowfang Keep (Wall) - Large Iron Bound Chest, Large Solid Chest (75295,75298)'),
+(@OGUID+44, @PGUID+92, 0, 'Shadowfang Keep (Wall) - Large Iron Bound Chest, Large Solid Chest (75295,75298)'),
+(@OGUID+45, @PGUID+93, 0, 'Shadowfang Keep - Large Iron Bound Chest, Large Solid Chest (75295,75298)'),
+(@OGUID+46, @PGUID+93, 0, 'Shadowfang Keep - Large Iron Bound Chest, Large Solid Chest (75295,75298)'),
+(@OGUID+47, @PGUID+93, 0, 'Shadowfang Keep - Large Iron Bound Chest, Large Solid Chest (75295,75298)');
 
 -- INSERT INTO `pool_gameobject_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
@@ -752,7 +805,6 @@ INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalo
 -- INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_start` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_end` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
--- INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
 -- INSERT INTO `dbscript_random_templates` (`id`, `type`, `target_id`, `chance`, `comments`) VALUES
 
 

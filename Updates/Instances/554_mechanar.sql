@@ -13,7 +13,7 @@ SET @PGUID := 49100; -- pools
 -- CREATURES
 -- =========
 
-INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+INSERT INTO `creature_movement` (`id`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 (@CGUID+1, 1, 119.042, 78.4115, 14.9303, 3.08366, 0, 0),
 (@CGUID+1, 2, 173.877, 78.9112, 0.003358, 6.07053, 0, 0),
 (@CGUID+1, 3, 185.383, 69.3509, -0.00567, 5.58986, 0, 0),
@@ -131,29 +131,29 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+71, 9, 100.549, -33.547, 14.9249, 4.27902, 0, 0),
 (@CGUID+71, 10, 99.186, -44.5496, 14.9249, 4.54998, 0, 0);
 
--- INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+-- INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 
-INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(@CGUID+33, 0, 0, 1, 0, 28, 0, NULL), -- Mechanar Driller
-(@CGUID+34, 0, 0, 1, 0, 28, 0, NULL), -- Mechanar Driller
-(@CGUID+35, 0, 0, 1, 0, 28, 0, NULL), -- Mechanar Driller
-(@CGUID+36, 0, 0, 1, 0, 28, 0, NULL), -- Mechanar Driller
-(@CGUID+37, 0, 0, 1, 0, 28, 0, NULL), -- Mechanar Driller
-(@CGUID+38, 0, 0, 1, 0, 28, 0, NULL), -- Mechanar Driller
-(@CGUID+39, 0, 0, 1, 0, 28, 0, NULL), -- Mechanar Wrecker
-(@CGUID+40, 0, 0, 1, 0, 28, 0, NULL), -- Mechanar Wrecker
-(@CGUID+41, 0, 0, 1, 0, 28, 0, NULL), -- Mechanar Wrecker
-(@CGUID+42, 0, 0, 1, 0, 28, 0, NULL), -- Mechanar Wrecker
-(@CGUID+45, 0, 0, 1, 0, 28, 0, NULL), -- Mechanar Tinkerer
-(@CGUID+46, 0, 0, 1, 0, 28, 0, NULL), -- Mechanar Tinkerer
-(@CGUID+48, 0, 0, 1, 0, 28, 0, NULL), -- Mechanar Tinkerer
-(@CGUID+49, 0, 0, 1, 0, 28, 0, NULL), -- Mechanar Tinkerer
-(@CGUID+50, 0, 0, 1, 0, 28, 0, NULL), -- Mechanar Tinkerer
-(@CGUID+51, 0, 0, 1, 0, 28, 0, NULL), -- Mechanar Tinkerer
-(@CGUID+56, 0, 0, 1, 0, 28, 0, NULL), -- Mechanar Tinkerer
-(@CGUID+57, 0, 0, 1, 0, 28, 0, NULL); -- Mechanar Tinkerer
+INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(@CGUID+33, 0, 0, 1, 28, 0, NULL), -- Mechanar Driller
+(@CGUID+34, 0, 0, 1, 28, 0, NULL), -- Mechanar Driller
+(@CGUID+35, 0, 0, 1, 28, 0, NULL), -- Mechanar Driller
+(@CGUID+36, 0, 0, 1, 28, 0, NULL), -- Mechanar Driller
+(@CGUID+37, 0, 0, 1, 28, 0, NULL), -- Mechanar Driller
+(@CGUID+38, 0, 0, 1, 28, 0, NULL), -- Mechanar Driller
+(@CGUID+39, 0, 0, 1, 28, 0, NULL), -- Mechanar Wrecker
+(@CGUID+40, 0, 0, 1, 28, 0, NULL), -- Mechanar Wrecker
+(@CGUID+41, 0, 0, 1, 28, 0, NULL), -- Mechanar Wrecker
+(@CGUID+42, 0, 0, 1, 28, 0, NULL), -- Mechanar Wrecker
+(@CGUID+45, 0, 0, 1, 28, 0, NULL), -- Mechanar Tinkerer
+(@CGUID+46, 0, 0, 1, 28, 0, NULL), -- Mechanar Tinkerer
+(@CGUID+48, 0, 0, 1, 28, 0, NULL), -- Mechanar Tinkerer
+(@CGUID+49, 0, 0, 1, 28, 0, NULL), -- Mechanar Tinkerer
+(@CGUID+50, 0, 0, 1, 28, 0, NULL), -- Mechanar Tinkerer
+(@CGUID+51, 0, 0, 1, 28, 0, NULL), -- Mechanar Tinkerer
+(@CGUID+56, 0, 0, 1, 28, 0, NULL), -- Mechanar Tinkerer
+(@CGUID+57, 0, 0, 1, 28, 0, NULL); -- Mechanar Tinkerer
 
--- REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
+-- REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+25, @CGUID+63, 1155), -- Bloodwarder Centurion -> Sunseeker Netherbinder
@@ -390,7 +390,6 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalon
 -- INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_start` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_end` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
--- INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
 -- INSERT INTO `dbscript_random_templates` (`id`, `type`, `target_id`, `chance`, `comments`) VALUES
 
 

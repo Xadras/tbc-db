@@ -18,21 +18,22 @@ SET @OGUID := 5340000; -- gameobjects
 -- ----------------------------------
 -- All creature_template_addons go here:
 -- ----------------------------------
-REPLACE INTO creature_template_addon (entry, mount, bytes1, b2_0_sheath, b2_1_flags, emote, moveflags, auras) VALUES
-(17818, 0, 0, 1, 16, 0, 0, ''), -- Towering Infernal -- Immolation added in Boss Script
-(17852, 0, 0, 1, 16, 0, 0, '31745'), -- Thrall
-(17864, 0, 0, 1, 16, 0, 0, '12787'), -- Lesser Doomguard
-(17895, 0, 0, 1, 16, 0, 0, '8278'), -- Ghoul
-(17898, 0, 0, 1, 16, 0, 0, '31607'), -- Abomination
-(17902, 0, 0, 1, 16, 0, 0, '19818'), -- Skeleton Invader
-(17906, 0, 0, 1, 16, 0, 0, '8278'), -- Gargoyle
-(17908, 0, 0, 1, 16, 0, 0, ''), -- Giant Infernal
-(17932, 0, 0, 1, 16, 0, 0, '19818'), -- Horde Grunt also serverside s.31887
-(17933, 0, 0, 1, 16, 0, 0, '31757'), -- Tauren Warrior
-(17937, 0, 0, 1, 16, 234, 0, NULL), -- Horde Peon
-(17945, 9991, 0, 1, 16, 0, 0, NULL), -- Night Elf Huntress
-(17948, 6080, 0, 1, 16, 0, 0, NULL), -- Tyrande Whisperwind
-(18036, 0, 0, 0, 0, 0, 0, NULL); -- Horde Healing Ward
+REPLACE INTO creature_template_addon (entry, mount, bytes1, b2_0_sheath, emote, moveflags, auras) VALUES
+(17772, 0, 0, 1, 0, 0, '31745'), -- Lady Jaina Proudmoore
+(17818, 0, 0, 1, 0, 0, ''), -- Towering Infernal -- Immolation added in Boss Script
+(17852, 0, 0, 1, 0, 0, '31745'), -- Thrall
+(17864, 0, 0, 1, 0, 0, '12787'), -- Lesser Doomguard
+(17895, 0, 0, 1, 0, 0, '8278'), -- Ghoul
+(17898, 0, 0, 1, 0, 0, '31607'), -- Abomination
+(17902, 0, 0, 1, 0, 0, '19818'), -- Skeleton Invader
+(17906, 0, 0, 1, 0, 0, '8278'), -- Gargoyle
+(17908, 0, 0, 1, 0, 0, ''), -- Giant Infernal
+(17932, 0, 0, 1, 0, 0, '19818'), -- Horde Grunt also serverside s.31887
+(17933, 0, 0, 1, 0, 0, '31757'), -- Tauren Warrior
+(17937, 0, 0, 1, 234, 0, NULL), -- Horde Peon
+(17945, 9991, 0, 1, 0, 0, NULL), -- Night Elf Huntress
+(17948, 6080, 0, 1, 0, 0, NULL), -- Tyrande Whisperwind
+(18036, 0, 0, 0, 0, 0, NULL); -- Horde Healing Ward
 
 -- ------------------------------------------------------------------------------------------
 -- "Room" specific content added below:
@@ -55,7 +56,7 @@ INSERT INTO creature (guid, id, map, spawnMask, modelid, equipment_id, position_
 -- ----------------------------------
 -- creature_movement
 -- ----------------------------------
-INSERT INTO `creature_movement_template` (`entry`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 -- Tydormu Movement 1 (c.23381)
 (23381,1,4208.146,-4161.305,871.556,0,0,100),
 (23381,2,4207.555,-4152.564,873.273,0,0,100),
@@ -74,8 +75,8 @@ INSERT INTO `creature_movement_template` (`entry`,`point`,`position_x`,`position
 
 DELETE FROM `dbscripts_on_creature_movement` WHERE `id` IN(2338101);
 INSERT INTO `dbscripts_on_creature_movement` (`id`,`delay`,`command`,`datalong`,`datalong2`,`datalong3`,`dataint`,`dataint2`,`dataint3`,`dataint4`,`buddy_entry`,`search_radius`,`data_flags`,`comments`,`x`,`y`,`z`,`o`) VALUES
-(2338101,110000,0,0,0,0,2000020022,0,0,0,23437,5,3,'Indormi - Do you think the rumors about the Infinite Dragonflight are true?  I''ve sensed it... the familiarity.',0,0,0,0),
-(2338101,119000,0,0,0,0,2000020023,0,0,0,0,0,0,'Tydormu - That is a dangerous train of thought.  If something was truly amiss, Soridormi would be the first to know.',0,0,0,0);
+(2338101,110000,0,0,0,0,21646,0,0,0,23437,5,3,'Indormi - Do you think the rumors about the Infinite Dragonflight are true?  I''ve sensed it... the familiarity.',0,0,0,0),
+(2338101,119000,0,0,0,0,21645,0,0,0,0,0,0,'Tydormu - That is a dangerous train of thought.  If something was truly amiss, Soridormi would be the first to know.',0,0,0,0);
 
 -- ******************************************************************************************************************************************************************** --
 -- Scourge Base .go 5097.541504 -1409.079102 1345.843018 534
@@ -166,7 +167,7 @@ INSERT INTO creature_linking (guid, master_guid, flag) VALUES
 -- ----------------------------------
 -- creature_movement
 -- ----------------------------------
-INSERT INTO `creature_movement` (`id`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement` (`id`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 -- Patrol Movement 1 (@CSGUID+20)
 (@CSGUID+20,1,5177.061,-1472.387,1352.352,0,0,0),
 (@CSGUID+20,2,5196.295,-1471.192,1355.553,0,0,0),
@@ -271,7 +272,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `modelid`, `equipment_
 -- ----------------------------------
 -- creature_movement
 -- ----------------------------------
-INSERT INTO `creature_movement` (`id`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement` (`id`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 -- Alliance Knights
 (@CAGUID+15,1,5082.981,-1852.301,1330.058,0,0,0),
 (@CAGUID+15,2,5072.694,-1857.553,1330.51,0,0,0),
@@ -383,7 +384,7 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`,`delay`,`command`,`datalong`,
 -- creature_movement_template
 -- ----------------------------------
 -- Lady Jaina Proudmoore path when retreating
-INSERT INTO `creature_movement_template` (`entry`,`pathId`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathId`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17772,1,1,5056.232,-1791.017,1321.481,0,0,100),
 (17772,1,2,5046.44,-1787.523,1321.711,0,0,100),
 (17772,1,3,5034.449,-1783.316,1321.662,1000,1777201,100); 
@@ -393,14 +394,8 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`,`delay`,`command`,`datalong`,
 (1777201,0,32,1,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Pause Waypoints',0,0,0,0),
 (1777201,0,35,5,65,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Throw AI Event 5',0,0,0,0),
 (1777201,1000,15,16807,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Cast Mass Teleport',0,0,0,0),
-(1777201,1000,0,0,0,0,2000020024,0,0,0,0,0,0,'Lady Jaina Proudmoore - %s begins channelling a massive teleport spell.',0,0,0,0),
+(1777201,1000,0,0,0,0,15310,0,0,0,0,0,0,'Lady Jaina Proudmoore - %s begins channelling a massive teleport spell.',0,0,0,0),
 (1777201,22000,35,6,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Throw AI Event 6 on Self',0,0,0,0);
-
-DELETE FROM `dbscript_string` WHERE `entry` IN (2000020022, 2000020023, 2000020024);
-INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `broadcast_text_id`, `comment`) VALUES 
-(2000020022, 'Do you think the rumors about the Infinite Dragonflight are true?  I''ve sensed it... the familiarity.', 0, 0, 0, 1, 21646, 'Indormi (Entry: 23437)'),
-(2000020023, 'That is a dangerous train of thought.  If something was truly amiss, Soridormi would be the first to know.', 0, 0, 0, 274, 21645, 'Tydormu (Entry: 23381)'),
-(2000020024, '%s begins channelling a massive teleport spell.', 0, 7, 0, 0, 15310, 'Lady Jaina Proudmoore (Entry: 17772)');
 
 -- ----------------------------------
 -- creature_linking
@@ -530,7 +525,7 @@ INSERT INTO creature (guid, id, map, spawnMask, modelid, equipment_id, position_
 -- ----------------------------------
 -- creature_movement
 -- ----------------------------------
-INSERT INTO `creature_movement` (`id`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement` (`id`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 -- 2 Grunts, 1 Shaman
 (@CHGUID+17,1,5403.387,-2637.441,1485.789,0,0,0),
 (@CHGUID+17,2,5414.769,-2642.712,1485.883,0,0,0),
@@ -706,7 +701,7 @@ INSERT INTO `creature_movement` (`id`,`point`,`position_x`,`position_y`,`positio
 (@CHGUID+46,13,5381.762,-2782.417,1500.318,20000,0,100);
 
 -- Lady Jaina Proudmoore path when retreating from horde base
-INSERT INTO `creature_movement_template` (`entry`,`pathId`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathId`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17772,2,1,5486.305,-2777.72,1496.687,5000,1777202,1.082104);
 
 DELETE FROM `dbscripts_on_creature_movement` WHERE `id`=1777202;
@@ -716,7 +711,7 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`,`delay`,`command`,`datalong`,
 (1777202,0,1,16,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - OneShotKneel',0,0,0,0),
 (1777202,2000,35,8,150,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Throw AI Event 8',0,0,0,0),
 (1777202,3000,15,16807,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Cast Mass Teleport',0,0,0,0),
-(1777202,3000,0,0,0,0,2000020024,0,0,0,0,0,0,'Lady Jaina Proudmoore - %s begins channelling a massive teleport spell.',0,0,0,0),
+(1777202,3000,0,0,0,0,15310,0,0,0,0,0,0,'Lady Jaina Proudmoore - %s begins channelling a massive teleport spell.',0,0,0,0),
 (1777202,24000,35,6,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Throw AI Event 6 on Self',0,0,0,0);
 
 -- ----------------------------------
@@ -773,8 +768,8 @@ INSERT INTO creature_linking (guid, master_guid, flag) VALUES
 -- ----------------------------------
 -- creature_addon
 -- ----------------------------------
-INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(@CHGUID+19, 0, 0, 0, 16, 69, 0, '31757');
+INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(@CHGUID+19, 0, 0, 0, 69, 0, '31757');
 
 -- ******************************************************************************************************************************************************************** --
 -- Night Elf Base .go 5183.781738 -3412.168701 1630.599487 534
@@ -857,7 +852,7 @@ INSERT INTO creature (guid, id, map, spawnMask, modelid, equipment_id, position_
 -- ----------------------------------
 -- creature_movement
 -- ----------------------------------
-INSERT INTO `creature_movement` (`id`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement` (`id`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 -- Night Elf Ancient Protector
 (@CNGUID+41,1,5191.116,-3395.679,1635.546,0,0,0),
 (@CNGUID+41,2,5185.374,-3409.537,1631.264,0,0,0),
@@ -1420,7 +1415,7 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 -- ******************************************************************************************************************************************************************** --
 DELETE FROM creature_movement_template WHERE entry IN(17899,17898,17895,17905,17897,17906,17907,17908,17916,17767,17808,17888,17842);
 -- Ghouls
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17895,1,1,4895.428,-1590.809,1332.106,0,0,100),
 (17895,1,2,4896.353,-1608.788,1330.539,0,0,100),
 (17895,1,3,4896.902,-1626.416,1325.892,0,0,100),
@@ -1561,7 +1556,7 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17895,6,54,5025.038,-1746.652,1322.634,0,0,100);
 
 -- Crypt Stalker
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17897,1,1,4895.428,-1590.809,1332.106,0,0,100),
 (17897,1,2,4896.353,-1608.788,1330.539,0,0,100),
 (17897,1,3,4896.902,-1626.416,1325.892,0,0,100),
@@ -1702,7 +1697,7 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17897,6,54,5025.038,-1746.652,1322.634,0,0,100);
 
 -- Abomination
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17898,1,1,4895.428,-1590.809,1332.106,0,0,100),
 (17898,1,2,4896.353,-1608.788,1330.539,0,0,100),
 (17898,1,3,4896.902,-1626.416,1325.892,0,0,100),
@@ -1843,7 +1838,7 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17898,6,54,5025.038,-1746.652,1322.634,0,0,100);
 
 -- Shadowy Necromancer
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17899,1,1,4895.428,-1590.809,1332.106,0,0,100),
 (17899,1,2,4896.353,-1608.788,1330.539,0,0,100),
 (17899,1,3,4896.902,-1626.416,1325.892,0,0,100),
@@ -1984,7 +1979,7 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17899,6,54,5025.038,-1746.652,1322.634,0,0,100);
 
 -- Banshee
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17905,1,1,4895.428,-1590.809,1332.106,0,0,100),
 (17905,1,2,4896.353,-1608.788,1330.539,0,0,100),
 (17905,1,3,4896.902,-1626.416,1325.892,0,0,100),
@@ -2125,7 +2120,7 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17905,6,54,5025.038,-1746.652,1322.634,0,0,100);
 
 -- Rage Winterchill
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17767,1,1,4895.428,-1590.809,1332.106,0,0,100),
 (17767,1,2,4896.353,-1608.788,1330.539,0,0,100),
 (17767,1,3,4896.902,-1626.416,1325.892,0,0,100),
@@ -2266,7 +2261,7 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17767,6,54,5025.038,-1746.652,1322.634,0,0,100);
 
 -- Anetheron
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17808,1,1,4895.428,-1590.809,1332.106,0,0,100),
 (17808,1,2,4896.353,-1608.788,1330.539,0,0,100),
 (17808,1,3,4896.902,-1626.416,1325.892,0,0,100),
@@ -2433,7 +2428,7 @@ INSERT INTO dbscript_random_templates (id,type,target_id,chance,comments) VALUES
 -- ******************************************************************************************************************************************************************** --
 
 -- Ghoul
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17895,7,1,5496.352,-2417.796,1463.525,0,0,100),
 (17895,7,2,5508.016,-2434.109,1465.945,0,0,100),
 (17895,7,3,5520.927,-2452.966,1468.077,0,0,100),
@@ -2650,7 +2645,7 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17895,12,42,5546.523,-2637.094,1482.928,0,0,100);
 
 -- Abomination
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17898,7,1,5496.352,-2417.796,1463.525,0,0,100),
 (17898,7,2,5508.016,-2434.109,1465.945,0,0,100),
 (17898,7,3,5520.927,-2452.966,1468.077,0,0,100),
@@ -2867,7 +2862,7 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17898,12,42,5546.523,-2637.094,1482.928,0,0,100);
 
 -- Crypt Fiend
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17897,7,1,5496.352,-2417.796,1463.525,0,0,100),
 (17897,7,2,5508.016,-2434.109,1465.945,0,0,100),
 (17897,7,3,5520.927,-2452.966,1468.077,0,0,100),
@@ -3084,7 +3079,7 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17897,12,42,5546.523,-2637.094,1482.928,0,0,100);
 
 -- Necromancer
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17899,7,1,5496.352,-2417.796,1463.525,0,0,100),
 (17899,7,2,5508.016,-2434.109,1465.945,0,0,100),
 (17899,7,3,5520.927,-2452.966,1468.077,0,0,100),
@@ -3301,7 +3296,7 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17899,12,42,5546.523,-2637.094,1482.928,0,0,100);
 
 -- Banshee
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17905,7,1,5496.352,-2417.796,1463.525,0,0,100),
 (17905,7,2,5508.016,-2434.109,1465.945,0,0,100),
 (17905,7,3,5520.927,-2452.966,1468.077,0,0,100),
@@ -3518,11 +3513,11 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17905,12,42,5546.523,-2637.094,1482.928,0,0,100);
 
 -- Giant Infernal
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
-(17908, 0, 1, 5450.54, -2723.97, 1485.59, 0, 0, 100);
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
+(17908, 0, 1, 5450.54, -2723.97, 1485.59, 30000, 0, 100);
 
 -- Fel Stalker
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17916,7,1,5496.352,-2417.796,1463.525,0,0,100),
 (17916,7,2,5508.016,-2434.109,1465.945,0,0,100),
 (17916,7,3,5520.927,-2452.966,1468.077,0,0,100),
@@ -3739,7 +3734,7 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17916,12,42,5546.523,-2637.094,1482.928,0,0,100);
 
 -- Kaz'rogal
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 -- (17888,7,1,5496.352,-2417.796,1463.525,0,0,100),
 -- (17888,7,2,5508.016,-2434.109,1465.945,0,0,100),
 -- (17888,7,3,5520.927,-2452.966,1468.077,0,0,100),
@@ -3956,7 +3951,7 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17888,12,42,5546.523,-2637.094,1482.928,0,0,100);
 
 -- Azgalor
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 -- (17842,7,1,5496.352,-2417.796,1463.525,0,0,100),
 -- (17842,7,2,5508.016,-2434.109,1465.945,0,0,100),
 -- (17842,7,3,5520.927,-2452.966,1468.077,0,0,100),
@@ -4173,7 +4168,7 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17842,12,42,5546.523,-2637.094,1482.928,0,0,100);
 
 -- Frost Wyrm
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17907,1,1,5730.103,-2705.805,1642.442,0,0,100), -- Spline waypoint to help our pathfinder get over the mountain
 (17907,1,2,5585.464,-2721.981,1521.024,0,0,100),
 (17907,1,3,5553.986,-2745.591,1516.053,0,0,100),
@@ -4185,7 +4180,7 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17907,2,4,5488.03,-2706.118,1505.735,1000,7,100);
 
 -- Gargoyle
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17906,1,1,5761.943,-2873.926,1644.555,0,0,100), -- Spline waypoint to help our pathfinder get over the mountain
 (17906,1,2,5626.645,-2820.905,1576.665,1,1790601,100),
 
@@ -4335,7 +4330,7 @@ INSERT INTO dbscript_random_templates (id,type,target_id,chance,comments) VALUES
 -- The ground wave mobs can pick between 3 different paths from spawn into the base. (PathID 13-15) - This is randomized in SD2
 -- ******************************************************************************************************************************************************************** --
 -- Ghoul
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17895,13,1,5387.522,-3330.545,1639.99,0,5,100),
 (17895,13,2,5397.058,-3346.455,1649.818,0,0,100),
 (17895,13,3,5402.736,-3365.092,1656.344,0,0,100),
@@ -4372,7 +4367,7 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17895,15,10,5230.952,-3377.044,1644.762,1000,1790603,100);
 
 -- Crypt Fiend
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17897,13,1,5387.522,-3330.545,1639.99,0,5,100),
 (17897,13,2,5397.058,-3346.455,1649.818,0,0,100),
 (17897,13,3,5402.736,-3365.092,1656.344,0,0,100),
@@ -4409,7 +4404,7 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17897,15,10,5230.952,-3377.044,1644.762,1000,1790603,100);
 
 -- Abomination
-INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`PositionX`,`PositionY`,`PositionZ`,`waittime`,`ScriptId`,`orientation`) VALUES
 (17898,13,1,5387.522,-3330.545,1639.99,0,5,100),
 (17898,13,2,5397.058,-3346.455,1649.818,0,0,100),
 (17898,13,3,5402.736,-3365.092,1656.344,0,0,100),

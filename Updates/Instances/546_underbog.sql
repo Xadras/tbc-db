@@ -9,12 +9,14 @@ EndDBScriptData */
 SET @CGUID := 5460000; -- creatures
 SET @OGUID := 5460000; -- gameobjects
 SET @PGUID := 48500; -- pools
+SET @GROUP_ID := 5460000;
+SET @PATH_ID := 5460000;
 
 -- =========
 -- CREATURES
 -- =========
 
-INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+INSERT INTO `creature_movement` (`id`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 (@CGUID+2, 1, 93.06754, -360.3329, 33.21555, 100, 0, 0),
 (@CGUID+2, 2, 101.4254, -344.6663, 32.97791, 100, 0, 0),
 (@CGUID+2, 3, 96.96455, -311.3638, 32.52911, 100, 0, 0),
@@ -55,14 +57,6 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+12, 4, 54.9093, -99.7989, -2.74677, 0, 0, 0),
 (@CGUID+12, 5, 69.4635, -79.4921, -2.75098, 0, 0, 0),
 (@CGUID+12, 6, 72.8787, -66.5033, -2.75098, 0, 0, 0),
-(@CGUID+13, 1, 39.8324, -229.47, -4.53228, 0, 0, 5),
-(@CGUID+13, 2, 46.257, -241.332, -4.53228, 0, 0, 0),
-(@CGUID+13, 3, 57.8113, -245.067, -4.52833, 0, 0, 0),
-(@CGUID+13, 4, 46.2711, -241.162, -4.53319, 0, 0, 0),
-(@CGUID+13, 5, 39.8119, -229.012, -4.53319, 0, 0, 0),
-(@CGUID+13, 6, 33.0846, -220.049, -4.53319, 0, 0, 0),
-(@CGUID+13, 7, 31.4191, -201.583, -4.36945, 0, 0, 0),
-(@CGUID+13, 8, 33.423, -220.337, -4.53293, 0, 0, 0),
 (@CGUID+14, 1, 37.1529, -186.697, -4.09001, 0, 0, 5),
 (@CGUID+14, 2, 12.7136, -189.214, -4.53172, 0, 0, 0),
 (@CGUID+14, 3, -4.61627, -175.559, -4.53321, 0, 0, 0),
@@ -191,14 +185,6 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+76, 11, 337.844, -368.326, 36.889, 0, 0, 0),
 (@CGUID+76, 12, 331.726, -373.947, 40.9642, 0, 0, 0),
 (@CGUID+76, 13, 338.234, -368.014, 36.6846, 0, 0, 0),
-(@CGUID+97, 1, 211.702, -380.781, 48.1706, 0, 0, 0),
-(@CGUID+97, 2, 219.298, -378.574, 48.1772, 0, 0, 0),
-(@CGUID+97, 3, 228.64, -376.503, 48.1903, 0, 0, 0),
-(@CGUID+97, 4, 240.787, -374.489, 48.2244, 0, 0, 0),
-(@CGUID+97, 5, 228.163, -376.683, 48.1922, 0, 0, 0),
-(@CGUID+97, 6, 219.533, -378.656, 48.1803, 0, 0, 0),
-(@CGUID+97, 7, 211.634, -381.018, 48.1742, 0, 0, 0),
-(@CGUID+97, 8, 201.99, -379.466, 48.1103, 0, 0, 0),
 (@CGUID+98, 1, 249.748, -371.735, 72.3417, 0, 0, 0),
 (@CGUID+98, 2, 257.418, -378.847, 72.3756, 0, 0, 0),
 (@CGUID+98, 3, 265.702, -379.173, 72.185, 0, 0, 0),
@@ -423,7 +409,7 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+125,44,107.8272,-362.0116,57.31628,100,0,0);
 
 DELETE FROM creature_movement_template WHERE entry IN (18105,17882,17826);
-INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 -- Ghaz'an (18105)
 -- water path
 ('18105', '0', '1', '234.011', '-472.349', '46', '4.60318', '0', '0'),
@@ -488,24 +474,24 @@ INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_
 ('17826', '0', '3', '274.581', '-120.976', '29.8414', '0.207275', '0', '0'),
 ('17826', '0', '4', '284.158', '-119.662', '29.772', '5.93676', '0', '0');
 
-INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(@CGUID+130, 0, 0, 1, 16, 0, 0, '31261'), -- Fen Ray
-(@CGUID+131, 0, 0, 1, 16, 0, 0, '31261'), -- Fen Ray
-(@CGUID+132, 0, 0, 1, 16, 0, 0, '31261'), -- Fen Ray
-(@CGUID+133, 0, 0, 1, 16, 0, 0, '31261'), -- Fen Ray
-(@CGUID+134, 0, 0, 1, 16, 0, 0, '31261'), -- Fen Ray
-(@CGUID+135, 0, 0, 1, 16, 0, 0, '31261'), -- Fen Ray
-(@CGUID+136, 0, 0, 1, 16, 0, 0, '31261'), -- Fen Ray
-(@CGUID+137, 0, 0, 1, 16, 0, 0, '31261'), -- Fen Ray
-(@CGUID+138, 0, 0, 1, 16, 0, 0, '31261'), -- Fen Ray
-(@CGUID+139, 0, 0, 1, 16, 0, 0, '31261'), -- Fen Ray
-(@CGUID+140, 0, 0, 1, 16, 0, 0, '31261'); -- Fen Ray
+INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(@CGUID+130, 0, 0, 1, 0, 0, '31261'), -- Fen Ray
+(@CGUID+131, 0, 0, 1, 0, 0, '31261'), -- Fen Ray
+(@CGUID+132, 0, 0, 1, 0, 0, '31261'), -- Fen Ray
+(@CGUID+133, 0, 0, 1, 0, 0, '31261'), -- Fen Ray
+(@CGUID+134, 0, 0, 1, 0, 0, '31261'), -- Fen Ray
+(@CGUID+135, 0, 0, 1, 0, 0, '31261'), -- Fen Ray
+(@CGUID+136, 0, 0, 1, 0, 0, '31261'), -- Fen Ray
+(@CGUID+137, 0, 0, 1, 0, 0, '31261'), -- Fen Ray
+(@CGUID+138, 0, 0, 1, 0, 0, '31261'), -- Fen Ray
+(@CGUID+139, 0, 0, 1, 0, 0, '31261'), -- Fen Ray
+(@CGUID+140, 0, 0, 1, 0, 0, '31261'); -- Fen Ray
 
-INSERT INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(17727, 0, 0, 1, 16, 0, 0, '18950'), -- Wrathfin Sentry
-(17885, 0, 0, 1, 16, 0, 0, '30831'), -- Earthbinder Rayge
-(18105, 0, 0, 1, 16, 0, 0, ''), -- Ghaz'an
-(20465, 0, 0, 1, 16, 0, 0, '18943 18950'); -- Underbog Frenzy
+INSERT INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(17727, 0, 0, 1, 0, 0, '18950'), -- Wrathfin Sentry
+(17885, 0, 0, 1, 0, 0, '30831'), -- Earthbinder Rayge
+(18105, 0, 0, 1, 0, 0, ''), -- Ghaz'an
+(20465, 0, 0, 1, 0, 0, '18943 18950'); -- Underbog Frenzy
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+42, @CGUID+37, 1155), -- Underbog Lurker -> Underbog Lurker
@@ -515,8 +501,6 @@ INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+38, @CGUID+17, 1155), -- creature_spawn_entry -> creature_spawn_entry
 (@CGUID+39, @CGUID+17, 1155), -- creature_spawn_entry -> creature_spawn_entry
 (@CGUID+36, @CGUID+35, 1679), -- Underbat -> Underbat
-(@CGUID+16, @CGUID+13, 1679), -- Underbat -> Underbat
-(@CGUID+19, @CGUID+13, 1679), -- Underbat -> Underbat
 (@CGUID+15, @CGUID+14, 1679), -- Underbat -> Underbat
 (@CGUID+18, @CGUID+14, 1679), -- Underbat -> Underbat
 (@CGUID+24, @CGUID+40, 1155), -- Underbat -> Underbog Lurker
@@ -547,9 +531,6 @@ INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+60, @CGUID+104, 1155), -- creature_spawn_entry -> creature_spawn_entry
 (@CGUID+67, @CGUID+75, 1155), -- creature_spawn_entry -> creature_spawn_entry
 (@CGUID+71, @CGUID+75, 1155), -- creature_spawn_entry -> creature_spawn_entry
-(@CGUID+61, @CGUID+97, 1679), -- creature_spawn_entry -> Wrathfin Warrior
-(@CGUID+62, @CGUID+97, 1679), -- creature_spawn_entry -> Wrathfin Warrior
-(@CGUID+70, @CGUID+97, 1679), -- creature_spawn_entry -> Wrathfin Warrior
 (@CGUID+63, @CGUID+98, 1155), -- Murkblood Tribesman -> Wrathfin Warrior
 (@CGUID+64, @CGUID+98, 1155), -- Murkblood Tribesman -> Wrathfin Warrior
 (@CGUID+73, @CGUID+98, 1155), -- Murkblood Healer -> Wrathfin Warrior
@@ -611,6 +592,42 @@ INSERT INTO `creature_spawn_entry` (`guid`, `entry`) VALUES
 (@CGUID+106, 17729), (@CGUID+106, 17730), (@CGUID+106, 17771), -- Murkblood Spearman, Murkblood Healer, Murkblood Oracle
 (@CGUID+107, 17728), (@CGUID+107, 17729), (@CGUID+107, 17771), -- Murkblood Tribesman, Murkblood Spearman, Murkblood Oracle
 (@CGUID+113, 17724), (@CGUID+113, 17725), (@CGUID+113, 17871); -- Underbat, Underbog Lurker, Underbog Shambler
+
+INSERT INTO `spawn_group` (`Id`, `Name`, `Type`, `MaxCount`, `WorldState`, `Flags`) VALUES
+(@GROUP_ID, 'UB - Ray formation - Hungarfen trash', 0, 0, 0, 1),
+(@GROUP_ID+1, 'UB - Naga Broken formation - Ghazan trash', 0, 0, 0, 1);
+
+INSERT INTO `spawn_group_spawn` (`Id`, `Guid`, `SlotId`) VALUES
+(@GROUP_ID,@CGUID+13,0),
+(@GROUP_ID,@CGUID+16,1),
+(@GROUP_ID,@CGUID+19,2),
+(@GROUP_ID+1,@CGUID+97,0),
+(@GROUP_ID+1,@CGUID+61,1),
+(@GROUP_ID+1,@CGUID+62,2),
+(@GROUP_ID+1,@CGUID+70,3);
+
+INSERT INTO `spawn_group_formation` (`Id`, `FormationType`, `FormationSpread`, `FormationOptions`, `PathId`, `MovementType`, `Comment`) VALUES
+(@GROUP_ID,4,3,0,@PATH_ID,2,'UB - Ray formation - Triangle'),
+(@GROUP_ID+1,0,3,0,@PATH_ID+1,2,'UB - Naga Broken formation - Ghazan trash');
+
+INSERT INTO `waypoint_path` (`PathId`, `Point`, `PositionX`, `PositionY`, `PositionZ`, `Orientation`, `WaitTime`, `ScriptId`, `Comment`) VALUES
+(@PATH_ID, '1', '39.8324', '-229.47', '-4.53228', '0', '0', '5', NULL),
+(@PATH_ID, '2', '46.257', '-241.332', '-4.53228', '0', '0', '0', NULL),
+(@PATH_ID, '3', '57.8113', '-245.067', '-4.52833', '0', '0', '0', NULL),
+(@PATH_ID, '4', '46.2711', '-241.162', '-4.53319', '0', '0', '0', NULL),
+(@PATH_ID, '5', '39.8119', '-229.012', '-4.53319', '0', '0', '0', NULL),
+(@PATH_ID, '6', '33.0846', '-220.049', '-4.53319', '0', '0', '0', NULL),
+(@PATH_ID, '7', '31.4191', '-201.583', '-4.36945', '0', '0', '0', NULL),
+(@PATH_ID, '8', '33.423', '-220.337', '-4.53293', '0', '0', '0', NULL),
+
+(@PATH_ID+1, '1', '211.702', '-380.781', '48.1706', '0', '0', '0', NULL),
+(@PATH_ID+1, '2', '219.298', '-378.574', '48.1772', '0', '0', '0', NULL),
+(@PATH_ID+1, '3', '228.64', '-376.503', '48.1903', '0', '0', '0', NULL),
+(@PATH_ID+1, '4', '240.787', '-374.489', '48.2244', '0', '0', '0', NULL),
+(@PATH_ID+1, '5', '228.163', '-376.683', '48.1922', '0', '0', '0', NULL),
+(@PATH_ID+1, '6', '219.533', '-378.656', '48.1803', '0', '0', '0', NULL),
+(@PATH_ID+1, '7', '211.634', '-381.018', '48.1742', '0', '0', '0', NULL),
+(@PATH_ID+1, '8', '201.99', '-379.466', '48.1103', '0', '0', '0', NULL);
 
 INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `DeathState`, `MovementType`) VALUES
 (@CGUID+1, 17723, 546, 3, 10.63608, -206.855, -4.449889, 4.590884, 7200, 7200, 3, 0, 0, 1), -- Bog Giant
@@ -889,12 +906,12 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 (@OGUID+34, 181275, 546, 3, 309.7425, -299.7831, 21.00561, 3.455756, 0, 0, -0.9876881, 0.1564362, 86400, 86400, 100, 1), -- Ragveil
 (@OGUID+35, 181275, 546, 3, 346.3185, -336.0105, 28.10873, 1.431168, 0, 0, 0.6560583, 0.7547102, 86400, 86400, 100, 1), -- Ragveil
 (@OGUID+36, 181275, 546, 3, 103.313, -212.9013, 32.11715, 3.874631, 0, 0, -0.9335804, 0.358368, 86400, 86400, 100, 1), -- Ragveil
-(@OGUID+37, 181275, 546, 3, 136.3483, 53.41259, 27.56251, 3.508117, 0, 0, -0.9832544, 0.182238, 86400, 86400, 100, 1), -- Ragveil
+(@OGUID+37, 181275, 546, 3, 136.3483, 53.41259, 25.668015, 3.508117, 0, 0, -0.9832544, 0.182238, 86400, 86400, 100, 1), -- Ragveil		// sniff z = 27.56251
 (@OGUID+38, 181275, 546, 3, 58.35935, -28.01662, 20.81954, 3.001947, 0, 0, 0.9975634, 0.06976615, 86400, 86400, 100, 1), -- Ragveil
 (@OGUID+39, 181275, 546, 3, 146.3396, -150.2396, 30.75006, 3.892087, 0, 0, -0.9304171, 0.3665025, 86400, 86400, 100, 1), -- Ragveil
 (@OGUID+40, 181276, 546, 3, 376.4293, -453.1408, 33.19949, 4.031712, 0, 0, -0.902585, 0.4305117, 86400, 86400, 100, 1), -- Flame Cap
 (@OGUID+41, 181276, 546, 3, 278.9159, -236.0371, 29.17045, 2.705255, 0, 0.9762955, 0.2164421, 1, 86400, 86400, 100, 1), -- Flame Cap
-(@OGUID+42, 181276, 546, 3, 136.3483, 53.41259, 27.56251, 3.508117, 0, 0, -0.9832544, 0.182238, 86400, 86400, 100, 1), -- Flame Cap
+(@OGUID+42, 181276, 546, 3, 136.3483, 53.41259, 25.668015, 3.508117, 0, 0, -0.9832544, 0.182238, 86400, 86400, 100, 1), -- Flame Cap		// sniff z = 27.56251
 (@OGUID+43, 181276, 546, 3, 58.35935, -28.01662, 20.81954, 3.001947, 0, 0, 0.9975634, 0.06976615, 86400, 86400, 100, 1), -- Flame Cap
 (@OGUID+44, 181276, 546, 3, 146.3396, -150.2396, 30.75006, 3.892087, 0, 0, -0.9304171, 0.3665025, 86400, 86400, 100, 1), -- Flame Cap
 (@OGUID+45, 181276, 546, 3, 309.7425, -299.7831, 21.00561, 3.455756, 0, 0, -0.9876881, 0.1564362, 86400, 86400, 100, 1), -- Flame Cap
@@ -1170,7 +1187,6 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalon
 -- INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_start` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_end` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
--- INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
 -- INSERT INTO `dbscript_random_templates` (`id`, `type`, `target_id`, `chance`, `comments`) VALUES
 
 

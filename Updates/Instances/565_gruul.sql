@@ -14,7 +14,7 @@ SET @PGUID := 49800; -- pools
 -- CREATURES
 -- =========
 
-INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+INSERT INTO `creature_movement` (`id`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 -- Patrol 1
 (@CGUID+7, 1, 70.0753, 120.545, -6.80067, 1.4318, 0, 0),
 (@CGUID+7, 2, 74.2257, 138.495, -8.73136, 1.31713, 0, 0),
@@ -43,18 +43,18 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+15, 12, 139.991, 365.852, 4.06457, 3.04107, 0, 0),
 (@CGUID+15, 13, 131.958, 361.136, 6.8412, 3.55001, 0, 0);
 
--- INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+-- INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 
-INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(@CGUID+13, 0, 1, 0, 0, 0, 0, NULL), -- Group 3
-(@CGUID+14, 0, 1, 0, 0, 0, 0, NULL), -- Group 3
-(@CGUID+16, 0, 0, 0, 0, 375, 0, NULL), -- Group 4
-(@CGUID+17, 0, 0, 0, 0, 375, 0, NULL), -- Group 4
-(@CGUID+18, 0, 0, 0, 0, 375, 0, NULL); -- Group 4
+INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(@CGUID+13, 0, 1, 0, 0, 0, NULL), -- Group 3
+(@CGUID+14, 0, 1, 0, 0, 0, NULL), -- Group 3
+(@CGUID+16, 0, 0, 0, 375, 0, NULL), -- Group 4
+(@CGUID+17, 0, 0, 0, 375, 0, NULL), -- Group 4
+(@CGUID+18, 0, 0, 0, 375, 0, NULL); -- Group 4
 
-REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(19389, 0, 0, 1, 16, 0, 0, NULL), -- Lair Brute
-(21350, 0, 0, 1, 16, 0, 0, NULL); -- Gronn-Priest
+REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(19389, 0, 0, 1, 0, 0, NULL), -- Lair Brute
+(21350, 0, 0, 1, 0, 0, NULL); -- Gronn-Priest
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+2, @CGUID+1, 1159), -- Krosh Firehand -> High King Maulgar
@@ -160,7 +160,6 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 -- INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_start` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_end` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
--- INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
 -- INSERT INTO `dbscript_random_templates` (`id`, `type`, `target_id`, `chance`, `comments`) VALUES
 
 

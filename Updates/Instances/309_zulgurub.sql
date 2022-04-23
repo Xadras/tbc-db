@@ -1,19 +1,25 @@
 /* DBScriptData
 DBName: Zul'Gurub
 DBScriptName: instance_zulgurub
-DB%Complete: 75
+DB%Complete: 81
 DBComment:
+* Investigate Muddy Churning Waters (180369) pooling
+* Investigate Herb (180164,180165,180166,180167,180168) pooling
+* Edge of Madness 4x3 Mad Servant Patrols, out one run on, three others walk (Imp Patrols)
+-- 180228/180229 50/50 go_spawn_grp?
 EndDBScriptData */
 
 SET @CGUID := 3090000; -- creatures
 SET @OGUID := 3090000; -- gameobjects
 SET @PGUID := 46700; -- pools
+SET @GROUP_ID := 3090000;
+SET @PATH_ID := 3090000;
 
 -- =========
 -- CREATURES
 -- =========
 
-INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+INSERT INTO `creature_movement` (`id`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 (@CGUID+130, 1, -11835.700195, -1610.337646, 40.745636, 0, 0, 0),
 (@CGUID+130, 2, -11843.541992, -1594.495361, 40.751762, 5.385863, 30000, 0),
 (@CGUID+130, 3, -11835.700195, -1610.337646, 40.745636, 0, 0, 0),
@@ -95,31 +101,17 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+175, 15, -11640.9, -1511.29, 40.1723, 0, 0, 0),
 (@CGUID+175, 16, -11630.4, -1500.17, 42.928, 0, 0, 0),
 (@CGUID+175, 17, -11624.9, -1489.5, 45.1543, 0, 0, 0),
-(@CGUID+181, 1, -11954.5, -1813.08, 53.2418, 0, 0, 0),
-(@CGUID+181, 2, -11956.7, -1828.79, 54.6829, 0, 0, 0),
-(@CGUID+181, 3, -11952.2, -1838.46, 55.366, 0, 0, 0),
-(@CGUID+181, 4, -11943.8, -1843.58, 56.2136, 0, 0, 0),
-(@CGUID+181, 5, -11926.1, -1843.4, 58.0102, 0, 0, 0),
-(@CGUID+181, 6, -11907.2, -1845.77, 60.2044, 0, 0, 0),
-(@CGUID+181, 7, -11890.9, -1857.4, 63.0225, 0, 0, 0),
-(@CGUID+181, 8, -11903.1, -1845.2, 60.5397, 0, 0, 0),
-(@CGUID+181, 9, -11919.2, -1842.99, 58.7388, 0, 0, 0),
-(@CGUID+181, 10, -11942.1, -1842.17, 56.3436, 0, 0, 0),
-(@CGUID+181, 11, -11952.4, -1836.91, 55.2541, 0, 0, 0),
-(@CGUID+181, 12, -11953.4, -1816.45, 53.338, 0, 0, 0),
-(@CGUID+181, 13, -11954.6, -1803.02, 52.9549, 0, 0, 0),
-(@CGUID+181, 14, -11954.8, -1790.5, 53.3488, 0, 0, 0),
-(@CGUID+181, 15, -11956.8, -1768.2, 53.4717, 0, 0, 0),
-(@CGUID+181, 16, -11967.9, -1756.25, 53.2638, 0, 0, 0),
-(@CGUID+181, 17, -11987.9, -1756.21, 53.5807, 0, 0, 0),
-(@CGUID+181, 18, -12000, -1754.82, 54.866, 0, 0, 0),
-(@CGUID+181, 19, -12014.8, -1754.89, 55.064, 0, 0, 0),
-(@CGUID+181, 20, -11999.1, -1753.83, 54.7305, 0, 0, 0),
-(@CGUID+181, 21, -11975.8, -1755.59, 52.6417, 0, 0, 0),
-(@CGUID+181, 22, -11963.7, -1759.05, 53.5414, 0, 0, 0),
-(@CGUID+181, 23, -11958, -1769.74, 53.3791, 0, 0, 0),
-(@CGUID+181, 24, -11954.7, -1790.86, 53.3458, 0, 0, 0),
-(@CGUID+181, 25, -11951.6, -1805.5, 52.5094, 0, 0, 0),
+(@CGUID+181, 01, -11892.4951171875, -1857.2500000000000, 63.026908874511718750, 100, 0, 0),
+(@CGUID+181, 02, -11922.2255859375, -1844.5981445312500, 58.643447875976562500, 100, 0, 0),
+(@CGUID+181, 03, -11943.4892578125, -1843.0251464843750, 56.276336669921875000, 100, 0, 0),
+(@CGUID+181, 04, -11955.5322265625, -1833.0516357421875, 55.080913543701171870, 100, 0, 0),
+(@CGUID+181, 05, -11953.8310546875, -1798.9094238281250, 53.284046173095703120, 100, 0, 0),
+(@CGUID+181, 06, -11956.3964843750, -1766.9594726562500, 53.534046173095703120, 100, 0, 0),
+(@CGUID+181, 07, -11968.8564453125, -1756.7725830078125, 53.229122161865234370, 100, 0, 0),
+(@CGUID+181, 08, -11999.7802734375, -1753.2364501953125, 54.840938568115234370, 100, 0, 0),
+(@CGUID+181, 09, -12033.0712890625, -1750.8511962890625, 55.646064758300781250, 100, 0, 0),
+(@CGUID+181, 10, -12050.4570312500, -1766.3370361328125, 60.718105316162109370, 100, 0, 0),
+(@CGUID+181, 11, -12066.4062500000, -1786.6547851562500, 69.817367553710937500, 100, 0, 0),
 (@CGUID+182, 1, -12326.9, -1867.14, 130.261, 0, 0, 0),
 (@CGUID+182, 2, -12323.9, -1854.4, 130.261, 0, 0, 0),
 (@CGUID+182, 3, -12314.1, -1863.58, 130.261, 0, 0, 0),
@@ -167,25 +159,15 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+183, 24, -12073.8, -1478.59, 108.016, 0, 0, 0),
 (@CGUID+183, 25, -12086.8, -1478.22, 118.872, 0, 0, 0),
 (@CGUID+183, 26, -12100.8, -1477.74, 128.861, 0, 0, 0),
-(@CGUID+188, 1, -11859.4, -1811.49, 51.0551, 0, 0, 0),
-(@CGUID+188, 2, -11838, -1812.9, 50.992, 0, 0, 0),
-(@CGUID+188, 3, -11824.4, -1821.03, 50.9635, 0, 0, 0),
-(@CGUID+188, 4, -11819.8, -1833.71, 50.2436, 0, 0, 0),
-(@CGUID+188, 5, -11810.4, -1848.74, 48.4024, 0, 0, 0),
-(@CGUID+188, 6, -11801.3, -1851.09, 47.0873, 0, 0, 0),
-(@CGUID+188, 7, -11805.3, -1866.47, 46.3943, 0, 0, 0),
-(@CGUID+188, 8, -11802.6, -1851.31, 47.2236, 0, 0, 0),
-(@CGUID+188, 9, -11813.8, -1845.51, 49.0942, 0, 0, 0),
-(@CGUID+188, 10, -11819, -1835.59, 50.102, 0, 0, 0),
-(@CGUID+188, 11, -11828.2, -1817.22, 50.9769, 0, 0, 0),
-(@CGUID+188, 12, -11842.7, -1812.29, 51.0056, 0, 0, 0),
-(@CGUID+188, 13, -11867.8, -1812.42, 51.0842, 0, 0, 0),
-(@CGUID+188, 14, -11887.4, -1811.73, 51.1411, 0, 0, 0),
-(@CGUID+188, 15, -11904.9, -1811.23, 51.2118, 0, 0, 0),
-(@CGUID+188, 16, -11940.1, -1810.52, 51.4687, 0, 0, 0),
-(@CGUID+188, 17, -11935.9, -1810.47, 51.3248, 0, 0, 0),
-(@CGUID+188, 18, -11896.2, -1811.36, 51.1827, 0, 0, 0),
-(@CGUID+188, 19, -11875.3, -1811.22, 51.105, 0, 0, 0),
+(@CGUID+188, 01, -11804.3564453125, -1849.8797607421875, 47.52538681030273437, 100, 0, 0),
+(@CGUID+188, 02, -11818.4921875000, -1834.6610107421875, 50.14477157592773437, 100, 0, 0),
+(@CGUID+188, 03, -11831.5546875000, -1812.5004882812500, 51.02405548095703125, 100, 0, 0),
+(@CGUID+188, 04, -11865.9501953125, -1811.2943115234375, 51.13472366333007812, 100, 0, 0),
+(@CGUID+188, 05, -11901.0634765625, -1811.8311767578125, 51.26236343383789062, 100, 0, 0),
+(@CGUID+188, 06, -11931.6074218750, -1808.4896240234375, 51.38736343383789062, 100, 0, 0),
+(@CGUID+188, 07, -11954.1220703125, -1805.8005371093750, 52.85972213745117187, 100, 0, 0),
+(@CGUID+188, 08, -11957.2587890625, -1768.3781738281250, 53.47520828247070312, 100, 0, 0),
+(@CGUID+188, 09, -11977.5214843750, -1753.1750488281250, 52.67980575561523437, 100, 0, 0),
 (@CGUID+189, 1, -11716.8, -1356.8, 61.7656, 0, 0, 0),
 (@CGUID+189, 2, -11713.5, -1365.04, 60.6086, 0, 0, 0),
 (@CGUID+189, 3, -11719, -1371.42, 56.068, 0, 0, 0),
@@ -325,46 +307,6 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+292, 6, -11713.7, -1911.16, 55.4557, 3.2413, 0, 0),
 (@CGUID+292, 7, -11730.4, -1911.97, 56.334, 3.1824, 0, 0),
 (@CGUID+292, 8, -11737.8, -1907.53, 55.9993, 1.37598, 0, 0),
-(@CGUID+446, 1, -11884.9, -1365.71, 69.3535, 0, 0, 0),
-(@CGUID+446, 2, -11884.9, -1350.82, 72.4744, 0, 0, 0),
-(@CGUID+446, 3, -11889.5, -1329.88, 76.6715, 0, 0, 0),
-(@CGUID+446, 4, -11901.4, -1321.04, 77.2812, 0, 0, 0),
-(@CGUID+446, 5, -11890, -1332.07, 76.3056, 0, 0, 0),
-(@CGUID+446, 6, -11884, -1351.23, 72.5517, 0, 0, 0),
-(@CGUID+446, 7, -11883.2, -1381.56, 65.875, 0, 0, 0),
-(@CGUID+446, 8, -11884.8, -1405.8, 61.2908, 0, 0, 0),
-(@CGUID+446, 9, -11893, -1413.44, 58.2919, 0, 0, 0),
-(@CGUID+446, 10, -11902.6, -1420.7, 53.2555, 0, 0, 0),
-(@CGUID+446, 11, -11890.7, -1415.83, 58.4855, 0, 0, 0),
-(@CGUID+446, 12, -11883.5, -1398.69, 62.6725, 0, 0, 0),
-(@CGUID+446, 13, -11885.8, -1381.21, 65.7584, 0, 0, 0),
-(@CGUID+446, 14, -11885.5, -1367.25, 68.9195, 0, 0, 0),
-(@CGUID+447, 1, -11881.9, -1365.4, 69.9075, 0, 0, 0),
-(@CGUID+447, 2, -11883, -1353.34, 72.2991, 0, 0, 0),
-(@CGUID+447, 3, -11886.3, -1330.28, 76.7271, 0, 0, 0),
-(@CGUID+447, 4, -11900.4, -1319.52, 77.2934, 0, 0, 0),
-(@CGUID+447, 5, -11887.2, -1334.06, 76.0215, 0, 0, 0),
-(@CGUID+447, 6, -11883.6, -1353.3, 72.2029, 0, 0, 0),
-(@CGUID+447, 7, -11881.5, -1378.41, 66.7797, 0, 0, 0),
-(@CGUID+447, 8, -11882.8, -1401.22, 62.2971, 0, 0, 0),
-(@CGUID+447, 9, -11890.3, -1413.01, 59.117, 0, 0, 0),
-(@CGUID+447, 10, -11896.5, -1418.69, 55.9644, 0, 0, 0),
-(@CGUID+447, 11, -11888.1, -1412.86, 59.6696, 0, 0, 0),
-(@CGUID+447, 12, -11881.5, -1396.55, 63.2805, 0, 0, 0),
-(@CGUID+447, 13, -11881.7, -1380.67, 66.1958, 0, 0, 0),
-(@CGUID+447, 14, -11880.7, -1369.51, 69.0818, 0, 0, 0),
-(@CGUID+477, 1, -11884.7, -1374.28, 67.4688, 0, 0, 0),
-(@CGUID+477, 2, -11885, -1360.29, 70.5574, 0, 0, 0),
-(@CGUID+477, 3, -11886.2, -1335.18, 75.8788, 0, 0, 0),
-(@CGUID+477, 4, -11898.5, -1322.59, 77.2525, 0, 0, 0),
-(@CGUID+477, 5, -11885.1, -1339.35, 75.0979, 0, 0, 0),
-(@CGUID+477, 6, -11884.8, -1363.15, 69.9912, 0, 0, 0),
-(@CGUID+477, 7, -11884.5, -1392.54, 63.7005, 0, 0, 0),
-(@CGUID+477, 8, -11889.8, -1409.42, 59.83, 0, 0, 0),
-(@CGUID+477, 9, -11903.4, -1420.91, 52.9493, 0, 0, 0),
-(@CGUID+477, 10, -11889.5, -1412.2, 59.4412, 0, 0, 0),
-(@CGUID+477, 11, -11882.8, -1394.89, 63.4534, 0, 0, 0),
-(@CGUID+477, 12, -11884.3, -1377.71, 66.6563, 0, 0, 0),
 (@CGUID+562, 1, -11619.1, -1485.05, 46.5182, 0, 0, 0),
 (@CGUID+562, 2, -11616.5, -1477.05, 48.2093, 0, 0, 0),
 (@CGUID+562, 3, -11613.3, -1462.5, 51.8296, 0, 0, 0),
@@ -456,7 +398,7 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+814, 9, -11933.9, -1842.97, 57.176, 6.24913, 0, 0),
 (@CGUID+814, 10, -11922.4, -1843.36, 58.4145, 6.24913, 0, 0);
 
-INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 (11359, 1, 1, -11833.910156, -1687.797241, 40.745869, 100, 0, 0),
 (11359, 1, 2, -11833.859375, -1669.224609, 37.000687, 100, 0, 0),
 (11359, 1, 3, -11835.700195, -1610.337646, 40.745636, 100, 0, 0),
@@ -472,123 +414,129 @@ INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_
 (11359, 4, 1, -11742.034180, -1606.073975, 40.748543, 100, 0, 0),
 (11359, 4, 2, -11739.069336, -1668.112915, 36.996002, 100, 0, 0),
 (11359, 4, 3, -11739.987305, -1681.579712, 40.750183, 100, 0, 0),
-(11359, 4, 4, -11732.525391, -1693.093018, 40.746841, 100, 0, 1135904);
+(11359, 4, 4, -11732.525391, -1693.093018, 40.746841, 100, 0, 1135904),
 
-INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(@CGUID+127, 0, 0, 1, 16, 0, 0, NULL), -- Hakkari Blood Priest
-(@CGUID+129, 0, 1, 1, 16, 0, 0, NULL), -- Hakkari Blood Priest
-(@CGUID+130, 0, 0, 1, 16, 0, 0, NULL), -- Hakkari Blood Priest
-(@CGUID+131, 0, 0, 1, 16, 0, 0, NULL), -- Hakkari Blood Priest
-(@CGUID+196, 0, 0, 1, 16, 333, 0, NULL), -- Gurubashi Blood Drinker
-(@CGUID+197, 0, 0, 1, 16, 333, 0, NULL), -- Gurubashi Blood Drinker
-(@CGUID+204, 0, 0, 1, 16, 333, 0, NULL), -- Gurubashi Blood Drinker
-(@CGUID+205, 0, 0, 1, 16, 333, 0, NULL), -- Gurubashi Blood Drinker
-(@CGUID+210, 0, 0, 1, 16, 333, 0, NULL), -- Gurubashi Blood Drinker
-(@CGUID+211, 0, 0, 1, 16, 333, 0, NULL), -- Gurubashi Blood Drinker
-(@CGUID+212, 0, 0, 1, 16, 333, 0, NULL), -- Gurubashi Blood Drinker
-(@CGUID+213, 0, 0, 1, 16, 333, 0, NULL), -- Gurubashi Blood Drinker
-(@CGUID+219, 0, 0, 1, 16, 333, 0, NULL), -- Gurubashi Blood Drinker
-(@CGUID+220, 0, 0, 1, 16, 333, 0, NULL), -- Gurubashi Blood Drinker
-(@CGUID+221, 0, 0, 1, 16, 333, 0, NULL), -- Gurubashi Blood Drinker
-(@CGUID+222, 0, 0, 1, 16, 333, 0, NULL), -- Gurubashi Blood Drinker
-(@CGUID+227, 0, 0, 1, 16, 333, 0, NULL), -- Gurubashi Blood Drinker
-(@CGUID+228, 0, 0, 1, 16, 333, 0, NULL), -- Gurubashi Blood Drinker
-(@CGUID+295, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+296, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+297, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+298, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+299, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+300, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+301, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+302, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+303, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+304, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+305, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+306, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+307, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+308, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+309, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+310, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+311, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+312, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+313, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+314, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+315, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+316, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+317, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+318, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+319, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+320, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+321, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+322, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+323, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+324, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+325, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+326, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+327, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+328, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+329, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Tiger
-(@CGUID+344, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Panther
-(@CGUID+345, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Panther
-(@CGUID+346, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Panther
-(@CGUID+347, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Panther
-(@CGUID+379, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Panther
-(@CGUID+380, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Panther
-(@CGUID+381, 0, 3, 1, 16, 0, 0, NULL), -- Zulian Panther
-(@CGUID+382, 0, 3, 1, 16, 0, 0, NULL); -- Zulian Panther
+(14507, 0, 1, -12029.8, -1707.93, 39.413, 3.71755, 1000, 1450701); -- High Priest Venoxis
 
-REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(11338, 0, 0, 1, 16, 0, 0, NULL), -- Hakkari Shadowcaster
-(11339, 0, 0, 1, 16, 0, 0, NULL), -- Hakkari Shadow Hunter
-(11340, 0, 8, 1, 16, 0, 0, NULL), -- Hakkari Blood Priest
-(11347, 0, 8, 1, 16, 0, 0, '20545'), -- Zealot Lor'Khan
-(11348, 0, 8, 1, 16, 0, 0, NULL), -- Zealot Zath
-(11350, 0, 0, 1, 16, 0, 0, NULL), -- Gurubashi Axe Thrower
-(11351, 0, 0, 1, 16, 0, 0, NULL), -- Gurubashi Headhunter
-(11352, 0, 0, 1, 16, 0, 0, NULL), -- Gurubashi Berserker
-(11353, 0, 0, 1, 16, 0, 0, NULL), -- Gurubashi Blood Drinker
-(11356, 0, 0, 1, 16, 0, 0, NULL), -- Gurubashi Champion
-(11357, 0, 0, 1, 16, 0, 0, '8876'), -- Son of Hakkar
-(11359, 0, 0, 1, 16, 0, 0, NULL), -- Soulflayer
-(11360, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Cub
-(11361, 0, 1536, 1, 40, 0, 0, NULL), -- Zulian Tiger
-(11365, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Panther
-(11368, 0, 0, 1, 16, 0, 0, '18950'), -- Bloodseeker Bat
-(11370, 0, 0, 1, 16, 0, 0, NULL), -- Razzashi Broodwidow
-(11371, 0, 0, 1, 16, 0, 0, NULL), -- Razzashi Serpent
-(11372, 0, 0, 1, 16, 0, 0, '8876'), -- Razzashi Adder
-(11373, 0, 0, 1, 16, 0, 0, NULL), -- Razzashi Cobra
-(11374, 0, 0, 1, 16, 0, 0, '18943 18950'), -- Hooktooth Frenzy
-(11380, 0, 0, 1, 16, 10, 0, NULL), -- Jin'do the Hexxer
-(11382, 15271, 0, 1, 16, 0, 0, NULL), -- Bloodlord Mandokir
-(11387, 0, 0, 1, 16, 0, 0, NULL), -- Sandfury Speaker
-(11388, 0, 8, 1, 16, 0, 0, NULL), -- Witherbark Speaker
-(11389, 0, 8, 1, 16, 0, 0, NULL), -- Bloodscalp Speaker
-(11390, 0, 8, 1, 16, 0, 0, NULL), -- Skullsplitter Speaker
-(11391, 0, 8, 1, 16, 0, 0, NULL), -- Vilebranch Speaker
-(11830, 0, 0, 1, 16, 0, 0, NULL), -- Hakkari Priest
-(11831, 0, 0, 1, 16, 0, 0, NULL), -- Hakkari Witch Doctor
-(14507, 0, 8, 1, 16, 0, 0, '21157'), -- High Priest Venoxis
-(14509, 0, 0, 1, 16, 0, 0, NULL), -- High Priest Thekal
-(14510, 0, 0, 1, 16, 0, 0, NULL), -- High Priestess Mar'li
-(14517, 0, 0, 1, 16, 0, 0, NULL), -- High Priestess Jeklik
-(14532, 0, 0, 1, 16, 0, 0, '8601'), -- Razzashi Venombrood
-(14750, 0, 0, 1, 16, 0, 0, NULL), -- Gurubashi Bat Rider
-(14758, 0, 0, 1, 16, 0, 0, NULL), -- Zul'Gurub Trigger
-(14821, 0, 0, 1, 16, 0, 0, '8876'), -- Razzashi Raptor
-(14825, 0, 0, 1, 16, 10, 0, NULL), -- Withered Mistress
-(14826, 0, 0, 1, 16, 10, 0, NULL), -- Sacrificed Troll
-(14834, 0, 0, 1, 16, 0, 0, '19818 24692'), -- Hakkar
-(14880, 0, 0, 1, 16, 0, 0, NULL), -- Razzashi Skitterer
-(14882, 0, 0, 1, 16, 10, 0, '8876'), -- Atal'ai Mistress
-(14883, 0, 0, 1, 16, 10, 0, NULL), -- Voodoo Slave
-(15042, 0, 0, 1, 16, 0, 0, NULL), -- Zanza the Restless
-(15043, 0, 0, 1, 16, 0, 0, NULL), -- Zulian Crocolisk
-(15067, 0, 0, 1, 16, 0, 0, '22766'), -- Zulian Stalker
-(15091, 0, 0, 1, 16, 0, 0, NULL), -- Zul'Gurub Panther Trigger
-(15101, 0, 0, 1, 16, 0, 0, '8876'), -- Zulian Prowler
-(15111, 0, 0, 1, 16, 0, 0, NULL), -- Mad Servant
-(15114, 0, 0, 1, 16, 0, 0, '8876'); -- Gahz'ranka
+INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(@CGUID+127, 0, 0, 1, 0, 0, NULL), -- Hakkari Blood Priest
+(@CGUID+129, 0, 1, 1, 0, 0, NULL), -- Hakkari Blood Priest
+(@CGUID+130, 0, 0, 1, 0, 0, NULL), -- Hakkari Blood Priest
+(@CGUID+131, 0, 0, 1, 0, 0, NULL), -- Hakkari Blood Priest
+(@CGUID+196, 0, 0, 1, 333, 0, NULL), -- Gurubashi Blood Drinker
+(@CGUID+197, 0, 0, 1, 333, 0, NULL), -- Gurubashi Blood Drinker
+(@CGUID+204, 0, 0, 1, 333, 0, NULL), -- Gurubashi Blood Drinker
+(@CGUID+205, 0, 0, 1, 333, 0, NULL), -- Gurubashi Blood Drinker
+(@CGUID+210, 0, 0, 1, 333, 0, NULL), -- Gurubashi Blood Drinker
+(@CGUID+211, 0, 0, 1, 333, 0, NULL), -- Gurubashi Blood Drinker
+(@CGUID+212, 0, 0, 1, 333, 0, NULL), -- Gurubashi Blood Drinker
+(@CGUID+213, 0, 0, 1, 333, 0, NULL), -- Gurubashi Blood Drinker
+(@CGUID+219, 0, 0, 1, 333, 0, NULL), -- Gurubashi Blood Drinker
+(@CGUID+220, 0, 0, 1, 333, 0, NULL), -- Gurubashi Blood Drinker
+(@CGUID+221, 0, 0, 1, 333, 0, NULL), -- Gurubashi Blood Drinker
+(@CGUID+222, 0, 0, 1, 333, 0, NULL), -- Gurubashi Blood Drinker
+(@CGUID+227, 0, 0, 1, 333, 0, NULL), -- Gurubashi Blood Drinker
+(@CGUID+228, 0, 0, 1, 333, 0, NULL), -- Gurubashi Blood Drinker
+(@CGUID+295, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+296, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+297, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+298, 0, 0, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+299, 0, 0, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+300, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+301, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+302, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+303, 0, 0, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+304, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+305, 0, 0, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+306, 0, 0, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+307, 0, 0, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+308, 0, 0, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+309, 0, 0, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+310, 0, 0, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+311, 0, 0, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+312, 0, 0, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+313, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+314, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+315, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+316, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+317, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+318, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+319, 0, 0, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+320, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+321, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+322, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+323, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+324, 0, 0, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+325, 0, 0, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+326, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+327, 0, 3, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+328, 0, 0, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+329, 0, 0, 1, 0, 0, NULL), -- Zulian Tiger
+(@CGUID+344, 0, 3, 1, 0, 0, NULL), -- Zulian Panther
+(@CGUID+345, 0, 3, 1, 0, 0, NULL), -- Zulian Panther
+(@CGUID+346, 0, 3, 1, 0, 0, NULL), -- Zulian Panther
+(@CGUID+347, 0, 3, 1, 0, 0, NULL), -- Zulian Panther
+(@CGUID+379, 0, 3, 1, 0, 0, NULL), -- Zulian Panther
+(@CGUID+380, 0, 3, 1, 0, 0, NULL), -- Zulian Panther
+(@CGUID+381, 0, 3, 1, 0, 0, NULL), -- Zulian Panther
+(@CGUID+382, 0, 3, 1, 0, 0, NULL); -- Zulian Panther
+
+REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(11338, 0, 0, 1, 0, 0, NULL), -- Hakkari Shadowcaster
+(11339, 0, 0, 1, 0, 0, NULL), -- Hakkari Shadow Hunter
+(11340, 0, 8, 1, 0, 0, NULL), -- Hakkari Blood Priest
+(11347, 0, 8, 1, 0, 0, '20545'), -- Zealot Lor'Khan
+(11348, 0, 8, 1, 0, 0, NULL), -- Zealot Zath
+(11350, 0, 0, 1, 0, 0, NULL), -- Gurubashi Axe Thrower
+(11351, 0, 0, 1, 0, 0, NULL), -- Gurubashi Headhunter
+(11352, 0, 0, 1, 0, 0, NULL), -- Gurubashi Berserker
+(11353, 0, 0, 1, 0, 0, NULL), -- Gurubashi Blood Drinker
+(11356, 0, 0, 1, 0, 0, NULL), -- Gurubashi Champion
+(11357, 0, 0, 1, 0, 0, '8876'), -- Son of Hakkar
+(11359, 0, 0, 1, 0, 0, NULL), -- Soulflayer
+(11360, 0, 0, 1, 0, 0, NULL), -- Zulian Cub
+(11361, 0, 1536, 1, 0, 0, NULL), -- Zulian Tiger
+(11365, 0, 0, 1, 0, 0, NULL), -- Zulian Panther
+(11368, 0, 0, 1, 0, 0, '18950'), -- Bloodseeker Bat
+(11370, 0, 0, 1, 0, 0, NULL), -- Razzashi Broodwidow
+(11371, 0, 0, 1, 0, 0, NULL), -- Razzashi Serpent
+(11372, 0, 0, 1, 0, 0, '8876'), -- Razzashi Adder
+(11373, 0, 0, 1, 0, 0, NULL), -- Razzashi Cobra
+(11374, 0, 0, 1, 0, 0, '18943 18950'), -- Hooktooth Frenzy
+(11380, 0, 0, 1, 10, 0, NULL), -- Jin'do the Hexxer
+(11382, 15271, 0, 1, 0, 0, NULL), -- Bloodlord Mandokir
+(11387, 0, 0, 1, 0, 0, NULL), -- Sandfury Speaker
+(11388, 0, 8, 1, 0, 0, NULL), -- Witherbark Speaker
+(11389, 0, 8, 1, 0, 0, NULL), -- Bloodscalp Speaker
+(11390, 0, 8, 1, 0, 0, NULL), -- Skullsplitter Speaker
+(11391, 0, 8, 1, 0, 0, NULL), -- Vilebranch Speaker
+(11830, 0, 0, 1, 0, 0, NULL), -- Hakkari Priest
+(11831, 0, 0, 1, 0, 0, NULL), -- Hakkari Witch Doctor
+(14507, 0, 8, 1, 0, 0, NULL), -- High Priest Venoxis
+(14509, 0, 0, 1, 0, 0, NULL), -- High Priest Thekal
+(14510, 0, 0, 1, 0, 0, NULL), -- High Priestess Mar'li
+(14517, 0, 0, 1, 0, 0, NULL), -- High Priestess Jeklik
+(14532, 0, 0, 1, 0, 0, '8601'), -- Razzashi Venombrood
+(14750, 0, 0, 1, 0, 0, NULL), -- Gurubashi Bat Rider
+(14758, 0, 0, 1, 0, 0, NULL), -- Zul'Gurub Trigger
+(14821, 0, 0, 1, 0, 0, '8876'), -- Razzashi Raptor
+(14825, 0, 0, 1, 10, 0, NULL), -- Withered Mistress
+(14826, 0, 0, 1, 10, 0, NULL), -- Sacrificed Troll
+(14834, 0, 0, 1, 0, 0, NULL), -- Hakkar - 'auras' boss_hakkar.cpp
+(14880, 0, 0, 1, 0, 0, NULL), -- Razzashi Skitterer
+(14882, 0, 0, 1, 10, 0, '8876'), -- Atal'ai Mistress
+(14883, 0, 0, 1, 10, 0, NULL), -- Voodoo Slave
+(15042, 0, 0, 1, 0, 0, NULL), -- Zanza the Restless
+(15043, 0, 0, 1, 0, 0, NULL), -- Zulian Crocolisk
+(15067, 0, 0, 1, 0, 0, '22766'), -- Zulian Stalker
+(15082, 0, 0, 1, 0, 0, '25039'), -- Gri'lek
+(15083, 0, 0, 1, 0, 0, '25039'), -- Hazza'rah
+(15084, 0, 0, 1, 0, 0, '25039'), -- Renataki
+(15085, 0, 0, 1, 0, 0, '25039'), -- Wushoolay
+(15091, 0, 0, 1, 0, 0, NULL), -- Zul'Gurub Panther Trigger
+(15101, 0, 0, 1, 0, 0, '8876'), -- Zulian Prowler
+(15111, 0, 0, 1, 0, 0, NULL), -- Mad Servant
+(15114, 0, 0, 1, 0, 0, '8876'); -- Gahz'ranka
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 -- Hakkar temple northern soulflayer pack
@@ -772,7 +720,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+145, 11350, 309, -11910.8, -1322.43, 77.5587, 0.680678, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Axe Thrower
 (@CGUID+146, 11350, 309, -11981.4, -1707.25, 32.3669, 2.80998, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Axe Thrower
 (@CGUID+147, 11350, 309, -11875.6, -1415.3, 61.1701, 5.5676, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Axe Thrower
-(@CGUID+148, 11350, 309, -12059.1, -1670.91, 42.4278, 4.01488, 7200, 7200, 5, 0, 0, 1), -- Gurubashi Axe Thrower
+(@CGUID+148, 11350, 309, -12055.0107421875, -1737.7178955078125, 52.92274093627929687, 3.351032257080078125, 21600, 21600, 0, 0, 0, 0), -- Gurubashi Axe Thrower
 (@CGUID+149, 11350, 309, -11969.4, -1557.64, 40.2843, 1.11701, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Axe Thrower
 (@CGUID+150, 11350, 309, -11637.3, -1885.53, 57.2217, 1.3622, 7200, 7200, 5, 0, 0, 1), -- Gurubashi Axe Thrower
 (@CGUID+151, 11350, 309, -11647.7, -1885.87, 57.3467, 6.15927, 7200, 7200, 5, 0, 0, 1), -- Gurubashi Axe Thrower
@@ -793,31 +741,31 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+166, 11350, 309, -11601.8, -1744, 40.3132, 0.802851, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Axe Thrower
 (@CGUID+167, 11351, 309, -12007.2, -1492.45, 82.0241, 1.39626, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Headhunter
 (@CGUID+168, 11351, 309, -12008.5, -1484.91, 79.2389, 4.97419, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Headhunter
-(@CGUID+169, 11351, 309, -12238.1, -1416.02, 130.817, 0.351163, 7200, 7200, 5, 0, 0, 2), -- Gurubashi Headhunter
-(@CGUID+170, 11351, 309, -12208.8, -1462.88, 131.193, 0.307545, 7200, 7200, 5, 0, 0, 2), -- Gurubashi Headhunter
-(@CGUID+171, 11351, 309, -12219.2, -1464.7, 130.698, 0.307525, 7200, 7200, 5, 0, 0, 2), -- Gurubashi Headhunter
+(@CGUID+169, 11351, 309, -12238.1, -1416.02, 130.817, 0.351163, 7200, 7200, 0, 0, 0, 2), -- Gurubashi Headhunter
+(@CGUID+170, 11351, 309, -12208.8, -1462.88, 131.193, 0.307545, 7200, 7200, 0, 0, 0, 2), -- Gurubashi Headhunter
+(@CGUID+171, 11351, 309, -12219.2, -1464.7, 130.698, 0.307525, 7200, 7200, 0, 0, 0, 2), -- Gurubashi Headhunter
 (@CGUID+172, 11351, 309, -11657.7, -1546.31, 40.038, 3.15905, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Headhunter
 (@CGUID+173, 11351, 309, -11652.1, -1453.79, 59.4568, 5.5676, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Headhunter
 (@CGUID+174, 11351, 309, -11606.1, -1513.56, 45.2936, 0.05474, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Headhunter
-(@CGUID+175, 11351, 309, -11625.6, -1488.06, 45.3629, 4.20245, 7200, 7200, 5, 0, 0, 2), -- Gurubashi Headhunter
+(@CGUID+175, 11351, 309, -11625.6, -1488.06, 45.3629, 4.20245, 7200, 7200, 0, 0, 0, 2), -- Gurubashi Headhunter
 (@CGUID+176, 11352, 309, -11815.8, -1712.56, 21.2108, 4.39823, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Berserker
 (@CGUID+177, 11352, 309, -11760.3, -1708.16, 21.2108, 2.49582, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Berserker
 (@CGUID+178, 11352, 309, -11806.6, -1622.62, 21.2285, 5.49779, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Berserker
 (@CGUID+179, 11352, 309, -11736.1, -1651.65, 21.2108, 0.174533, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Berserker
 (@CGUID+180, 11352, 309, -11736.7, -1636.54, 21.2108, 6.23082, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Berserker
-(@CGUID+181, 11352, 309, -11954.2, -1805.99, 53.222, 1.51931, 7200, 7200, 5, 0, 0, 2), -- Gurubashi Berserker
-(@CGUID+182, 11352, 309, -12329.9, -1870.84, 130.349, 0.978481, 7200, 7200, 5, 0, 0, 2), -- Gurubashi Berserker
-(@CGUID+183, 11352, 309, -12101, -1478.76, 128.789, 0.171365, 7200, 7200, 5, 0, 0, 2), -- Gurubashi Berserker
+(@CGUID+181, 11352, 309, -11892.4951171875, -1857.2500000000000, 63.026908874511718750, 4.468042850494384765, 21600, 21600, 0, 0, 0, 4), -- Gurubashi Berserker
+(@CGUID+182, 11352, 309, -12329.9, -1870.84, 130.349, 0.978481, 7200, 7200, 0, 0, 0, 2), -- Gurubashi Berserker
+(@CGUID+183, 11352, 309, -12101, -1478.76, 128.789, 0.171365, 7200, 7200, 0, 0, 0, 2), -- Gurubashi Berserker
 (@CGUID+184, 11352, 309, -11767.9, -1581.04, 21.1237, 1.5707, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Berserker
 (@CGUID+185, 11352, 309, -11814.6, -1581.56, 21.1734, 1.5707, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Berserker
 (@CGUID+186, 11352, 309, -11842.7, -1640.89, 21.2108, 3.40339, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Berserker
 (@CGUID+187, 11352, 309, -11842, -1655.23, 21.2108, 2.94961, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Berserker
-(@CGUID+188, 11352, 309, -11871.3, -1811.38, 51.1542, 3.15686, 7200, 7200, 5, 0, 0, 2), -- Gurubashi Berserker
-(@CGUID+189, 11352, 309, -11721.2, -1349.94, 62.3459, 5.45638, 7200, 7200, 5, 0, 0, 2), -- Gurubashi Berserker
-(@CGUID+190, 11352, 309, -12174.3, -1681.34, 100.199, 6.27537, 7200, 7200, 5, 0, 0, 2), -- Gurubashi Berserker
-(@CGUID+191, 11352, 309, -11611.7, -1736.6, 38.7837, 4.9382, 7200, 7200, 5, 0, 0, 2), -- Gurubashi Berserker
-(@CGUID+192, 11352, 309, -11565.6, -1478.67, 65.0101, 3.92298, 7200, 7200, 5, 0, 0, 2), -- Gurubashi Berserker
-(@CGUID+193, 11352, 309, -12145.2, -1818.32, 86.2209, 6.28123, 7200, 7200, 5, 0, 0, 2), -- Gurubashi Berserker
+(@CGUID+188, 11352, 309, -11804.3564453125, -1849.8797607421875, 47.52538681030273437, 4.921828269958496093, 21600, 21600, 0, 0, 0, 4), -- Gurubashi Berserker
+(@CGUID+189, 11352, 309, -11721.2, -1349.94, 62.3459, 5.45638, 7200, 7200, 0, 0, 0, 2), -- Gurubashi Berserker
+(@CGUID+190, 11352, 309, -12174.3, -1681.34, 100.199, 6.27537, 7200, 7200, 0, 0, 0, 2), -- Gurubashi Berserker
+(@CGUID+191, 11352, 309, -11611.7, -1736.6, 38.7837, 4.9382, 7200, 7200, 0, 0, 0, 2), -- Gurubashi Berserker
+(@CGUID+192, 11352, 309, -11565.6, -1478.67, 65.0101, 3.92298, 7200, 7200, 0, 0, 0, 2), -- Gurubashi Berserker
+(@CGUID+193, 11352, 309, -12145.2, -1818.32, 86.2209, 6.28123, 7200, 7200, 0, 0, 0, 2), -- Gurubashi Berserker
 (@CGUID+194, 11353, 309, -12388.9, -1900.82, 130.636, 4.60767, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Blood Drinker
 (@CGUID+195, 11353, 309, -12393, -1905.57, 130.35, 0.663225, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Blood Drinker
 (@CGUID+196, 11353, 309, -12387.7, -1849.4, 129.265, 0, 7200, 7200, 0, 0, 0, 0), -- Gurubashi Blood Drinker
@@ -1061,7 +1009,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+434, 11371, 309, -11583.6, -1805.16, 43.5651, 4.66155, 7200, 7200, 5, 0, 0, 1), -- Razzashi Serpent
 (@CGUID+435, 11371, 309, -11583, -1793.24, 50.0265, 4.66155, 7200, 7200, 5, 0, 0, 1), -- Razzashi Serpent
 (@CGUID+436, 11371, 309, -11927, -1385.89, 82.0706, 3.57792, 7200, 7200, 3, 0, 0, 1), -- Razzashi Serpent
-(@CGUID+437, 11371, 309, -11866.1, -1312.97, 78.272, 4.36332, 7200, 7200, 0, 0, 0, 0), -- Razzashi Serpent
+(@CGUID+437, 0, 309, -11866.1230468750, -1312.9659423828125, 78.2720336914062500, 4.363323211669921875, 21600, 21600, 0, 0, 0, 0), -- Razzashi Serpent, Razzashi Adder
 (@CGUID+438, 11371, 309, -12021.3, -1752.41, 55.3888, 3.31613, 7200, 7200, 0, 0, 0, 0), -- Razzashi Serpent
 (@CGUID+439, 11371, 309, -12023, -1760.59, 56.2313, 3.5719, 7200, 7200, 5, 0, 0, 1), -- Razzashi Serpent
 (@CGUID+440, 11371, 309, -12027.8, -1766.02, 57.1063, 0.477075, 7200, 7200, 5, 0, 0, 1), -- Razzashi Serpent
@@ -1070,12 +1018,12 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+443, 11371, 309, -11977.7, -1684.63, 32.2833, 2.64208, 7200, 7200, 0, 0, 0, 0), -- Razzashi Serpent
 (@CGUID+444, 11371, 309, -12003.5, -1680.23, 32.3669, 0.418879, 7200, 7200, 0, 0, 0, 0), -- Razzashi Serpent
 (@CGUID+445, 11371, 309, -11991.7, -1677.79, 32.3669, 2.86234, 7200, 7200, 0, 0, 0, 0), -- Razzashi Serpent
-(@CGUID+446, 11371, 309, -11885, -1368.42, 68.8007, 5.53269, 7200, 7200, 5, 0, 0, 2), -- Razzashi Serpent
-(@CGUID+447, 11371, 309, -11878.2, -1368.68, 69.7661, 3.90954, 7200, 7200, 5, 0, 0, 2), -- Razzashi Serpent
-(@CGUID+448, 11371, 309, -11896.4, -1365.13, 69.8727, 2.42601, 7200, 7200, 0, 0, 0, 0), -- Razzashi Serpent
+(@CGUID+446, 11371, 309, -11885, -1368.42, 68.8007, 5.53269, 7200, 7200, 3, 0, 0, 1), -- Razzashi Serpent
+(@CGUID+447, 11371, 309, -11878.2, -1368.68, 69.7661, 3.90954, 7200, 7200, 3, 0, 0, 1), -- Razzashi Serpent
+(@CGUID+448, 11371, 309, -11896.4, -1365.13, 69.8727, 2.42601, 7200, 7200, 3, 0, 0, 1), -- Razzashi Serpent
 (@CGUID+449, 11371, 309, -11563.9, -1490.02, 69.832, 4.32842, 7200, 7200, 0, 0, 0, 0), -- Razzashi Serpent
-(@CGUID+450, 11371, 309, -11961.8, -1804.01, 54.4115, 2.58405, 7200, 7200, 5, 0, 0, 1), -- Razzashi Serpent
-(@CGUID+451, 11371, 309, -11963.7, -1805.17, 55.1322, 2.59025, 7200, 7200, 5, 0, 0, 1), -- Razzashi Serpent
+(@CGUID+450, 0, 309, -11989.8164062500, -1845.6539306640625, 60.00648117065429687, 0.122173048555850982, 21600, 21600, 0, 0, 0, 0), -- Razzashi Serpent, Razzashi Adder
+(@CGUID+451, 0, 309, -11993.6064453125, -1842.4761962890625, 58.74357604980468750, 2.897246599197387695, 21600, 21600, 0, 0, 0, 0), -- Razzashi Serpent, Razzashi Adder
 (@CGUID+452, 11371, 309, -12068.8, -1691.19, 44.4278, 5.68977, 7200, 7200, 0, 0, 0, 0), -- Razzashi Serpent
 (@CGUID+453, 11371, 309, -12083.1, -1694.73, 47.5376, 0.331613, 7200, 7200, 0, 0, 0, 0), -- Razzashi Serpent
 (@CGUID+454, 11371, 309, -12068.8, -1701.61, 45.4398, 0.628319, 7200, 7200, 0, 0, 0, 0), -- Razzashi Serpent
@@ -1084,7 +1032,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+457, 11371, 309, -11989.6, -1815.7, 58.8855, 0.331613, 7200, 7200, 0, 0, 0, 0), -- Razzashi Serpent
 (@CGUID+458, 11371, 309, -11988.4, -1829, 58.4375, 1.20428, 7200, 7200, 0, 0, 0, 0), -- Razzashi Serpent
 (@CGUID+459, 11371, 309, -11993.5, -1837.69, 57.7444, 0, 7200, 7200, 0, 0, 0, 0), -- Razzashi Serpent
-(@CGUID+460, 11371, 309, -12029.4, -1634.11, 38.1586, 0.217637, 7200, 7200, 0, 0, 0, 0), -- Razzashi Serpent
+(@CGUID+460, 0, 309, -11949.4492187500, -1645.9305419921875, 39.72154617309570312, 4.886921882629394531, 21600, 21600, 0, 0, 0, 0), -- Razzashi Serpent, Razzashi Adder
 (@CGUID+461, 11371, 309, -11536.9, -1511.2, 62.9404, 6.03434, 7200, 7200, 5, 0, 0, 1), -- Razzashi Serpent
 (@CGUID+462, 11371, 309, -11647.5, -1496.57, 43.8596, 5.72468, 7200, 7200, 0, 0, 0, 0), -- Razzashi Serpent
 (@CGUID+463, 11371, 309, -11544.7, -1788.09, 65.0068, 3.6944, 7200, 7200, 5, 0, 0, 1), -- Razzashi Serpent
@@ -1092,7 +1040,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+465, 11372, 309, -11555.2, -1788.64, 59.7608, 4.85202, 7200, 7200, 0, 0, 0, 0), -- Razzashi Adder
 (@CGUID+466, 11372, 309, -11643, -1573.21, 39.7114, 4.88692, 7200, 7200, 0, 0, 0, 0), -- Razzashi Adder
 (@CGUID+467, 11372, 309, -11932.7, -1394.57, 80.4193, 3.90086, 7200, 7200, 3, 0, 0, 1), -- Razzashi Adder
-(@CGUID+468, 11372, 309, -11862.2, -1317.21, 79.0372, 4.15388, 7200, 7200, 0, 0, 0, 0), -- Razzashi Adder
+(@CGUID+468, 0, 309, -11862.1572265625, -1317.2054443359375, 79.0371551513671875, 4.153883457183837890, 21600, 21600, 0, 0, 0, 0), -- Razzashi Serpent, Razzashi Adder
 (@CGUID+469, 11372, 309, -12008.8, -1749, 55.3869, 0.122173, 7200, 7200, 0, 0, 0, 0), -- Razzashi Adder
 (@CGUID+470, 11372, 309, -11966.8, -1552.08, 41.2712, 0, 7200, 7200, 5, 0, 0, 1), -- Razzashi Adder
 (@CGUID+471, 11372, 309, -11984.4, -1714.77, 32.3669, 3.56047, 7200, 7200, 0, 0, 0, 0), -- Razzashi Adder
@@ -1101,7 +1049,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+474, 11372, 309, -11997.7, -1674.51, 32.3669, 2.79253, 7200, 7200, 0, 0, 0, 0), -- Razzashi Adder
 (@CGUID+475, 11372, 309, -12004.5, -1673.04, 32.3669, 0.471239, 7200, 7200, 0, 0, 0, 0), -- Razzashi Adder
 (@CGUID+476, 11372, 309, -11979.1, -1688.06, 32.2768, 2.56747, 7200, 7200, 0, 0, 0, 0), -- Razzashi Adder
-(@CGUID+477, 11372, 309, -11884.3, -1379.01, 66.4316, 3.36848, 7200, 7200, 5, 0, 0, 2), -- Razzashi Adder
+(@CGUID+477, 11372, 309, -11884.3, -1379.01, 66.4316, 3.36848, 7200, 7200, 3, 0, 0, 1), -- Razzashi Adder
 (@CGUID+478, 11372, 309, -11556.7, -1487.4, 68.982, 6.24828, 7200, 7200, 0, 0, 0, 0), -- Razzashi Adder
 (@CGUID+479, 11372, 309, -11934.3, -1328.75, 78.7419, 2.72271, 7200, 7200, 0, 0, 0, 0), -- Razzashi Adder
 (@CGUID+480, 11372, 309, -11925.9, -1337.49, 78.4218, 3.38594, 7200, 7200, 0, 0, 0, 0), -- Razzashi Adder
@@ -1111,7 +1059,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+484, 11372, 309, -11727.9, -1338.77, 63.8019, 2.79253, 7200, 7200, 0, 0, 0, 0), -- Razzashi Adder
 (@CGUID+485, 11372, 309, -11990.6, -1825.16, 58.6344, 0, 7200, 7200, 0, 0, 0, 0), -- Razzashi Adder
 (@CGUID+486, 11372, 309, -11989.2, -1836.3, 57.7291, 5.51524, 7200, 7200, 0, 0, 0, 0), -- Razzashi Adder
-(@CGUID+487, 11372, 309, -12026.8, -1635.3, 38.2631, 0.358097, 7200, 7200, 5, 0, 0, 1), -- Razzashi Adder
+(@CGUID+487, 0, 309, -11952.5751953125, -1648.8303222656250, 40.12080001831054687, 3.385938644409179687, 21600, 21600, 0, 0, 0, 0), -- Razzashi Adder
 (@CGUID+488, 11372, 309, -11533.1, -1512.37, 63.3527, 5.98368, 7200, 7200, 5, 0, 0, 1), -- Razzashi Adder
 (@CGUID+489, 11372, 309, -11615.8, -1847.66, 41.4099, 1.0472, 7200, 7200, 0, 0, 0, 0), -- Razzashi Adder
 (@CGUID+490, 11372, 309, -11615.4, -1851.05, 42.0551, 3.94444, 7200, 7200, 0, 0, 0, 0), -- Razzashi Adder
@@ -1170,7 +1118,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+543, 11830, 309, -11666.8, -1545.98, 42.7417, 6.19592, 7200, 7200, 0, 0, 0, 0), -- Hakkari Priest
 (@CGUID+544, 11830, 309, -11987.5, -1705.43, 32.3669, 0, 7200, 7200, 0, 0, 0, 0), -- Hakkari Priest
 (@CGUID+545, 11830, 309, -11867.9, -1420.47, 61.0251, 2.68781, 7200, 7200, 0, 0, 0, 0), -- Hakkari Priest
-(@CGUID+546, 11830, 309, -12057.5, -1681.32, 42.7116, 4.66707, 7200, 7200, 5, 0, 0, 1), -- Hakkari Priest
+(@CGUID+546, 0, 309, -12051.0429687500, -1736.5230712890625, 52.04886627197265625, 0.191986218094825744, 21600, 21600, 0, 0, 0, 0), -- Gurubashi Axe Thrower, Hakkari Priest
 (@CGUID+547, 11830, 309, -11964.8, -1549.77, 41.5586, 4.11898, 7200, 7200, 0, 0, 0, 0), -- Hakkari Priest
 (@CGUID+548, 11830, 309, -12292.9, -1842.97, 130.411, 3.24631, 7200, 7200, 0, 0, 0, 0), -- Hakkari Priest
 (@CGUID+549, 11830, 309, -12360.1, -1930.85, 132.438, 5.21853, 7200, 7200, 0, 0, 0, 0), -- Hakkari Priest
@@ -1186,15 +1134,15 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+559, 11830, 309, -12323.9, -1883.92, 131.513, 5.04798, 7200, 7200, 5, 0, 0, 1), -- Hakkari Priest
 (@CGUID+560, 11830, 309, -12328.2, -1865.28, 130.382, 5.23959, 7200, 7200, 5, 0, 0, 1), -- Hakkari Priest
 (@CGUID+561, 11830, 309, -11612.5, -1515.44, 43.5781, 5.15845, 7200, 7200, 0, 0, 0, 0), -- Hakkari Priest
-(@CGUID+562, 11830, 309, -11623.7, -1488.89, 45.4706, 4.19151, 7200, 7200, 5, 0, 0, 2), -- Hakkari Priest
+(@CGUID+562, 11830, 309, -11623.7, -1488.89, 45.4706, 4.19151, 7200, 7200, 0, 0, 0, 2), -- Hakkari Priest
 (@CGUID+563, 11830, 309, -11652.8, -1574.88, 41.4328, 0.942478, 7200, 7200, 0, 0, 0, 0), -- Hakkari Priest
 (@CGUID+564, 11830, 309, -11558.9, -1496.57, 68.8893, 0.959931, 7200, 7200, 0, 0, 0, 0), -- Hakkari Priest
 (@CGUID+565, 11830, 309, -11554, -1733.13, 41.3323, 3.10669, 7200, 7200, 0, 0, 0, 0), -- Hakkari Priest
 (@CGUID+566, 11830, 309, -11596, -1738.28, 43.4556, 3.89208, 7200, 7200, 0, 0, 0, 0), -- Hakkari Priest
 (@CGUID+567, 11831, 309, -12004.8, -1483.22, 79.6192, 4.45059, 7200, 7200, 0, 0, 0, 0), -- Hakkari Witch Doctor
-(@CGUID+568, 11831, 309, -12236.9, -1414.1, 131.2, 0.350773, 7200, 7200, 5, 0, 0, 2), -- Hakkari Witch Doctor
-(@CGUID+569, 11831, 309, -12238.7, -1413.23, 130.725, 0.350826, 7200, 7200, 5, 0, 0, 2), -- Hakkari Witch Doctor
-(@CGUID+570, 11831, 309, -12218.4, -1467.39, 130.725, 0.307554, 7200, 7200, 5, 0, 0, 2), -- Hakkari Witch Doctor
+(@CGUID+568, 11831, 309, -12236.9, -1414.1, 131.2, 0.350773, 7200, 7200, 0, 0, 0, 2), -- Hakkari Witch Doctor
+(@CGUID+569, 11831, 309, -12238.7, -1413.23, 130.725, 0.350826, 7200, 7200, 0, 0, 0, 2), -- Hakkari Witch Doctor
+(@CGUID+570, 11831, 309, -12218.4, -1467.39, 130.725, 0.307554, 7200, 7200, 0, 0, 0, 2), -- Hakkari Witch Doctor
 (@CGUID+571, 11831, 309, -11836.5, -1693.3, 40.748, 1.19461, 7200, 7200, 0, 0, 0, 0), -- Hakkari Witch Doctor
 (@CGUID+572, 11831, 309, -11533.9, -1501.74, 77.9503, 1.81514, 7200, 7200, 0, 0, 0, 0), -- Hakkari Witch Doctor
 (@CGUID+573, 11831, 309, -11591.8, -1763.43, 43.3102, 2.07694, 7200, 7200, 0, 0, 0, 0), -- Hakkari Witch Doctor
@@ -1216,7 +1164,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+589, 13321, 309, -11883.7, -1685.52, 14.3972, 5.8394, 7200, 7200, 5, 0, 0, 1), -- Frog
 (@CGUID+590, 13321, 309, -11824.4, -1492.95, 11.4211, 3.67213, 7200, 7200, 5, 0, 0, 1), -- Frog
 (@CGUID+591, 13321, 309, -11787.6, -1382.22, 10.9178, 4.84159, 7200, 7200, 5, 0, 0, 1), -- Frog
-(@CGUID+592, 14507, 309, -12029.8, -1707.93, 39.413, 3.71755, 259200, 259200, 0, 0, 0, 0), -- High Priest Venoxis
+(@CGUID+592, 14507, 309, -12029.8, -1707.93, 39.413, 3.71755, 259200, 259200, 0, 0, 0, 2), -- High Priest Venoxis
 (@CGUID+593, 14509, 309, -11700.8, -1998.94, 62.4163, 1.6057, 259200, 259200, 0, 0, 0, 0), -- High Priest Thekal
 (@CGUID+594, 14510, 309, -12326.5, -1577.11, 133.588, 4.81711, 259200, 259200, 0, 0, 0, 0), -- High Priestess Mar'li
 (@CGUID+595, 14517, 309, -12291.9, -1380.08, 144.902, 2.28638, 259200, 259200, 0, 0, 0, 0), -- High Priestess Jeklik
@@ -1330,16 +1278,16 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+703, 14825, 309, -11569.4, -1294.16, 77.6076, 3.57274, 7200, 7200, 0, 0, 0, 0), -- Withered Mistress
 (@CGUID+704, 14825, 309, -11567.6, -1293.33, 77.6094, 3.61198, 7200, 7200, 0, 0, 0, 0), -- Withered Mistress
 (@CGUID+705, 14825, 309, -11565.8, -1292.49, 77.6175, 3.65169, 7200, 7200, 0, 0, 0, 0), -- Withered Mistress
-(@CGUID+706, 14826, 309, -11584.2, -1252.21, 77.6299, 0.959931, 40, 40, 0, 0, 0, 0), -- Sacrificed Troll
-(@CGUID+707, 14826, 309, -11582.5, -1250.32, 77.6299, 3.90954, 40, 40, 0, 0, 0, 0), -- Sacrificed Troll
-(@CGUID+708, 14826, 309, -11581.5, -1252.54, 77.6299, 2.61799, 40, 40, 0, 0, 0, 0), -- Sacrificed Troll
-(@CGUID+709, 14826, 309, -11583.2, -1254.83, 77.6299, 1.67552, 40, 40, 0, 0, 0, 0), -- Sacrificed Troll
-(@CGUID+710, 14826, 309, -11586.4, -1253.92, 77.6299, 0.750492, 40, 40, 0, 0, 0, 0), -- Sacrificed Troll
-(@CGUID+711, 14826, 309, -11586.6, -1250.72, 77.6299, 6.07375, 40, 40, 0, 0, 0, 0), -- Sacrificed Troll
-(@CGUID+712, 14826, 309, -11585.1, -1248.76, 77.6299, 5.23599, 40, 40, 0, 0, 0, 0), -- Sacrificed Troll
-(@CGUID+713, 14826, 309, -11582.3, -1247.86, 77.6299, 4.36332, 40, 40, 0, 0, 0, 0), -- Sacrificed Troll
-(@CGUID+714, 14826, 309, -11580.2, -1250.6, 77.6299, 3.36848, 40, 40, 0, 0, 0, 0), -- Sacrificed Troll
-(@CGUID+715, 14826, 309, -11580.6, -1254.79, 77.6299, 2.28638, 40, 40, 0, 0, 0, 0), -- Sacrificed Troll
+(@CGUID+706, 14826, 309, -11584.2, -1252.21, 77.6299, 0.959931, 20, 20, 0, 0, 0, 0), -- Sacrificed Troll
+(@CGUID+707, 14826, 309, -11582.5, -1250.32, 77.6299, 3.90954, 20, 20, 0, 0, 0, 0), -- Sacrificed Troll
+(@CGUID+708, 14826, 309, -11581.5, -1252.54, 77.6299, 2.61799, 20, 20, 0, 0, 0, 0), -- Sacrificed Troll
+(@CGUID+709, 14826, 309, -11583.2, -1254.83, 77.6299, 1.67552, 20, 20, 0, 0, 0, 0), -- Sacrificed Troll
+(@CGUID+710, 14826, 309, -11586.4, -1253.92, 77.6299, 0.750492, 20, 20, 0, 0, 0, 0), -- Sacrificed Troll
+(@CGUID+711, 14826, 309, -11586.6, -1250.72, 77.6299, 6.07375, 20, 20, 0, 0, 0, 0), -- Sacrificed Troll
+(@CGUID+712, 14826, 309, -11585.1, -1248.76, 77.6299, 5.23599, 20, 20, 0, 0, 0, 0), -- Sacrificed Troll
+(@CGUID+713, 14826, 309, -11582.3, -1247.86, 77.6299, 4.36332, 20, 20, 0, 0, 0, 0), -- Sacrificed Troll
+(@CGUID+714, 14826, 309, -11580.2, -1250.6, 77.6299, 3.36848, 20, 20, 0, 0, 0, 0), -- Sacrificed Troll
+(@CGUID+715, 14826, 309, -11580.6, -1254.79, 77.6299, 2.28638, 20, 20, 0, 0, 0, 0), -- Sacrificed Troll
 (@CGUID+716, 14834, 309, -11787.4, -1649.34, 54.1017, 4.76475, 259200, 259200, 0, 0, 0, 0), -- Hakkar
 (@CGUID+717, 14880, 309, -12289.1, -1645.61, 132.135, 6.24203, 7200, 7200, 0, 0, 0, 0), -- Razzashi Skitterer
 (@CGUID+718, 14880, 309, -12286.4, -1669.35, 130.333, 5.43666, 7200, 7200, 0, 0, 0, 2), -- Razzashi Skitterer
@@ -1443,213 +1391,292 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+816, 15111, 309, -11969.1, -1830.27, 56.0987, 3.38812, 7200, 7200, 0, 0, 0, 0), -- Mad Servant
 (@CGUID+817, 15111, 309, -11968, -1842.86, 56.0263, 0, 7200, 7200, 0, 0, 0, 0), -- Mad Servant
 (@CGUID+818, 15111, 309, -11958.3, -1848.26, 56.4179, 1.76084, 7200, 7200, 0, 0, 0, 0), -- Mad Servant
-(@CGUID+819, 15111, 309, -11880, -1894.01, 63.6083, 5.37942, 7200, 7200, 5, 0, 0, 1), -- Mad Servant
-(@CGUID+820, 15111, 309, -11880.4, -1891.24, 63.6149, 4.09184, 7200, 7200, 5, 0, 0, 1), -- Mad Servant
-(@CGUID+821, 15111, 309, -11879.5, -1888.59, 63.6083, 4.37713, 7200, 7200, 5, 0, 0, 1), -- Mad Servant
-(@CGUID+822, 15111, 309, -11885.8, -1877.17, 63.6083, 1.99538, 7200, 7200, 5, 0, 0, 1), -- Mad Servant
-(@CGUID+823, 15111, 309, -11884.5, -1880.88, 63.6083, 2.00092, 7200, 7200, 5, 0, 0, 1), -- Mad Servant
-(@CGUID+824, 15111, 309, -11883.1, -1883.27, 63.6083, 0.717006, 7200, 7200, 5, 0, 0, 1); -- Mad Servant
+(@CGUID+819, 15111, 309, -11872.7783203125, -1888.9879150390625, 64.28685760498046875, 0.855211317539215087, 21600, 21600, 0, 0, 0, 0), -- Mad Servant
+(@CGUID+820, 15111, 309, -11871.7783203125, -1887.9879150390625, 64.28685760498046875, 0.000000000000000000, 21600, 21600, 0, 0, 0, 0), -- Mad Servant
+(@CGUID+821, 15111, 309, -11870.7783203125, -1886.9879150390625, 64.28685760498046875, 0.000000000000000000, 21600, 21600, 0, 0, 0, 0), -- Mad Servant
+(@CGUID+822, 15111, 309, -11885.8408203125, -1877.8155517578125, 63.5870208740234375, 2.809980154037475585, 21600, 21600, 0, 0, 0, 0), -- Mad Servant
+(@CGUID+823, 15111, 309, -11884.8408203125, -1876.8155517578125, 63.5870208740234375, 0.000000000000000000, 21600, 21600, 0, 0, 0, 0), -- Mad Servant
+(@CGUID+824, 15111, 309, -11883.8408203125, -1875.8155517578125, 63.5870208740234375, 0.000000000000000000, 21600, 21600, 0, 0, 0, 0); -- Mad Servant
+
+INSERT INTO `creature_spawn_entry` (`guid`, `entry`) VALUES
+(@CGUID+437, 11371), (@CGUID+437, 11372), -- Razzashi Serpent, Razzashi Adder
+(@CGUID+450, 11371), (@CGUID+450, 11372), -- Razzashi Serpent, Razzashi Adder
+(@CGUID+451, 11371), (@CGUID+451, 11372), -- Razzashi Serpent, Razzashi Adder
+(@CGUID+460, 11371), (@CGUID+460, 11372), -- Razzashi Serpent, Razzashi Adder
+(@CGUID+468, 11371), (@CGUID+468, 11372), -- Razzashi Serpent, Razzashi Adder
+(@CGUID+487, 11371), (@CGUID+487, 11372), -- Razzashi Serpent, Razzashi Adder
+(@CGUID+546, 11350), (@CGUID+546, 11830); -- Gurubashi Axe Thrower, Hakkari Priest
 
 -- ===========
 -- GAMEOBJECTS
 -- ===========
 
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`) VALUES
--- 1-13
-(@OGUID+14, 176604, 309, -11981.8, -1470.24, 79.0613, 2.73144, 0, 0, 0.979045, 0.203642, 600, 600, 100, 1), -- Bonfire
-(@OGUID+15, 176605, 309, -12164.1, -1673.04, 98.038, 2.70526, 0, 0, 0.976296, 0.21644, 600, 600, 100, 1), -- Brazier
-(@OGUID+16, 176606, 309, -12164.1, -1689.15, 98.4539, 2.6529, 0, 0, 0.970296, 0.241922, 600, 600, 100, 1), -- Brazier
-(@OGUID+17, 176607, 309, -12134.9, -1689.13, 85.6075, 2.70526, 0, 0, 0.976296, 0.21644, 600, 600, 100, 1), -- Brazier
-(@OGUID+18, 176608, 309, -12135.1, -1672.99, 85.1896, 2.70526, 0, 0, 0.976296, 0.21644, 600, 600, 100, 1), -- Brazier
-(@OGUID+19, 176609, 309, -12192.9, -1688.96, 112.47, 2.67908, 0, 0, 0.973379, 0.2292, 600, 600, 100, 1), -- Brazier
-(@OGUID+20, 176610, 309, -12193.3, -1673.08, 113.394, 2.71399, 0, 0, 0.977231, 0.212178, 600, 600, 100, 1), -- Brazier
-(@OGUID+21, 176611, 309, -12218.2, -1688.99, 124.302, 2.67908, 0, 0, 0.973379, 0.2292, 600, 600, 100, 1), -- Brazier
-(@OGUID+22, 176612, 309, -12218.1, -1673.09, 125.153, 2.67908, 0, 0, 0.973379, 0.2292, 600, 600, 100, 1), -- Brazier
-(@OGUID+23, 176617, 309, -12355.3, -1954.65, 132.352, -2.56563, 0, 0, 0.95882, -0.284015, 600, 600, 100, 1), -- Bonfire
-(@OGUID+24, 176618, 309, -12388.7, -1909.05, 130.26, -0.951205, 0, 0, -0.457874, 0.889017, 600, 600, 100, 1), -- Bonfire
-(@OGUID+25, 176619, 309, -11985.3, -1703, 32.2836, -2.73144, 0, 0, 0.979046, -0.203642, 600, 600, 100, 1), -- Bonfire
-(@OGUID+26, 179704, 309, -11548.8, -1247.98, 78.2841, -2.30383, 0, 0, 0.913545, -0.406737, 600, 600, 100, 1), -- Cauldron
-(@OGUID+27, 179985, 309, -12339.7, -1645.15, 131.269, -2.94961, 0, 0, 0.995396, -0.095846, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+28, 179985, 309, -12365.6, -1610.73, 131.883, -1.48353, 0, 0, 0.67559, -0.737277, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+29, 179985, 309, -12284.4, -1636.02, 133.045, -2.25148, 0, 0, 0.902585, -0.430511, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+30, 179985, 309, -12288, -1690.2, 132.435, -0.122173, 0, 0, 0.061049, -0.998135, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+31, 179985, 309, -12315.5, -1687.51, 130.996, 3.03687, 0, 0, 0.99863, 0.052336, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+32, 179985, 309, -12305.7, -1641.98, 130.927, 0.069813, 0, 0, 0.034899, 0.999391, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+33, 179985, 309, -12309.8, -1627.26, 130.809, 1.69297, 0, 0, 0.748956, 0.66262, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+34, 179985, 309, -12293.7, -1645.84, 131.421, 1.85005, 0, 0, 0.798636, 0.601815, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+35, 179985, 309, -12299.3, -1608.96, 132.029, 1.65806, 0, 0, 0.737277, 0.67559, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+36, 179985, 309, -12333.4, -1604.45, 133.015, 1.43117, 0, 0, 0.656059, 0.75471, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+37, 179985, 309, -12349.4, -1597.15, 134.484, 2.58309, 0, 0, 0.961262, 0.275637, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+38, 179985, 309, -12341.5, -1596.31, 132.422, 2.6529, 0, 0, 0.970296, 0.241922, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+39, 179985, 309, -12332.4, -1688.48, 131.306, -1.29154, 0, 0, 0.601815, -0.798635, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+40, 179985, 309, -12348.6, -1639.16, 131.314, -1.50098, 0, 0, 0.681998, -0.731354, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+41, 179985, 309, -12276.5, -1647.22, 131.402, -2.49582, 0, 0, 0.948324, -0.317305, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+42, 179985, 309, -12366.6, -1637.88, 131.448, 0.122173, 0, 0, 0.061049, 0.998135, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+43, 179985, 309, -12370.9, -1619.6, 130.94, -1.41372, 0, 0, 0.649448, -0.760406, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+44, 179985, 309, -12367.7, -1687.49, 133.749, 0.628319, 0, 0, 0.309017, 0.951057, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+45, 179985, 309, -12353.8, -1634.05, 130.66, 2.49582, 0, 0, 0.948324, 0.317305, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+46, 179985, 309, -12263.1, -1653.51, 132.593, 0.890118, 0, 0, 0.430511, 0.902585, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+47, 179985, 309, -12327.5, -1647, 131.203, 2.93215, 0, 0, 0.994522, 0.104528, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+48, 179985, 309, -12307.2, -1575.85, 132.98, -0.750491, 0, 0, 0.366501, -0.930418, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+49, 179985, 309, -12327.7, -1671.95, 129.964, -0.436333, 0, 0, 0.21644, -0.976296, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+50, 179985, 309, -12371.7, -1653.59, 130.519, -1.44862, 0, 0, 0.66262, -0.748956, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+51, 179985, 309, -12301.9, -1631.13, 130.825, -0.558505, 0, 0, 0.275637, -0.961262, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+52, 179985, 309, -12278.1, -1626.72, 133.961, -2.53073, 0, 0, 0.953717, -0.300706, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+53, 179985, 309, -12293.5, -1698.04, 132.401, -0.506145, 0, 0, 0.25038, -0.968148, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+54, 179985, 309, -12338.7, -1617.66, 132.662, -1.20428, 0, 0, 0.566406, -0.824126, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+55, 179985, 309, -12342.2, -1614.41, 132.148, 0.890118, 0, 0, 0.430511, 0.902585, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+56, 179985, 309, -12317.6, -1577.69, 132.425, -2.51327, 0, 0, 0.951057, -0.309017, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+57, 179985, 309, -12262, -1692.71, 131.977, 1.65806, 0, 0, 0.737277, 0.67559, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+58, 179985, 309, -12350, -1683.83, 131.702, -2.77507, 0, 0, 0.983255, -0.182235, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+59, 179985, 309, -12345.1, -1577.11, 133.149, 0.05236, 0, 0, 0.026177, 0.999657, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+60, 179985, 309, -12380.6, -1674.21, 135.135, -0.122173, 0, 0, 0.061049, -0.998135, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+61, 179985, 309, -12334.3, -1590.64, 132.309, 0.296706, 0, 0, 0.147809, 0.989016, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+62, 179985, 309, -12286.5, -1624.23, 130.432, -0.453786, 0, 0, 0.224951, -0.97437, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+63, 179985, 309, -12348.6, -1666.71, 130.695, -1.309, 0, 0, 0.608761, -0.793353, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+64, 179985, 309, -12331.4, -1586.47, 132.353, 3.01942, 0, 0, 0.998135, 0.061049, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+65, 179985, 309, -12375.1, -1633.28, 129.588, -2.51327, 0, 0, 0.951057, -0.309017, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+66, 179985, 309, -12384.8, -1641.3, 131.158, -1.20428, 0, 0, 0.566406, -0.824126, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+67, 179985, 309, -12331.3, -1610.76, 132.727, -0.977384, 0, 0, 0.469472, -0.882948, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+68, 179985, 309, -12375.4, -1604.21, 133.843, -0.628319, 0, 0, 0.309017, -0.951056, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+69, 179985, 309, -12377.1, -1622.55, 130.761, -2.42601, 0, 0, 0.936672, -0.350207, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+70, 179985, 309, -12326.1, -1564.06, 133.69, -1.91986, 0, 0, 0.819152, -0.573576, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+71, 179985, 309, -12272.7, -1695.68, 133.57, 1.43117, 0, 0, 0.656059, 0.75471, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+72, 179985, 309, -12338.7, -1582.65, 132.537, 0.872665, 0, 0, 0.422618, 0.906308, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+73, 179985, 309, -12351.5, -1691.34, 132.402, -1.78024, 0, 0, 0.777146, -0.62932, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+74, 179985, 309, -12381.2, -1611.29, 132.438, -0.802851, 0, 0, 0.390731, -0.920505, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+75, 179985, 309, -12372.5, -1595.45, 138.234, -0.593412, 0, 0, 0.292372, -0.956305, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+76, 179985, 309, -12306.7, -1616.96, 131.571, -1.55334, 0, 0, 0.700909, -0.71325, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+77, 179985, 309, -12377.7, -1665.01, 131.331, 1.11701, 0, 0, 0.529919, 0.848048, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+78, 179985, 309, -12316.2, -1586.61, 133.266, -2.14675, 0, 0, 0.878817, -0.477159, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+79, 179985, 309, -12248.8, -1663.64, 132.011, 2.05949, 0, 0, 0.857167, 0.515038, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+80, 179985, 309, -12320, -1566.54, 132.908, 0.191986, 0, 0, 0.095846, 0.995396, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+81, 179985, 309, -12331.6, -1637.42, 130.824, -1.90241, 0, 0, 0.814116, -0.580703, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+82, 179985, 309, -12313.4, -1563.06, 133.655, -2.96706, 0, 0, 0.996195, -0.087156, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+83, 179985, 309, -12356.8, -1672.31, 130.908, -1.43117, 0, 0, 0.656059, -0.75471, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+84, 179985, 309, -12299.6, -1688.98, 130.936, 0.488692, 0, 0, 0.241922, 0.970296, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+85, 179985, 309, -12340.9, -1679.74, 130.734, 0.418879, 0, 0, 0.207912, 0.978148, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+86, 179985, 309, -12344.8, -1608.62, 132.508, -2.84489, 0, 0, 0.989016, -0.147809, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+87, 179985, 309, -12359.7, -1598.03, 134.801, -0.383972, 0, 0, 0.190809, -0.981627, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+88, 179985, 309, -12311.2, -1582.18, 133.06, -1.18682, 0, 0, 0.559193, -0.829037, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+89, 179985, 309, -12259.1, -1661.71, 131.386, -2.54818, 0, 0, 0.956305, -0.292372, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+90, 179985, 309, -12272.6, -1632.06, 138.273, 0.698132, 0, 0, 0.34202, 0.939693, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+91, 179985, 309, -12333, -1577.07, 132.298, -0.628319, 0, 0, 0.309017, -0.951056, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+92, 179985, 309, -12299.6, -1619.48, 131.14, -2.02458, 0, 0, 0.848048, -0.529919, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+93, 179985, 309, -12305.1, -1600.49, 132.504, 1.43117, 0, 0, 0.656059, 0.75471, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+94, 179985, 309, -12304.7, -1594.69, 133.991, -0.436333, 0, 0, 0.21644, -0.976296, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+95, 179985, 309, -12310.8, -1698.4, 132.645, -2.9147, 0, 0, 0.993572, -0.113203, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+96, 179985, 309, -12247.3, -1692.2, 132.04, 2.58309, 0, 0, 0.961262, 0.275637, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+97, 179985, 309, -12310.7, -1572.57, 133.447, 2.11185, 0, 0, 0.870356, 0.492424, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+98, 179985, 309, -12313.3, -1608.37, 133.097, -1.32645, 0, 0, 0.615661, -0.788011, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+99, 179985, 309, -12343.4, -1587.82, 132.232, -1.23918, 0, 0, 0.580703, -0.814116, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+100, 179985, 309, -12285.3, -1613.89, 131.108, 2.37365, 0, 0, 0.927184, 0.374607, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+101, 179985, 309, -12272.3, -1683.82, 131.424, -0.034907, 0, 0, 0.017452, -0.999848, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+102, 179985, 309, -12318.3, -1594.9, 132.353, 2.37365, 0, 0, 0.927184, 0.374607, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+103, 179985, 309, -12286.5, -1652.58, 131.431, 1.71042, 0, 0, 0.75471, 0.656059, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+104, 179985, 309, -12371.3, -1672.74, 131.131, -0.628319, 0, 0, 0.309017, -0.951056, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+105, 179985, 309, -12281.5, -1684.34, 132.108, 0.907571, 0, 0, 0.438371, 0.898794, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+106, 179985, 309, -12347.5, -1566.59, 132.695, 2.93215, 0, 0, 0.994522, 0.104528, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+107, 179985, 309, -12343.2, -1570.49, 131.631, 2.6529, 0, 0, 0.970296, 0.241922, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+108, 179985, 309, -12320, -1587.94, 132.603, -2.30383, 0, 0, 0.913545, -0.406737, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+109, 179985, 309, -12331.4, -1627.34, 130.44, 2.16421, 0, 0, 0.882948, 0.469472, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+110, 179985, 309, -12308.9, -1568.17, 134.035, 1.0821, 0, 0, 0.515038, 0.857167, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+111, 179985, 309, -12363, -1676.58, 130.748, -0.349066, 0, 0, 0.173648, -0.984808, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+112, 179985, 309, -12321.5, -1580.01, 132.249, 3.08923, 0, 0, 0.999657, 0.026177, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+113, 179985, 309, -12322.3, -1696.68, 135.189, 3.12414, 0, 0, 0.999962, 0.008727, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+114, 179985, 309, -12293.5, -1679.86, 131.552, 2.79253, 0, 0, 0.984808, 0.173648, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+115, 179985, 309, -12316.8, -1582.49, 132.893, -0.226893, 0, 0, 0.113203, -0.993572, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+116, 179985, 309, -12263.5, -1640.6, 135.232, -1.71042, 0, 0, 0.75471, -0.656059, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+117, 179985, 309, -12340.3, -1569.5, 131.41, -1.29154, 0, 0, 0.601815, -0.798635, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+118, 179985, 309, -12314.7, -1674.71, 132.047, 0.977384, 0, 0, 0.469472, 0.882948, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+119, 179985, 309, -12367.8, -1604.67, 132.359, -1.25664, 0, 0, 0.587785, -0.809017, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+120, 179985, 309, -12307.6, -1587.04, 132.717, 2.26893, 0, 0, 0.906308, 0.422618, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+121, 179985, 309, -12303.3, -1674.7, 131.068, 0.191986, 0, 0, 0.095846, 0.995396, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+122, 179985, 309, -12383.2, -1656.12, 132.77, -1.16937, 0, 0, 0.551937, -0.833886, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+123, 179985, 309, -12332.5, -1566.51, 132.693, 3.08923, 0, 0, 0.999657, 0.026177, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+124, 179985, 309, -12337.4, -1601.97, 133.901, -2.74017, 0, 0, 0.979925, -0.199368, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+125, 179985, 309, -12315.9, -1664.36, 131.508, -1.72788, 0, 0, 0.760406, -0.649448, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+126, 179985, 309, -12313, -1599.8, 132.637, 0.837758, 0, 0, 0.406737, 0.913545, 600, 600, 100, 1), -- Spider Egg
-(@OGUID+127, 180164, 309, -12347.2, -1845.5, 131.012, -2.93215, 0, 0, 0.994522, -0.104529, 2700, 2700, 100, 1), -- Sungrass
-(@OGUID+128, 180164, 309, -11597.3, -1752.79, 39.3294, -0.785398, 0, 0, 0.382683, -0.92388, 2700, 2700, 100, 1), -- Sungrass
-(@OGUID+129, 180165, 309, -11969.4, -1825.95, 56.2139, 2.16421, 0, 0, 0.882948, 0.469472, 2700, 2700, 100, 1), -- Purple Lotus
-(@OGUID+130, 180165, 309, -12334.5, -1899.65, 131.243, -3.00197, 0, 0, 0.997564, -0.069756, 2700, 2700, 100, 1), -- Purple Lotus
-(@OGUID+131, 180165, 309, -11874.8, -1382.4, 68.2662, -1.01229, 0, 0, 0.48481, -0.87462, 2700, 2700, 100, 1), -- Purple Lotus
-(@OGUID+132, 180166, 309, -11733.9, -1945.6, 58.6811, -2.82743, 0, 0, 0.987688, -0.156434, 2700, 2700, 100, 1), -- Mountain Silversage
-(@OGUID+133, 180166, 309, -12264.7, -1869.38, 133.452, 1.29154, 0, 0, 0.601815, 0.798636, 2700, 2700, 100, 1), -- Mountain Silversage
-(@OGUID+134, 180166, 309, -11595.3, -1218.19, 81.0125, -0.820305, 0, 0, 0.398749, -0.91706, 2700, 2700, 100, 1), -- Mountain Silversage
-(@OGUID+135, 180166, 309, -12225.9, -1419.93, 131.392, -1.25664, 0, 0, 0.587785, -0.809017, 2700, 2700, 100, 1), -- Mountain Silversage
-(@OGUID+136, 180167, 309, -11988.1, -1825.93, 58.5294, -1.81514, 0, 0, 0.788011, -0.615661, 2700, 2700, 100, 1), -- Golden Sansam
-(@OGUID+137, 180167, 309, -11585.2, -1573.6, 50.7598, 1.16937, 0, 0, 0.551937, 0.833886, 2700, 2700, 100, 1), -- Golden Sansam
-(@OGUID+138, 180167, 309, -12298.4, -1684.08, 132.492, 1.44862, 0, 0, 0.66262, 0.748956, 2700, 2700, 100, 1), -- Golden Sansam
-(@OGUID+139, 180167, 309, -11834.8, -1326.26, 67.5547, -2.63545, 0, 0, 0.968148, -0.25038, 2700, 2700, 100, 1), -- Golden Sansam
-(@OGUID+140, 180167, 309, -12223.5, -1416.27, 131.545, 2.93215, 0, 0, 0.994522, 0.104528, 2700, 2700, 100, 1), -- Golden Sansam
-(@OGUID+141, 180168, 309, -11986.2, -1475.36, 79.6971, -3.00197, 0, 0, 0.997564, -0.069756, 2700, 2700, 100, 1), -- Dreamfoil
-(@OGUID+142, 180168, 309, -12185.9, -1901.98, 133.235, 0.820305, 0, 0, 0.398749, 0.91706, 2700, 2700, 100, 1), -- Dreamfoil
-(@OGUID+143, 180168, 309, -11821, -1892.17, 49.6586, 0.977384, 0, 0, 0.469472, 0.882948, 2700, 2700, 100, 1), -- Dreamfoil
-(@OGUID+144, 180168, 309, -11456.6, -1606.96, 49.1958, 2.02458, 0, 0, 0.848048, 0.529919, 2700, 2700, 100, 1), -- Dreamfoil
-(@OGUID+145, 180168, 309, -11608.9, -1274.07, 79.271, 0.017453, 0, 0, 0.008727, 0.999962, 2700, 2700, 100, 1), -- Dreamfoil
-(@OGUID+146, 180215, 309, -11998, -1843.46, 60.4131, -0.418879, 0, 0, 0.207912, -0.978148, 2700, 2700, 100, 1), -- Hakkari Thorium Vein
-(@OGUID+147, 180215, 309, -11927.7, -1756.96, 50.1585, 3.14159, 0, 0, 1, 0, 2700, 2700, 100, 1), -- Hakkari Thorium Vein
-(@OGUID+148, 180215, 309, -12241.9, -1488.29, 131.513, 1.58825, 0, 0, 0.71325, 0.700909, 2700, 2700, 100, 1), -- Hakkari Thorium Vein
-(@OGUID+149, 180228, 309, -11518.2, -1693.06, 52.485, 1.02974, 0, 0, 0.492424, 0.870356, 7200, 7200, 100, 1), -- Jinxed Hoodoo Pile
-(@OGUID+150, 180228, 309, -12382.4, -1919.37, 131.553, -2.84489, 0, 0, 0.989016, -0.147809, 7200, 7200, 100, 1), -- Jinxed Hoodoo Pile
-(@OGUID+151, 180228, 309, -12376.2, -1661.07, 132.864, 1.43117, 0, 0, 0.656059, 0.75471, 7200, 7200, 100, 1), -- Jinxed Hoodoo Pile
-(@OGUID+152, 180228, 309, -12155.9, -1960.37, 133.111, -2.63545, 0, 0, 0.968148, -0.25038, 7200, 7200, 100, 1), -- Jinxed Hoodoo Pile
-(@OGUID+153, 180228, 309, -12358.3, -1939.73, 132.353, 0.10472, 0, 0, 0.052336, 0.99863, 7200, 7200, 100, 1), -- Jinxed Hoodoo Pile
-(@OGUID+154, 180228, 309, -11542.7, -1544.95, 51.7792, -0.785398, 0, 0, 0.382683, -0.92388, 7200, 7200, 100, 1), -- Jinxed Hoodoo Pile
-(@OGUID+155, 180228, 309, -11556, -1725.95, 39.7283, 0.942478, 0, 0, 0.45399, 0.891007, 7200, 7200, 100, 1), -- Jinxed Hoodoo Pile
-(@OGUID+156, 180229, 309, -11810.1, -1882.4, 46.0745, -2.44346, 0, 0, 0.939693, -0.34202, 600, 600, 100, 1), -- Jinxed Hoodoo Pile
-(@OGUID+157, 180229, 309, -11526.3, -1479.74, 78.0266, -1.15192, 0, 0, 0.544639, -0.838671, 600, 600, 100, 1), -- Jinxed Hoodoo Pile
-(@OGUID+158, 180229, 309, -11539.9, -1247.64, 78.5177, 3.00197, 0, 0, 0.997564, 0.069757, 600, 600, 100, 1), -- Jinxed Hoodoo Pile
-(@OGUID+159, 180229, 309, -11452.9, -1613.94, 49.0348, 2.53073, 0, 0, 0.953717, 0.300706, 600, 600, 100, 1), -- Jinxed Hoodoo Pile
-(@OGUID+160, 180229, 309, -11781.9, -1621.91, 21.149, -3.12414, 0, 0, 0.999962, -0.008727, 600, 600, 100, 1), -- Jinxed Hoodoo Pile
-(@OGUID+161, 180229, 309, -12357.9, -1836.31, 130.865, 0.453786, 0, 0, 0.224951, 0.97437, 600, 600, 100, 1), -- Jinxed Hoodoo Pile
-(@OGUID+162, 180229, 309, -11742.3, -1930.5, 56.9127, 1.62316, 0, 0, 0.725374, 0.688355, 600, 600, 100, 1), -- Jinxed Hoodoo Pile
-(@OGUID+163, 180229, 309, -11974.8, -1474.54, 79.9835, 2.93215, 0, 0, 0.994522, 0.104528, 600, 600, 100, 1), -- Jinxed Hoodoo Pile
-(@OGUID+164, 180229, 309, -11638.4, -1882.91, 57.3159, -2.42601, 0, 0, 0.936672, -0.350207, 600, 600, 100, 1), -- Jinxed Hoodoo Pile
-(@OGUID+165, 180229, 309, -11594.7, -1216.66, 81.3685, 0.331613, 0, 0, 0.165048, 0.986286, 600, 600, 100, 1), -- Jinxed Hoodoo Pile
--- 166-182
-(@OGUID+183, 180252, 309, -11892.5, -1913.15, 65.1471, 2.44346, 0, 0, 0.939693, 0.34202, 600, 600, 100, 1), -- Troll Hero Lightning
-(@OGUID+184, 180252, 309, -11906.1, -1911.84, 65.1471, 0.855211, 0, 0, 0.414693, 0.909961, 600, 600, 100, 1), -- Troll Hero Lightning
-(@OGUID+185, 180252, 309, -11909.1, -1899.26, 65.1471, 0.750492, 0, 0, 0.366501, 0.930418, 600, 600, 100, 1), -- Troll Hero Lightning
-(@OGUID+186, 180323, 309, -11916.8, -1221.22, 92.5045, -1.5708, 0, 0, -0.707107, 0.707107, 600, 600, 100, 1), -- Gates of Zul'Gurub
-(@OGUID+187, 180327, 309, -11887.1, -1889.8, 63.5037, 0.855211, 0, 0, 0.414693, 0.909961, 7200, 7200, 100, 1), -- Brazier of Madness
-(@OGUID+188, 180327, 309, -11887.1, -1889.8, 63.5037, 0.855211, 0, 0, 0.414693, 0.909961, 7200, 7200, 100, 1), -- Brazier of Madness
-(@OGUID+189, 180327, 309, -11887.1, -1889.8, 63.5037, 0.855211, 0, 0, 0.414693, 0.909961, 7200, 7200, 100, 1), -- Brazier of Madness
-(@OGUID+190, 180327, 309, -11887.1, -1889.8, 63.5037, 0.855211, 0, 0, 0.414693, 0.909961, 7200, 7200, 100, 1), -- Brazier of Madness
-(@OGUID+191, 180358, 309, -11874.8, -1927.73, 67.0359, 1.58825, 0, 0, 0.71325, 0.70091, 600, 600, 100, 1), -- Gri'lek, with the Iron Blood
-(@OGUID+192, 180364, 309, -11892.6, -1928.81, 66.8137, -1.58825, 0, 0, -0.71325, 0.70091, 600, 600, 100, 1), -- Hazza'rah, the Dreamweaver
-(@OGUID+193, 180365, 309, -11924.5, -1900.15, 66.7322, 3.14159, 0, 0, 1, 0, 600, 600, 100, 1), -- Renataki, of the Thousand Blades
-(@OGUID+194, 180366, 309, -11698.1, -1771.5, 12.5578, -2.93215, 0, 0, 0.994522, -0.104529, 600, 600, 100, 1), -- Battered Tackle Box
-(@OGUID+195, 180368, 309, -11910.4, -1917.04, 71.6557, -2.33001, 0, 0, 0.918791, -0.394744, 600, 600, 100, 1), -- Tablet of Madness
-(@OGUID+196, 180369, 309, -11781, -1425.23, 10.4603, -0.733038, 0, 0, 0.358368, -0.93358, 600, 600, 100, 1), -- Muddy Churning Waters
-(@OGUID+197, 180369, 309, -11841.1, -1506.42, 10.4603, -0.925024, 0, 0, 0.446198, -0.894934, 600, 600, 100, 1), -- Muddy Churning Waters
-(@OGUID+198, 180369, 309, -11900, -1479.85, 10.4603, -1.62316, 0, 0, 0.725374, -0.688354, 600, 600, 100, 1), -- Muddy Churning Waters
-(@OGUID+199, 180369, 309, -11680.2, -1659.74, 10.4603, 1.29154, 0, 0, 0.601815, 0.798636, 600, 600, 100, 1), -- Muddy Churning Waters
-(@OGUID+200, 180386, 309, -11516.2, -1648.14, 49.5335, 1.66679, 0, 0, 0.740218, 0.672367, 600, 600, 100, 1), -- Gong
-(@OGUID+201, 180392, 309, -11691.7, -1769.89, 12.5923, 2.60054, 0, 0, 0.96363, 0.267238, 10, 10, 100, 1), -- Full Jug
-(@OGUID+202, 180392, 309, -11698.5, -1775, 12.5728, 1.46608, 0, 0, 0.669131, 0.743145, 10, 10, 100, 1), -- Full Jug
-(@OGUID+203, 180392, 309, -11696.3, -1771.7, 12.5923, -0.977384, 0, 0, 0.469472, -0.882948, 10, 10, 100, 1), -- Full Jug
-(@OGUID+204, 180392, 309, -11686.7, -1786.22, 12.5923, -2.80998, 0, 0, 0.986286, -0.165048, 10, 10, 100, 1), -- Full Jug
-(@OGUID+205, 180392, 309, -11700.5, -1769.89, 12.3476, -1.93731, 0, 0, 0.824126, -0.566406, 10, 10, 100, 1), -- Full Jug
-(@OGUID+206, 180392, 309, -11693.3, -1765.31, 12.5923, 0.733038, 0, 0, 0.358368, 0.93358, 10, 10, 100, 1), -- Full Jug
-(@OGUID+207, 180393, 309, -11923.3, -1882.99, 66.8137, -0.026181, 0, 0, -0.01309, 0.999914, 600, 600, 100, 1), -- Wushoolay, the Storm Witch
-(@OGUID+208, 180497, 309, -11501.9, -1614.8, 44.5722, 1.57952, 0, 0, 0.710185, 0.704015, 600, 600, 100, 0), -- Forcefield
-(@OGUID+209, 180526, 309, -11569.2, -1627.87, 41.2767, 0.008726, 0, 0, 0.004363, 0.99999, 600, 600, 100, 1); -- Gong of Bethekk
+(@OGUID+1, 180323, 309, -11916.771484375, -1221.220947265625, 92.50450897216796875, -1.57079565525054931, 0, 0, -0.70710653066635131, 0.707107007503509521, 600, 600, 100, 1), -- Gates of Zul'Gurub
+(@OGUID+2, 180253, 309, -11900.6, -1905.16, 65.3128, 3.78737, 0, 0, -0.948323, 0.317306, -600, -600, 100, 1), -- Troll Hero Air Portal
+(@OGUID+3, 180254, 309, -11900.6, -1905.15, 65.3134, 3.14159, 0, 0, -1, 0, -600, -600, 100, 1), -- Troll Hero Fire Portal
+(@OGUID+4, 180385, 309, -11900.3, -1905.49, 65.3169, 0.837758, 0, 0, 0.406736, 0.913545, -600, -600, 100, 1), -- Troll Hero Portal Sound
+(@OGUID+5, 180252, 309, -11892.46875, -1913.1458740234375, 65.147064208984375, 2.443460941314697265, 0, 0, 0.939692616462707519, 0.342020153999328613, 600, 600, 100, 1), -- Troll Hero Lightning
+(@OGUID+6, 180252, 309, -11906.146484375, -1911.8370361328125, 65.147064208984375, 0.855211377143859863, 0, 0, 0.414693236351013183, 0.909961283206939697, 600, 600, 100, 1), -- Troll Hero Lightning
+(@OGUID+7, 180252, 309, -11909.0712890625, -1899.2628173828125, 65.147064208984375, 0.750491559505462646, 0, 0, 0.366501212120056152, 0.930417597293853759, 600, 600, 100, 1), -- Troll Hero Lightning
+(@OGUID+8, 180327, 309, -11887.05859375, -1889.802490234375, 63.50368881225585937, 0.855211377143859863, 0, 0, 0.414693236351013183, 0.909961283206939697, 259200, 259200, 100, 1), -- Brazier of Madness
+(@OGUID+9, 180368, 309, -11910.4306640625, -1917.0399169921875, 71.6556854248046875, -2.33001399040222167, 0, 0, 0.918790996074676513, -0.39474400877952575, 600, 600, 100, 1), -- Tablet of Madness
+(@OGUID+10, 180358, 309, -11874.7919921875, -1927.7274169921875, 67.03594970703125, 1.588248252868652343, 0, 0, 0.71324998140335083, 0.700909972190856933, 600, 600, 100, 1), -- Gri'lek, with the Iron Blood
+(@OGUID+11, 180364, 309, -11892.56640625, -1928.8072509765625, 66.81372833251953125, -1.58824825286865234, 0, 0, -0.71324998140335083, 0.700909972190856933, 600, 600, 100, 1), -- Hazza'rah, the Dreamweaver
+(@OGUID+12, 180365, 309, -11924.4892578125, -1900.1458740234375, 66.73224639892578125, 3.141592741012573242, 0, 0, 1, 0, 600, 600, 100, 1), -- Renataki, of the Thousand Blades
+(@OGUID+13, 180393, 309, -11923.28515625, -1882.98876953125, 66.81372833251953125, -0.02618073672056198, 0, 0, -0.01308999955654144, 0.999913990497589111, 600, 600, 100, 1), -- Wushoolay, the Storm Witch
+(@OGUID+14, 176604, 309, -11981.81640625, -1470.2391357421875, 79.0612945556640625, 2.73143935203552246, 0, 0, 0.979044973850250244, 0.203641995787620544, 600, 600, 100, 1), -- Bonfire
+(@OGUID+15, 176605, 309, -12164.06640625, -1673.0364990234375, 98.037994384765625, 2.705259561538696289, 0, 0, 0.976296007633209228, 0.216440007090568542, 600, 600, 100, 1), -- Brazier
+(@OGUID+16, 176606, 309, -12164.099609375, -1689.1519775390625, 98.453857421875, 2.65290069580078125, 0, 0, 0.970296025276184082, 0.241922006011009216, 600, 600, 100, 1), -- Brazier
+(@OGUID+17, 176607, 309, -12134.9130859375, -1689.128662109375, 85.60752105712890625, 2.705259561538696289, 0, 0, 0.976296007633209228, 0.216440007090568542, 600, 600, 100, 1), -- Brazier
+(@OGUID+18, 176608, 309, -12135.0693359375, -1672.9853515625, 85.18961334228515625, 2.705259561538696289, 0, 0, 0.976296007633209228, 0.216440007090568542, 600, 600, 100, 1), -- Brazier
+(@OGUID+19, 176609, 309, -12192.8798828125, -1688.9586181640625, 112.4695663452148437, 2.679080724716186523, 0, 0, 0.973379015922546386, 0.229200005531311035, 600, 600, 100, 1), -- Brazier
+(@OGUID+20, 176610, 309, -12193.30078125, -1673.0775146484375, 113.3940200805664062, 2.713986396789550781, 0, 0, 0.977231025695800781, 0.212178006768226623, 600, 600, 100, 1), -- Brazier
+(@OGUID+21, 176611, 309, -12218.1669921875, -1688.986083984375, 124.3018722534179687, 2.679080724716186523, 0, 0, 0.973379015922546386, 0.229200005531311035, 600, 600, 100, 1), -- Brazier
+(@OGUID+22, 176612, 309, -12218.125, -1673.08935546875, 125.1525726318359375, 2.679080724716186523, 0, 0, 0.973379015922546386, 0.229200005531311035, 600, 600, 100, 1), -- Brazier
+(@OGUID+23, 176617, 309, -12355.3388671875, -1954.6531982421875, 132.3521270751953125, -2.56563496589660644, 0, 0, 0.958819985389709472, -0.28401499986648559, 600, 600, 100, 1), -- Bonfire
+(@OGUID+24, 176618, 309, -12388.669921875, -1909.0538330078125, 130.2603607177734375, -0.95120459794998168, 0, 0, -0.45787400007247924, 0.889016985893249511, 600, 600, 100, 1), -- Bonfire
+(@OGUID+25, 176619, 309, -11985.3388671875, -1703, 32.28356170654296875, -2.73144054412841796, 0, 0, 0.979045987129211425, -0.20364199578762054, 600, 600, 100, 1), -- Bonfire
+(@OGUID+26, 179704, 309, -11548.833984375, -1247.9771728515625, 78.28408050537109375, -2.3038332462310791, 0, 0, 0.913545012474060058, -0.40673699975013732, 600, 600, 100, 1), -- Cauldron
+(@OGUID+27, 179985, 309, -12286.4912109375, -1624.2301025390625, 130.4316864013671875, -0.45378574728965759, 0, 0, 0.224951118230819702, -0.9743700623512268, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+28, 179985, 309, -12293.5244140625, -1679.861083984375, 131.551544189453125, 2.792526721954345703, 0, 0, 0.984807729721069335, 0.173648223280906677, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+29, 179985, 309, -12286.4580078125, -1652.579833984375, 131.4309844970703125, 1.710422515869140625, 0, 0, 0.754709541797637939, 0.656059026718139648, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+30, 179985, 309, -12303.3271484375, -1674.697265625, 131.06787109375, 0.191986218094825744, 0, 0, 0.095845751464366912, 0.995396196842193603, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+31, 179985, 309, -12310.765625, -1698.396240234375, 132.6454620361328125, -2.91469979286193847, 0, 0, 0.993571877479553222, -0.11320321261882781, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+32, 179985, 309, -12263.4697265625, -1640.5982666015625, 135.2315673828125, -1.71042275428771972, 0, 0, 0.754709601402282714, -0.65605896711349487, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+33, 179985, 309, -12299.6357421875, -1688.9791259765625, 130.936248779296875, 0.488692224025726318, 0, 0, 0.241921901702880859, 0.970295727252960205, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+34, 179985, 309, -12281.490234375, -1684.3375244140625, 132.1078643798828125, 0.907571256160736083, 0, 0, 0.438371151685714721, 0.898794054985046386, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+35, 179985, 309, -12272.271484375, -1683.8189697265625, 131.4239654541015625, -0.03490668907761573, 0, 0, 0.017452457919716835, -0.99984771013259887, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+36, 179985, 309, -12293.71875, -1645.842041015625, 131.421417236328125, 1.850049138069152832, 0, 0, 0.798635542392730712, 0.60181504487991333, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+37, 179985, 309, -12288.0166015625, -1690.2032470703125, 132.4345550537109375, -0.12217313796281814, 0, 0, 0.061048582196235656, -0.9981347918510437, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+38, 179985, 309, -12259.12109375, -1661.7095947265625, 131.385589599609375, -2.54818058013916015, 0, 0, 0.956304728984832763, -0.29237174987792968, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+39, 179985, 309, -12278.0908203125, -1626.7176513671875, 133.9610748291015625, -2.53072738647460937, 0, 0, 0.953716933727264404, -0.30070579051971435, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+40, 179985, 309, -12272.6123046875, -1632.0555419921875, 138.2734527587890625, 0.69813162088394165, 0, 0, 0.342020124197006225, 0.939692616462707519, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+41, 179985, 309, -12276.453125, -1647.21875, 131.4020233154296875, -2.49582076072692871, 0, 0, 0.948323667049407958, -0.31730467081069946, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+42, 179985, 309, -12248.8408203125, -1663.640625, 132.011474609375, 2.059488534927368164, 0, 0, 0.857167303562164306, 0.515038073062896728, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+43, 179985, 309, -12293.5048828125, -1698.0401611328125, 132.4014739990234375, -0.50614529848098754, 0, 0, 0.250379920005798339, -0.9681476354598999, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+44, 179985, 309, -12261.951171875, -1692.7117919921875, 131.9766998291015625, 1.65806281566619873, 0, 0, 0.737277328968048095, 0.675590217113494873, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+45, 179985, 309, -12272.65625, -1695.6785888671875, 133.5703887939453125, 1.431169986724853515, 0, 0, 0.656059026718139648, 0.754709601402282714, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+46, 179985, 309, -12284.4306640625, -1636.0208740234375, 133.045013427734375, -2.25147461891174316, 0, 0, 0.902585268020629882, -0.43051111698150634, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+47, 179985, 309, -12263.1181640625, -1653.5052490234375, 132.5929107666015625, 0.890117883682250976, 0, 0, 0.430511087179183959, 0.902585268020629882, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+48, 179985, 309, -12247.2666015625, -1692.197998046875, 132.0396575927734375, 2.58308720588684082, 0, 0, 0.961261689662933349, 0.275637388229370117, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+49, 179985, 309, -12331.6416015625, -1637.4212646484375, 130.8238067626953125, -1.90240883827209472, 0, 0, 0.814115524291992187, -0.58070296049118041, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+50, 179985, 309, -12301.94140625, -1631.13330078125, 130.8245391845703125, -0.55850535631179809, 0, 0, 0.275637358427047729, -0.96126168966293334, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+51, 179985, 309, -12327.5283203125, -1646.995849609375, 131.202545166015625, 2.932153224945068359, 0, 0, 0.994521915912628173, 0.10452841967344284, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+52, 179985, 309, -12299.26171875, -1608.964111328125, 132.028533935546875, 1.65806281566619873, 0, 0, 0.737277328968048095, 0.675590217113494873, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+53, 179985, 309, -12315.4970703125, -1687.511962890625, 130.9962158203125, 3.03687286376953125, 0, 0, 0.998629510402679443, 0.05233597382903099, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+54, 179985, 309, -12315.888671875, -1664.3646240234375, 131.508056640625, -1.7278759479522705, 0, 0, 0.760405957698822021, -0.64944803714752197, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+55, 179985, 309, -12306.736328125, -1616.9583740234375, 131.5713653564453125, -1.55334317684173583, 0, 0, 0.700909316539764404, -0.71325039863586425, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+56, 179985, 309, -12332.3935546875, -1688.4783935546875, 131.3063201904296875, -1.29154384136199951, 0, 0, 0.601815104484558105, -0.79863548278808593, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+57, 179985, 309, -12340.9306640625, -1679.7379150390625, 130.73382568359375, 0.418879061937332153, 0, 0, 0.207911700010299682, 0.978147625923156738, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+58, 179985, 309, -12305.662109375, -1641.977294921875, 130.9268951416015625, 0.069813162088394165, 0, 0, 0.034899495542049407, 0.999390840530395507, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+59, 179985, 309, -12285.3232421875, -1613.888671875, 131.1083831787109375, 2.373647689819335937, 0, 0, 0.927183866500854492, 0.374606639146804809, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+60, 179985, 309, -12327.66015625, -1671.953125, 129.9640655517578125, -0.43633255362510681, 0, 0, 0.216439723968505859, -0.97629600763320922, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+61, 179985, 309, -12314.728515625, -1674.7083740234375, 132.0467376708984375, 0.977384388446807861, 0, 0, 0.469471573829650878, 0.882947564125061035, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+62, 179985, 309, -12309.8193359375, -1627.26220703125, 130.8092193603515625, 1.692969441413879394, 0, 0, 0.748955726623535156, 0.662620067596435546, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+63, 179985, 309, -12299.5693359375, -1619.482666015625, 131.1397552490234375, -2.02458167076110839, 0, 0, 0.848048031330108642, -0.5299193263053894, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+64, 179985, 309, -12322.33984375, -1696.67919921875, 135.189361572265625, 3.124139308929443359, 0, 0, 0.999961912631988525, 0.008726561442017555, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+65, 179985, 309, -12349.9619140625, -1683.829833984375, 131.70196533203125, -2.77507352828979492, 0, 0, 0.983254909515380859, -0.18223547935485839, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+66, 179985, 309, -12318.3349609375, -1594.8990478515625, 132.353057861328125, 2.373647689819335937, 0, 0, 0.927183866500854492, 0.374606639146804809, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+67, 179985, 309, -12313.28515625, -1608.373291015625, 133.0965728759765625, -1.32645010948181152, 0, 0, 0.615661442279815673, -0.78801077604293823, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+68, 179985, 309, -12342.2431640625, -1614.407958984375, 132.1482391357421875, 0.890117883682250976, 0, 0, 0.430511087179183959, 0.902585268020629882, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+69, 179985, 309, -12305.1181640625, -1600.4930419921875, 132.5044708251953125, 1.431169986724853515, 0, 0, 0.656059026718139648, 0.754709601402282714, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+70, 179985, 309, -12337.4169921875, -1601.96875, 133.9007568359375, -2.74016690254211425, 0, 0, 0.979924738407135009, -0.19936791062355041, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+71, 179985, 309, -12307.59375, -1587.0416259765625, 132.7171173095703125, 2.268928050994873046, 0, 0, 0.906307816505432128, 0.422618240118026733, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+72, 179985, 309, -12339.705078125, -1645.1492919921875, 131.26910400390625, -2.94960641860961914, 0, 0, 0.995396196842193603, -0.09584572911262512, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+73, 179985, 309, -12367.7451171875, -1687.49169921875, 133.7494049072265625, 0.628318548202514648, 0, 0, 0.309017002582550048, 0.951056540012359619, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+74, 179985, 309, -12348.5927734375, -1639.1649169921875, 131.314300537109375, -1.50098299980163574, 0, 0, 0.681998312473297119, -0.731353759765625, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+75, 179985, 309, -12344.75, -1608.62158203125, 132.507720947265625, -2.84488654136657714, 0, 0, 0.989015877246856689, -0.1478094458580017, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+76, 179985, 309, -12316.1533203125, -1586.60546875, 133.266387939453125, -2.14675498008728027, 0, 0, 0.878817141056060791, -0.47715872526168823, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+77, 179985, 309, -12333.361328125, -1604.454833984375, 133.0149078369140625, 1.431169986724853515, 0, 0, 0.656059026718139648, 0.754709601402282714, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+78, 179985, 309, -12319.978515625, -1587.9427490234375, 132.603057861328125, -2.30383467674255371, 0, 0, 0.913545489311218261, -0.4067365825176239, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+79, 179985, 309, -12338.716796875, -1617.6597900390625, 132.661865234375, -1.2042773962020874, 0, 0, 0.566406309604644775, -0.82412612438201904, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+80, 179985, 309, -12348.5693359375, -1666.7066650390625, 130.6952056884765625, -1.30899691581726074, 0, 0, 0.608761429786682128, -0.79335331916809082, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+81, 179985, 309, -12351.48046875, -1691.3428955078125, 132.40179443359375, -1.7802361249923706, 0, 0, 0.777146041393280029, -0.62932032346725463, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+82, 179985, 309, -12304.701171875, -1594.6907958984375, 133.99114990234375, -0.43633255362510681, 0, 0, 0.216439723968505859, -0.97629600763320922, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+83, 179985, 309, -12316.8251953125, -1582.4857177734375, 132.8934478759765625, -0.22689278423786163, 0, 0, 0.113203197717666625, -0.99357187747955322, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+84, 179985, 309, -12362.9833984375, -1676.57666015625, 130.7482452392578125, -0.34906607866287231, 0, 0, 0.173648297786712646, -0.98480772972106933, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+85, 179985, 309, -12353.767578125, -1634.045166015625, 130.6604461669921875, 2.49582076072692871, 0, 0, 0.948323667049407958, 0.31730470061302185, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+86, 179985, 309, -12356.75390625, -1672.310791015625, 130.908477783203125, -1.43116986751556396, 0, 0, 0.656058967113494873, -0.75470966100692749, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+87, 179985, 309, -12371.251953125, -1672.7396240234375, 131.1305999755859375, -0.62831860780715942, 0, 0, 0.309017032384872436, -0.95105648040771484, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+88, 179985, 309, -12312.9814453125, -1599.797119140625, 132.6368408203125, 0.837758004665374755, 0, 0, 0.406736642122268676, 0.913545429706573486, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+89, 179985, 309, -12331.298828125, -1610.7552490234375, 132.7266998291015625, -0.97738438844680786, 0, 0, 0.469471573829650878, -0.88294756412506103, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+90, 179985, 309, -12311.2412109375, -1582.17578125, 133.0598602294921875, -1.18682420253753662, 0, 0, 0.559193015098571777, -0.82903748750686645, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+91, 179985, 309, -12331.44921875, -1627.33740234375, 130.440093994140625, 2.164208173751831054, 0, 0, 0.882947564125061035, 0.469471603631973266, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+92, 179985, 309, -12384.8447265625, -1641.2955322265625, 131.1581268310546875, -1.2042773962020874, 0, 0, 0.566406309604644775, -0.82412612438201904, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+93, 179985, 309, -12377.681640625, -1665.008056640625, 131.33099365234375, 1.117010712623596191, 0, 0, 0.529919266700744628, 0.848048090934753417, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+94, 179985, 309, -12377.103515625, -1622.5504150390625, 130.7606964111328125, -2.42600750923156738, 0, 0, 0.936672151088714599, -0.35020741820335388, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+95, 179985, 309, -12313.396484375, -1563.058349609375, 133.6548614501953125, -2.96705961227416992, 0, 0, 0.996194720268249511, -0.0871557667851448, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+96, 179985, 309, -12343.3994140625, -1587.8177490234375, 132.23248291015625, -1.23918378353118896, 0, 0, 0.580702960491180419, -0.81411552429199218, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+97, 179985, 309, -12317.6083984375, -1577.6944580078125, 132.4249267578125, -2.51327419281005859, 0, 0, 0.951056540012359619, -0.30901694297790527, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+98, 179985, 309, -12331.353515625, -1586.4735107421875, 132.353057861328125, 3.019419670104980468, 0, 0, 0.998134791851043701, 0.061048507690429687, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+99, 179985, 309, -12380.603515625, -1674.2135009765625, 135.1352081298828125, -0.12217313796281814, 0, 0, 0.061048582196235656, -0.9981347918510437, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+100, 179985, 309, -12381.1650390625, -1611.2926025390625, 132.4382171630859375, -0.80285149812698364, 0, 0, 0.39073115587234497, -0.92050486803054809, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+101, 179985, 309, -12326.1123046875, -1564.0631103515625, 133.68951416015625, -1.9198620319366455, 0, 0, 0.819151997566223144, -0.57357645034790039, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+102, 179985, 309, -12332.9658203125, -1577.06884765625, 132.2977752685546875, -0.62831860780715942, 0, 0, 0.309017032384872436, -0.95105648040771484, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+103, 179985, 309, -12359.677734375, -1598.025634765625, 134.8007354736328125, -0.38397243618965148, 0, 0, 0.190809011459350585, -0.98162716627120971, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+104, 179985, 309, -12321.521484375, -1580.005615234375, 132.249481201171875, 3.089232683181762695, 0, 0, 0.999657332897186279, 0.026176994666457176, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+105, 179985, 309, -12341.470703125, -1596.3148193359375, 132.421630859375, 2.652900457382202148, 0, 0, 0.970295727252960205, 0.241921901702880859, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+106, 179985, 309, -12375.0830078125, -1633.2821044921875, 129.587738037109375, -2.51327419281005859, 0, 0, 0.951056540012359619, -0.30901694297790527, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+107, 179985, 309, -12319.9638671875, -1566.5418701171875, 132.9080963134765625, 0.191986218094825744, 0, 0, 0.095845751464366912, 0.995396196842193603, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+108, 179985, 309, -12310.701171875, -1572.5716552734375, 133.446685791015625, 2.111848354339599609, 0, 0, 0.870355665683746337, 0.492423564195632934, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+109, 179985, 309, -12371.6806640625, -1653.59033203125, 130.518829345703125, -1.44862353801727294, 0, 0, 0.662620127201080322, -0.74895566701889038, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+110, 179985, 309, -12332.5029296875, -1566.5137939453125, 132.693328857421875, 3.089232683181762695, 0, 0, 0.999657332897186279, 0.026176994666457176, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+111, 179985, 309, -12367.8330078125, -1604.669677734375, 132.3591766357421875, -1.25663685798645019, 0, 0, 0.587785184383392333, -0.80901706218719482, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+112, 179985, 309, -12338.6669921875, -1582.6458740234375, 132.5365447998046875, 0.872664630413055419, 0, 0, 0.422618269920349121, 0.906307756900787353, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+113, 179985, 309, -12375.4033203125, -1604.2081298828125, 133.8431396484375, -0.62831860780715942, 0, 0, 0.309017032384872436, -0.95105648040771484, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+114, 179985, 309, -12370.93359375, -1619.595703125, 130.940216064453125, -1.41371667385101318, 0, 0, 0.649448037147521972, -0.76040601730346679, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+115, 179985, 309, -12308.8642578125, -1568.1666259765625, 134.03521728515625, 1.082104086875915527, 0, 0, 0.515038073062896728, 0.857167303562164306, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+116, 179985, 309, -12345.146484375, -1577.1090087890625, 133.1491241455078125, 0.052359882742166519, 0, 0, 0.026176949962973594, 0.999657332897186279, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+117, 179985, 309, -12307.20703125, -1575.849609375, 132.980377197265625, -0.75049144029617309, 0, 0, 0.366501152515411376, -0.93041759729385375, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+118, 179985, 309, -12340.296875, -1569.50439453125, 131.40960693359375, -1.29154384136199951, 0, 0, 0.601815104484558105, -0.79863548278808593, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+119, 179985, 309, -12365.6416015625, -1610.72900390625, 131.8831024169921875, -1.48352992534637451, 0, 0, 0.675590217113494873, -0.73727732896804809, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+120, 179985, 309, -12349.44921875, -1597.14892578125, 134.4842071533203125, 2.58308720588684082, 0, 0, 0.961261689662933349, 0.275637388229370117, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+121, 179985, 309, -12383.228515625, -1656.123291015625, 132.7698211669921875, -1.16937041282653808, 0, 0, 0.551936924457550048, -0.83388584852218627, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+122, 179985, 309, -12334.3232421875, -1590.640625, 132.3088836669921875, 0.296705961227416992, 0, 0, 0.147809401154518127, 0.989015877246856689, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+123, 179985, 309, -12372.5068359375, -1595.4488525390625, 138.234222412109375, -0.59341222047805786, 0, 0, 0.29237183928489685, -0.95630472898483276, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+124, 179985, 309, -12366.609375, -1637.8763427734375, 131.4484710693359375, 0.122173056006431579, 0, 0, 0.061048541218042373, 0.998134791851043701, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+125, 179985, 309, -12347.5419921875, -1566.5885009765625, 132.6945953369140625, 2.932153224945068359, 0, 0, 0.994521915912628173, 0.10452841967344284, 600, 600, 100, 1), -- Spider Egg
+(@OGUID+126, 179985, 309, -12343.22265625, -1570.4896240234375, 131.6309356689453125, 2.652900457382202148, 0, 0, 0.970295727252960205, 0.241921901702880859, 600, 600, 100, 1), -- Spider Egg
+-- 127 - 130
+(@OGUID+131, 180164, 309, -12347.1650390625, -1845.5013427734375, 131.0122833251953125, -2.93215298652648925, 0, 0, 0.994521915912628173, -0.10452850908041, 259200, 259200, 100, 1), -- Sungrass
+(@OGUID+132, 180164, 309, -11597.2822265625, -1752.79345703125, 39.32941055297851562, -0.78539824485778808, 0, 0, 0.382683485746383666, -0.92387950420379638, 259200, 259200, 100, 1), -- Sungrass
+(@OGUID+133, 180164, 309, -11855.6, -1886.94, 64.4054, 0.157079, 0, 0, 0.0784588, 0.996917, 259200, 259200, 100, 1), -- Sungrass
+(@OGUID+134, 180164, 309, -12156, -1466.72, 131.101, 4.88692, 0, 0, -0.642787, 0.766045, 259200, 259200, 100, 1), -- Sungrass
+(@OGUID+135, 180164, 309, -12352.3076171875, -1672.7291259765625, 131.1775665283203125, 2.757613182067871093, 0, 0, 0.981626510620117187, 0.190812408924102783, 259200, 259200, 100, 1), -- Sungrass
+(@OGUID+136, 180164, 309, -11556.2, -1480.03, 67.1307, 5.72468, 0, 0, -0.275637, 0.961262, 259200, 259200, 100, 1), -- Sungrass
+(@OGUID+137, 180164, 309, -11615.0302734375, -1846.4097900390625, 41.41478729248046875, 3.071766138076782226, 0, 0, 0.999390602111816406, 0.034906134009361267, 259200, 259200, 100, 1), -- Sungrass
+-- 138 - 140
+(@OGUID+141, 180165, 309, -11969.421875, -1825.954833984375, 56.21387481689453125, 2.164208173751831054, 0, 0, 0.882947564125061035, 0.469471603631973266, 259200, 259200, 100, 1), -- Purple Lotus
+(@OGUID+142, 180165, 309, -12334.537109375, -1899.6531982421875, 131.2425537109375, -3.00196623802185058, 0, 0, 0.997564077377319335, -0.06975647807121276, 259200, 259200, 100, 1), -- Purple Lotus
+(@OGUID+143, 180165, 309, -11874.828125, -1382.4014892578125, 68.26617431640625, -1.01229083538055419, 0, 0, 0.484809547662734985, -0.87461978197097778, 259200, 259200, 100, 1), -- Purple Lotus
+(@OGUID+144, 180165, 309, -12074.7, -1696.28, 46.4935, 2.02458, 0, 0, 0.848047, 0.529921, 259200, 259200, 100, 1), -- Purple Lotus
+(@OGUID+145, 180165, 309, -11944.6, -1760.67, 53.5194, 4.39823, 0, 0, -0.809016, 0.587786, 259200, 259200, 100, 1), -- Purple Lotus
+(@OGUID+146, 180165, 309, -11972.7548828125, -1553.0035400390625, 40.840301513671875, -1.60570168495178222, 0, 0, -0.71933937072753906, 0.694658815860748291, 259200, 259200, 100, 1), -- Purple Lotus
+(@OGUID+147, 180165, 309, -11995.2, -1621.96, 33.2566, 4.32842, 0, 0, -0.829037, 0.559194, 259200, 259200, 100, 1), -- Purple Lotus
+(@OGUID+148, 180165, 309, -11688.1, -1941.78, 56.86, 4.36332, 0, 0, -0.819152, 0.573577, 259200, 259200, 100, 1), -- Purple Lotus
+(@OGUID+149, 180165, 309, -11657.6787109375, -1565.70556640625, 41.41679763793945312, -2.12930059432983398, 0, 0, -0.8746194839477539, 0.484810054302215576, 259200, 259200, 100, 1), -- Purple Lotus
+-- 150
+(@OGUID+151, 180166, 309, -11733.876953125, -1945.6007080078125, 58.68107986450195312, -2.82743334770202636, 0, 0, 0.987688362598419189, -0.15643444657325744, 259200, 259200, 100, 1), -- Mountain Silversage
+(@OGUID+152, 180166, 309, -12264.7392578125, -1869.3797607421875, 133.451812744140625, 1.29154360294342041, 0, 0, 0.601814985275268554, 0.798635542392730712, 259200, 259200, 100, 1), -- Mountain Silversage
+(@OGUID+153, 180166, 309, -11595.2587890625, -1218.1876220703125, 81.0124969482421875, -0.82030475139617919, 0, 0, 0.398749053478240966, -0.91706007719039916, 259200, 259200, 100, 1), -- Mountain Silversage
+(@OGUID+154, 180166, 309, -12225.857421875, -1419.9320068359375, 131.391693115234375, -1.25663685798645019, 0, 0, 0.587785184383392333, -0.80901706218719482, 259200, 259200, 100, 1), -- Mountain Silversage
+(@OGUID+155, 180166, 309, -11657.0380859375, -1457.0177001953125, 61.00021743774414062, -1.74532675743103027, 0, 0, -0.76604366302490234, 0.642788589000701904, 259200, 259200, 100, 1), -- Mountain Silversage
+(@OGUID+156, 180166, 309, -11804.4, -1902, 50.6509, 5.93412, 0, 0, -0.173648, 0.984808, 259200, 259200, 100, 1), -- Mountain Silversage
+(@OGUID+157, 180166, 309, -12255.3, -1963.61, 136.048, 0.610863, 0, 0, 0.300705, 0.953717, 259200, 259200, 100, 1), -- Mountain Silversage
+(@OGUID+158, 180166, 309, -12346.8, -1965, 133.195, 0.453785, 0, 0, 0.224951, 0.97437, 259200, 259200, 100, 1), -- Mountain Silversage
+(@OGUID+159, 180166, 309, -12062.20703125, -1433.8271484375, 130.2298736572265625, -2.79251837730407714, 0, 0, -0.98480701446533203, 0.173652306199073791, 259200, 259200, 100, 1), -- Mountain Silversage
+(@OGUID+160, 180166, 309, -11526.8, -1493.28, 80.0608, 2.54818, 0, 0, 0.956305, 0.292372, 259200, 259200, 100, 1), -- Mountain Silversage
+(@OGUID+161, 180166, 309, -11561.296875, -1805.5086669921875, 62.4127960205078125, -3.00194692611694335, 0, 0, -0.99756336212158203, 0.069766148924827575, 259200, 259200, 100, 1), -- Mountain Silversage
+(@OGUID+162, 180166, 309, -12298.3, -1464.21, 130.6, 2.02458, 0, 0, 0.848047, 0.529921, 259200, 259200, 100, 1), -- Mountain Silversage
+-- 163 - 170
+(@OGUID+171, 180167, 309, -11988.107421875, -1825.9349365234375, 58.52939224243164062, -1.81514251232147216, 0, 0, 0.788010776042938232, -0.61566144227981567, 259200, 259200, 100, 1), -- Golden Sansam
+(@OGUID+172, 180167, 309, -11585.2197265625, -1573.601806640625, 50.7598114013671875, 1.169370651245117187, 0, 0, 0.551936984062194824, 0.833885848522186279, 259200, 259200, 100, 1), -- Golden Sansam
+(@OGUID+173, 180167, 309, -12298.3505859375, -1684.076171875, 132.49176025390625, 1.448623299598693847, 0, 0, 0.662620067596435546, 0.748955726623535156, 259200, 259200, 100, 1), -- Golden Sansam
+(@OGUID+174, 180167, 309, -11834.8427734375, -1326.258056640625, 67.55466461181640625, -2.63544702529907226, 0, 0, 0.968147635459899902, -0.25038003921508789, 259200, 259200, 100, 1), -- Golden Sansam
+(@OGUID+175, 180167, 309, -12223.4521484375, -1416.2662353515625, 131.544952392578125, 2.932153224945068359, 0, 0, 0.994521915912628173, 0.10452841967344284, 259200, 259200, 100, 1), -- Golden Sansam
+(@OGUID+176, 180167, 309, -11786.7, -1896.81, 48.9827, 3.31614, 0, 0, -0.996194, 0.087165, 259200, 259200, 100, 1), -- Golden Sansam
+(@OGUID+177, 180167, 309, -11558.208984375, -1739.44921875, 38.6247100830078125, -0.52359795570373535, 0, 0, -0.25881862640380859, 0.965925931930541992, 259200, 259200, 100, 1), -- Golden Sansam
+(@OGUID+178, 180167, 309, -11457, -1596.5, 49.6861, 5.53269, 0, 0, -0.366501, 0.930418, 259200, 259200, 100, 1), -- Golden Sansam
+(@OGUID+179, 180167, 309, -11583.7, -1663.03, 50.6409, 5.21854, 0, 0, -0.507538, 0.861629, 259200, 259200, 100, 1), -- Golden Sansam
+(@OGUID+180, 180167, 309, -12367.3193359375, -1615.6109619140625, 131.1434478759765625, 1.815141916275024414, 0, 0, 0.788010597229003906, 0.615661680698394775, 259200, 259200, 100, 1), -- Golden Sansam
+(@OGUID+181, 180167, 309, -12197.3, -1983.1, 132.6, 4.83456, 0, 0, -0.66262, 0.748956, 259200, 259200, 100, 1), -- Golden Sansam
+(@OGUID+182, 180167, 309, -12380.33203125, -1662.3756103515625, 131.9833221435546875, 2.426007747650146484, 0, 0, 0.936672210693359375, 0.350207358598709106, 259200, 259200, 100, 1), -- Golden Sansam
+(@OGUID+183, 180167, 309, -12288.3, -1625.12, 130.261, 1.309, 0, 0, 0.608761, 0.793354, 259200, 259200, 100, 1), -- Golden Sansam
+(@OGUID+184, 180167, 309, -11742, -1337.24, 63.7299, 2.77507, 0, 0, 0.983254, 0.182238, 259200, 259200, 100, 1), -- Golden Sansam
+(@OGUID+185, 180167, 309, -11656.2, -1572.16, 39.8062, 3.94445, 0, 0, -0.920505, 0.390732, 259200, 259200, 100, 1), -- Golden Sansam
+(@OGUID+186, 180167, 309, -12002.8, -1489.2, 80.3559, 0.331611, 0, 0, 0.165047, 0.986286, 259200, 259200, 100, 1), -- Golden Sansam
+(@OGUID+187, 180167, 309, -11985.6005859375, -1717.9481201171875, 32.28356170654296875, -0.75049078464508056, 0, 0, -0.3665008544921875, 0.93041771650314331, 259200, 259200, 100, 1), -- Golden Sansam
+-- 188 - 190
+(@OGUID+191, 180168, 309, -11986.20703125, -1475.364990234375, 79.697052001953125, -3.00196623802185058, 0, 0, 0.997564077377319335, -0.06975647807121276, 259200, 259200, 100, 1), -- Dreamfoil
+(@OGUID+192, 180168, 309, -12185.90625, -1901.982666015625, 133.235443115234375, 0.820304811000823974, 0, 0, 0.398749083280563354, 0.917060077190399169, 259200, 259200, 100, 1), -- Dreamfoil
+(@OGUID+193, 180168, 309, -11820.98046875, -1892.170166015625, 49.65859603881835937, 0.977384388446807861, 0, 0, 0.469471573829650878, 0.882947564125061035, 259200, 259200, 100, 1), -- Dreamfoil
+(@OGUID+194, 180168, 309, -11456.5654296875, -1606.9561767578125, 49.19579696655273437, 2.0245819091796875, 0, 0, 0.848048090934753417, 0.529919266700744628, 259200, 259200, 100, 1), -- Dreamfoil
+(@OGUID+195, 180168, 309, -11608.912109375, -1274.0670166015625, 79.27100372314453125, 0.01745329238474369, 0, 0, 0.008726535364985466, 0.999961912631988525, 259200, 259200, 100, 1), -- Dreamfoil
+(@OGUID+196, 180168, 309, -11748.7, -1906.19, 55.9028, 4.53786, 0, 0, -0.766044, 0.642789, 259200, 259200, 100, 1), -- Dreamfoil
+(@OGUID+197, 180168, 309, -11539.7, -1244.56, 78.744, 1.29154, 0, 0, 0.601814, 0.798636, 259200, 259200, 100, 1), -- Dreamfoil
+(@OGUID+198, 180168, 309, -12347.7, -1926.59, 133.29, 5.53269, 0, 0, -0.366501, 0.930418, 259200, 259200, 100, 1), -- Dreamfoil
+(@OGUID+199, 180168, 309, -12159.3583984375, -1956.9908447265625, 134.0766448974609375, -0.1221729889512062, 0, 0, -0.06104850769042968, 0.998134791851043701, 259200, 259200, 100, 1), -- Dreamfoil
+(@OGUID+200, 180168, 309, -12396.8, -1835.81, 132.798, 5.88176, 0, 0, -0.199367, 0.979925, 259200, 259200, 100, 1), -- Dreamfoil
+(@OGUID+201, 180168, 309, -11650, -1890.45, 57.2409, 5.46288, 0, 0, -0.398748, 0.91706, 259200, 259200, 100, 1), -- Dreamfoil
+(@OGUID+202, 180168, 309, -11576.4, -1314.08, 80.0355, 0.610863, 0, 0, 0.300705, 0.953717, 259200, 259200, 100, 1), -- Dreamfoil
+(@OGUID+203, 180168, 309, -11857, -1854.94, 63.8638, 0.506145, 0, 0, 0.25038, 0.968148, 259200, 259200, 100, 1), -- Dreamfoil
+(@OGUID+204, 180168, 309, -11517.21484375, -1688.4107666015625, 51.14802932739257812, -2.79251837730407714, 0, 0, -0.98480701446533203, 0.173652306199073791, 259200, 259200, 100, 1), -- Dreamfoil
+(@OGUID+205, 180168, 309, -12236.5, -1472.11, 130.657, 4.50295, 0, 0, -0.777145, 0.629321, 259200, 259200, 100, 1), -- Dreamfoil
+(@OGUID+206, 180168, 309, -11543.5, -1548.46, 51.7261, 5.02655, 0, 0, -0.587785, 0.809017, 259200, 259200, 100, 1), -- Dreamfoil
+(@OGUID+207, 180168, 309, -12059.7, -1443.07, 130.177, 3.45576, 0, 0, -0.987688, 0.156436, 259200, 259200, 100, 1), -- Dreamfoil
+-- 208 - 210
+(@OGUID+211, 0, 309, -11518.228515625, -1693.0625, 52.48497390747070312, 1.029743075370788574, 0, 0, 0.492423057556152343, 0.870355963706970214, 259200, 259200, 100, 1), -- Jinxed Hoodoo Pile
+(@OGUID+212, 0, 309, -12382.435546875, -1919.368896484375, 131.5534210205078125, -2.84488272666931152, 0, 0, -0.98901557922363281, 0.147811368107795715, 259200, 259200, 100, 1), -- Jinxed Hoodoo Pile
+(@OGUID+213, 0, 309, -12376.189453125, -1661.066162109375, 132.8642425537109375, 1.431168079376220703, 0, 0, 0.656058311462402343, 0.754710197448730468, 259200, 259200, 100, 1), -- Jinxed Hoodoo Pile
+(@OGUID+214, 0, 309, -12155.8818359375, -1960.3697509765625, 133.1110687255859375, -2.63544416427612304, 0, 0, -0.96814727783203125, 0.250381410121917724, 259200, 259200, 100, 1), -- Jinxed Hoodoo Pile
+(@OGUID+215, 0, 309, -12358.32421875, -1939.73095703125, 132.353057861328125, 0.104719325900077819, 0, 0, 0.052335739135742187, 0.998629570007324218, 259200, 259200, 100, 1), -- Jinxed Hoodoo Pile
+(@OGUID+216, 0, 309, -11542.681640625, -1544.9483642578125, 51.77915191650390625, -0.7853967547416687, 0, 0, -0.38268280029296875, 0.923879802227020263, 259200, 259200, 100, 1), -- Jinxed Hoodoo Pile
+(@OGUID+217, 0, 309, -11555.998046875, -1725.953125, 39.72829818725585937, 0.942476630210876464, 0, 0, 0.453989982604980468, 0.891006767749786376, 259200, 259200, 100, 1), -- Jinxed Hoodoo Pile
+(@OGUID+218, 0, 309, -11742.3203125, -1930.49609375, 56.91274642944335937, 1.623155713081359863, 0, 0, 0.725374221801757812, 0.688354730606079101, 259200, 259200, 100, 1), -- Jinxed Hoodoo Pile
+(@OGUID+219, 0, 309, -11638.3564453125, -1882.9140625, 57.31586456298828125, -2.42600250244140625, 0, 0, -0.93667125701904296, 0.350209832191467285, 259200, 259200, 100, 1), -- Jinxed Hoodoo Pile
+(@OGUID+220, 0, 309, -11452.888671875, -1613.9444580078125, 49.03480148315429687, 2.530723094940185546, 0, 0, 0.953716278076171875, 0.300707906484603881, 259200, 259200, 100, 1), -- Jinxed Hoodoo Pile
+(@OGUID+221, 0, 309, -11526.3486328125, -1479.7432861328125, 78.02657318115234375, -1.15191733837127685, 0, 0, 0.544639050960540771, -0.83867055177688598, 259200, 259200, 100, 1), -- Jinxed Hoodoo Pile
+(@OGUID+222, 0, 309, -11810.1142578125, -1882.40283203125, 46.07453536987304687, -2.44346022605895996, 0, 0, -0.93969249725341796, 0.34202045202255249, 259200, 259200, 100, 1), -- Jinxed Hoodoo Pile
+(@OGUID+223, 0, 309, -11594.6533203125, -1216.6636962890625, 81.3684539794921875, 0.331612557172775268, 0, 0, 0.165047600865364074, 0.986285626888275146, 259200, 259200, 100, 1), -- Jinxed Hoodoo Pile
+(@OGUID+224, 0, 309, -11539.875, -1247.64013671875, 78.517669677734375, 3.001966238021850585, 0, 0, 0.997564077377319335, 0.069756507873535156, 259200, 259200, 100, 1), -- Jinxed Hoodoo Pile
+(@OGUID+225, 0, 309, -11781.8701171875, -1621.9085693359375, 21.14900398254394531, -3.12412309646606445, 0, 0, -0.99996185302734375, 0.008734640665352344, 259200, 259200, 100, 1), -- Jinxed Hoodoo Pile
+(@OGUID+226, 0, 309, -12357.8701171875, -1836.308837890625, 130.8646392822265625, 0.453785032033920288, 0, 0, 0.224950790405273437, 0.974370121955871582, 259200, 259200, 100, 1), -- Jinxed Hoodoo Pile
+(@OGUID+227, 0, 309, -11974.7861328125, -1474.543701171875, 79.98345184326171875, 2.932138919830322265, 0, 0, 0.994521141052246093, 0.104535527527332305, 259200, 259200, 100, 1), -- Jinxed Hoodoo Pile
+-- 228 - 229
+-- Zul'Gurub & Altar of Hir'eek - 1
+(@OGUID+230, 180215, 309, -11994.2, -1458.62, 83.1144, 5.044, 0, 0, -0.580703, 0.814116, 259200, 259200, 100, 1), -- Hakkari Thorium Vein
+(@OGUID+231, 180215, 309, -12063.5, -1437.4, 130.23, 1.25664, 0, 0, 0.587785, 0.809017, 259200, 259200, 100, 1), -- Hakkari Thorium Vein
+(@OGUID+232, 180215, 309, -12241.8525390625, -1488.2923583984375, 131.5126495361328125, 1.588249683380126953, 0, 0, 0.713250458240509033, 0.700909256935119628, 259200, 259200, 100, 1), -- Hakkari Thorium Vein
+(@OGUID+233, 180215, 309, -12310.1, -1465.36, 130.6, 3.9619, 0, 0, -0.91706, 0.39875, 259200, 259200, 100, 1), -- Hakkari Thorium Vein
+-- Hakkari Grounds - 2
+(@OGUID+234, 180215, 309, -12406.4, -1838, 135.3, 1.52754, 0, 0, 0, 0, 259200, 259200, 100, 1), -- Hakkari Thorium Vein						//xyz guessed
+(@OGUID+235, 180215, 309, -12145.4, -1941.74, 134.893, 1.8675, 0, 0, 0.803857, 0.594823, 259200, 259200, 100, 1), -- Hakkari Thorium Vein
+(@OGUID+236, 180215, 309, -12177.3, -1910.15, 130.807, 1.93731, 0, 0, 0.824125, 0.566408, 259200, 259200, 100, 1), -- Hakkari Thorium Vein
+(@OGUID+237, 180215, 309, -12398.2, -1934.43, 133.233, 0.733038, 0, 0, 0.358368, 0.933581, 259200, 259200, 100, 1), -- Hakkari Thorium Vein
+-- Zanza's Rise & Zul'Gurub - 3
+(@OGUID+238, 180215, 309, -11998.046875, -1843.457275390625, 60.41311264038085937, -0.41887885332107543, 0, 0, 0.207911610603332519, -0.97814762592315673, 259200, 259200, 100, 1), -- Hakkari Thorium Vein
+(@OGUID+239, 180215, 309, -11927.7021484375, -1756.9566650390625, 50.15846633911132812, 3.141592741012573242, 0, 0, 1, -0.00000004371138828, 259200, 259200, 100, 1), -- Hakkari Thorium Vein
+(@OGUID+240, 180215, 309, -11803.5, -1905.71, 52.927, 2.54818, 0, 0, 0.956305, 0.292372, 259200, 259200, 100, 1), -- Hakkari Thorium Vein
+(@OGUID+241, 180215, 309, -11546.4, -1745.06, 40.1541, 1.3439, 0, 0, 0.622514, 0.782609, 259200, 259200, 100, 1), -- Hakkari Thorium Vein
+-- Zul'Gurub & The Bloodfire Pit - 4
+(@OGUID+242, 180215, 309, -11647.4, -1476.96, 50.3857, 4.31097, 0, 0, -0.833885, 0.551938, 259200, 259200, 100, 1), -- Hakkari Thorium Vein
+(@OGUID+243, 180215, 309, -11549.5, -1489.06, 73.2133, 3.71755, 0, 0, -0.958819, 0.284016, 259200, 259200, 100, 1), -- Hakkari Thorium Vein
+(@OGUID+244, 180215, 309, -11599, -1217.44, 80.3655, 1.72787, 0, 0, 0.760405, 0.649449, 259200, 259200, 100, 1), -- Hakkari Thorium Vein
+(@OGUID+245, 180215, 309, -11545.6, -1237.46, 79.2193, 2.37364, 0, 0, 0.927183, 0.374608, 259200, 259200, 100, 1), -- Hakkari Thorium Vein
+-- Muddy Churning Waters
+(@OGUID+246, 180369, 309, -11780.9853515625, -1425.22509765625, 10.46028041839599609, -0.73303824663162231, 0, 0, 0.358367919921875, -0.93358045816421508, 259200, 259200, 100, 1), -- Muddy Churning Waters - zg
+(@OGUID+247, 180369, 309, -11841.12109375, -1506.41796875, 10.46028041839599609, -0.92502433061599731, 0, 0, 0.446197748184204101, -0.89493441581726074, 259200, 259200, 100, 1), -- Muddy Churning Waters - aotbg
+(@OGUID+248, 180369, 309, -11899.955078125, -1479.853515625, 10.46028041839599609, -1.62315630912780761, 0, 0, 0.725374400615692138, -0.6883544921875, 259200, 259200, 100, 1), -- Muddy Churning Waters - zg
+(@OGUID+249, 180369, 309, -11680.2138671875, -1659.739013671875, 10.46028041839599609, 1.29154360294342041, 0, 0, 0.601814985275268554, 0.798635542392730712, 259200, 259200, 100, 1), -- Muddy Churning Waters - aotbg
+(@OGUID+250, 180369, 309, -11890.2, -1714.73, 10.4603, 2.96704, 0, 0, 0.996194, 0.087165, 259200, 259200, 100, 1), -- Muddy Churning Waters - aotbg
+(@OGUID+251, 180369, 309, -11887.7, -1643.9, 10.4603, 3.87463, 0, 0, -0.93358, 0.358368, 259200, 259200, 100, 1), -- Muddy Churning Waters - aotbg
+(@OGUID+252, 180369, 309, -11700.5087890625, -1746.4871826171875, 10.46028041839599609, -2.72271275520324707, 0, 0, -0.97814750671386718, 0.207912087440490722, 259200, 259200, 100, 1), -- Muddy Churning Waters - pp
+-- 253 - 259
+(@OGUID+260, 180366, 309, -11698.146484375, -1771.4991455078125, 12.55782794952392578, -2.93215298652648925, 0, 0, 0.994521915912628173, -0.10452850908041, 600, 600, 100, 1), -- Battered Tackle Box
+(@OGUID+261, 180392, 309, -11693.3349609375, -1765.30908203125, 12.59231376647949218, 0.733038246631622314, 0, 0, 0.358367949724197387, 0.933580398559570312, 10, 10, 100, 1), -- Full Jug
+(@OGUID+262, 180392, 309, -11696.25390625, -1771.701171875, 12.592315673828125, -0.97738438844680786, 0, 0, 0.469471573829650878, -0.88294756412506103, 10, 10, 100, 1), -- Full Jug
+(@OGUID+263, 180392, 309, -11700.4970703125, -1769.894287109375, 12.34756183624267578, -1.93731522560119628, 0, 0, 0.824126124382019042, -0.56640630960464477, 10, 10, 100, 1), -- Full Jug
+(@OGUID+264, 180392, 309, -11698.509765625, -1775.004150390625, 12.5728006362915039, 1.466076612472534179, 0, 0, 0.669130623340606689, 0.743144810199737548, 10, 10, 100, 1), -- Full Jug
+(@OGUID+265, 180392, 309, -11687.341796875, -1785.8621826171875, 12.59230995178222656, -0.82030475139617919, 0, 0, 0.398749053478240966, -0.91706007719039916, 10, 10, 100, 1), -- Full Jug
+(@OGUID+266, 180392, 309, -11691.837890625, -1769.1810302734375, 12.592315673828125, -2.2165684700012207, 0, 0, 0.894934415817260742, -0.4461977481842041, 10, 10, 100, 1), -- Full Jug
+(@OGUID+267, 180392, 309, -11686.6748046875, -1786.2242431640625, 12.59230995178222656, -2.80998015403747558, 0, 0, 0.986285626888275146, -0.16504754126071929, 10, 10, 100, 1), -- Full Jug
+(@OGUID+268, 180392, 309, -11691.6611328125, -1769.886474609375, 12.592315673828125, 2.600540637969970703, 0, 0, 0.963630437850952148, 0.267238348722457885, 10, 10, 100, 1), -- Full Jug
+(@OGUID+269, 180392, 309, -11692.1767578125, -1769.6417236328125, 12.592315673828125, 0.523598790168762207, 0, 0, 0.258819043636322021, 0.965925812721252441, 10, 10, 100, 1), -- Full Jug
+(@OGUID+270, 180386, 309, -11516.2421875, -1648.1376953125, 49.53345108032226562, 1.666788697242736816, 0, 0, 0.740217864513397216, 0.6723671555519104, 600, 600, 100, 1), -- Gong
+(@OGUID+271, 180497, 309, -11501.8935546875, -1614.798828125, 44.57218170166015625, 1.57952284812927246, 0, 0, 0.710185348987579345, 0.704014778137207031, 600, 600, 100, 0), -- Forcefield
+(@OGUID+272, 180526, 309, -11569.19921875, -1627.87451171875, 41.27669906616210937, 0.008725880645215511, 0, 0, 0.004362926352769136, 0.999990463256835937, 600, 600, 100, 1); -- Gong of Bethekk
+
+INSERT INTO `gameobject_spawn_entry` (`guid`, `entry`) SELECT `guid`, 180228 FROM `gameobject` WHERE `guid` BETWEEN @OGUID+211 AND @OGUID+227; -- Jinxed Hoodoo Pile
+INSERT INTO `gameobject_spawn_entry` (`guid`, `entry`) SELECT `guid`, 180229 FROM `gameobject` WHERE `guid` BETWEEN @OGUID+211 AND @OGUID+227; -- Jinxed Hoodoo Pile
 
 -- ======
 -- EVENTS
 -- ======
 
 -- INSERT INTO `game_event_creature` (`guid`, `event`) VALUES
-
 -- INSERT INTO `game_event_creature_data` (`guid`, `entry_id`, `modelid`, `equipment_id`, `spell_start`, `spell_end`, `event`) VALUES
-
-INSERT INTO `game_event_gameobject` (`guid`, `event`) VALUES
-(@OGUID+187, 30), -- Brazier of Madness
-(@OGUID+188, 31), -- Brazier of Madness
-(@OGUID+189, 32), -- Brazier of Madness
-(@OGUID+190, 29); -- Brazier of Madness
+-- INSERT INTO `game_event_gameobject` (`guid`, `event`) VALUES
 
 -- =======
 -- POOLING
@@ -1657,52 +1684,206 @@ INSERT INTO `game_event_gameobject` (`guid`, `event`) VALUES
 
 -- INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
 
--- INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
+(@PGUID+51, 1, 'Zul''Gurub - Hakkari Thorium Vein (180215) #1'),
+(@PGUID+52, 1, 'Zul''Gurub - Hakkari Thorium Vein (180215) #2'),
+(@PGUID+53, 1, 'Zul''Gurub - Hakkari Thorium Vein (180215) #3'),
+(@PGUID+54, 1, 'Zul''Gurub - Hakkari Thorium Vein (180215) #4'),
+(@PGUID+61, 2, 'Zul''Gurub - Sungrass (180164)'),
+(@PGUID+62, 3, 'Zul''Gurub - Purple Lotus (180165)'),
+(@PGUID+63, 4, 'Zul''Gurub - Mountain Silversage (180166)'),
+(@PGUID+64, 5, 'Zul''Gurub - Golden Sansam (180167)'),
+(@PGUID+65, 5, 'Zul''Gurub - Dreamfoil (180168)'),
+(@PGUID+71, 4, 'Zul''Gurub - Muddy Churning Waters (180369)'),
+(@PGUID+81, 6, 'Zul''Gurub - Full Jug (180392)');
 
 -- INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES
-
 -- INSERT INTO `pool_creature_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
--- INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES
+(@OGUID+230, @PGUID+51, 0, 'Zul''Gurub - Hakkari Thorium Vein (180215)'),
+(@OGUID+231, @PGUID+51, 0, 'Zul''Gurub - Hakkari Thorium Vein (180215)'),
+(@OGUID+232, @PGUID+51, 0, 'Zul''Gurub - Hakkari Thorium Vein (180215)'),
+(@OGUID+233, @PGUID+51, 0, 'Zul''Gurub - Hakkari Thorium Vein (180215)'),
+(@OGUID+234, @PGUID+52, 0, 'Zul''Gurub - Hakkari Thorium Vein (180215)'),
+(@OGUID+235, @PGUID+52, 0, 'Zul''Gurub - Hakkari Thorium Vein (180215)'),
+(@OGUID+236, @PGUID+52, 0, 'Zul''Gurub - Hakkari Thorium Vein (180215)'),
+(@OGUID+237, @PGUID+52, 0, 'Zul''Gurub - Hakkari Thorium Vein (180215)'),
+(@OGUID+238, @PGUID+53, 0, 'Zul''Gurub - Hakkari Thorium Vein (180215)'),
+(@OGUID+239, @PGUID+53, 0, 'Zul''Gurub - Hakkari Thorium Vein (180215)'),
+(@OGUID+240, @PGUID+53, 0, 'Zul''Gurub - Hakkari Thorium Vein (180215)'),
+(@OGUID+241, @PGUID+53, 0, 'Zul''Gurub - Hakkari Thorium Vein (180215)'),
+(@OGUID+242, @PGUID+54, 0, 'Zul''Gurub - Hakkari Thorium Vein (180215)'),
+(@OGUID+243, @PGUID+54, 0, 'Zul''Gurub - Hakkari Thorium Vein (180215)'),
+(@OGUID+244, @PGUID+54, 0, 'Zul''Gurub - Hakkari Thorium Vein (180215)'),
+(@OGUID+245, @PGUID+54, 0, 'Zul''Gurub - Hakkari Thorium Vein (180215)');
 
--- INSERT INTO `pool_gameobject_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
+INSERT INTO `pool_gameobject_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
+(180164, @PGUID+61, 0, 'Zul''Gurub - Sungrass (180164)'),
+(180165, @PGUID+62, 0, 'Zul''Gurub - Purple Lotus (180165)'),
+(180166, @PGUID+63, 0, 'Zul''Gurub - Mountain Silversage (180166)'),
+(180167, @PGUID+64, 0, 'Zul''Gurub - Golden Sansam (180167)'),
+(180168, @PGUID+65, 0, 'Zul''Gurub - Dreamfoil (180168)'),
+(180369, @PGUID+71, 0, 'Zul''Gurub - Muddy Churning Waters (180369)'),
+(180392, @PGUID+81, 0, 'Zul''Gurub - Full Jug (180392)');
+
+-- ============
+-- SPAWN GROUPS
+-- ============
+
+INSERT INTO `spawn_group` (`Id`, `Name`, `Type`, `MaxCount`, `WorldState`, `Flags`) VALUES
+(@GROUP_ID+0, 'Zul\'Gurub - Razzashi Serpent | Razzashi Adder (2) Patrol 000', '0', '0', '0', '1'),
+(@GROUP_ID+1, 'Zul\'Gurub - Razzashi Serpent | Razzashi Adder (2) Patrol 001', '0', '0', '0', '1'),
+(@GROUP_ID+2, 'Zul\'Gurub - Gurubashi Axe Thrower | Hakkari Priest (2) Patrol 000', '0', '0', '0', '1'),
+(@GROUP_ID+3, 'Zul\'Gurub - Gurubashi Berserker (1) Patrol 000', '0', '0', '0', '0'),
+(@GROUP_ID+4, 'Zul\'Gurub - Razzashi Serpent | Razzashi Adder (2) Patrol 002', '0', '0', '0', '1'),
+(@GROUP_ID+5, 'Zul\'Gurub - Mad Servant (3) Patrol 000', '0', '0', '0', '1'),
+(@GROUP_ID+6, 'Zul\'Gurub - Mad Servant (3) Patrol 001', '0', '0', '0', '1'),
+(@GROUP_ID+7, 'Zul\'Gurub - Gurubashi Berserker (1) Patrol 001', '0', '0', '0', '0');
+
+-- INSERT INTO `spawn_group_entry` (`Id`, `Entry`, `MinCount`, `MaxCount`, `Chance`) VALUES
+
+INSERT INTO `spawn_group_spawn` (`Id`, `Guid`, `SlotId`) VALUES
+(@GROUP_ID+0, @CGUID+468, 0), -- Razzashi Serpent, Razzashi Adder
+(@GROUP_ID+0, @CGUID+437, 1), -- Razzashi Serpent, Razzashi Adder
+(@GROUP_ID+1, @CGUID+487, 0), -- Razzashi Serpent, Razzashi Adder
+(@GROUP_ID+1, @CGUID+460, 1), -- Razzashi Serpent, Razzashi Adder
+(@GROUP_ID+2, @CGUID+148, 0), -- Gurubashi Axe Thrower
+(@GROUP_ID+2, @CGUID+546, 1), -- Gurubashi Axe Thrower, Hakkari Priest
+(@GROUP_ID+3, @CGUID+181, 0), -- Gurubashi Berserker
+(@GROUP_ID+4, @CGUID+450, 0), -- Razzashi Serpent, Razzashi Adder
+(@GROUP_ID+4, @CGUID+451, 1), -- Razzashi Serpent, Razzashi Adder
+(@GROUP_ID+5, @CGUID+822, 0), -- Mad Servant
+(@GROUP_ID+5, @CGUID+823, 1), -- Mad Servant
+(@GROUP_ID+5, @CGUID+824, 2), -- Mad Servant
+(@GROUP_ID+6, @CGUID+819, 0), -- Mad Servant
+(@GROUP_ID+6, @CGUID+820, 1), -- Mad Servant
+(@GROUP_ID+6, @CGUID+821, 2), -- Mad Servant
+(@GROUP_ID+7, @CGUID+188, 0); -- Gurubashi Berserker
+
+INSERT INTO `spawn_group_formation` (`Id`, `FormationType`, `FormationSpread`, `FormationOptions`, `PathId`, `MovementType`, `Comment`) VALUES
+(@GROUP_ID+0, '2', '2', '0', @PATH_ID+0, 4, 'Zul\'Gurub - Razzashi Serpent | Razzashi Adder (2) Patrol 000'),
+(@GROUP_ID+1, '2', '2', '0', @PATH_ID+1, 4, 'Zul\'Gurub - Razzashi Serpent | Razzashi Adder (2) Patrol 001'),
+(@GROUP_ID+2, '2', '2', '0', @PATH_ID+2, 4, 'Zul\'Gurub - Gurubashi Axe Thrower | Hakkari Priest (2) Patrol 000'),
+(@GROUP_ID+4, '2', '2', '0', @PATH_ID+4, 4, 'Zul\'Gurub - Razzashi Serpent | Razzashi Adder (2) Patrol 002'),
+(@GROUP_ID+5, '1', '3', '0', @PATH_ID+5, 2, 'Zul\'Gurub - Mad Servant (3) Patrol 000'),
+(@GROUP_ID+6, '1', '3', '0', @PATH_ID+6, 2, 'Zul\'Gurub - Mad Servant (3) Patrol 001');
+
+INSERT INTO `waypoint_path` (`PathId`, `Point`, `PositionX`, `PositionY`, `PositionZ`, `Orientation`, `WaitTime`, `ScriptId`) VALUES
+(@PATH_ID+0, 01, -11863.7529296875, -1313.4700927734375, 78.72680664062500000, 100, 0, 0),
+(@PATH_ID+0, 02, -11874.8427734375, -1325.8515625000000, 78.68711090087890625, 100, 0, 0),
+(@PATH_ID+0, 03, -11888.3642578125, -1338.8316650390625, 74.93051910400390625, 100, 0, 0),
+(@PATH_ID+0, 04, -11904.7236328125, -1344.1304931640625, 75.75994873046875000, 100, 0, 0),
+(@PATH_ID+0, 05, -11905.3798828125, -1360.0091552734375, 70.85076904296875000, 100, 0, 0),
+(@PATH_ID+0, 06, -11901.8798828125, -1377.7012939453125, 68.11927032470703125, 100, 0, 0),
+(@PATH_ID+0, 07, -11884.8662109375, -1380.3492431640625, 66.02857208251953125, 100, 0, 0),
+(@PATH_ID+0, 08, -11880.4785156250, -1399.4224853515625, 62.97412872314453125, 100, 0, 0),
+(@PATH_ID+0, 09, -11878.0380859375, -1407.8879394531250, 62.20181655883789062, 100, 0, 0),
+(@PATH_ID+0, 10, -11894.9189453125, -1416.4415283203125, 57.01041030883789062, 100, 0, 0),
+(@PATH_ID+0, 11, -11921.1582031250, -1428.7435302734375, 46.96670150756835937, 100, 0, 0),
+(@PATH_ID+1, 01, -11952.9814453125, -1647.8049316406250, 39.70005416870117187, 100, 0, 0),
+(@PATH_ID+1, 02, -11970.9707031250, -1640.5399169921875, 35.77315521240234375, 100, 0, 0),
+(@PATH_ID+1, 03, -11993.2060546875, -1638.6372070312500, 34.66548919677734375, 100, 0, 0),
+(@PATH_ID+1, 04, -12013.4970703125, -1648.2031250000000, 37.28478240966796875, 100, 0, 0),
+(@PATH_ID+1, 05, -12023.0908203125, -1633.9068603515625, 38.15856170654296875, 100, 0, 0),
+(@PATH_ID+1, 06, -12040.6669921875, -1640.4401855468750, 40.75350952148437500, 100, 0, 0),
+(@PATH_ID+1, 07, -12053.6796875000, -1652.7510986328125, 43.13998413085937500, 100, 0, 0),
+(@PATH_ID+1, 08, -12060.9423828125, -1668.3537597656250, 42.78941345214843750, 100, 0, 0),
+(@PATH_ID+1, 09, -12075.1367187500, -1685.3599853515625, 44.99190139770507812, 100, 0, 0),
+(@PATH_ID+1, 10, -12083.7539062500, -1694.3140869140625, 47.72725296020507812, 100, 0, 0),
+(@PATH_ID+1, 11, -12081.1992187500, -1711.9125976562500, 50.00900650024414062, 100, 0, 0),
+(@PATH_ID+1, 12, -12064.3251953125, -1723.6597900390625, 48.64299011230468750, 100, 0, 0),
+(@PATH_ID+1, 13, -12057.3388671875, -1734.9985351562500, 51.70101547241210937, 100, 0, 0),
+(@PATH_ID+1, 14, -12041.8056640625, -1740.7376708984375, 53.11239242553710937, 100, 0, 0),
+(@PATH_ID+1, 15, -12029.7939453125, -1759.5935058593750, 56.70807647705078125, 100, 0, 0),
+(@PATH_ID+1, 16, -12027.4267578125, -1770.7994384765625, 57.35953903198242187, 100, 0, 0),
+(@PATH_ID+2, 01, -12047.3779296875, -1730.9136962890625, 50.61271667480468750, 100, 0, 0),
+(@PATH_ID+2, 02, -12060.6816406250, -1706.4212646484375, 45.02653503417968750, 100, 0, 0),
+(@PATH_ID+2, 03, -12059.0761718750, -1670.9088134765625, 42.50791931152343750, 100, 0, 0),
+(@PATH_ID+2, 04, -12041.7695312500, -1650.1911621093750, 40.77352905273437500, 100, 0, 0),
+(@PATH_ID+2, 05, -12025.2148437500, -1640.9317626953125, 38.75792694091796875, 100, 0, 0),
+(@PATH_ID+2, 06, -12000.1279296875, -1644.0223388671875, 34.70641326904296875, 100, 0, 0),
+(@PATH_ID+2, 07, -11968.1445312500, -1647.8521728515625, 35.50362396240234375, 100, 0, 0),
+(@PATH_ID+2, 08, -11951.5585937500, -1633.4140625000000, 38.97324752807617187, 100, 0, 0),
+(@PATH_ID+2, 09, -11947.8251953125, -1619.8463134765625, 41.20742797851562500, 100, 0, 0),
+(@PATH_ID+2, 10, -11945.3076171875, -1590.3101806640625, 36.83780670166015625, 100, 0, 0),
+(@PATH_ID+2, 11, -11943.6435546875, -1566.9681396484375, 41.14322280883789062, 100, 0, 0),
+(@PATH_ID+2, 12, -11943.1035156250, -1557.1871337890625, 39.79278945922851562, 100, 0, 0),
+(@PATH_ID+2, 13, -11947.2548828125, -1542.4146728515625, 39.66778945922851562, 100, 0, 0),
+(@PATH_ID+2, 14, -11940.4873046875, -1533.6137695312500, 39.66778945922851562, 100, 0, 0),
+(@PATH_ID+2, 15, -11938.0732421875, -1520.2742919921875, 42.86973571777343750, 100, 0, 0),
+(@PATH_ID+2, 16, -11927.8134765625, -1477.2751464843750, 32.16494369506835937, 100, 0, 0),
+(@PATH_ID+2, 17, -11920.7587890625, -1446.3221435546875, 42.85203552246093750, 100, 0, 0),
+(@PATH_ID+2, 18, -11914.9433593750, -1429.7370605468750, 46.97988510131835937, 100, 0, 0),
+(@PATH_ID+2, 19, -11898.9667968750, -1416.9801025390625, 55.54922866821289062, 100, 0, 0),
+(@PATH_ID+2, 20, -11884.6689453125, -1407.5942382812500, 61.11807632446289062, 100, 0, 0),
+(@PATH_ID+2, 21, -11881.2509765625, -1392.7772216796875, 64.10791778564453125, 100, 0, 0),
+(@PATH_ID+2, 22, -11884.9316406250, -1366.6773681640625, 69.18042755126953125, 100, 0, 0),
+(@PATH_ID+2, 23, -11883.8964843750, -1344.9625244140625, 74.07407379150390625, 100, 0, 0),
+(@PATH_ID+2, 24, -11891.5673828125, -1333.3414306640625, 75.76108551025390625, 100, 0, 0),
+(@PATH_ID+2, 25, -11900.2197265625, -1322.3067626953125, 77.35015869140625000, 100, 0, 0),
+(@PATH_ID+2, 26, -11915.1816406250, -1309.0253906250000, 77.85015869140625000, 100, 0, 0),
+(@PATH_ID+4, 01, -11990.6064453125, -1843.1467285156250, 58.96818161010742187, 100, 0, 0),
+(@PATH_ID+4, 02, -11988.5332031250, -1816.0250244140625, 58.80046463012695312, 100, 0, 0),
+(@PATH_ID+4, 03, -11990.5009765625, -1798.2838134765625, 58.15724563598632812, 100, 0, 0),
+(@PATH_ID+4, 04, -11992.6162109375, -1776.3724365234375, 57.82936477661132812, 100, 0, 0),
+(@PATH_ID+4, 05, -11992.3447265625, -1765.0465087890625, 56.52746200561523437, 100, 0, 0),
+(@PATH_ID+4, 06, -11982.8554687500, -1744.6751708984375, 54.01647567749023437, 100, 0, 0),
+(@PATH_ID+4, 07, -11970.2216796875, -1748.2111816406250, 53.05480575561523437, 100, 0, 0),
+(@PATH_ID+4, 08, -11968.5029296875, -1770.5247802734375, 54.45021438598632812, 100, 0, 0),
+(@PATH_ID+4, 09, -11966.6181640625, -1790.2196044921875, 54.22960281372070312, 100, 0, 0),
+(@PATH_ID+4, 10, -11961.9472656250, -1803.9279785156250, 54.60923385620117187, 100, 0, 0),
+(@PATH_ID+4, 11, -11938.3281250000, -1819.2622070312500, 52.21226119995117187, 100, 0, 0),
+(@PATH_ID+5, 01, -11893.7041015625, -1880.7554931640625, 63.60831832885742187, 100, 0, 0),
+(@PATH_ID+5, 02, -11891.0302734375, -1885.1721191406250, 63.60831832885742187, 100, 0, 0),
+(@PATH_ID+5, 03, -11885.8535156250, -1884.8515625000000, 63.60831832885742187, 100, 0, 0),
+(@PATH_ID+5, 04, -11883.8828125000, -1881.4486083984375, 63.60831832885742187, 100, 0, 0),
+(@PATH_ID+5, 05, -11885.8173828125, -1877.1693115234375, 63.60831832885742187, 100, 0, 0),
+(@PATH_ID+5, 06, -11891.1093750000, -1875.8903808593750, 63.60831832885742187, 100, 0, 0),
+(@PATH_ID+6, 01, -11879.2148437500, -1887.6453857421875, 63.60831832885742187, 100, 0, 0),
+(@PATH_ID+6, 02, -11880.9931640625, -1892.7508544921875, 63.60831832885742187, 100, 0, 0),
+(@PATH_ID+6, 03, -11877.7763671875, -1896.8364257812500, 63.60831832885742187, 100, 0, 0),
+(@PATH_ID+6, 04, -11872.0585937500, -1895.8775634765625, 63.89884567260742187, 100, 0, 0),
+(@PATH_ID+6, 05, -11870.7783203125, -1890.4826660156250, 64.42716979980468750, 100, 0, 0),
+(@PATH_ID+6, 06, -11874.4931640625, -1886.7122802734375, 64.23136901855468750, 100, 0, 0);
 
 -- =========
 -- DBSCRIPTS
 -- =========
 
-DELETE FROM `dbscripts_on_creature_movement` WHERE `id` IN (1134001,1134002,1135901,1135902,1135903,1135904);
+DELETE FROM `dbscripts_on_creature_movement` WHERE `id` IN (1134001,1134002,1135901,1135902,1135903,1135904,1450701);
 INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(1134001, 0, 1, 28, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Hakkari Blood Priest - kneel'),
-(1134001, 30000, 1, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Hakkari Blood Priest - stand up'),
-(1134001, 30000, 2, 1, 66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Hakkari Blood Priest - salute Hakkar'),
+(1134001, 0, 28, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Hakkari Blood Priest - kneel'),
+(1134001, 30000, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Hakkari Blood Priest - stand up'),
+(1134001, 30000, 1, 66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Hakkari Blood Priest - salute Hakkar'),
 
-(1134002, 0, 1, 28, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Hakkari Blood Priest - kneel'),
-(1134002, 57000, 1, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Hakkari Blood Priest - stand up'),
-(1134002, 57000, 2, 1, 66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Hakkari Blood Priest - salute Hakkar'),
+(1134002, 0, 28, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Hakkari Blood Priest - kneel'),
+(1134002, 57000, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Hakkari Blood Priest - stand up'),
+(1134002, 57000, 1, 66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Hakkari Blood Priest - salute Hakkar'),
 
-(1135901, 1000, 20, 1, 5, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Soulflayer - random movement after path 1'),
+(1135901, 1000, 20, 1, 5, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Soulflayer - random movement after path 1'),
 (1135901, 45000, 20, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Soulflayer - continue on path 2'),
 
-(1135902, 1000, 20, 1, 5, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Soulflayer - random movement after path 2'),
+(1135902, 1000, 20, 1, 5, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Soulflayer - random movement after path 2'),
 (1135902, 40000, 20, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Soulflayer - continue on path 1'),
 
-(1135903, 1000, 20, 1, 5, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Soulflayer - random movement after path 3'),
+(1135903, 1000, 20, 1, 5, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Soulflayer - random movement after path 3'),
 (1135903, 30000, 20, 2, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Soulflayer - continue on path 4'),
 
-(1135904, 1000, 20, 1, 5, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Soulflayer - random movement after path 4'),
-(1135904, 35000, 20, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Soulflayer - continue on path 3');
+(1135904, 1000, 20, 1, 5, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Soulflayer - random movement after path 4'),
+(1135904, 35000, 20, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Soulflayer - continue on path 3'),
+
+(1450701, 1000, 15, 21157, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'High Priest Venoxis - Cast Dark Channeling');
 
 -- INSERT INTO `dbscripts_on_creature_death` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
+-- INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 
-INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(@OGUID+187, 5000, 10, 15083, 900000, 0, 0, 0, 0, 0, 0, 0, 0, -11901.3, -1906.52, 65.36, 0.87, ''),
-(@OGUID+188, 5000, 10, 15084, 900000, 0, 0, 0, 0, 0, 0, 0, 0, -11901.3, -1906.52, 65.36, 0.87, ''),
-(@OGUID+189, 5000, 10, 15085, 900000, 0, 0, 0, 0, 0, 0, 0, 0, -11901.3, -1906.52, 65.36, 0.87, ''),
-(@OGUID+190, 5000, 10, 15082, 900000, 0, 0, 0, 0, 0, 0, 0, 0, -11901.3, -1906.52, 65.36, 0.87, '');
-
-INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(179985, 1000, 10, 15041, 60000, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Spider Egg - Summon Spawn of Mar''li');
+INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+(179985, 1000, 0, 10, 15041, 60000, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Zul''Gurub - Spider Egg - Summon Spawn of Mar''li'),
+(180327, 5000, 0, 10, 15082, 259200, 0, 0, 0, 0, 0, 0, 0, 0, -11901.3, -1906.52, 65.36, 0.87, 6029, 'Zul''Gurub - Brazier of Madness - Edge of Madness (Gri''lek)'),
+(180327, 5000, 0, 10, 15083, 259200, 0, 0, 0, 0, 0, 0, 0, 0, -11901.3, -1906.52, 65.36, 0.87, 6030, 'Zul''Gurub - Brazier of Madness - Edge of Madness (Hazza''rah)'),
+(180327, 5000, 0, 10, 15084, 259200, 0, 0, 0, 0, 0, 0, 0, 0, -11901.3, -1906.52, 65.36, 0.87, 6031, 'Zul''Gurub - Brazier of Madness - Edge of Madness (Renataki)'),
+(180327, 5000, 0, 10, 15085, 259200, 0, 0, 0, 0, 0, 0, 0, 0, -11901.3, -1906.52, 65.36, 0.87, 6032, 'Zul''Gurub - Brazier of Madness - Edge of Madness (Wushoolay)');
 
 -- INSERT INTO `dbscripts_on_relay` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_event` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
@@ -1710,7 +1891,6 @@ INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `command`, `datalong`
 -- INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_start` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_end` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
--- INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
 -- INSERT INTO `dbscript_random_templates` (`id`, `type`, `target_id`, `chance`, `comments`) VALUES
 
 

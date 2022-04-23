@@ -13,7 +13,7 @@ SET @PGUID := 48300; -- pools
 -- CREATURES
 -- =========
 
-INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+INSERT INTO `creature_movement` (`id`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 (@CGUID+28, 1, 2.00162, -64.4008, 22.8575, 0.645772, 5000, 1882902),
 (@CGUID+29, 1, 2.69777, -60.936, 22.8984, 4.95674, 5000, 1882902),
 (@CGUID+30, 1, 5.55054, -64.0838, 22.9179, 2.86234, 5000, 1882902),
@@ -121,16 +121,16 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+38, 1, 6.12531, 69.0678, 22.9075, 2.07694, 5000, 1882901),
 (@CGUID+39, 1, -8.90767, 68.377, 22.6632, 1.16937, 5000, 1882901);
 
--- INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+-- INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 
-INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(@CGUID+40, 0, 0, 1, 16, 0, 0, NULL); -- World Trigger (Not Immune PC)
+INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(@CGUID+40, 0, 0, 1, 0, 0, NULL); -- World Trigger (Not Immune PC)
 
-REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(17256, 0, 0, 1, 16, 0, 0, NULL), -- Hellfire Channeler
-(17257, 0, 0, 1, 16, 0, 0, '30205'), -- Magtheridon
-(17376, 0, 0, 1, 16, 0, 0, NULL), -- Hellfire Raid Trigger
-(18829, 0, 0, 1, 16, 0, 0, NULL); -- Hellfire Warder
+REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(17256, 0, 0, 1, 0, 0, NULL), -- Hellfire Channeler
+(17257, 0, 0, 1, 0, 0, '30205'), -- Magtheridon
+(17376, 0, 0, 1, 0, 0, NULL), -- Hellfire Raid Trigger
+(18829, 0, 0, 1, 0, 0, NULL); -- Hellfire Warder
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+28, @CGUID+30, 3), -- Hellfire Warder -> Hellfire Warder
@@ -182,9 +182,9 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+31, 18829, 544, 1, 34.5866, -3.04499, 45.1226, 0.069813, 7200, 7200, 0, 0, 0, 0), -- Hellfire Warder
 (@CGUID+32, 18829, 544, 1, 36.4493, 2.02954, 45.1387, 0.034907, 7200, 7200, 0, 0, 0, 0), -- Hellfire Warder
 (@CGUID+33, 18829, 544, 1, 34.3106, 6.95704, 45.1233, 0.017453, 7200, 7200, 0, 0, 0, 0), -- Hellfire Warder
-(@CGUID+34, 18829, 544, 1, -53.9371, 58.8454, 3.1001, 0.356661, 7200, 7200, 5, 0, 0, 2), -- Hellfire Warder
-(@CGUID+35, 18829, 544, 1, -54.8378, 60.2842, 3.07587, 0.173576, 7200, 7200, 5, 0, 0, 2), -- Hellfire Warder
-(@CGUID+36, 18829, 544, 1, -53.5156, 57.127, 3.03991, 0.321231, 7200, 7200, 5, 0, 0, 2), -- Hellfire Warder
+(@CGUID+34, 18829, 544, 1, -53.9371, 58.8454, 3.1001, 0.356661, 7200, 7200, 0, 0, 0, 2), -- Hellfire Warder
+(@CGUID+35, 18829, 544, 1, -54.8378, 60.2842, 3.07587, 0.173576, 7200, 7200, 0, 0, 0, 2), -- Hellfire Warder
+(@CGUID+36, 18829, 544, 1, -53.5156, 57.127, 3.03991, 0.321231, 7200, 7200, 0, 0, 0, 2), -- Hellfire Warder
 (@CGUID+37, 18829, 544, 1, -0.181343, 67.1853, 22.8294, 1.5708, 7200, 7200, 0, 0, 0, 2), -- Hellfire Warder
 (@CGUID+38, 18829, 544, 1, 6.12531, 69.0678, 22.9075, 2.07694, 7200, 7200, 0, 0, 0, 2), -- Hellfire Warder
 (@CGUID+39, 18829, 544, 1, -8.90767, 68.377, 22.6632, 1.16937, 7200, 7200, 0, 0, 0, 2), -- Hellfire Warder
@@ -248,7 +248,6 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalon
 -- INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_start` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_end` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
--- INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
 -- INSERT INTO `dbscript_random_templates` (`id`, `type`, `target_id`, `chance`, `comments`) VALUES
 
 

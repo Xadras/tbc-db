@@ -13,7 +13,7 @@ SET @PGUID := 46400; -- pools
 -- CREATURES
 -- =========
 
-INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+INSERT INTO `creature_movement` (`id`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 (@CGUID+2, 1, -76.1155, -99.1247, -35.0919, 100, 0, 0),
 (@CGUID+2, 2, -93.4696, -104.813, -38.3842, 100, 0, 0),
 (@CGUID+2, 3, -111.239, -120.058, -48.5652, 100, 0, 0),
@@ -55,14 +55,14 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+4, 11, -165.346, -205.622, -66.3186, 100, 0, 0),
 (@CGUID+4, 12, -151.657, -212.512, -67.2987, 100, 0, 0);
 
--- INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+-- INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 
--- INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
+-- INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
 
-REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(10184, 0, 3, 1, 0, 0, 0, NULL), -- Onyxia
-(12129, 0, 0, 1, 16, 0, 0, '18950'), -- Onyxian Warder
-(12758, 0, 0, 1, 16, 0, 0, NULL); -- Onyxia Trigger
+REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(10184, 0, 3, 1, 0, 0, NULL), -- Onyxia
+(12129, 0, 0, 1, 0, 0, '18950'), -- Onyxian Warder
+(12758, 0, 0, 1, 0, 0, NULL); -- Onyxia Trigger
 
 -- INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 
@@ -369,7 +369,6 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 -- INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_start` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_end` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
--- INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
 -- INSERT INTO `dbscript_random_templates` (`id`, `type`, `target_id`, `chance`, `comments`) VALUES
 
 

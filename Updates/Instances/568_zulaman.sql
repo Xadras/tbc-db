@@ -16,7 +16,7 @@ SET @PGUID := 49900; -- pools
 -- CREATURES
 -- =========
 
-INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+INSERT INTO `creature_movement` (`id`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 (@CGUID+40, 1, -2.0694609, 1429.6433, 11.327607, 100, 0, 0),
 (@CGUID+40, 2, 0.36654234, 1443.6418, 10.195978, 100, 0, 0),
 (@CGUID+40, 3, 1.5804709, 1455.6984, 9.445978, 100, 0, 0),
@@ -297,44 +297,39 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+411, 17, 318.035339, 1089.599854, 9.594583, 100, 0, 0),
 (@CGUID+411, 18, 317.626373, 1100.268677, 9.627099, 100, 0, 0),
 
-(@CGUID+425, 1, 278.120758, 1053.975342, 0.000062, 100, 0, 0),
-(@CGUID+425, 2, 285.773010, 1051.562256, 0.000062, 100, 0, 0),
-(@CGUID+425, 3, 295.393738, 1047.581665, 0.000917, 100, 0, 0),
-(@CGUID+425, 4, 306.933105, 1035.112183, 0.000917, 100, 0, 0),
-(@CGUID+425, 5, 312.957642, 1022.470703, 0.453238, 100, 0, 0),
-(@CGUID+425, 6, 317.283997, 1013.290833, 0.006239, 100, 0, 0),
-(@CGUID+425, 7, 325.110046, 1007.385437, 0.704946, 100, 0, 0),
-(@CGUID+425, 8, 338.325836, 1000.493958, 0.160388, 100, 0, 0),
-(@CGUID+425, 9, 346.569122, 991.140259, 0.000158,  100, 0, 0),
-(@CGUID+425, 10, 350.834442, 979.561646, 0.015103, 100, 0, 0),
-(@CGUID+425, 11, 355.971527, 967.672302, 0.000111, 100, 0, 0),
-(@CGUID+425, 12, 364.075836, 952.201172, 0.000111, 100, 0, 0),
-(@CGUID+425, 13, 372.180145, 936.730042, 0.000111, 100, 0, 0),
-(@CGUID+425, 14, 373.983765, 920.255493, 0.006441, 100, 0, 0),
-(@CGUID+425, 15, 376.182159, 906.238464, 0.000730, 100, 0, 0),
-(@CGUID+425, 16, 378.066772, 894.443481, 0.000029, 100, 0, 0),
-(@CGUID+425, 17, 376.672150, 908.051575, 0.000029, 100, 0, 0),
-(@CGUID+425, 18, 374.175201, 922.136780, 0.007623, 100, 0, 0),
-(@CGUID+425, 19, 372.294403, 937.305481, 0.001348, 100, 0, 0),
-(@CGUID+425, 20, 364.009949, 953.123535, 0.001348, 100, 0, 0),
-(@CGUID+425, 21, 355.937347, 968.495178, 0.001348, 100, 0, 0),
-(@CGUID+425, 22, 350.857025, 980.895996, 0.000110, 100, 0, 0),
-(@CGUID+425, 23, 346.637421, 992.121643, 0.000011, 100, 0, 0),
-(@CGUID+425, 24, 338.337158, 1001.000061, 0.195644, 100, 0, 0),
-(@CGUID+425, 25, 325.002472, 1007.324524, 0.671864, 100, 0, 0),
-(@CGUID+425, 26, 316.864716, 1014.077942, 0.015968, 100, 0, 0),
-(@CGUID+425, 27, 313.027557, 1023.474854, 0.465976, 100, 0, 0),
-(@CGUID+425, 28, 306.888062, 1035.589722, 0.001319, 100, 0, 0),
-(@CGUID+425, 29, 295.227905, 1047.646973, 0.001319, 100, 0, 0),
-(@CGUID+425, 30, 286.114868, 1051.570190, 0.001319, 100, 0, 0),
+(@CGUID+425, 1, 271.48917, 1054.584, 0.045983315, 100, 0, 0),
+(@CGUID+425, 2, 296.0644, 1047.9662, 0.045983315, 100, 0, 0),
+(@CGUID+425, 3, 308.94864, 1033.9436, 0.125, 100, 0, 0),
+(@CGUID+425, 4, 314.00287, 1018.9936, 0.34126663, 100, 0, 0),
+(@CGUID+425, 5, 320.89014, 1010.3266, 0.43159866, 100, 0, 0),
+(@CGUID+425, 6, 330.51263, 1003.3464, 0.09859085, 100, 0, 0),
+(@CGUID+425, 7, 344.8755, 995.56824, 0.11758065, 100, 0, 0),
+(@CGUID+425, 8, 352.806, 975.41095, 0.11758065, 100, 0, 0),
+(@CGUID+425, 9, 363.86215, 953.5993, 0.090146065, 100, 0, 0),
+(@CGUID+425, 10, 372.2463, 937.23285, 0.125, 100, 0, 0),
+(@CGUID+425, 11, 372.9088, 917.9118, 0.109163284, 100, 0, 0),
+(@CGUID+425, 12, 377.7089, 897.13947, 0.03409362, 100, 0, 0),
+(@CGUID+425, 13, 372.9088, 917.9118, 0.109163284, 100, 0, 0),
+(@CGUID+425, 14, 372.2463, 937.23285, 0.125, 100, 0, 0),
+(@CGUID+425, 15, 363.86215, 953.5993, 0.090146065, 100, 0, 0),
+(@CGUID+425, 16, 352.806, 975.41095, 0.11758065, 100, 0, 0),
+(@CGUID+425, 17, 344.8755, 995.56824, 0.11758065, 100, 0, 0),
+(@CGUID+425, 18, 330.51263, 1003.3464, 0.09859085, 100, 0, 0),
+(@CGUID+425, 19, 320.89014, 1010.3266, 0.43159866, 100, 0, 0),
+(@CGUID+425, 20, 314.00287, 1018.9936, 0.34126663, 100, 0, 0),
+(@CGUID+425, 21, 308.94864, 1033.9436, 0.125, 100, 0, 0),
+(@CGUID+425, 22, 296.0644, 1047.9662, 0.045983315, 100, 0, 0),
 
-(@CGUID+427, 1, 376.437897, 1016.336121, 0.000467, 100, 0, 0),
-(@CGUID+427, 2, 378.391144, 1007.516724, 0.001065, 100, 0, 0),
-(@CGUID+427, 3, 382.894836, 996.253113, 0.000846, 100, 0, 0),
-(@CGUID+427, 4, 392.150299, 990.951538, 0.001319, 100, 0, 0),
-(@CGUID+427, 5, 406.849121, 986.445068, 0.000067, 100, 0, 0),
-(@CGUID+427, 6, 391.715454, 990.840759, 0.000333, 100, 0, 0),
-(@CGUID+427, 7, 382.615723, 996.837158, 0.000704, 100, 0, 0),
+(@CGUID+427, 1, 370.3646, 1030.07, 6.894886, 100, 0, 0),
+(@CGUID+427, 2, 372.5187, 1018.433, 0.4106483, 100, 0, 0),
+(@CGUID+427, 3, 377.4288, 1004.248, 0.125, 100, 0, 0),
+(@CGUID+427, 4, 385.7002, 993.2001, 0.125, 100, 0, 0),
+(@CGUID+427, 5, 396.6262, 987.9644, 0.125, 100, 0, 0),
+(@CGUID+427, 6, 406.849121, 986.445068, 0.125, 100, 0, 0), -- guessed from old data
+(@CGUID+427, 7, 396.6262, 987.9644, 0.125, 100, 0, 0),
+(@CGUID+427, 8, 385.7002, 993.2001, 0.125, 100, 0, 0),
+(@CGUID+427, 9, 377.4288, 1004.248, 0.125, 100, 0, 0),
+(@CGUID+427, 10, 372.5187, 1018.433, 0.4106483, 100, 0, 0),
 
 (@CGUID+429, 1, 422.279480, 987.468323, 0.000026, 100, 0, 0),
 (@CGUID+429, 2, 433.409912, 981.214966, 0.000026, 100, 0, 0),
@@ -350,8 +345,8 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+429, 12, 432.675568, 981.687439, 0.000064, 100, 0, 0),
 (@CGUID+429, 13, 421.063110, 987.692993, 0.000064, 100, 0, 0);
 
-DELETE FROM creature_movement_template WHERE entry IN (24159,24225,23897,23818,24504,24858);
-INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+DELETE FROM `creature_movement_template` WHERE entry IN (24159,24225,23897,23818,24504,24858);
+INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 -- Amani Eagle
 (24159, 0, 1, 376.353, 1407.34, 75.5313, 100, 0, 0),
 (24159, 0, 2, 339.1228, 1396.293, 74.28909, 100, 0, 0),
@@ -549,103 +544,103 @@ INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_
 
 UPDATE creature SET equipment_id=5592 WHERE guid=@CGUID+104; -- Amanishi Guardian (starts holding a spear for gong event RP script)
 
-INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
--- (@CGUID+23, 0, 0, 1, 16, 0, 0, '46750'), -- World Trigger (Not Immune PC)
-(@CGUID+66, 0, 1, 1, 16, 0, 0, '18950'), -- Amani'shi Scout
-(@CGUID+68, 0, 1, 1, 16, 0, 0, '18950'), -- Amani'shi Scout
-(@CGUID+96, 0, 3, 1, 16, 0, 0, NULL), -- Amani'shi Flame Caster
-(@CGUID+120, 0, 1, 1, 16, 0, 0, '18950'), -- Amani'shi Guardian
-(@CGUID+127, 0, 1, 1, 16, 0, 0, '18950'), -- Amani'shi Guardian
-(@CGUID+319, 0, 1, 1, 16, 0, 0, '18950'), -- Amani'shi Handler
-(@CGUID+398, 0, 0, 1, 16, 375, 0, '18950'), -- Amani'shi Wind Walker
-(@CGUID+399, 0, 0, 1, 16, 375, 0, '18950'), -- Amani'shi Wind Walker
-(@CGUID+400, 0, 0, 1, 16, 375, 0, '18950'), -- Amani'shi Wind Walker
-(@CGUID+401, 0, 0, 1, 16, 375, 0, '18950'), -- Amani'shi Wind Walker
-(@CGUID+402, 0, 0, 1, 16, 375, 0, '18950'), -- Amani'shi Protector
-(@CGUID+403, 0, 0, 1, 16, 375, 0, '18950'), -- Amani'shi Protector
-(@CGUID+404, 0, 0, 1, 16, 375, 0, '18950'), -- Amani'shi Protector
-(@CGUID+405, 0, 0, 1, 16, 375, 0, '18950'), -- Amani'shi Protector
-(@CGUID+479, 0, 8, 0, 0, 0, 0, '18950'), -- Amani'shi Savage
-(@CGUID+480, 0, 8, 0, 0, 0, 0, '18950'), -- Amani'shi Savage
-(@CGUID+481, 0, 8, 0, 0, 0, 0, '18950'), -- Amani'shi Savage
-(@CGUID+482, 0, 8, 0, 0, 0, 0, '18950'), -- Amani'shi Savage
-(@CGUID+483, 0, 8, 0, 0, 0, 0, '18950'), -- Amani'shi Savage
-(@CGUID+484, 0, 8, 0, 0, 0, 0, '18950'), -- Amani'shi Savage
-(@CGUID+485, 0, 8, 0, 0, 0, 0, '18950'), -- Amani'shi Savage
-(@CGUID+486, 0, 8, 0, 0, 0, 0, '18950'); -- Amani'shi Savage
+INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+-- (@CGUID+23, 0, 0, 1, 0, 0, '46750'), -- World Trigger (Not Immune PC)
+(@CGUID+66, 0, 1, 1, 0, 0, '18950'), -- Amani'shi Scout
+(@CGUID+68, 0, 1, 1, 0, 0, '18950'), -- Amani'shi Scout
+(@CGUID+96, 0, 3, 1, 0, 0, NULL), -- Amani'shi Flame Caster
+(@CGUID+120, 0, 1, 1, 0, 0, '18950'), -- Amani'shi Guardian
+(@CGUID+127, 0, 1, 1, 0, 0, '18950'), -- Amani'shi Guardian
+(@CGUID+319, 0, 1, 1, 0, 0, '18950'), -- Amani'shi Handler
+(@CGUID+398, 0, 0, 1, 375, 0, '18950'), -- Amani'shi Wind Walker
+(@CGUID+399, 0, 0, 1, 375, 0, '18950'), -- Amani'shi Wind Walker
+(@CGUID+400, 0, 0, 1, 375, 0, '18950'), -- Amani'shi Wind Walker
+(@CGUID+401, 0, 0, 1, 375, 0, '18950'), -- Amani'shi Wind Walker
+(@CGUID+402, 0, 0, 1, 375, 0, '18950'), -- Amani'shi Protector
+(@CGUID+403, 0, 0, 1, 375, 0, '18950'), -- Amani'shi Protector
+(@CGUID+404, 0, 0, 1, 375, 0, '18950'), -- Amani'shi Protector
+(@CGUID+405, 0, 0, 1, 375, 0, '18950'), -- Amani'shi Protector
+(@CGUID+479, 0, 8, 0, 0, 0, '18950'), -- Amani'shi Savage
+(@CGUID+480, 0, 8, 0, 0, 0, '18950'), -- Amani'shi Savage
+(@CGUID+481, 0, 8, 0, 0, 0, '18950'), -- Amani'shi Savage
+(@CGUID+482, 0, 8, 0, 0, 0, '18950'), -- Amani'shi Savage
+(@CGUID+483, 0, 8, 0, 0, 0, '18950'), -- Amani'shi Savage
+(@CGUID+484, 0, 8, 0, 0, 0, '18950'), -- Amani'shi Savage
+(@CGUID+485, 0, 8, 0, 0, 0, '18950'), -- Amani'shi Savage
+(@CGUID+486, 0, 8, 0, 0, 0, '18950'); -- Amani'shi Savage
 
-REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(23542, 0, 0, 1, 16, 0, 0, NULL), -- Amani'shi Axe Thrower
-(23574, 0, 0, 1, 16, 0, 0, NULL), -- Akil'zon
-(23576, 0, 0, 1, 16, 0, 0, NULL), -- Nalorakk
-(23597, 0, 0, 1, 16, 0, 0, '18950'), -- Amani'shi Guardian
-(23577, 0, 0, 1, 16, 0, 0, NULL), -- Halazzi
-(23578, 0, 0, 1, 16, 0, 0, NULL), -- Jan'alai
-(23580, 22467, 0, 1, 16, 0, 0, '23255'), -- Amani'shi Warbringer
-(23581, 0, 0, 1, 16, 0, 0, NULL), -- Amani'shi Medicine Man
-(23582, 0, 0, 1, 16, 0, 0, NULL), -- Amani'shi Tribesman
-(23584, 0, 0, 1, 16, 0, 0, NULL), -- Amani Bear
-(23586, 0, 0, 1, 16, 0, 0, '18950'), -- Amani'shi Scout
-(23587, 0, 0, 1, 16, 0, 0, '18950'), -- Amani'shi Reinforcement
-(23774, 0, 0, 1, 16, 0, 0, NULL), -- Amani'shi Trainer
-(23790, 0, 0, 1, 0, 0, 0, NULL), -- Tanzar
-(23807, 0, 0, 1, 16, 0, 0, NULL), -- Zul'Aman - Bear God Invisman
-(23813, 0, 0, 1, 16, 0, 0, NULL), -- Zul'Aman - Dragonhawk God Invisman
-(23814, 0, 0, 1, 16, 0, 0, NULL), -- Zul'Aman - Eagle God Invisman
-(23815, 0, 0, 1, 16, 0, 0, NULL), -- Zul'Aman - Lynx God Invisman
-(23817, 0, 0, 1, 16, 0, 0, NULL), -- Dragonhawk Egg
-(23834, 0, 0, 1, 16, 0, 0, '18950'), -- Amani Dragonhawk
-(23877, 0, 0, 1, 0, 0, 0, '42466'), -- Amani Lynx Spirit
-(23878, 0, 0, 1, 0, 0, 0, '42466'), -- Amani Bear Spirit
-(23879, 0, 0, 1, 0, 0, 0, '42466'), -- Amani Dragonhawk Spirit
-(23880, 0, 0, 1, 0, 0, 0, '42466'), -- Amani Eagle Spirit
-(23889, 0, 0, 1, 16, 0, 0, '18950'), -- Amani'shi Savage
-(23897, 0, 0, 1, 16, 0, 0, '25900'), -- Zungam
-(23999, 0, 0, 1, 0, 0, 0, NULL), -- Harkor
-(24001, 0, 0, 1, 0, 0, 0, NULL), -- Ashli
-(24024, 0, 0, 1, 0, 0, 0, NULL), -- Kraz
-(24043, 0, 0, 0, 0, 0, 0, '18950 16380'), -- Amani Lynx
-(24047, 0, 0, 1, 16, 0, 0, NULL), -- Amani Crocolisk
-(24059, 0, 0, 1, 16, 0, 0, NULL), -- Amani'shi Beast Tamer
-(24064, 0, 0, 1, 16, 0, 0, NULL), -- Amani Lynx Cub
-(24065, 0, 0, 1, 16, 0, 0, '18950'), -- Amani'shi Handler
-(24175, 0, 0, 1, 16, 0, 0, NULL), -- Amani'shi Lookout
-(24179, 0, 0, 1, 16, 0, 0, '18950'), -- Amani'shi Wind Walker
-(24180, 0, 0, 1, 16, 0, 0, '18950'), -- Amani'shi Protector
-(24217, 0, 0, 1, 16, 0, 0, NULL), -- Amani Bear Mount
-(24242, 0, 0, 1, 16, 0, 0, '43580'), -- Slither
-(24312, 0, 0, 1, 16, 0, 0, NULL), -- Dragonhawk Egg
-(24325, 0, 0, 1, 16, 0, 0, NULL), -- Eagle Troll Spawn Target
-(24358, 0, 0, 1, 16, 0, 0, NULL), -- Harrison Jones
-(24363, 0, 0, 1, 16, 0, 0, NULL), -- Hex Lord Malacrass (Speech Trigger)
-(24396, 0, 0, 1, 16, 0, 0, NULL), -- Forest Frog
-(24530, 0, 0, 1, 16, 0, 0, NULL), -- Amani Elder Lynx
-(24549, 0, 0, 1, 16, 0, 0, NULL), -- Amani'shi Tempest
-(25173, 0, 0, 1, 16, 0, 0, NULL); -- Zul'Aman Door Trigger
+REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(23542, 0, 0, 1, 0, 0, NULL), -- Amani'shi Axe Thrower
+(23574, 0, 0, 1, 0, 0, NULL), -- Akil'zon
+(23576, 0, 0, 1, 0, 0, NULL), -- Nalorakk
+(23597, 0, 0, 1, 0, 0, '18950'), -- Amani'shi Guardian
+(23577, 0, 0, 1, 0, 0, NULL), -- Halazzi
+(23578, 0, 0, 1, 0, 0, NULL), -- Jan'alai
+(23580, 22467, 0, 1, 0, 0, '23255'), -- Amani'shi Warbringer
+(23581, 0, 0, 1, 0, 0, NULL), -- Amani'shi Medicine Man
+(23582, 0, 0, 1, 0, 0, NULL), -- Amani'shi Tribesman
+(23584, 0, 0, 1, 0, 0, NULL), -- Amani Bear
+(23586, 0, 0, 1, 0, 0, '18950'), -- Amani'shi Scout
+(23587, 0, 0, 1, 0, 0, '18950'), -- Amani'shi Reinforcement
+(23774, 0, 0, 1, 0, 0, NULL), -- Amani'shi Trainer
+(23790, 0, 0, 1, 0, 0, NULL), -- Tanzar
+(23807, 0, 0, 1, 0, 0, NULL), -- Zul'Aman - Bear God Invisman
+(23813, 0, 0, 1, 0, 0, NULL), -- Zul'Aman - Dragonhawk God Invisman
+(23814, 0, 0, 1, 0, 0, NULL), -- Zul'Aman - Eagle God Invisman
+(23815, 0, 0, 1, 0, 0, NULL), -- Zul'Aman - Lynx God Invisman
+(23817, 0, 0, 1, 0, 0, NULL), -- Dragonhawk Egg
+(23834, 0, 0, 1, 0, 0, '18950'), -- Amani Dragonhawk
+(23877, 0, 0, 1, 0, 0, '42466'), -- Amani Lynx Spirit
+(23878, 0, 0, 1, 0, 0, '42466'), -- Amani Bear Spirit
+(23879, 0, 0, 1, 0, 0, '42466'), -- Amani Dragonhawk Spirit
+(23880, 0, 0, 1, 0, 0, '42466'), -- Amani Eagle Spirit
+(23889, 0, 0, 1, 0, 0, '18950'), -- Amani'shi Savage
+(23897, 0, 0, 1, 0, 0, '25900'), -- Zungam
+(23999, 0, 0, 1, 0, 0, NULL), -- Harkor
+(24001, 0, 0, 1, 0, 0, NULL), -- Ashli
+(24024, 0, 0, 1, 0, 0, NULL), -- Kraz
+(24043, 0, 0, 0, 0, 0, '18950 16380'), -- Amani Lynx
+(24047, 0, 0, 1, 0, 0, NULL), -- Amani Crocolisk
+(24059, 0, 0, 1, 0, 0, NULL), -- Amani'shi Beast Tamer
+(24064, 0, 0, 1, 0, 0, NULL), -- Amani Lynx Cub
+(24065, 0, 0, 1, 0, 0, '18950'), -- Amani'shi Handler
+(24175, 0, 0, 1, 0, 0, NULL), -- Amani'shi Lookout
+(24179, 0, 0, 1, 0, 0, '18950'), -- Amani'shi Wind Walker
+(24180, 0, 0, 1, 0, 0, '18950'), -- Amani'shi Protector
+(24217, 0, 0, 1, 0, 0, NULL), -- Amani Bear Mount
+(24242, 0, 0, 1, 0, 0, '43580'), -- Slither
+(24312, 0, 0, 1, 0, 0, NULL), -- Dragonhawk Egg
+(24325, 0, 0, 1, 0, 0, NULL), -- Eagle Troll Spawn Target
+(24358, 0, 0, 1, 0, 0, NULL), -- Harrison Jones
+(24363, 0, 0, 1, 0, 0, NULL), -- Hex Lord Malacrass (Speech Trigger)
+(24396, 0, 0, 1, 0, 0, NULL), -- Forest Frog
+(24530, 0, 0, 1, 0, 0, NULL), -- Amani Elder Lynx
+(24549, 0, 0, 1, 0, 0, NULL), -- Amani'shi Tempest
+(25173, 0, 0, 1, 0, 0, NULL); -- Zul'Aman Door Trigger
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 -- Entrance
-(@CGUID+259, @CGUID+104, 1), -- Amani'shi Savage -> Amani'shi Guardian
-(@CGUID+260, @CGUID+104, 1), -- Amani'shi Savage -> Amani'shi Guardian
-(@CGUID+261, @CGUID+104, 1), -- Amani'shi Savage -> Amani'shi Guardian
-(@CGUID+262, @CGUID+104, 1), -- Amani'shi Savage -> Amani'shi Guardian
-(@CGUID+263, @CGUID+104, 1), -- Amani'shi Savage -> Amani'shi Guardian
-(@CGUID+264, @CGUID+104, 1), -- Amani'shi Savage -> Amani'shi Guardian
-(@CGUID+265, @CGUID+104, 1), -- Amani'shi Savage -> Amani'shi Guardian
-(@CGUID+266, @CGUID+104, 1), -- Amani'shi Savage -> Amani'shi Guardian
-(@CGUID+113, @CGUID+104, 3), -- Amani'shi Guardian -> Amani'shi Guardian
+(@CGUID+259, @CGUID+104, 1165), -- Amani'shi Savage -> Amani'shi Guardian
+(@CGUID+260, @CGUID+104, 1165), -- Amani'shi Savage -> Amani'shi Guardian
+(@CGUID+261, @CGUID+104, 1165), -- Amani'shi Savage -> Amani'shi Guardian
+(@CGUID+262, @CGUID+104, 1165), -- Amani'shi Savage -> Amani'shi Guardian
+(@CGUID+263, @CGUID+104, 1165), -- Amani'shi Savage -> Amani'shi Guardian
+(@CGUID+264, @CGUID+104, 1165), -- Amani'shi Savage -> Amani'shi Guardian
+(@CGUID+265, @CGUID+104, 1165), -- Amani'shi Savage -> Amani'shi Guardian
+(@CGUID+266, @CGUID+104, 1165), -- Amani'shi Savage -> Amani'shi Guardian
+(@CGUID+113, @CGUID+104, 15), -- Amani'shi Guardian -> Amani'shi Guardian
 
 -- Hex Lord Malacrass
 (@CGUID+368, @CGUID+369, 1167), -- Amani'shi Berserker -> Amani'shi Berserker
-(@CGUID+369, @CGUID+366, 1024), -- Amani'shi Berserker -> Hex Lord Malacrass (Speech Trigger)
+(@CGUID+369, @CGUID+333, 1024), -- Amani'shi Berserker -> Hex Lord Malacrass
 
 (@CGUID+54, @CGUID+406, 1167), -- Amani'shi Medicine Man -> Amani'shi Tempest
 (@CGUID+409, @CGUID+406, 1167), -- Amani'shi Flame Caster -> Amani'shi Tempest
 (@CGUID+437, @CGUID+406, 1167), -- creature_spawn_entry -> Amani'shi Tempest
-(@CGUID+406, @CGUID+366, 1024), -- Amani'shi Tempest -> Hex Lord Malacrass (Speech Trigger)
+(@CGUID+406, @CGUID+333, 1024), -- Amani'shi Tempest -> Hex Lord Malacrass
 
 (@CGUID+370, @CGUID+371, 1167), -- Amani'shi Berserker -> Amani'shi Berserker
-(@CGUID+371, @CGUID+366, 1024), -- Amani'shi Berserker -> Hex Lord Malacrass (Speech Trigger)
+(@CGUID+371, @CGUID+333, 1024), -- Amani'shi Berserker -> Hex Lord Malacrass
 
 -- Nalorakk
 (@CGUID+326, @CGUID+50, 1679), -- Amani'shi Wind Walker -> Amani'shi Medicine Man
@@ -1154,14 +1149,14 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+256, 23878, 568, 1, 134.6, 724.341, 45.1947, 4.06662, 604800, 604800, 0, 0, 0, 0), -- Amani Bear Spirit
 (@CGUID+257, 23879, 568, 1, 91.133, 705.753, 45.1947, 0.0174533, 604800, 604800, 0, 0, 0, 0), -- Amani Dragonhawk Spirit
 (@CGUID+258, 23880, 568, 1, 105.526, 724.926, 45.1947, 5.35816, 604800, 604800, 0, 0, 0, 0), -- Amani Eagle Spirit
-(@CGUID+259, 23889, 568, 1, 81.7104, 1515.83, 21.2338, 0.091743, 259200, 259200, 0, 0, 0, 0), -- Amani'shi Savage
-(@CGUID+260, 23889, 568, 1, 121.549, 1525.11, 21.2338, 3.13302, 259200, 259200, 0, 0, 0, 0), -- Amani'shi Savage
-(@CGUID+261, 23889, 568, 1, 158.714, 1527.86, 21.2338, 0.158039, 259200, 259200, 0, 0, 0, 0), -- Amani'shi Savage
-(@CGUID+262, 23889, 568, 1, 102.504, 1523.64, 21.2338, 2.85248, 259200, 259200, 0, 0, 0, 0), -- Amani'shi Savage
-(@CGUID+263, 23889, 568, 1, 167.954, 1523.31, 21.2338, 1.51648, 259200, 259200, 0, 0, 0, 0), -- Amani'shi Savage
-(@CGUID+264, 23889, 568, 1, 136.024, 1525.09, 21.2338, 6.22001, 259200, 259200, 0, 0, 0, 0), -- Amani'shi Savage
-(@CGUID+265, 23889, 568, 1, 83.6504, 1527.7, 21.2338, 6.12353, 259200, 259200, 0, 0, 0, 0), -- Amani'shi Savage
-(@CGUID+266, 23889, 568, 1, 160.569, 1514.97, 21.2338, 2.20896, 259200, 259200, 0, 0, 0, 0), -- Amani'shi Savage
+(@CGUID+259, 23889, 568, 1, 81.7104, 1515.83, 21.2338, 0.091743, 259200, 259200, 3, 0, 0, 1), -- Amani'shi Savage
+(@CGUID+260, 23889, 568, 1, 121.549, 1525.11, 21.2338, 3.13302, 259200, 259200, 3, 0, 0, 1), -- Amani'shi Savage
+(@CGUID+261, 23889, 568, 1, 158.714, 1527.86, 21.2338, 0.158039, 259200, 259200, 3, 0, 0, 1), -- Amani'shi Savage
+(@CGUID+262, 23889, 568, 1, 102.504, 1523.64, 21.2338, 2.85248, 259200, 259200, 3, 0, 0, 1), -- Amani'shi Savage
+(@CGUID+263, 23889, 568, 1, 167.954, 1523.31, 21.2338, 1.51648, 259200, 259200, 3, 0, 0, 1), -- Amani'shi Savage
+(@CGUID+264, 23889, 568, 1, 136.024, 1525.09, 21.2338, 6.22001, 259200, 259200, 3, 0, 0, 1), -- Amani'shi Savage
+(@CGUID+265, 23889, 568, 1, 83.6504, 1527.7, 21.2338, 6.12353, 259200, 259200, 3, 0, 0, 1), -- Amani'shi Savage
+(@CGUID+266, 23889, 568, 1, 160.569, 1514.97, 21.2338, 2.20896, 259200, 259200, 3, 0, 0, 1), -- Amani'shi Savage
 (@CGUID+267, 23897, 568, 1, 250.141, 996.782, 10.9915, 2.00713, 7200, 7200, 0, 0, 0, 0), -- Zungam
 (@CGUID+268, 23999, 568, 1, 296.225, 1468.35, 81.5893, 5.37561, 604800, 604800, 0, 0, 0, 0), -- Harkor
 (@CGUID+269, 24001, 568, 1, 383.776, 1082.97, 6.04766, 1.58825, 604800, 604800, 0, 0, 0, 0), -- Ashli
@@ -1228,7 +1223,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+330, 23834, 568, 1, -194.592, 1151.05, 0.124147, 5.97311, 7200, 7200, 3, 0, 0, 1), -- Amani Dragonhawk
 (@CGUID+331, 23834, 568, 1, -201.899, 1110.36, 0.223543, 5.9804, 7200, 7200, 3, 0, 0, 1), -- Amani Dragonhawk
 (@CGUID+332, 23834, 568, 1, -219.674, 1112.36, -0.475973, 4.45835, 7200, 7200, 3, 0, 0, 1), -- Amani Dragonhawk
--- @CGUID+333
+(@CGUID+333, 24239, 568, 1, 117.3631, 923.5686, 33.97257, 1.58825, 259200, 259200, 0, 0, 0, 0), -- Malacrass
 (@CGUID+334, 24312, 568, 1, -204.928, 1136.49, 0.388893, 6.00393, 7200, 7200, 0, 0, 0, 0), -- Dragonhawk Egg
 (@CGUID+335, 24312, 568, 1, -222.574, 1124.88, -0.057337, 1.32645, 7200, 7200, 0, 0, 0, 0), -- Dragonhawk Egg
 (@CGUID+336, 24312, 568, 1, -208.865, 1116.26, 0.377559, 1.20428, 7200, 7200, 0, 0, 0, 0), -- Dragonhawk Egg
@@ -1541,6 +1536,18 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 -- INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES
 -- INSERT INTO `pool_gameobject_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
+-- ============
+-- SPAWN GROUPS
+-- ============
+
+INSERT INTO `spawn_group` (`Id`, `Name`, `Type`, `MaxCount`, `WorldState`, `Flags`) VALUES
+(5680001, 'Malacrass', 0, 0, 12000, 0); -- spawns after custom worldstate after all 4 bosses are dead
+
+-- INSERT INTO `spawn_group_entry` (`Id`, `Entry`, `MinCount`, `MaxCount`, `Chance`) VALUES
+
+INSERT INTO `spawn_group_spawn` (`Id`, `Guid`) VALUES
+(5680001, @CGUID+333);
+
 -- =========
 -- DBSCRIPTS
 -- =========
@@ -1550,19 +1557,19 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalon
 (2377401, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Run on'),
 (2377401, 0, 1, 274, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Emote - OneShotNo'),
 
-(2405901, 0, 0, 0, 0, 0, 0, 0, 0, 2000020115, 2000020116, 2000020117, 0, 0, 0, 0, 0, 'Amani\'shi Handler - random say'),
+(2405901, 0, 0, 0, 0, 0, 0, 0, 0, 22726, 22724, 22725, 0, 0, 0, 0, 0, 'Amani\'shi Handler - random say'),
 
 (2389701, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Zungam - Set Idle Movement'),
 (2389701, 1000, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.780236, 'Zungam set facing'),
 (2389701, 2000, 29, 4226, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Zungam - npcFlags added'),
-(2389701, 2000, 0, 0, 0, 0, 0, 0, 0, 2000020119, 0, 0, 0, 0, 0, 0, 0, 'Zungam - Say Text 2');
+(2389701, 2000, 0, 0, 0, 0, 0, 0, 0, 23209, 0, 0, 0, 0, 0, 0, 0, 'Zungam - Say Text 2');
 
 -- INSERT INTO `dbscripts_on_creature_death` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 
 INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 (186430, 0, 14, 25900, 0, 0, 23897, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Zungam - Remove Aura 25900'),
-(186430, 0, 0, 0, 0, 0, 23897, 10, 0, 2000020118, 0, 0, 0, 0, 0, 0, 0, 'Zungam - Say Text 1'),
+(186430, 0, 0, 0, 0, 0, 23897, 10, 0, 23208, 0, 0, 0, 0, 0, 0, 0, 'Zungam - Say Text 1'),
 (186430, 2000, 20, 2, 0, 0, 23897, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Zungam - Set Waypoint Movement');
 
 -- INSERT INTO `dbscripts_on_relay` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
@@ -1571,15 +1578,11 @@ INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `command`, `datalong`
 -- INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_start` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_end` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-
-DELETE FROM `dbscript_string` WHERE `entry` IN (2000020115,2000020116,2000020117,2000020118,2000020119);
-INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `broadcast_text_id`, `comment`) VALUES
-(2000020115, 'Coo Yah! There ya be!', 0, 0, 0, 0, 22726, 'Amani\'shi Handler 1'),
-(2000020116, 'Here, kitty kitty.....', 0, 0, 0, 0, 22724, 'Amani\'shi Handler 2'),
-(2000020117, 'Where ya be mon? Ya dang kitty\'s are sneaky!', 0, 0, 0, 0, 22725, 'Amani\'shi Handler 3'),
-(2000020118, 'Ya saved me, mon! I thought they be drownin\' me for sure.', 6400, 0, 0, 71, 23208, 'Zungam 1 (broadcast ID 23208)'),
-(2000020119, 'Just lemme know if there be anything I can help ya with, mon.', 0, 0, 0, 0, 23209, 'Zungam 2 (broadcast ID 23209)');
-
 -- INSERT INTO `dbscript_random_templates` (`id`, `type`, `target_id`, `chance`, `comments`) VALUES
+
+DELETE FROM conditions WHERE condition_entry IN(12000) AND type=42;
+INSERT INTO conditions(condition_entry,type,value1,value2,value3) VALUES
+(12000,42,10000,0,1);
+
 
 

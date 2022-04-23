@@ -8,12 +8,14 @@ EndDBScriptData */
 SET @CGUID := 4090000; -- creatures
 SET @OGUID := 4090000; -- gameobjects
 SET @PGUID := 47100; -- pools
+SET @GROUP_ID := 4090000;
+SET @PATH_ID := 4090000;
 
 -- =========
 -- CREATURES
 -- =========
 
-INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+INSERT INTO `creature_movement` (`id`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 (@CGUID+206, 1, 1142.68, -647.411, -131.923, 0, 0, 0),
 (@CGUID+206, 2, 1142.68, -647.411, -131.923, 1.53589, 150000, 0),
 (@CGUID+206, 3, 1144.05, -662.684, -131.463, 0, 0, 0),
@@ -430,8 +432,8 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+265, 37, 736.271, -1211.63, -118.9, 0, 0, 0),
 (@CGUID+265, 38, 759.382, -1228.88, -119.276, 0, 0, 0);
 
-DELETE FROM creature_movement_template WHERE entry IN (12056,12118,12264);
-INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+DELETE FROM creature_movement_template WHERE entry IN (12056,12264);
+INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 (12056, 0, 1, 739.986, -953.215, -185.755, 100, 0, 5), -- Run
 (12056, 0, 2, 716.32, -910.881, -193.155, 100, 0, 0),
 (12056, 0, 3, 701.403, -887.836, -199.506, 100, 0, 0),
@@ -449,16 +451,6 @@ INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_
 (12056, 0, 15, 740.4, -949.379, -186.349, 100, 0, 0),
 (12056, 0, 16, 746.603, -966.558, -181.564, 100, 0, 0),
 (12056, 0, 17, 747.547, -981.676, -178.401, 100, 0, 0),
-(12118, 0, 1, 1007.78, -958.088, -180.174, 100, 0, 0),
-(12118, 0, 2, 1014.45, -978.563, -181.185, 100, 0, 0),
-(12118, 0, 3, 1037.02, -986.342, -181.516, 100, 0, 0),
-(12118, 0, 4, 1053.15, -990.755, -182.661, 100, 0, 0),
-(12118, 0, 5, 1070.41, -1006.77, -185.544, 100, 0, 0),
-(12118, 0, 6, 1053.98, -989.048, -182.553, 100, 0, 0),
-(12118, 0, 7, 1039.57, -983.699, -181.317, 100, 0, 0),
-(12118, 0, 8, 1014.96, -977.653, -181.223, 100, 0, 0),
-(12118, 0, 9, 1007.78, -958.088, -180.174, 100, 0, 0),
-(12118, 0, 10, 1000.2, -955.407, -179.583, 100, 0, 0),
 (12264, 0, 1, 582.632, -799.272, -205.379, 0.028569, 0, 0),
 (12264, 0, 2, 589.019, -801.701, -205.301, 5.56877, 0, 0),
 (12264, 0, 3, 590.286, -807.078, -205.236, 4.75195, 0, 0),
@@ -468,35 +460,35 @@ INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_
 (12264, 0, 7, 575.928, -805.535, -205.694, 1.50355, 0, 0),
 (12264, 0, 8, 577.295, -800.048, -205.749, 0.893291, 0, 0);
 
--- INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
+-- INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
 
-REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(11658, 0, 0, 1, 16, 0, 0, '18943'), -- Molten Giant
-(11659, 0, 0, 1, 16, 0, 0, '18943'), -- Molten Destroyer
-(11661, 0, 0, 1, 16, 0, 0, NULL), -- Flamewaker
-(11662, 0, 0, 1, 16, 0, 0, NULL), -- Flamewaker Priest
-(11665, 0, 0, 1, 16, 0, 0, '19194 19195'), -- Lava Annihilator
-(11666, 0, 0, 1, 16, 0, 0, NULL), -- Firewalker
-(11667, 0, 0, 1, 16, 0, 0, NULL), -- Flameguard
-(11668, 0, 0, 1, 16, 0, 0, NULL), -- Firelord
-(11669, 0, 0, 1, 16, 0, 0, NULL), -- Flame Imp
-(11671, 0, 0, 1, 16, 0, 0, NULL), -- Core Hound
-(11672, 0, 0, 1, 16, 0, 0, '20553'), -- Core Rager
-(11673, 0, 0, 1, 16, 0, 0, '18950'), -- Ancient Core Hound
-(11982, 0, 0, 1, 16, 0, 0, NULL), -- Magmadar
-(11988, 0, 0, 1, 16, 0, 0, NULL), -- Golemagg the Incinerator
-(12056, 0, 0, 1, 16, 0, 0, NULL), -- Baron Geddon
-(12057, 0, 0, 1, 16, 0, 0, NULL), -- Garr
-(12076, 0, 0, 1, 16, 0, 0, '19640'), -- Lava Elemental
-(12098, 0, 0, 1, 16, 0, 0, NULL), -- Sulfuron Harbinger
-(12099, 0, 0, 1, 16, 0, 0, '8876 15733'), -- Firesworn
-(12100, 0, 0, 1, 16, 0, 0, '12787'), -- Lava Reaver
-(12101, 0, 0, 1, 16, 0, 0, NULL), -- Lava Surger
-(12118, 0, 0, 1, 16, 0, 0, NULL), -- Lucifron
-(12119, 0, 0, 1, 16, 0, 0, NULL), -- Flamewaker Protector
-(12143, 0, 0, 1, 16, 0, 0, '19818 21857'), -- Son of Flame
-(12259, 0, 0, 1, 16, 0, 0, NULL), -- Gehennas
-(12264, 0, 0, 1, 16, 0, 0, NULL); -- Shazzrah
+REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(11658, 0, 0, 1, 0, 0, '18943'), -- Molten Giant
+(11659, 0, 0, 1, 0, 0, '18943'), -- Molten Destroyer
+(11661, 0, 0, 1, 0, 0, NULL), -- Flamewaker
+(11662, 0, 0, 1, 0, 0, NULL), -- Flamewaker Priest
+(11665, 0, 0, 1, 0, 0, '19194 19195'), -- Lava Annihilator
+(11666, 0, 0, 1, 0, 0, NULL), -- Firewalker
+(11667, 0, 0, 1, 0, 0, NULL), -- Flameguard
+(11668, 0, 0, 1, 0, 0, NULL), -- Firelord
+(11669, 0, 0, 1, 0, 0, NULL), -- Flame Imp
+(11671, 0, 0, 1, 0, 0, NULL), -- Core Hound
+(11672, 0, 0, 1, 0, 0, '20553'), -- Core Rager
+(11673, 0, 0, 1, 0, 0, '18950'), -- Ancient Core Hound
+(11982, 0, 0, 1, 0, 0, NULL), -- Magmadar
+(11988, 0, 0, 1, 0, 0, NULL), -- Golemagg the Incinerator
+(12056, 0, 0, 1, 0, 0, NULL), -- Baron Geddon
+(12057, 0, 0, 1, 0, 0, NULL), -- Garr
+(12076, 0, 0, 1, 0, 0, '19640'), -- Lava Elemental
+(12098, 0, 0, 1, 0, 0, NULL), -- Sulfuron Harbinger
+(12099, 0, 0, 1, 0, 0, '8876 15733'), -- Firesworn
+(12100, 0, 0, 1, 0, 0, '12787'), -- Lava Reaver
+(12101, 0, 0, 1, 0, 0, NULL), -- Lava Surger
+(12118, 0, 0, 1, 0, 0, NULL), -- Lucifron
+(12119, 0, 0, 1, 0, 0, NULL), -- Flamewaker Protector
+(12143, 0, 0, 1, 0, 0, '19818 21857'), -- Son of Flame
+(12259, 0, 0, 1, 0, 0, NULL), -- Gehennas
+(12264, 0, 0, 1, 0, 0, NULL); -- Shazzrah
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+3, @CGUID+2, 3), -- Molten Giant -> Molten Giant
@@ -595,8 +587,7 @@ REPLACE INTO `creature_linking_template` (`entry`, `map`, `master_entry`, `flag`
 (11672, 409, 11988, 1031, 0), -- Core Rager -> Golemagg the Incinerator
 (11673, 409, 11982, 1024, 0), -- Ancient Core Hound -> Magmadar
 (12099, 409, 12057, 1543, 0), -- Firesworn -> Garr
-(12101, 409, 12057, 1024, 0), -- Lava Surger -> Garr
-(12119, 409, 12118, 1543, 0); -- Flamewaker Protector -> Lucifron
+(12101, 409, 12057, 1024, 0); -- Lava Surger -> Garr
 
 INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `DeathState`, `MovementType`) VALUES
 (@CGUID+1, 11658, 409, 955.057, -656.78, -199.603, 4.81711, 43200, 43200, 0, 0, 0, 0), -- Molten Giant
@@ -627,43 +618,43 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+26, 11662, 409, 608.382, -1178.97, -195.87, 2.21657, 7200, 7200, 0, 0, 0, 0), -- Flamewaker Priest
 (@CGUID+27, 11662, 409, 588.948, -1177.29, -195.424, 0.575959, 7200, 7200, 0, 0, 0, 0), -- Flamewaker Priest
 (@CGUID+28, 11662, 409, 613.861, -1178.12, -195.602, 2.53073, 7200, 7200, 0, 0, 0, 0), -- Flamewaker Priest
-(@CGUID+29, 11665, 409, 1150.96, -764.344, -139.851, 2.46091, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+30, 11665, 409, 970.091, -662.586, -199.52, 2.14675, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+31, 11665, 409, 1128.52, -776.993, -147.171, 2.3911, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+32, 11665, 409, 692.237, -1115.81, -138.776, 6.05629, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+33, 11665, 409, 1156.39, -557.653, -111.91, 0.295383, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+34, 11665, 409, 896.718, -631.05, -199.603, 4.0833, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+35, 11665, 409, 855.88, -1030.09, -193.706, 5.35816, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+36, 11665, 409, 638.292, -1047.19, -200.079, 6.23082, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+37, 11665, 409, 721.228, -945.115, -188.781, 3.7001, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+38, 11665, 409, 838.139, -547.931, -202.562, 4.33349, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+39, 11665, 409, 1186.97, -657.141, -128.659, 6.27447, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+40, 11665, 409, 639.971, -1131.11, -198.953, 5.8294, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+41, 11665, 409, 1140.03, -583.332, -112.802, 0.156878, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+42, 11665, 409, 900.52, -1029.9, -190.77, 3.64774, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+43, 11665, 409, 1092.77, -648.297, -152.55, 2.1293, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+44, 11665, 409, 862.858, -627.298, -201.089, 1.09956, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+45, 11665, 409, 874.957, -550.344, -203.103, 5.67232, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+46, 11665, 409, 1016.78, -751.844, -156.017, 2.1293, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+47, 11665, 409, 701.531, -553.726, -213.79, 6.26573, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+48, 11665, 409, 1140.43, -570.256, -112.552, 3.10669, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+49, 11665, 409, 782.023, -585.019, -211.214, 0.20944, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+50, 11665, 409, 690.012, -843.639, -208.398, 3.76991, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+51, 11665, 409, 1056.5, -801.492, -151.717, 2.14675, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+52, 11665, 409, 746.785, -503.634, -214.709, 5.12988, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+53, 11665, 409, 761.491, -531.788, -214.413, 5.84679, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+54, 11665, 409, 1205.35, -633.135, -125.321, 3.88314, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+55, 11665, 409, 851.241, -601.516, -203.147, 5.1118, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+56, 11665, 409, 722.625, -889.503, -195.701, 3.68265, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+57, 11665, 409, 836.949, -1024.23, -199.867, 6.16101, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+58, 11665, 409, 766.722, -576.593, -213.671, 4.94359, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+59, 11665, 409, 1197.7, -618.907, -123.179, 5.90362, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+60, 11665, 409, 1160.36, -657.862, -130.633, 3.73828, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+61, 11665, 409, 1100.03, -669.224, -154.407, 1.87077, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+62, 11665, 409, 664.365, -1149.93, -128.038, 4.55531, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+63, 11665, 409, 829.7, -639.79, -203.339, 0.855211, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+64, 11665, 409, 857.474, -555.603, -202.618, 5.93412, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
-(@CGUID+65, 11665, 409, 984.985, -674.37, -195.695, 2.23402, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator
+(@CGUID+29, 0, 409, 1150.96, -764.344, -139.851, 2.46091, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+30, 0, 409, 970.091, -662.586, -199.52, 2.14675, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+31, 0, 409, 1128.52, -776.993, -147.171, 2.3911, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+32, 0, 409, 692.237, -1115.81, -138.776, 6.05629, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+33, 0, 409, 1156.39, -557.653, -111.91, 0.295383, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+34, 0, 409, 896.718, -631.05, -199.603, 4.0833, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+35, 0, 409, 855.88, -1030.09, -193.706, 5.35816, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+36, 0, 409, 638.292, -1047.19, -200.079, 6.23082, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+37, 0, 409, 721.228, -945.115, -188.781, 3.7001, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+38, 0, 409, 838.139, -547.931, -202.562, 4.33349, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+39, 0, 409, 1186.97, -657.141, -128.659, 6.27447, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+40, 0, 409, 639.971, -1131.11, -198.953, 5.8294, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+41, 0, 409, 1140.03, -583.332, -112.802, 0.156878, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+42, 0, 409, 900.52, -1029.9, -190.77, 3.64774, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+43, 0, 409, 1092.77, -648.297, -152.55, 2.1293, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+44, 0, 409, 862.858, -627.298, -201.089, 1.09956, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+45, 0, 409, 874.957, -550.344, -203.103, 5.67232, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+46, 0, 409, 1016.78, -751.844, -156.017, 2.1293, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+47, 0, 409, 701.531, -553.726, -213.79, 6.26573, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+48, 0, 409, 1140.43, -570.256, -112.552, 3.10669, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+49, 0, 409, 782.023, -585.019, -211.214, 0.20944, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+50, 0, 409, 690.012, -843.639, -208.398, 3.76991, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+51, 0, 409, 1056.5, -801.492, -151.717, 2.14675, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+52, 0, 409, 746.785, -503.634, -214.709, 5.12988, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+53, 0, 409, 761.491, -531.788, -214.413, 5.84679, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+54, 0, 409, 1205.35, -633.135, -125.321, 3.88314, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+55, 0, 409, 851.241, -601.516, -203.147, 5.1118, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+56, 0, 409, 722.625, -889.503, -195.701, 3.68265, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+57, 0, 409, 836.949, -1024.23, -199.867, 6.16101, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+58, 0, 409, 766.722, -576.593, -213.671, 4.94359, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+59, 0, 409, 1197.7, -618.907, -123.179, 5.90362, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+60, 0, 409, 1160.36, -657.862, -130.633, 3.73828, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+61, 0, 409, 1100.03, -669.224, -154.407, 1.87077, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+62, 0, 409, 664.365, -1149.93, -128.038, 4.55531, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+63, 0, 409, 829.7, -639.79, -203.339, 0.855211, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+64, 0, 409, 857.474, -555.603, -202.618, 5.93412, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
+(@CGUID+65, 0, 409, 984.985, -674.37, -195.695, 2.23402, 9000, 9000, 2, 0, 0, 1), -- Lava Annihilator, Firelord
 (@CGUID+66, 11666, 409, 661.078, -863.043, -207.943, 6.05629, 7200, 7200, 2, 0, 0, 1), -- Firewalker
 (@CGUID+67, 11666, 409, 679.924, -1088.4, -185.929, 5.61996, 7200, 7200, 2, 0, 0, 1), -- Firewalker
 (@CGUID+68, 11666, 409, 886.037, -995.401, -196.256, 4.50295, 7200, 7200, 2, 0, 0, 1), -- Firewalker
@@ -690,43 +681,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+89, 11667, 409, 678.907, -819.517, -208.923, 6.04179, 7200, 7200, 2, 0, 0, 1), -- Flameguard
 (@CGUID+90, 11667, 409, 656.034, -746.308, -208.809, 2.63545, 7200, 7200, 2, 0, 0, 1), -- Flameguard
 (@CGUID+91, 11667, 409, 598.65, -775.852, -207.261, 0.471749, 7200, 7200, 2, 0, 0, 1), -- Flameguard
-(@CGUID+92, 11668, 409, 1150.96, -764.344, -139.851, 2.46091, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+93, 11668, 409, 970.091, -662.586, -199.52, 2.14675, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+94, 11668, 409, 701.531, -553.726, -213.79, 6.26573, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+95, 11668, 409, 1128.52, -776.993, -147.171, 2.3911, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+96, 11668, 409, 1140.43, -570.256, -112.552, 3.10669, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+97, 11668, 409, 782.023, -585.019, -211.214, 0.20944, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+98, 11668, 409, 690.012, -843.639, -208.398, 3.76991, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+99, 11668, 409, 1056.5, -801.492, -151.717, 2.14675, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+100, 11668, 409, 692.237, -1115.81, -138.776, 6.05629, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+101, 11668, 409, 1156.39, -557.653, -111.91, 0.295383, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+102, 11668, 409, 746.785, -503.634, -214.709, 5.12988, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+103, 11668, 409, 896.718, -631.05, -199.603, 4.0833, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+104, 11668, 409, 761.491, -531.788, -214.413, 5.84679, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+105, 11668, 409, 855.88, -1030.09, -193.706, 5.35816, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+106, 11668, 409, 638.292, -1047.19, -200.079, 6.23082, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+107, 11668, 409, 1205.35, -633.135, -125.321, 3.88314, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+108, 11668, 409, 721.228, -945.115, -188.781, 3.7001, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+109, 11668, 409, 851.241, -601.516, -203.147, 5.1118, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+110, 11668, 409, 722.625, -889.503, -195.701, 3.68265, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+111, 11668, 409, 836.949, -1024.23, -199.867, 6.16101, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+112, 11668, 409, 766.722, -576.593, -213.671, 4.94359, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+113, 11668, 409, 1197.7, -618.907, -123.179, 5.90362, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+114, 11668, 409, 1160.36, -657.862, -130.633, 3.73828, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+115, 11668, 409, 838.139, -547.931, -202.562, 4.33349, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+116, 11668, 409, 1186.97, -657.141, -128.659, 6.27447, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+117, 11668, 409, 639.971, -1131.11, -198.953, 5.8294, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+118, 11668, 409, 1100.03, -669.224, -154.407, 1.87077, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+119, 11668, 409, 1140.03, -583.332, -112.802, 0.156878, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+120, 11668, 409, 900.52, -1029.9, -190.77, 3.64774, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+121, 11668, 409, 664.365, -1149.93, -128.038, 4.55531, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+122, 11668, 409, 1092.77, -648.297, -152.55, 2.1293, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+123, 11668, 409, 829.7, -639.79, -203.339, 0.855211, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+124, 11668, 409, 857.474, -555.603, -202.618, 5.93412, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+125, 11668, 409, 984.985, -674.37, -195.695, 2.23402, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+126, 11668, 409, 862.858, -627.298, -201.089, 1.09956, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+127, 11668, 409, 874.957, -550.344, -203.103, 5.67232, 9000, 9000, 2, 0, 0, 1), -- Firelord
-(@CGUID+128, 11668, 409, 1016.78, -751.844, -156.017, 2.1293, 9000, 9000, 2, 0, 0, 1), -- Firelord
+-- @CGUID+92 - 128
 (@CGUID+129, 11669, 409, 1051.86, -887.561, -156.09, 3.14159, 420, 420, 2, 0, 0, 1), -- Flame Imp
 (@CGUID+130, 11669, 409, 1052.21, -890.174, -156.87, 3.1765, 420, 420, 2, 0, 0, 1), -- Flame Imp
 (@CGUID+131, 11669, 409, 1052.1, -895.145, -158.422, 1.69297, 420, 420, 2, 0, 0, 1), -- Flame Imp
@@ -864,11 +819,14 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+263, 12101, 409, 691.633, -662.572, -209.615, 5.21482, 1680, 1680, 0, 0, 0, 2), -- Lava Surger
 (@CGUID+264, 12101, 409, 608.527, -1193, -195.737, 0.417171, 1680, 1680, 0, 0, 0, 2), -- Lava Surger
 (@CGUID+265, 12101, 409, 758.029, -1227.54, -119.574, 2.51049, 1680, 1680, 0, 0, 0, 2), -- Lava Surger
-(@CGUID+266, 12118, 409, 1000.2, -955.407, -179.583, 5.93384, 604800, 604800, 0, 0, 0, 2), -- Lucifron
-(@CGUID+267, 12119, 409, 1000.2, -955.407, -179.583, 6.18019, 7200, 7200, 0, 0, 0, 0), -- Flamewaker Protector
-(@CGUID+268, 12119, 409, 1000.2, -955.407, -179.583, 5.8443, 7200, 7200, 0, 0, 0, 0), -- Flamewaker Protector
+(@CGUID+266, 12118, 409, 1000.20257568359375, -955.40692138671875, -179.582534790039062, 0.0, 604800, 604800, 0, 0, 0, 0), -- Lucifron - a boss, cant find out its spawn loc, this is the first wp
+(@CGUID+267, 12119, 409, 1002.78607177734375, -951.76617431640625, -178.620162963867187, 0.0, 604800, 604800, 0, 0, 0, 0), -- Flamewaker Protector
+(@CGUID+268, 12119, 409, 1002.24871826171875, -959.68133544921875, -180.471405029296875, 0.0, 604800, 604800, 0, 0, 0, 0), -- Flamewaker Protector
 (@CGUID+269, 12259, 409, 898.074, -545.87, -203.405, 4.81711, 604800, 604800, 0, 0, 0, 0), -- Gehennas
 (@CGUID+270, 12264, 409, 583.49, -799.755, -205.356, 0.23952, 604800, 604800, 0, 0, 0, 2); -- Shazzrah
+
+INSERT INTO `creature_spawn_entry` (`guid`, `entry`) SELECT `guid`, 11665 FROM `creature` WHERE `guid` BETWEEN @CGUID+29 AND @CGUID+65; -- Lava Annihilator
+INSERT INTO `creature_spawn_entry` (`guid`, `entry`) SELECT `guid`, 11668 FROM `creature` WHERE `guid` BETWEEN @CGUID+29 AND @CGUID+65; -- Firelord
 
 -- ===========
 -- GAMEOBJECTS
@@ -947,121 +905,9 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 -- INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
 
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
-(@PGUID+1, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+2, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+3, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+4, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+5, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+6, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+7, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+8, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+9, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+10, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+11, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+12, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+13, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+14, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+15, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+16, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+17, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+18, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+19, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+20, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+21, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+22, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+23, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+24, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+25, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+26, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+27, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+28, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+29, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+30, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+31, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+32, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+33, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+34, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+35, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+36, 1, 'MC - Firelord / Lava Annihilator'),
-(@PGUID+37, 1, 'MC - Firelord / Lava Annihilator'),
 (@PGUID+38, 18, 'MC - Dark Iron Deposit');
 
-INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES
-(@CGUID+29, @PGUID+1, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+92, @PGUID+1, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+30, @PGUID+2, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+93, @PGUID+2, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+31, @PGUID+3, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+95, @PGUID+3, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+32, @PGUID+4, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+100, @PGUID+4, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+33, @PGUID+5, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+101, @PGUID+5, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+34, @PGUID+6, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+103, @PGUID+6, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+35, @PGUID+7, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+105, @PGUID+7, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+36, @PGUID+8, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+106, @PGUID+8, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+37, @PGUID+9, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+108, @PGUID+9, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+38, @PGUID+10, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+115, @PGUID+10, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+39, @PGUID+11, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+116, @PGUID+11, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+40, @PGUID+12, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+117, @PGUID+12, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+41, @PGUID+13, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+119, @PGUID+13, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+42, @PGUID+14, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+120, @PGUID+14, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+43, @PGUID+15, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+122, @PGUID+15, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+44, @PGUID+16, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+126, @PGUID+16, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+45, @PGUID+17, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+127, @PGUID+17, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+46, @PGUID+18, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+128, @PGUID+18, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+47, @PGUID+19, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+94, @PGUID+19, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+48, @PGUID+20, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+96, @PGUID+20, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+49, @PGUID+21, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+97, @PGUID+21, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+50, @PGUID+22, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+98, @PGUID+22, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+51, @PGUID+23, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+99, @PGUID+23, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+52, @PGUID+24, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+102, @PGUID+24, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+53, @PGUID+25, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+104, @PGUID+25, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+54, @PGUID+26, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+107, @PGUID+26, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+55, @PGUID+27, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+109, @PGUID+27, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+56, @PGUID+28, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+110, @PGUID+28, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+57, @PGUID+29, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+111, @PGUID+29, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+58, @PGUID+30, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+112, @PGUID+30, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+59, @PGUID+31, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+113, @PGUID+31, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+60, @PGUID+32, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+114, @PGUID+32, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+61, @PGUID+33, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+118, @PGUID+33, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+62, @PGUID+34, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+121, @PGUID+34, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+63, @PGUID+35, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+123, @PGUID+35, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+64, @PGUID+36, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+124, @PGUID+36, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+65, @PGUID+37, 50, 'MC - Firelord / Lava Annihilator'),
-(@CGUID+125, @PGUID+37, 50, 'MC - Firelord / Lava Annihilator');
-
+-- INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES
 -- INSERT INTO `pool_creature_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
 INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES
@@ -1108,6 +954,43 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 
 -- INSERT INTO `pool_gameobject_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
+-- ============
+-- SPAWN GROUPS
+-- ============
+
+INSERT INTO `spawn_group` (`Id`, `Name`, `Type`, `MaxCount`, `WorldState`, `Flags`) VALUES
+(@GROUP_ID+0, 'The Molten Core - Lucifron', 0, 0, 0, 3),
+(@GROUP_ID+1, 'The Molten Core - Garr', 0, 0, 0, 3);
+
+-- INSERT INTO `spawn_group_entry` (`Id`, `Entry`, `MinCount`, `MaxCount`, `Chance`) VALUES
+
+INSERT INTO `spawn_group_spawn` (`Id`, `Guid`, `SlotId`) VALUES
+(@GROUP_ID+0, @CGUID+266, 0), -- Lucifron
+(@GROUP_ID+0, @CGUID+267, 1), -- Flamewaker Protector
+(@GROUP_ID+0, @CGUID+268, 2), -- Flamewaker Protector
+
+(@GROUP_ID+1, @CGUID+224, 0), -- Garr
+(@GROUP_ID+1, @CGUID+240, 1), -- Firesworn
+(@GROUP_ID+1, @CGUID+241, 2), -- Firesworn
+(@GROUP_ID+1, @CGUID+242, 3), -- Firesworn
+(@GROUP_ID+1, @CGUID+243, 4), -- Firesworn
+(@GROUP_ID+1, @CGUID+244, 5), -- Firesworn
+(@GROUP_ID+1, @CGUID+245, 6), -- Firesworn
+(@GROUP_ID+1, @CGUID+246, 7), -- Firesworn
+(@GROUP_ID+1, @CGUID+247, 8); -- Firesworn
+
+INSERT INTO `spawn_group_formation` (`Id`, `FormationType`, `FormationSpread`, `FormationOptions`, `PathId`, `MovementType`, `Comment`) VALUES
+(@GROUP_ID+0, 4, 5, 0, @PATH_ID+0, 4, 'The Molten Core - Lucifron'),
+(@GROUP_ID+1, 6, 10, 0, 0, 1, 'The Molten Core - Garr');
+
+INSERT INTO `waypoint_path` (`PathId`, `Point`, `PositionX`, `PositionY`, `PositionZ`, `Orientation`, `WaitTime`, `ScriptId`) VALUES
+(@PATH_ID+0, 01, 1000.20257568359375, -955.40692138671875, -179.582534790039062, 100, 0, 0),
+(@PATH_ID+0, 02, 1007.78198242187500, -958.08843994140625, -180.174041748046875, 100, 0, 0),
+(@PATH_ID+0, 03, 1014.45031738281250, -978.56317138671875, -181.185424804687500, 100, 0, 0),
+(@PATH_ID+0, 04, 1037.02221679687500, -986.34191894531250, -181.516296386718750, 100, 0, 0),
+(@PATH_ID+0, 05, 1053.14965820312500, -990.75457763671875, -182.661544799804687, 100, 0, 0),
+(@PATH_ID+0, 06, 1070.41137695312500, -1006.7645263671875, -185.544433593750000, 100, 0, 0);
+
 -- =========
 -- DBSCRIPTS
 -- =========
@@ -1122,7 +1005,6 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 -- INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_start` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_end` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
--- INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
 -- INSERT INTO `dbscript_random_templates` (`id`, `type`, `target_id`, `chance`, `comments`) VALUES
 
 

@@ -16,7 +16,7 @@ SET @PGUID := 48900; -- pools
 -- CREATURES
 -- =========
 
-INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+INSERT INTO `creature_movement` (`id`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 (@CGUID+10, 1, 218.647, 8.70929, -7.46839, 0.240802, 0, 0),
 (@CGUID+10, 2, 223.847, -1.61805, -8.21044, 5.04115, 0, 0),
 (@CGUID+10, 3, 224.021, -12.193, -9.42147, 4.71993, 0, 0),
@@ -294,19 +294,18 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+74, 18, 462.582, 28.267, 50.8465, 2.23657, 0, 0),
 (@CGUID+74, 19, 461.345, 34.9268, 50.8465, 1.70643, 0, 0),
 (@CGUID+74, 20, 457.107, 38.777, 50.8465, 2.40465, 0, 0),
-(@CGUID+78, 1, 445.795, -60.7897, 48.3955, 1.58077, 0, 0),
-(@CGUID+78, 2, 445.867, -79.721, 48.3473, 4.88023, 0, 0),
-(@CGUID+78, 3, 443.59, -111.476, 43.1001, 4.5056, 0, 0),
-(@CGUID+78, 4, 442.417, -124.4, 43.1001, 4.66111, 0, 0),
-(@CGUID+78, 5, 436.618, -138.834, 43.1021, 4.29432, 0, 0),
-(@CGUID+78, 6, 443.983, -154.159, 43.0761, 5.29021, 0, 0),
-(@CGUID+78, 7, 445.069, -160.755, 43.0662, 4.87552, 0, 0),
-(@CGUID+78, 8, 462.308, -174.317, 43.107, 5.59494, 0, 0),
-(@CGUID+78, 9, 444.268, -153.475, 43.0742, 2.27664, 0, 0),
-(@CGUID+78, 10, 437.305, -134.904, 43.1011, 1.87373, 0, 0),
-(@CGUID+78, 11, 444.127, -120.395, 43.1011, 1.12132, 0, 0),
-(@CGUID+78, 12, 444.903, -95.8722, 43.1011, 1.53915, 0, 0),
-(@CGUID+78, 13, 445.893, -77.8288, 48.3955, 1.5635, 0, 0),
+(@CGUID+78, 1, 456.1953, -162.02287, 43.097973, 100, 0, 0),
+(@CGUID+78, 2, 444.38632, -151.77869, 43.037457, 100, 0, 0),
+(@CGUID+78, 3, 437.77167, -136.3138, 43.100117, 100, 0, 0),
+(@CGUID+78, 4, 441.69543, -123.04215, 43.10011, 100, 0, 0),
+(@CGUID+78, 5, 445.06357, -105.65653, 43.100105, 100, 0, 0),
+(@CGUID+78, 6, 446.46475, -89.316284, 43.100094, 100, 0, 0),
+(@CGUID+78, 7, 446.41287, -65.38533, 48.39542, 100, 0, 0),
+(@CGUID+78, 8, 446.46475, -89.316284, 43.100094, 100, 0, 0),
+(@CGUID+78, 9, 445.06357, -105.65653, 43.100105, 100, 0, 0),
+(@CGUID+78, 10, 441.69543, -123.04215, 43.10011, 100, 0, 0),
+(@CGUID+78, 11, 437.77167, -136.3138, 43.100117, 100, 0, 0),
+(@CGUID+78, 12, 444.38632, -151.77869, 43.037457, 100, 0, 0),
 (@CGUID+149, 1, 164.571, 164.083, 22.4412, 5.65782, 0, 0),
 (@CGUID+149, 2, 170.578, 160.263, 22.4412, 5.71673, 0, 0),
 (@CGUID+149, 3, 169.973, 154.136, 22.4412, 4.73498, 0, 0),
@@ -330,7 +329,7 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+150, 11, 125.306, 157.433, 22.4401, 3.68492, 0, 0);
 
 DELETE FROM creature_movement_template WHERE entry IN (20865,20864);
-INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 -- Protean Horror
 (20865, 1, 1, 123.2132, 0.05693996, -10.1021, 100, 0, 2086501),
 (20865, 1, 2, 82.020, 0.306, -11.026, 100, 0, 0),
@@ -338,42 +337,42 @@ INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_
 (20864, 1, 1, 123.2132, 0.05693996, -10.1021, 100, 0, 0),
 (20864, 1, 2, 82.020, 0.306, -11.026, 100, 0, 0);
 
--- INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
+-- INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
 
-REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(20857, 0, 0, 1, 16, 333, 0, '38805'), -- Arcatraz Defender - Immolate (previously in ACID)
-(20859, 0, 0, 2, 16, 376, 0, NULL), -- Arcatraz Warder
-(20864, 0, 0, 1, 16, 0, 0, NULL), -- Protean Nightmare
-(20865, 0, 0, 1, 16, 0, 0, NULL), -- Protean Horror
-(20866, 0, 0, 1, 16, 0, 0, NULL), -- Soul Devourer
-(20867, 0, 0, 1, 16, 0, 0, NULL), -- Death Watcher
-(20870, 0, 0, 1, 16, 0, 0, NULL), -- Zereketh the Unbound
-(20873, 0, 0, 1, 16, 0, 0, '19818'), -- Negaton Warp-Master
-(20875, 0, 0, 1, 16, 0, 0, NULL), -- Negaton Screamer
-(20880, 0, 0, 1, 16, 0, 0, ''), -- Eredar Deathbringer
-(20881, 0, 0, 1, 16, 0, 0, NULL), -- Unbound Devastator
-(20882, 0, 0, 1, 16, 0, 0, '16380'), -- Skulking Witch
-(20883, 0, 0, 1, 16, 0, 0, NULL), -- Spiteful Temptress
-(20885, 0, 0, 1, 16, 0, 0, NULL), -- Dalliah the Doomsayer
-(20896, 0, 0, 1, 16, 0, 0, NULL), -- Ethereum Slayer
-(20897, 0, 0, 1, 16, 0, 0, NULL), -- Ethereum Wave-Caster
-(20898, 0, 0, 1, 16, 0, 0, NULL), -- Gargantuan Abyssal
-(20900, 0, 0, 1, 16, 0, 0, NULL), -- Unchained Doombringer
-(20901, 0, 0, 1, 16, 0, 0, NULL), -- Sargeron Archer
-(20902, 0, 0, 1, 16, 0, 0, NULL), -- Sargeron Hellcaller
-(20904, 0, 0, 1, 16, 0, 0, '36852'), -- Warden Mellichar
-(20978, 0, 0, 1, 16, 0, 0, NULL), -- Wrath-Scryer's Felfire
-(21186, 0, 0, 1, 16, 0, 0, NULL), -- Arcane Warder Target
-(21303, 0, 0, 1, 16, 0, 0, '29266'), -- Defender Corpse
-(21304, 0, 0, 1, 16, 0, 0, '29266'), -- Warder Corpse
-(21346, 0, 0, 1, 16, 0, 0, '36649'), -- Sightless Eye
-(21436, 0, 0, 1, 16, 0, 0, NULL), -- Tempest Keep Prison Alpha Pod Target
-(21437, 0, 0, 1, 16, 0, 0, NULL), -- Tempest Keep Prison Beta Pod Target
-(21438, 0, 0, 1, 16, 0, 0, NULL), -- Tempest Keep Prison Delta Pod Target
-(21439, 0, 0, 1, 16, 0, 0, NULL), -- Tempest Keep Prison Gamma Pod Target
-(21440, 0, 0, 1, 16, 0, 0, '36852'), -- Tempest Keep Prison Boss Pod Target
-(21702, 0, 0, 1, 16, 0, 0, NULL), -- Ethereum Life-Binder
-(21962, 0, 0, 1, 16, 0, 0, '29266'); -- Udalo
+REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(20857, 0, 0, 1, 333, 0, '38805'), -- Arcatraz Defender - Immolate (previously in ACID)
+(20859, 0, 0, 2, 376, 0, NULL), -- Arcatraz Warder
+(20864, 0, 0, 1, 0, 0, NULL), -- Protean Nightmare
+(20865, 0, 0, 1, 0, 0, NULL), -- Protean Horror
+(20866, 0, 0, 1, 0, 0, NULL), -- Soul Devourer
+(20867, 0, 0, 1, 0, 0, NULL), -- Death Watcher
+(20870, 0, 0, 1, 0, 0, NULL), -- Zereketh the Unbound
+(20873, 0, 0, 1, 0, 0, '19818'), -- Negaton Warp-Master
+(20875, 0, 0, 1, 0, 0, NULL), -- Negaton Screamer
+(20880, 0, 0, 1, 0, 0, ''), -- Eredar Deathbringer
+(20881, 0, 0, 1, 0, 0, NULL), -- Unbound Devastator
+(20882, 0, 0, 1, 0, 0, '16380'), -- Skulking Witch
+(20883, 0, 0, 1, 0, 0, NULL), -- Spiteful Temptress
+(20885, 0, 0, 1, 0, 0, NULL), -- Dalliah the Doomsayer
+(20896, 0, 0, 1, 0, 0, NULL), -- Ethereum Slayer
+(20897, 0, 0, 1, 0, 0, NULL), -- Ethereum Wave-Caster
+(20898, 0, 0, 1, 0, 0, NULL), -- Gargantuan Abyssal
+(20900, 0, 0, 1, 0, 0, NULL), -- Unchained Doombringer
+(20901, 0, 0, 1, 0, 0, NULL), -- Sargeron Archer
+(20902, 0, 0, 1, 0, 0, NULL), -- Sargeron Hellcaller
+(20904, 0, 0, 1, 0, 0, '36852'), -- Warden Mellichar
+(20978, 0, 0, 1, 0, 0, NULL), -- Wrath-Scryer's Felfire
+(21186, 0, 0, 1, 0, 0, NULL), -- Arcane Warder Target
+(21303, 0, 0, 1, 0, 0, '29266'), -- Defender Corpse
+(21304, 0, 0, 1, 0, 0, '29266'), -- Warder Corpse
+(21346, 0, 0, 1, 0, 0, '36649'), -- Sightless Eye
+(21436, 0, 0, 1, 0, 0, NULL), -- Tempest Keep Prison Alpha Pod Target
+(21437, 0, 0, 1, 0, 0, NULL), -- Tempest Keep Prison Beta Pod Target
+(21438, 0, 0, 1, 0, 0, NULL), -- Tempest Keep Prison Delta Pod Target
+(21439, 0, 0, 1, 0, 0, NULL), -- Tempest Keep Prison Gamma Pod Target
+(21440, 0, 0, 1, 0, 0, '36852'), -- Tempest Keep Prison Boss Pod Target
+(21702, 0, 0, 1, 0, 0, NULL), -- Ethereum Life-Binder
+(21962, 0, 0, 1, 0, 0, '29266'); -- Udalo
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+6, @CGUID+5, 1155), -- Arcatraz Warder -> Arcatraz Warder
@@ -442,11 +441,11 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+9, 20864, 552, 3, 108.104, 2.23135, -10.1613, 1.37852, 7200, 7200, 0, 0, 0, 0), -- Protean Nightmare
 (@CGUID+10, 20864, 552, 3, 208.859, 6.44106, -7.46839, 4.26597, 25, 25, 0, 0, 0, 2), -- Protean Nightmare
 (@CGUID+11, 20864, 552, 3, 202.329, -40.5555, -10.0961, 4.59888, 25, 25, 0, 0, 0, 2), -- Protean Nightmare
-(@CGUID+12, 20865, 552, 3, 219.948, 22.4258, 48.3374, 3.14979, 7200, 7200, 5, 0, 0, 2), -- Protean Horror
-(@CGUID+13, 20865, 552, 3, 285.555, 40.5121, 22.4412, 0.179863, 7200, 7200, 5, 0, 0, 2), -- Protean Horror
-(@CGUID+14, 20865, 552, 3, 278.648, -12.6903, 22.4479, 1.41948, 7200, 7200, 5, 0, 0, 2), -- Protean Horror
-(@CGUID+15, 20865, 552, 3, 253.873, -148.56, -10.1103, 2.60445, 7200, 7200, 5, 0, 0, 2), -- Protean Horror
-(@CGUID+16, 20865, 552, 3, 301.17, 71.9341, 22.4508, 4.70266, 7200, 7200, 5, 0, 0, 2), -- Protean Horror
+(@CGUID+12, 20865, 552, 3, 219.948, 22.4258, 48.3374, 3.14979, 7200, 7200, 0, 0, 0, 2), -- Protean Horror
+(@CGUID+13, 20865, 552, 3, 285.555, 40.5121, 22.4412, 0.179863, 7200, 7200, 0, 0, 0, 2), -- Protean Horror
+(@CGUID+14, 20865, 552, 3, 278.648, -12.6903, 22.4479, 1.41948, 7200, 7200, 0, 0, 0, 2), -- Protean Horror
+(@CGUID+15, 20865, 552, 3, 253.873, -148.56, -10.1103, 2.60445, 7200, 7200, 0, 0, 0, 2), -- Protean Horror
+(@CGUID+16, 20865, 552, 3, 301.17, 71.9341, 22.4508, 4.70266, 7200, 7200, 0, 0, 0, 2), -- Protean Horror
 (@CGUID+17, 20865, 552, 3, 212.562, 6.48385, -7.46839, 3.46093, 7200, 7200, 0, 0, 0, 0), -- Protean Horror
 (@CGUID+18, 20865, 552, 3, 209.099, 10.6454, -7.4684, 4.9173, 7200, 7200, 0, 0, 0, 0), -- Protean Horror
 (@CGUID+19, 20865, 552, 3, 208.434, -21.0154, -10.0878, 0.166969, 25, 25, 0, 0, 0, 2), -- Protean Horror
@@ -494,11 +493,11 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+71, 20886, 552, 3, 136.2, 168.31, 22.5245, 5.23599, 86400, 86400, 0, 0, 0, 0), -- Wrath-Scryer Soccothrates
 (@CGUID+72, 20896, 552, 3, 433.027, 6.10896, 48.2954, 2.87979, 7200, 7200, 0, 0, 0, 0), -- Ethereum Slayer
 (@CGUID+73, 20896, 552, 3, 429.812, 12.0886, 48.2949, 5.20108, 7200, 7200, 0, 0, 0, 0), -- Ethereum Slayer
-(@CGUID+74, 20896, 552, 3, 457.725, 37.7515, 50.8465, 2.77771, 7200, 7200, 5, 0, 0, 2), -- Ethereum Slayer
+(@CGUID+74, 20896, 552, 3, 457.725, 37.7515, 50.8465, 2.77771, 7200, 7200, 0, 0, 0, 2), -- Ethereum Slayer
 (@CGUID+75, 20896, 552, 3, 458.313, 41.8073, 50.808, 1.93433, 7200, 7200, 0, 0, 0, 0), -- Ethereum Slayer
 (@CGUID+76, 20897, 552, 3, 434.228, 9.77371, 48.2944, 3.57792, 7200, 7200, 0, 0, 0, 0), -- Ethereum Wave-Caster
 (@CGUID+77, 20897, 552, 3, 461.361, 39.6362, 50.7995, 2.68896, 7200, 7200, 0, 0, 0, 0), -- Ethereum Wave-Caster
-(@CGUID+78, 20898, 552, 3, 446.439, -77.5545, 48.3954, 1.57296, 7200, 7200, 5, 0, 0, 2), -- Gargantuan Abyssal
+(@CGUID+78, 20898, 552, 3, 456.1953, -162.02287, 43.097973, 1.57296, 7200, 7200, 0, 0, 0, 2), -- Gargantuan Abyssal
 (@CGUID+79, 20898, 552, 3, 452.778, -136.182, 43.1001, 5.45005, 7200, 7200, 5, 0, 0, 1), -- Gargantuan Abyssal
 (@CGUID+80, 20900, 552, 3, 429.11, -156.501, 43.0686, 1.99487, 7200, 7200, 5, 0, 0, 1), -- Unchained Doombringer
 (@CGUID+81, 20900, 552, 3, 432.257, -114.243, 43.1834, 1.13446, 7200, 7200, 0, 0, 0, 0), -- Unchained Doombringer
@@ -718,7 +717,7 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalon
 (7948501, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Protean Horror (Arcatraz) RUN ON'),
 (7952001, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Protean Horror (Arcatraz) RUN ON'),
 
-(2086501, 0, 2, 46, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Protean Horror - Set UnitFlags to 0');
+(2086501, 0, 48, 64+512, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Protean Horror - Remove UNIT_FLAG_UNK_6, UNIT_FLAG_IMMUNE_TO_NPC');
 
 -- INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
@@ -729,7 +728,6 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalon
 -- INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_start` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_end` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
--- INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
 -- INSERT INTO `dbscript_random_templates` (`id`, `type`, `target_id`, `chance`, `comments`) VALUES
 
 

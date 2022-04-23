@@ -13,7 +13,7 @@ SET @PGUID := 48700; -- pools
 -- CREATURES
 -- =========
 
-INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+INSERT INTO `creature_movement` (`id`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 (@CGUID+42, 1, 45.3171, -294.571, 1.58653, 100, 0, 2121802),
 (@CGUID+42, 2, 49.3555, -297.925, 1.58653, 100, 0, 2121802),
 (@CGUID+42, 3, 51.2663, -303.04, 1.58653, 100, 0, 2121802),
@@ -455,8 +455,8 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+276, 5, 311.381, -381.423, 22.7006, 100, 0, 0),
 (@CGUID+276, 6, 314.622, -373.256, 22.2985, 100, 0, 0);
 
-DELETE FROM creature_movement_template WHERE entry IN (21253,21873,21865,22140);
-INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+DELETE FROM `creature_movement_template` WHERE entry IN (21253,21873,21865,22140);
+INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 -- Tainted Water Elemental
 -- summoned every 20 seconds by Hydross in SD2 (out of combat only)
 (21253, 0,1,-347.518,-350.367,1.0744,100,0,0),
@@ -671,31 +671,31 @@ INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_
 (22140,6,7,29.98181,-923.3133,72.92973, 100, 0, 0),
 (22140,6,8,29.98181,-923.3133,72.92973, 100, 1000, 0);
 
-INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(@CGUID+93, 0, 0, 0, 0, 173, 0, NULL), -- Greyheart Tidecaller
-(@CGUID+95, 0, 0, 0, 0, 173, 0, NULL), -- Greyheart Tidecaller
-(@CGUID+108, 0, 0, 0, 0, 173, 0, NULL), -- Greyheart Nether-Mage
-(@CGUID+110, 0, 0, 0, 0, 173, 0, NULL), -- Greyheart Nether-Mage
-(@CGUID+119, 0, 0, 0, 0, 173, 0, NULL), -- Greyheart Nether-Mage
-(@CGUID+131, 0, 0, 0, 0, 173, 0, NULL), -- Greyheart Skulker
-(@CGUID+134, 0, 0, 0, 0, 173, 0, NULL), -- Greyheart Skulker
-(@CGUID+135, 0, 0, 0, 0, 173, 0, NULL), -- Greyheart Skulker
-(@CGUID+136, 0, 0, 0, 0, 69, 0, NULL), -- Greyheart Skulker
-(@CGUID+138, 0, 0, 0, 0, 173, 0, NULL); -- Greyheart Skulker
+INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(@CGUID+93, 0, 0, 0, 173, 0, NULL), -- Greyheart Tidecaller
+(@CGUID+95, 0, 0, 0, 173, 0, NULL), -- Greyheart Tidecaller
+(@CGUID+108, 0, 0, 0, 173, 0, NULL), -- Greyheart Nether-Mage
+(@CGUID+110, 0, 0, 0, 173, 0, NULL), -- Greyheart Nether-Mage
+(@CGUID+119, 0, 0, 0, 173, 0, NULL), -- Greyheart Nether-Mage
+(@CGUID+131, 0, 0, 0, 173, 0, NULL), -- Greyheart Skulker
+(@CGUID+134, 0, 0, 0, 173, 0, NULL), -- Greyheart Skulker
+(@CGUID+135, 0, 0, 0, 173, 0, NULL), -- Greyheart Skulker
+(@CGUID+136, 0, 0, 0, 69, 0, NULL), -- Greyheart Skulker
+(@CGUID+138, 0, 0, 0, 173, 0, NULL); -- Greyheart Skulker
 
-REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(21215, 0, 8, 0, 0, 0, 0, NULL), -- Leotheras the Blind
-(21229, 0, 0, 0, 0, 0, 0, '38620'), -- Greyheart Tidecaller
-(21689, 0, 0, 0, 0, 383, 0, NULL), -- Coilfang Frenzy Corpse
-(21934, 0, 0, 0, 0, 0, 0, '37935'), -- Hydross Cleansing Field Helper
-(21965, 0, 0, 0, 0, 0, 0, '38184'), -- Fathom-Guard Tidalvess
-(21508, 0, 0, 0, 0, 0, 0, '26567'), -- Coilfang Frenzy
-(22250, 0, 0, 0, 0, 0, 0, '31690'), -- Rancid Mushroom
-(22104, 0, 0, 0, 0, 0, 0, '38516 38497 38464 24780 38518'), -- Cyclone (Karathress)
-(21857, 0, 0, 0, 0, 0, 0, '37713 18950'), -- Inner Demon
-(21875, 0, 0, 0, 0, 0, 0, '37780'), -- Shadow of Leotheras
-(22379, 0, 0, 0, 0, 0, 0, '39057'), -- Serpentshrine Parasite
-(22347, 0, 0, 0, 0, 0, 0, '19818'); -- Colossus Lurker
+REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `emote`, `moveflags`, `auras`) VALUES
+(21215, 0, 8, 0, 0, 0, NULL), -- Leotheras the Blind
+(21229, 0, 0, 0, 0, 0, '38620'), -- Greyheart Tidecaller
+(21689, 0, 0, 0, 383, 0, NULL), -- Coilfang Frenzy Corpse
+(21934, 0, 0, 0, 0, 0, '37935'), -- Hydross Cleansing Field Helper
+(21965, 0, 0, 0, 0, 0, '38184'), -- Fathom-Guard Tidalvess
+(21508, 0, 0, 0, 0, 0, '26567'), -- Coilfang Frenzy
+(22250, 0, 0, 0, 0, 0, '31690'), -- Rancid Mushroom
+(22104, 0, 0, 0, 0, 0, '38516 38497 38464 24780 38518'), -- Cyclone (Karathress)
+(21857, 0, 0, 0, 0, 0, '37713 18950'), -- Inner Demon
+(21875, 0, 0, 0, 0, 0, '37780'), -- Shadow of Leotheras
+(22379, 0, 0, 0, 0, 0, '39057'), -- Serpentshrine Parasite
+(22347, 0, 0, 0, 0, 0, '19818'); -- Colossus Lurker
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 -- link "leaders" to bosses
@@ -1007,12 +1007,12 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+39, 21214, 548, 1, 456.869, -539.741, -7.46373, 6.10865, 604800, 604800, 0, 0, 0, 0), -- Fathom-Lord Karathress
 (@CGUID+40, 21215, 548, 1, 376.543, -438.631, 29.6083, 2.67035, 604800, 604800, 0, 0, 0, 0), -- Leotheras the Blind
 (@CGUID+41, 21216, 548, 1, -239.843, -366.494, -0.74459, 1.22173, 604800, 604800, 0, 0, 0, 0), -- Hydross the Unstable
-(@CGUID+42, 21218, 548, 1, 41.0753, -294.188, 1.58649, 6.10292, 7200, 7200, 10, 0, 0, 2), -- Vashj'ir Honor Guard
-(@CGUID+43, 21218, 548, 1, -52.857, -362.195, 1.58649, 5.52012, 7200, 7200, 10, 0, 0, 2), -- Vashj'ir Honor Guard
+(@CGUID+42, 21218, 548, 1, 41.0753, -294.188, 1.58649, 6.10292, 7200, 7200, 0, 0, 0, 2), -- Vashj'ir Honor Guard
+(@CGUID+43, 21218, 548, 1, -52.857, -362.195, 1.58649, 5.52012, 7200, 7200, 0, 0, 0, 2), -- Vashj'ir Honor Guard
 (@CGUID+44, 21218, 548, 1, -57.1702, -492.41, 1.58655, 6.22889, 7200, 7200, 0, 0, 0, 2), -- Vashj'ir Honor Guard
-(@CGUID+45, 21218, 548, 1, 133.293, -349.462, 1.58649, 1.30155, 7200, 7200, 10, 0, 0, 2), -- Vashj'ir Honor Guard
-(@CGUID+46, 21218, 548, 1, 33.2317, -559.424, 1.58649, 2.10654, 7200, 7200, 10, 0, 0, 2), -- Vashj'ir Honor Guard
-(@CGUID+47, 21218, 548, 1, 133.723, -505.887, 1.58649, 0.859805, 7200, 7200, 10, 0, 0, 2), -- Vashj'ir Honor Guard
+(@CGUID+45, 21218, 548, 1, 133.293, -349.462, 1.58649, 1.30155, 7200, 7200, 0, 0, 0, 2), -- Vashj'ir Honor Guard
+(@CGUID+46, 21218, 548, 1, 33.2317, -559.424, 1.58649, 2.10654, 7200, 7200, 0, 0, 0, 2), -- Vashj'ir Honor Guard
+(@CGUID+47, 21218, 548, 1, 133.723, -505.887, 1.58649, 0.859805, 7200, 7200, 0, 0, 0, 2), -- Vashj'ir Honor Guard
 (@CGUID+48, 21220, 548, 1, 20.9211, -306.297, 0.846854, 3.50811, 7200, 7200, 0, 0, 0, 0), -- Coilfang Priestess
 (@CGUID+49, 21220, 548, 1, 30.0721, -320.822, 0.846184, 3.9968, 7200, 7200, 0, 0, 0, 0), -- Coilfang Priestess
 (@CGUID+50, 21220, 548, 1, -71.3031, -355.72, 0.844914, 2.6529, 7200, 7200, 0, 0, 0, 0), -- Coilfang Priestess
@@ -1028,16 +1028,16 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+60, 21221, 548, 1, -140.307, -132.247, -5.32407, 6.07375, 7200, 7200, 0, 0, 0, 0), -- Coilfang Beast-Tamer
 (@CGUID+61, 21221, 548, 1, -134.455, -223.091, 1.67257, 1.5708, 7200, 7200, 0, 0, 0, 0), -- Coilfang Beast-Tamer
 (@CGUID+62, 21221, 548, 1, -220.849, -245.84, -5.32409, 0.471239, 7200, 7200, 0, 0, 0, 0), -- Coilfang Beast-Tamer
-(@CGUID+63, 0, 548, 1, 256.465, -706.843, -2.91503, 1.91573, 7200, 7200, 10, 0, 0, 2), -- see creature_spawn_entry
+(@CGUID+63, 0, 548, 1, 256.465, -706.843, -2.91503, 1.91573, 7200, 7200, 0, 0, 0, 2), -- see creature_spawn_entry
 (@CGUID+64, 0, 548, 1, 327.461, -739.088, -13.1582, 0.992802, 7200, 7200, 0, 0, 0, 0), -- see creature_spawn_entry
 (@CGUID+65, 0, 548, 1, 330.757, -740.644, -13.1573, 1.0161, 7200, 7200, 0, 0, 0, 0), -- see creature_spawn_entry
 (@CGUID+66, 0, 548, 1, 359.995, -758.373, -13.1581, 3.15712, 7200, 7200, 0, 0, 0, 2), -- see creature_spawn_entry
 (@CGUID+67, 0, 548, 1, 259.71, -707.203, -3.03324, 2.11181, 7200, 7200, 0, 0, 0, 0), -- see creature_spawn_entry
 (@CGUID+68, 0, 548, 1, 255.598, -709.889, -2.97907, 2.18041, 7200, 7200, 0, 0, 0, 0), -- see creature_spawn_entry
-(@CGUID+69, 0, 548, 1, 329.209, -696.847, -13.1581, 4.439, 7200, 7200, 10, 0, 0, 2), -- see creature_spawn_entry
-(@CGUID+70, 0, 548, 1, 329.693, -738.226, -13.1582, 0.965313, 7200, 7200, 10, 0, 0, 2), -- see creature_spawn_entry
+(@CGUID+69, 0, 548, 1, 329.209, -696.847, -13.1581, 4.439, 7200, 7200, 0, 0, 0, 2), -- see creature_spawn_entry
+(@CGUID+70, 0, 548, 1, 329.693, -738.226, -13.1582, 0.965313, 7200, 7200, 0, 0, 0, 2), -- see creature_spawn_entry
 (@CGUID+71, 0, 548, 1, 331.874, -743.37, -13.1582, 1.05485, 7200, 7200, 0, 0, 0, 0), -- see creature_spawn_entry
-(@CGUID+72, 0, 548, 1, 406.254, -687.278, -7.17277, 3.29471, 7200, 7200, 10, 0, 0, 2), -- see creature_spawn_entry
+(@CGUID+72, 0, 548, 1, 406.254, -687.278, -7.17277, 3.29471, 7200, 7200, 0, 0, 0, 2), -- see creature_spawn_entry
 (@CGUID+73, 0, 548, 1, 407.528, -685.157, -7.17769, 3.51838, 7200, 7200, 0, 0, 0, 0), -- see creature_spawn_entry
 (@CGUID+74, 0, 548, 1, 363.641, -755.815, -13.1582, 3.25842, 7200, 7200, 0, 0, 0, 0), -- see creature_spawn_entry
 (@CGUID+75, 0, 548, 1, 363.662, -760.779, -13.1582, 3.1681, 7200, 7200, 0, 0, 0, 0), -- see creature_spawn_entry
@@ -1059,13 +1059,13 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+91, 21229, 548, 1, 232.172, -439.314, -4.34939, 3.26377, 7200, 7200, 0, 0, 0, 0), -- Greyheart Tidecaller
 (@CGUID+92, 21229, 548, 1, 214.859, -505.948, -11.4539, 2.80998, 7200, 7200, 0, 0, 0, 0), -- Greyheart Tidecaller
 (@CGUID+93, 21229, 548, 1, 299.359, -359.946, 22.5836, 3.56047, 7200, 7200, 0, 0, 0, 0), -- Greyheart Tidecaller
-(@CGUID+94, 21229, 548, 1, 329.308, -359.594, 21.6629, 2.4968, 7200, 7200, 10, 0, 0, 2), -- Greyheart Tidecaller
+(@CGUID+94, 21229, 548, 1, 329.308, -359.594, 21.6629, 2.4968, 7200, 7200, 0, 0, 0, 2), -- Greyheart Tidecaller
 (@CGUID+95, 21229, 548, 1, 305.005, -379.77, 22.7026, 3.64774, 7200, 7200, 0, 0, 0, 0), -- Greyheart Tidecaller
 (@CGUID+96, 21229, 548, 1, 354.345, -319.203, 18.68, 1.72788, 7200, 7200, 0, 0, 0, 0), -- Greyheart Tidecaller
-(@CGUID+97, 21229, 548, 1, 328.976, -418.653, 28.8717, 2.56719, 7200, 7200, 10, 0, 0, 2), -- Greyheart Tidecaller
+(@CGUID+97, 21229, 548, 1, 328.976, -418.653, 28.8717, 2.56719, 7200, 7200, 0, 0, 0, 2), -- Greyheart Tidecaller
 (@CGUID+98, 21229, 548, 1, 360.204, -321.132, 18.6427, 0.632698, 7200, 7200, 3, 0, 0, 1), -- Greyheart Tidecaller
 (@CGUID+99, 21229, 548, 1, 334.455, -435.842, 28.9551, 0.244346, 7200, 7200, 0, 0, 0, 0), -- Greyheart Tidecaller
-(@CGUID+100, 21229, 548, 1, 390.472, -373.245, 23.1478, 4.67875, 7200, 7200, 10, 0, 0, 2), -- Greyheart Tidecaller
+(@CGUID+100, 21229, 548, 1, 390.472, -373.245, 23.1478, 4.67875, 7200, 7200, 0, 0, 0, 2), -- Greyheart Tidecaller
 (@CGUID+101, 21229, 548, 1, 400.041, -358.004, 23.732, 3.9619, 7200, 7200, 0, 0, 0, 0), -- Greyheart Tidecaller
 (@CGUID+102, 21229, 548, 1, 352.45, -507.563, 28.3398, 3.02606, 7200, 7200, 0, 0, 0, 0), -- Greyheart Tidecaller
 (@CGUID+103, 21229, 548, 1, 198.452, -626.314, -11.7331, 1.8326, 7200, 7200, 0, 0, 0, 0), -- Greyheart Tidecaller
@@ -1088,16 +1088,16 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+120, 21230, 548, 1, 203.286, -618.515, -11.7369, 0.733038, 7200, 7200, 0, 0, 0, 0), -- Greyheart Nether-Mage
 (@CGUID+121, 21230, 548, 1, 355.336, -495.328, 27.5917, 3.0884, 7200, 7200, 0, 0, 0, 0), -- Greyheart Nether-Mage
 (@CGUID+122, 21231, 548, 1, 336.057, -442.131, 28.9551, 5.8294, 7200, 7200, 0, 0, 0, 0), -- Greyheart Shield-Bearer
-(@CGUID+123, 21231, 548, 1, 347.419, -499.001, 27.1203, 2.86163, 7200, 7200, 10, 0, 0, 2), -- Greyheart Shield-Bearer
+(@CGUID+123, 21231, 548, 1, 347.419, -499.001, 27.1203, 2.86163, 7200, 7200, 0, 0, 0, 2), -- Greyheart Shield-Bearer
 (@CGUID+124, 21231, 548, 1, 398.527, -376.647, 23.6863, 2.74017, 7200, 7200, 0, 0, 0, 0), -- Greyheart Shield-Bearer
 (@CGUID+125, 21231, 548, 1, 349.789, -502.846, 27.6668, 2.98779, 7200, 7200, 0, 0, 0, 0), -- Greyheart Shield-Bearer
 (@CGUID+126, 21231, 548, 1, 351.737, -496.703, 27.383, 3.01328, 7200, 7200, 0, 0, 0, 0), -- Greyheart Shield-Bearer
-(@CGUID+127, 21231, 548, 1, 424.235, -427.628, 9.31017, 4.6821, 7200, 7200, 10, 0, 0, 2), -- Greyheart Shield-Bearer
-(@CGUID+128, 21231, 548, 1, 430.744, -412.565, 7.21798, 4.21136, 7200, 7200, 10, 0, 0, 2), -- Greyheart Shield-Bearer
+(@CGUID+127, 21231, 548, 1, 424.235, -427.628, 9.31017, 4.6821, 7200, 7200, 0, 0, 0, 2), -- Greyheart Shield-Bearer
+(@CGUID+128, 21231, 548, 1, 430.744, -412.565, 7.21798, 4.21136, 7200, 7200, 0, 0, 0, 2), -- Greyheart Shield-Bearer
 (@CGUID+129, 21232, 548, 1, 218.307, -261.564, -1.94429, 4.92183, 7200, 7200, 0, 0, 0, 0), -- Greyheart Skulker
 (@CGUID+130, 21232, 548, 1, 232.86, -432.74, -4.34939, 2.93215, 7200, 7200, 0, 0, 0, 0), -- Greyheart Skulker
 (@CGUID+131, 21232, 548, 1, 225.514, -512.515, -11.4539, 1.32645, 7200, 7200, 0, 0, 0, 0), -- Greyheart Skulker
-(@CGUID+132, 21232, 548, 1, 297.836, -366.01, 22.5825, 4.24164, 7200, 7200, 10, 0, 0, 2), -- Greyheart Skulker
+(@CGUID+132, 21232, 548, 1, 297.836, -366.01, 22.5825, 4.24164, 7200, 7200, 0, 0, 0, 2), -- Greyheart Skulker
 (@CGUID+133, 21232, 548, 1, 335.807, -354.229, 21.4218, 3.82227, 7200, 7200, 0, 0, 0, 0), -- Greyheart Skulker
 (@CGUID+134, 21232, 548, 1, 343.63, -353.546, 21.2725, 2.58309, 7200, 7200, 0, 0, 0, 0), -- Greyheart Skulker
 (@CGUID+135, 21232, 548, 1, 330.024, -422.776, 28.9551, 3.87463, 7200, 7200, 0, 0, 0, 0), -- Greyheart Skulker
@@ -1110,40 +1110,40 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+142, 21246, 548, 1, -131.458, -223.564, 1.67257, 2.05949, 7200, 7200, 0, 0, 0, 0), -- Serpentshrine Sporebat
 (@CGUID+143, 21246, 548, 1, -220.37, -248.003, -5.32409, 0.628318, 7200, 7200, 0, 0, 0, 0), -- Serpentshrine Sporebat
 (@CGUID+144, 21246, 548, 1, -221.885, -243.646, -5.32409, 0.296706, 7200, 7200, 0, 0, 0, 0), -- Serpentshrine Sporebat
-(@CGUID+145, 21251, 548, 1, -152.484, -212.229, 1.58923, 0.168913, 7200, 7200, 10, 0, 0, 2), -- Underbog Colossus
-(@CGUID+146, 21251, 548, 1, -192.512, -232.086, -5.40743, 0.684048, 7200, 7200, 10, 0, 0, 2), -- Underbog Colossus
-(@CGUID+147, 21251, 548, 1, 209.571, -319.302, 10.6757, 4.49363, 7200, 7200, 10, 0, 0, 2), -- Underbog Colossus
-(@CGUID+148, 21251, 548, 1, 231.283, -650.963, -7.36396, 2.25831, 7200, 7200, 10, 0, 0, 2), -- Underbog Colossus
-(@CGUID+149, 21251, 548, 1, 459.046, -481.498, -13.1583, 4.17599, 7200, 7200, 10, 0, 0, 2), -- Underbog Colossus
-(@CGUID+150, 21251, 548, 1, 499.813, -471.149, -13.1583, 1.6266, 7200, 7200, 10, 0, 0, 2), -- Underbog Colossus
-(@CGUID+151, 21251, 548, 1, 483.171, -508.75, -13.1583, 2.82832, 7200, 7200, 10, 0, 0, 2), -- Underbog Colossus
-(@CGUID+152, 21251, 548, 1, 500.807, -556.689, -7.14439, 1.56853, 7200, 7200, 10, 0, 0, 2), -- Underbog Colossus
-(@CGUID+153, 21251, 548, 1, 516.937, -578.185, -7.14439, 2.90337, 7200, 7200, 10, 0, 0, 2), -- Underbog Colossus
+(@CGUID+145, 21251, 548, 1, -152.484, -212.229, 1.58923, 0.168913, 7200, 7200, 0, 0, 0, 2), -- Underbog Colossus
+(@CGUID+146, 21251, 548, 1, -192.512, -232.086, -5.40743, 0.684048, 7200, 7200, 0, 0, 0, 2), -- Underbog Colossus
+(@CGUID+147, 21251, 548, 1, 209.571, -319.302, 10.6757, 4.49363, 7200, 7200, 0, 0, 0, 2), -- Underbog Colossus
+(@CGUID+148, 21251, 548, 1, 231.283, -650.963, -7.36396, 2.25831, 7200, 7200, 0, 0, 0, 2), -- Underbog Colossus
+(@CGUID+149, 21251, 548, 1, 459.046, -481.498, -13.1583, 4.17599, 7200, 7200, 0, 0, 0, 2), -- Underbog Colossus
+(@CGUID+150, 21251, 548, 1, 499.813, -471.149, -13.1583, 1.6266, 7200, 7200, 0, 0, 0, 2), -- Underbog Colossus
+(@CGUID+151, 21251, 548, 1, 483.171, -508.75, -13.1583, 2.82832, 7200, 7200, 0, 0, 0, 2), -- Underbog Colossus
+(@CGUID+152, 21251, 548, 1, 500.807, -556.689, -7.14439, 1.56853, 7200, 7200, 0, 0, 0, 2), -- Underbog Colossus
+(@CGUID+153, 21251, 548, 1, 516.937, -578.185, -7.14439, 2.90337, 7200, 7200, 0, 0, 0, 2), -- Underbog Colossus
 (@CGUID+154, 21252, 548, 1, 40.558, -415.833, 11.3567, 3.33358, 604800, 604800, 0, 0, 0, 0), -- World Trigger (Not Immune PC)
-(@CGUID+155, 21263, 548, 1, 46.68, -273.194, 0.82546, 1.53589, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+156, 21263, 548, 1, 17.6475, -283.172, 0.824995, 2.72271, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+157, 21263, 548, 1, 61.458, -280.532, 0.825862, 0.802851, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+158, 21263, 548, 1, 44.6756, -314.65, 1.0382, 1.91847, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
+(@CGUID+155, 21263, 548, 1, 46.68, -273.194, 0.82546, 1.53589, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+156, 21263, 548, 1, 17.6475, -283.172, 0.824995, 2.72271, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+157, 21263, 548, 1, 61.458, -280.532, 0.825862, 0.802851, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+158, 21263, 548, 1, 44.6756, -314.65, 1.0382, 1.91847, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
 (@CGUID+159, 21263, 548, 1, -51.333, -340.184, 0.824673, 1.46608, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
 (@CGUID+160, 21263, 548, 1, -26.5779, -376.689, 0.825803, 6.16101, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
 (@CGUID+161, 21263, 548, 1, -33.319, -391.098, 0.825579, 5.39307, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
 (@CGUID+162, 21263, 548, 1, -46.3299, -400.239, 0.82536, 5.0091, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
-(@CGUID+163, 21263, 548, 1, -87.4249, -473.787, 0.823709, 2.86234, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+164, 21263, 548, 1, -48.6206, -451.718, 0.8232, 1.16937, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+165, 21263, 548, 1, -78.6161, -459.737, 0.824055, 2.58309, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+166, 21263, 548, 1, -79.4771, -504.287, 0.82497, 4.06662, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+167, 21263, 548, 1, 119.77, -375.648, 0.741137, 3.94414, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+168, 21263, 548, 1, 13.5078, -540.597, 0.745187, 2.6474, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+169, 21263, 548, 1, 24.5849, -528.479, 0.747532, 2.12614, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+170, 21263, 548, 1, 10.5393, -557.079, 0.741942, 3.1879, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+171, 21263, 548, 1, 16.2609, -572.053, 0.742195, 3.71905, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+172, 21263, 548, 1, 111.906, -518.521, 0.746377, 3.42533, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+173, 21263, 548, 1, 164.488, -332.018, 0.74088, 0.872665, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+174, 21263, 548, 1, 171.418, -362.239, 0.741653, 6.12611, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+175, 21263, 548, 1, 163.624, -375.525, 0.741776, 5.51619, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+176, 21263, 548, 1, 119.718, -532.423, 0.744972, 3.92215, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+177, 21263, 548, 1, 149.749, -540.398, 0.741403, 5.11381, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
-(@CGUID+178, 21263, 548, 1, 171.484, -518.557, 0.741841, 6.0912, 7200, 7200, 10, 0, 0, 2), -- Greyheart Technician
+(@CGUID+163, 21263, 548, 1, -87.4249, -473.787, 0.823709, 2.86234, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+164, 21263, 548, 1, -48.6206, -451.718, 0.8232, 1.16937, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+165, 21263, 548, 1, -78.6161, -459.737, 0.824055, 2.58309, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+166, 21263, 548, 1, -79.4771, -504.287, 0.82497, 4.06662, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+167, 21263, 548, 1, 119.77, -375.648, 0.741137, 3.94414, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+168, 21263, 548, 1, 13.5078, -540.597, 0.745187, 2.6474, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+169, 21263, 548, 1, 24.5849, -528.479, 0.747532, 2.12614, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+170, 21263, 548, 1, 10.5393, -557.079, 0.741942, 3.1879, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+171, 21263, 548, 1, 16.2609, -572.053, 0.742195, 3.71905, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+172, 21263, 548, 1, 111.906, -518.521, 0.746377, 3.42533, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+173, 21263, 548, 1, 164.488, -332.018, 0.74088, 0.872665, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+174, 21263, 548, 1, 171.418, -362.239, 0.741653, 6.12611, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+175, 21263, 548, 1, 163.624, -375.525, 0.741776, 5.51619, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+176, 21263, 548, 1, 119.718, -532.423, 0.744972, 3.92215, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+177, 21263, 548, 1, 149.749, -540.398, 0.741403, 5.11381, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
+(@CGUID+178, 21263, 548, 1, 171.484, -518.557, 0.741841, 6.0912, 7200, 7200, 0, 0, 0, 2), -- Greyheart Technician
 (@CGUID+179, 21298, 548, 1, 211.363, -260.289, -1.94429, 4.2586, 7200, 7200, 0, 0, 0, 0), -- Coilfang Serpentguard
 (@CGUID+180, 21298, 548, 1, 223.854, -256.631, -1.94093, 5.89921, 7200, 7200, 0, 0, 0, 0), -- Coilfang Serpentguard
 (@CGUID+181, 21298, 548, 1, 219.635, -440.717, -4.34938, 3.1765, 7200, 7200, 0, 0, 0, 0), -- Coilfang Serpentguard
@@ -1157,7 +1157,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+189, 21298, 548, 1, 254.666, -661.208, -7.28062, 2.42601, 7200, 7200, 0, 0, 0, 2), -- Coilfang Serpentguard
 (@CGUID+190, 21298, 548, 1, 239.163, -672.661, -7.28062, 2.35619, 7200, 7200, 0, 0, 0, 2), -- Coilfang Serpentguard
 (@CGUID+191, 21298, 548, 1, 500.933, -629.155, -7.14567, 1.59555, 7200, 7200, 0, 0, 0, 2), -- Coilfang Serpentguard
-(@CGUID+192, 21298, 548, 1, 490.396, -725.055, -7.14388, 3.25939, 7200, 7200, 10, 0, 0, 2), -- Coilfang Serpentguard
+(@CGUID+192, 21298, 548, 1, 490.396, -725.055, -7.14388, 3.25939, 7200, 7200, 0, 0, 0, 2), -- Coilfang Serpentguard
 (@CGUID+193, 21299, 548, 1, 252.869, -269.443, -0.307994, 3.23643, 7200, 7200, 3, 0, 0, 1), -- Coilfang Fathom-Witch
 (@CGUID+194, 21299, 548, 1, 252.659, -261.04, -0.894315, 3.21682, 7200, 7200, 3, 0, 0, 1), -- Coilfang Fathom-Witch
 (@CGUID+195, 21299, 548, 1, 250.705, -661.084, -7.36388, 2.33569, 7200, 7200, 3, 0, 0, 1), -- Coilfang Fathom-Witch
@@ -1166,18 +1166,18 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+198, 21299, 548, 1, 504.066, -630.125, -7.14392, 1.6468, 7200, 7200, 0, 0, 0, 0), -- Coilfang Fathom-Witch
 (@CGUID+199, 21299, 548, 1, 492.64, -727.162, -7.14427, 3.27712, 7200, 7200, 0, 0, 0, 0), -- Coilfang Fathom-Witch
 (@CGUID+200, 21299, 548, 1, 492.003, -722.514, -7.14427, 3.17109, 7200, 7200, 0, 0, 0, 0), -- Coilfang Fathom-Witch
-(@CGUID+201, 21301, 548, 1, 41.5786, -282.727, 0.759662, 5.95556, 7200, 7200, 10, 0, 0, 2), -- Coilfang Shatterer
-(@CGUID+202, 21301, 548, 1, 57.9761, -316.599, 0.761234, 0.815582, 7200, 7200, 10, 0, 0, 2), -- Coilfang Shatterer
-(@CGUID+203, 21301, 548, 1, -45.7598, -352.257, 0.764383, 2.37569, 7200, 7200, 10, 0, 0, 2), -- Coilfang Shatterer
-(@CGUID+204, 21301, 548, 1, -49.3139, -389.476, 0.764777, 0.339987, 7200, 7200, 10, 0, 0, 2), -- Coilfang Shatterer
-(@CGUID+205, 21301, 548, 1, -60.7019, -461.156, 0.761909, 3.4649, 7200, 7200, 10, 0, 0, 2), -- Coilfang Shatterer
-(@CGUID+206, 21301, 548, 1, -78.4015, -482.657, 0.761765, 4.8875, 7200, 7200, 10, 0, 0, 2), -- Coilfang Shatterer
-(@CGUID+207, 21301, 548, 1, 24.3289, -539.427, 0.759817, 4.3471, 7200, 7200, 10, 0, 0, 2), -- Coilfang Shatterer
-(@CGUID+208, 21301, 548, 1, 134.213, -372.913, 0.765566, 3.1358, 7200, 7200, 10, 0, 0, 2), -- Coilfang Shatterer
-(@CGUID+209, 21301, 548, 1, 41.5846, -572.568, 0.761845, 3.1386, 7200, 7200, 10, 0, 0, 2), -- Coilfang Shatterer
-(@CGUID+210, 21301, 548, 1, 160.83, -344.493, 0.759217, 1.69263, 7200, 7200, 10, 0, 0, 2), -- Coilfang Shatterer
-(@CGUID+211, 21301, 548, 1, 124.162, -516.972, 0.767412, 2.08185, 7200, 7200, 10, 0, 0, 2), -- Coilfang Shatterer
-(@CGUID+212, 21301, 548, 1, 160.597, -522.173, 0.756989, 3.77963, 7200, 7200, 10, 0, 0, 2), -- Coilfang Shatterer
+(@CGUID+201, 21301, 548, 1, 41.5786, -282.727, 0.759662, 5.95556, 7200, 7200, 0, 0, 0, 2), -- Coilfang Shatterer
+(@CGUID+202, 21301, 548, 1, 57.9761, -316.599, 0.761234, 0.815582, 7200, 7200, 0, 0, 0, 2), -- Coilfang Shatterer
+(@CGUID+203, 21301, 548, 1, -45.7598, -352.257, 0.764383, 2.37569, 7200, 7200, 0, 0, 0, 2), -- Coilfang Shatterer
+(@CGUID+204, 21301, 548, 1, -49.3139, -389.476, 0.764777, 0.339987, 7200, 7200, 0, 0, 0, 2), -- Coilfang Shatterer
+(@CGUID+205, 21301, 548, 1, -60.7019, -461.156, 0.761909, 3.4649, 7200, 7200, 0, 0, 0, 2), -- Coilfang Shatterer
+(@CGUID+206, 21301, 548, 1, -78.4015, -482.657, 0.761765, 4.8875, 7200, 7200, 0, 0, 0, 2), -- Coilfang Shatterer
+(@CGUID+207, 21301, 548, 1, 24.3289, -539.427, 0.759817, 4.3471, 7200, 7200, 0, 0, 0, 2), -- Coilfang Shatterer
+(@CGUID+208, 21301, 548, 1, 134.213, -372.913, 0.765566, 3.1358, 7200, 7200, 0, 0, 0, 2), -- Coilfang Shatterer
+(@CGUID+209, 21301, 548, 1, 41.5846, -572.568, 0.761845, 3.1386, 7200, 7200, 0, 0, 0, 2), -- Coilfang Shatterer
+(@CGUID+210, 21301, 548, 1, 160.83, -344.493, 0.759217, 1.69263, 7200, 7200, 0, 0, 0, 2), -- Coilfang Shatterer
+(@CGUID+211, 21301, 548, 1, 124.162, -516.972, 0.767412, 2.08185, 7200, 7200, 0, 0, 0, 2), -- Coilfang Shatterer
+(@CGUID+212, 21301, 548, 1, 160.597, -522.173, 0.756989, 3.77963, 7200, 7200, 0, 0, 0, 2), -- Coilfang Shatterer
 (@CGUID+213, 21301, 548, 1, 493.547, -631.669, -7.11432, 1.48752, 7200, 7200, 0, 0, 0, 0), -- Coilfang Shatterer
 (@CGUID+214, 21301, 548, 1, 507.164, -630.931, -7.14392, 1.6468, 7200, 7200, 0, 0, 0, 0), -- Coilfang Shatterer
 (@CGUID+215, 21301, 548, 1, 494.967, -729.479, -7.14388, 3.29395, 7200, 7200, 0, 0, 0, 0), -- Coilfang Shatterer
@@ -1241,7 +1241,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+273, 21806, 548, 1, 373.219, -429.148, 29.6064, 5.04949, 7200, 7200, 0, 0, 0, 0), -- Greyheart Spellbinder
 (@CGUID+274, 21806, 548, 1, 369.234, -446.473, 29.602, 0.820574, 7200, 7200, 0, 0, 0, 0), -- Greyheart Spellbinder
 (@CGUID+275, 21806, 548, 1, 385.158, -441.597, 29.6121, 2.81006, 7200, 7200, 0, 0, 0, 0), -- Greyheart Spellbinder
-(@CGUID+276, 21863, 548, 1, 313.842, -373.493, 22.3784, 2.18948, 7200, 7200, 10, 0, 0, 2), -- Serpentshrine Lurker
+(@CGUID+276, 21863, 548, 1, 313.842, -373.493, 22.3784, 2.18948, 7200, 7200, 0, 0, 0, 2), -- Serpentshrine Lurker
 (@CGUID+277, 21863, 548, 1, 396.452, -369.932, 23.4701, 5.23138, 7200, 7200, 3, 0, 0, 1), -- Serpentshrine Lurker
 (@CGUID+278, 21933, 548, 1, -215.753, -375.343, 38.403, 5.0091, 7200, 7200, 0, 0, 0, 0), -- Hydross Beam Helper
 (@CGUID+279, 21933, 548, 1, -264.165, -357.171, 38.8069, 2.84489, 7200, 7200, 0, 0, 0, 0), -- Hydross Beam Helper
@@ -1345,67 +1345,67 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalon
 (2126301, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Greyheart Technician - Run on'),
 (2126302, 1000, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Greyheart Technician - Bow'),
 (2126302, 4000, 1, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Greyheart Technician - Beg'),
-(2129801, 1000, 0, 0, 0, 0, 21299, 10, 0, 2000020064, 2000020065, 2000020066, 0, 0, 0, 0, 0, 'Coilfang Fathom-Witch - random say'),
-(2129801, 3000, 0, 0, 0, 0, 0, 0, 0, 2000020067, 2000020068, 0, 0, 0, 0, 0, 0, 'Coilfang Serpentguard - random response');
+(2129801, 1000, 0, 0, 0, 0, 21299, 10, 0, 17713, 17711, 18145, 0, 0, 0, 0, 0, 'Coilfang Fathom-Witch - random say'),
+(2129801, 3000, 0, 0, 0, 0, 0, 0, 0, 18146, 18410, 0, 0, 0, 0, 0, 0, 'Coilfang Serpentguard - random response');
 
 INSERT INTO `dbscripts_on_creature_death` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 (21214, 0, 18, 3600000, 0, 0, 22820, 100, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Despawn Seer Olum after 1 hour'),
 (21214, 0, 29, 3, 1, 0, 22820, 100, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Add Gossip/quest giver flag to Seer Olum'),
 (21214, 1000, 13, 0, 0, 0, 185474, @OGUID+35, 17, 0, 0, 0, 0, 0, 0, 0, 0, 'Open Seer Olum''s cage'),
 (21214, 2000, 3, 0, 0, 0, 22820, 100, 3, 0, 0, 0, 0, 457.031, -543.231, -7.54802, 0.39321, 'Move Seer Olum out of cage'),
-(21214, 3000, 0, 0, 0, 0, 22820, 100, 3, 2000020069, 0, 0, 0, 0, 0, 0, 0, 'Force Seer Olum to say text');
+(21214, 3000, 0, 0, 0, 0, 22820, 100, 3, 20460, 0, 0, 0, 0, 0, 0, 0, 'Force Seer Olum to say text');
 
 DELETE FROM dbscripts_on_relay WHERE id BETWEEN 10105 AND 10112;
 INSERT INTO `dbscripts_on_relay` (`id`, `delay`, `command`, `datalong`, `datalong2`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 (10105,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - pause waypoints'),
 (10105,0,3,0,0,0,0,0,0,0,0,0,-57.3285,-371.109,1.58651,0,'Honor Guard - move to center (platform 1)'),
 (10105,6000,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
-(10105,12000,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10105,15000,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10105,12000,0,0,0,0,0,0,18910,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10105,15000,0,0,0,0,0,0,18911,0,0,0,0,0,0,0,'Honor Guard - say'),
 (10105,17000,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
 
 (10106,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - pause waypoints'),
 (10106,0,3,0,0,0,0,0,0,0,0,0,40.2521,-304.251,1.5865,0,'Honor Guard - move to center (platform 2)'),
 (10106,6000,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
-(10106,12000,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10106,15000,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10106,12000,0,0,0,0,0,0,18910,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10106,15000,0,0,0,0,0,0,18911,0,0,0,0,0,0,0,'Honor Guard - say'),
 (10106,17000,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
 
 (10107,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - pause waypoints'),
 (10107,0,3,0,0,0,0,0,0,0,0,0,140.93,-353.593,1.58652,0,'Honor Guard - move to center (platform 3)'),
 (10107,6000,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
-(10107,12000,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10107,15000,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10107,12000,0,0,0,0,0,0,18910,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10107,15000,0,0,0,0,0,0,18911,0,0,0,0,0,0,0,'Honor Guard - say'),
 (10107,17000,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
 
 (10108,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - pause waypoints'),
 (10108,0,3,0,0,0,0,0,0,0,0,0,141.894,-509.504,1.58652,0,'Honor Guard - move to center (platform 4)'),
 (10108,6000,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
-(10108,12000,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10108,15000,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10108,12000,0,0,0,0,0,0,18910,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10108,15000,0,0,0,0,0,0,18911,0,0,0,0,0,0,0,'Honor Guard - say'),
 (10108,17000,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
 
 (10109,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - pause waypoints'),
 (10109,0,3,0,0,0,0,0,0,0,0,0,40.9439,-554.403,1.58541,0,'Honor Guard - move to center (platform 5)'),
 (10109,6000,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
-(10109,12000,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10109,15000,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10109,12000,0,0,0,0,0,0,18910,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10109,15000,0,0,0,0,0,0,18911,0,0,0,0,0,0,0,'Honor Guard - say'),
 (10109,17000,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
 
 (10110,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - pause waypoints'),
 (10110,0,3,0,0,0,0,0,0,0,0,0,-57.0144,-482.826,1.58653,0,'Honor Guard - move to center (platform 6)'),
 (10110,6000,35,5,45,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - send AI event A'),
-(10110,12000,0,0,0,0,0,0,2000020041,0,0,0,0,0,0,0,'Honor Guard - say'),
-(10110,15000,0,0,0,0,0,0,2000020042,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10110,12000,0,0,0,0,0,0,18910,0,0,0,0,0,0,0,'Honor Guard - say'),
+(10110,15000,0,0,0,0,0,0,18911,0,0,0,0,0,0,0,'Honor Guard - say'),
 (10110,17000,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
 
 (10111,0,32,1,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - pause waypoints'),
 (10111,1000,37,0,0,21220,20,2,0,0,0,0,0,0,0,0,'Honor Guard - move to Priestess'),
 (10111,6000,36,0,0,21220,20,0,0,0,0,0,0,0,0,0,'Priestess - face Honor Guard'),
-(10111,6000,0,0,0,21220,5,0,2000020043,0,0,0,0,0,0,0,'Priestess - say'),
+(10111,6000,0,0,0,21220,5,0,18909,0,0,0,0,0,0,0,'Priestess - say'),
 (10111,7000,36,0,0,21220,20,1,0,0,0,0,0,0,0,0,'Honor Guard - face Priestess'),
 (10111,9000,0,10101,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - say random (template)'),
-(10111,12000,0,0,0,21220,5,0,2000020052,2000020053,2000020054,2000020055,0,0,0,0,'Priestess - say random'),
+(10111,12000,0,0,0,21220,5,0,18903,18905,18902,18904,0,0,0,0,'Priestess - say random'),
 (10111,15000,0,10102,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - say random (template)'),
 (10111,17000,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
 (10111,17000,36,1,0,21220,5,0,0,0,0,0,0,0,0,0,'Priestess - reset orientation'),
@@ -1416,46 +1416,12 @@ INSERT INTO `dbscripts_on_relay` (`id`, `delay`, `command`, `datalong`, `datalon
 (10112,3000,37,0,0,21301,40,0,0,0,0,0,0,0,0,0,'Shatterer - move to Honor Guard'),
 (10112,7000,36,0,0,21301,40,0,0,0,0,0,0,0,0,0,'Shatterer - face Honor Guard'),
 (10112,7000,36,0,0,21301,40,1,0,0,0,0,0,0,0,0,'Honor Guard - face Shatterer'),
-(10112,8000,0,0,0,21301,10,0,2000020043,0,0,0,0,0,0,0,'Shatterer - say'),
+(10112,8000,0,0,0,21301,10,0,18909,0,0,0,0,0,0,0,'Shatterer - say'),
 (10112,10000,0,10101,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - say random (template)'),
-(10112,13000,0,0,0,21301,10,0,2000020052,2000020053,2000020054,2000020055,0,0,0,0,'Shatterer - say random'),
+(10112,13000,0,0,0,21301,10,0,18903,18905,18902,18904,0,0,0,0,'Shatterer - say random'),
 (10112,16000,0,10102,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - say random (template)'),
 (10112,18000,32,0,0,0,0,0,0,0,0,0,0,0,0,0,'Honor Guard - unpause waypoints'),
 (10112,18000,32,0,0,21301,10,0,0,0,0,0,0,0,0,0,'Shatterer - unpause waypoints');
-
-DELETE FROM `dbscript_string` WHERE `entry` IN (2000020041,2000020042,2000020043,2000020044,2000020045,2000020046,2000020047,2000020048,2000020049,2000020050,
-2000020051,2000020052,2000020053,2000020054,2000020055,2000020056,2000020057,2000020058,2000020059,2000020060,2000020061,2000020062,2000020063,2000020064,
-2000020065,2000020066,2000020067,2000020068,2000020069);
-INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `broadcast_text_id`, `comment`) VALUES
-(2000020041, 'You filthy little beings need to work faster!', 0, 0, 0, 1, 18910, 'Vashj''ir Honor Guard - discipline Technicians 1'),
-(2000020042, 'FASTER!!!!', 0, 0, 0, 15, 18911, 'Vashj''ir Honor Guard - discipline Technicians 2'),
-(2000020043, 'What''s on your mind, sir?', 0, 0, 0, 1, 18909, 'Coilfang Priestess/Shatterer - greet Vashj''r Honor Guard'),
-(2000020044, 'We will be at capacity soon enough.', 0, 0, 0, 1, 18893, 'Vashj''ir Honor Guard - response 1'),
-(2000020045, 'Soon all of Draenor''s water will be ours.', 0, 0, 0, 1, 18888, 'Vashj''ir Honor Guard - response 1'),
-(2000020046, 'The reservoir fills nicely.', 0, 0, 0, 1, 18889, 'Vashj''ir Honor Guard - response 1'),
-(2000020047, 'We appear to be on target.', 0, 0, 0, 1, 18891, 'Vashj''ir Honor Guard - response 1'),
-(2000020048, 'Purification seems to be ahead of schedule.', 0, 0, 0, 1, 18890, 'Vashj''ir Honor Guard - response 1'),
-(2000020049, 'Things are proceeding as planned.', 0, 0, 0, 1, 19344, 'Vashj''ir Honor Guard - response 1'),
-(2000020050, 'The pumps are working magnificently.', 0, 0, 0, 1, 18887, 'Vashj''ir Honor Guard - response 1'),
-(2000020051, 'If we can keep working at this rate, the Lady will be pleased.', 0, 0, 0, 1, 18892, 'Vashj''ir Honor Guard - response 1'),
-(2000020052, 'I couldn''t agree more.', 0, 0, 0, 1, 18903, 'Coilfang Priestess/Shatterer - response 1'),
-(2000020053, 'You speak the truth.', 0, 0, 0, 1, 18905, 'Coilfang Priestess/Shatterer - response 1'),
-(2000020054, 'My thoughts exactly.', 0, 0, 0, 1, 18902, 'Coilfang Priestess/Shatterer - response 1'),
-(2000020055, 'It''s as if you were reading my mind.', 0, 0, 0, 1, 18904, 'Coilfang Priestess/Shatterer - response 1'),
-(2000020056, 'Don''t let the levels get too low.', 0, 0, 0, 1, 18895, 'Vashj''ir Honor Guard - response 2'),
-(2000020057, 'Direct the flow from the western bog.', 0, 0, 0, 1, 18897, 'Vashj''ir Honor Guard - response 2'), -- blizzlike here would be "Direct the flow from from the western bog."
-(2000020058, 'Keep regulating the main valve to ensure steady flow.', 0, 0, 0, 1, 18900, 'Vashj''ir Honor Guard - response 2'),
-(2000020059, 'Open the purification valves and continue work.', 0, 0, 0, 1, 18898, 'Vashj''ir Honor Guard - response 2'),
-(2000020060, 'Don''t take your eyes off of these filthy Broken. I don''t trust them.', 0, 0, 0, 1, 18901, 'Vashj''ir Honor Guard - response 2'),
-(2000020061, 'Keep everyone working efficiently.', 0, 0, 0, 1, 18894, 'Vashj''ir Honor Guard - response 2'),
-(2000020062, 'Make sure these Broken are thoroughly cleaned before touching the water.', 0, 0, 0, 1, 18899, 'Vashj''ir Honor Guard - response 2'),
-(2000020063, 'Keep ample pressure on the southern pump.', 0, 0, 0, 1, 18896, 'Vashj''ir Honor Guard - response 2'),
-(2000020064, 'Be wary of intruders.', 0, 0, 0, 1, 17713, 'Coilfang Fathom-Witch - say to Coilfang Serpentguard'),
-(2000020065, 'Stay alert!', 0, 0, 0, 1, 17711, 'Coilfang Fathom-Witch - say to Coilfang Serpentguard'),
-(2000020066, 'We must not fail the master.', 0, 0, 0, 1, 18145, 'Coilfang Fathom-Witch - say to Coilfang Serpentguard'),
-(2000020067, 'Understood.', 0, 0, 0, 1, 18146, 'Coilfang Serpentguard - respond to Coilfang Fathom-Witch'),
-(2000020068, 'We will not fail.', 0, 0, 0, 1, 18410, 'Coilfang Serpentguard - respond to Coilfang Fathom-Witch'),
-(2000020069, 'The naga came close to breaking my will... but the secret is still safe, thanks to you.', 0, 0, 0, 1, 20460, 'Seer Olum - freed');
 
 DELETE FROM `dbscript_random_templates` WHERE `id` IN (10101,10102,10105,10106,10107,10108,10109,10110,10111,10112);
 INSERT INTO dbscript_random_templates (id, type, target_id, chance) VALUES
@@ -1468,23 +1434,23 @@ INSERT INTO dbscript_random_templates (id, type, target_id, chance) VALUES
 (10111,1,10111,25),(10111,1,0,75),
 (10112,1,10112,25),(10112,1,0,75),
 -- Vashj'ir Honor Guard Response 1
-(10101,0,2000020044,0),
-(10101,0,2000020045,0),
-(10101,0,2000020046,0),
-(10101,0,2000020047,0),
-(10101,0,2000020048,0),
-(10101,0,2000020049,0),
-(10101,0,2000020050,0),
-(10101,0,2000020051,0),
+(10101,0,18893,0),
+(10101,0,18888,0),
+(10101,0,18889,0),
+(10101,0,18891,0),
+(10101,0,18890,0),
+(10101,0,19344,0),
+(10101,0,18887,0),
+(10101,0,18892,0),
 -- Vashj'ir Honor Guard Response 2
-(10102,0,2000020056,0),
-(10102,0,2000020057,0),
-(10102,0,2000020058,0),
-(10102,0,2000020059,0),
-(10102,0,2000020060,0),
-(10102,0,2000020061,0),
-(10102,0,2000020062,0),
-(10102,0,2000020063,0);
+(10102,0,18895,0),
+(10102,0,18897,0),
+(10102,0,18900,0),
+(10102,0,18898,0),
+(10102,0,18901,0),
+(10102,0,18894,0),
+(10102,0,18899,0),
+(10102,0,18896,0);
 
 -- INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_event` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
