@@ -123,6 +123,9 @@ UPDATE gameobject_template SET data1=0 WHERE entry=179004;
 -- Inconspicuous Landmark 142189 - consumable, despawn on s.11462 expire
 UPDATE `gameobject_template` SET `data5` = 1 WHERE `entry` = 142189; -- 19660800 / 65536 = 300sec
 
+-- hack - this bypasses despawn prevention due to GO casting a hidden 6 second spell the GO should cast - note will be put down even in core
+UPDATE gameobject_template SET data3=65536*6 WHERE entry IN(180619);
+
 -- -------------------------------
 -- Item custom changes
 -- -------------------------------
@@ -204,6 +207,7 @@ UPDATE creature_template SET `modelid2` = 0, `modelid3` = 0, `modelid4` = 0 WHER
 19632, -- Lykul Stinger (6633,7350,11091)
 20155, -- Hillsbrad Internment Lodge Quest Trigger
 20156, -- Thrall Quest Trigger
+21060, -- Enraged Air Spirit (15294)
 25265, -- Demonic Vapor
 25267, -- Demonic Vapor (Trail)
 25703 -- Brutallus Death Cloud

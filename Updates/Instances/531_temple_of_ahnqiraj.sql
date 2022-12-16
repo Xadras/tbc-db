@@ -774,24 +774,6 @@ INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `PositionX
 (15509, 0, 14, -8514.142, 1751.703, -91.81306, 100, 0, 0),
 (15509, 0, 15, -8512.993, 1728.714, -91.76323, 100, 0, 0),
 (15509, 0, 16, -8515.803, 1693.652, -90.48472, 100, 0, 0),
-(15516, 0, 1, -8299.077, 1670.921, -27.83419, 100, 0, 0),
-(15516, 0, 2, -8281.883, 1688.650, -25.09606, 100, 0, 0),
-(15516, 0, 3, -8277.175, 1719.160, -18.75556, 100, 0, 0),
-(15516, 0, 4, -8264.544, 1744.857, -15.06134, 100, 0, 0),
-(15516, 0, 5, -8256.176, 1706.132, -25.62639, 100, 0, 0),
-(15516, 0, 6, -8260.745, 1661.010, -30.71562, 100, 0, 0),
-(15516, 0, 7, -8261.763, 1630.783, -35.83190, 100, 0, 0),
-(15516, 0, 8, -8281.746, 1643.871, -32.61421, 100, 0, 0),
-(15516, 0, 9, -8302.484, 1657.664, -29.81326, 100, 0, 0),
-(15516, 0, 10, -8322.100, 1681.196, -23.77903, 100, 0, 0),
-(15516, 0, 11, -8337.480, 1695.275, -20.64655, 100, 0, 0),
-(15516, 0, 12, -8308.396, 1705.129, -20.57656, 100, 0, 0),
-(15516, 0, 13, -8276.452, 1706.471, -21.82398, 100, 0, 0),
-(15516, 0, 14, -8251.389, 1708.836, -25.76576, 100, 0, 0),
-(15516, 0, 15, -8224.531, 1711.219, -27.28119, 100, 0, 0),
-(15516, 0, 16, -8261.439, 1684.329, -28.35187, 100, 0, 0),
-(15516, 0, 17, -8286.062, 1662.657, -29.58469, 100, 0, 0),
-(15516, 0, 18, -8321.049, 1634.691, -32.09647, 100, 0, 0),
 (15544, 0, 1, -8549.55, 2161.72, -3.6664, 4.46724, 0, 0),
 (15544, 0, 2, -8558.18, 2154.86, -5.82032, 3.83499, 0, 0),
 (15544, 0, 3, -8571.58, 2153.97, -7.28693, 3.12029, 0, 0),
@@ -1011,10 +993,8 @@ INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 
 REPLACE INTO `creature_linking_template` (`entry`, `map`, `master_entry`, `flag`, `search_range`) VALUES
 (15229, 531, 15510, 1024, 0), -- Vekniss Soldier -> Fankriss the Unyielding
-(15233, 531, 15516, 1024, 0), -- Vekniss Guardian -> Battleguard Sartura
 (15235, 531, 15509, 1024, 0), -- Vekniss Stinger ->Princess Huhuran
 (15236, 531, 15235, 1667, 8), -- Vekniss Wasp -> Vekniss Stinger
-(15247, 531, 15516, 1024, 0), -- Qiraji Brainwasher -> Battleguard Sartura
 (15249, 531, 15235, 1667, 8), -- Qiraji Lasher -> Vekniss Stinger
 (15262, 531, 15263, 1024, 0), -- Obsidian Eradicator -> The Prophet Skeram
 (15264, 531, 15263, 1024, 0), -- Anubisath Sentinel -> The Prophet Skeram
@@ -1213,7 +1193,7 @@ INSERT INTO `waypoint_path` (`PathId`, `Point`, `PositionX`, `PositionY`, `Posit
 (@PATH_ID+9, 41, -8336.6074218750, 1904.4464111328125, -2.06059956550598144, 100, 0, 0),
 (@PATH_ID+9, 42, -8351.1455078125, 1947.5950927734375, -1.85638904571533203, 100, 0, 0),
 (@PATH_ID+9, 43, -8356.0234375000, 1966.8970947265625, -2.91426014900207519, 100, 0, 0),
-
+-- Temple of Ahn''Qiraj - Battleguard Sartura
 (@PATH_ID+10, 01, -8281.8828125000, 1688.6496582031250, -24.9406890869140625, 100, 0, 0),
 (@PATH_ID+10, 02, -8277.1748046875, 1719.1597900390625, -18.7555561065673828, 100, 0, 0),
 (@PATH_ID+10, 03, -8264.5439453125, 1744.8571777343750, -14.9120664596557617, 100, 0, 0),
@@ -1278,7 +1258,8 @@ INSERT INTO `spawn_group` (`Id`, `Name`, `Type`, `MaxCount`, `WorldState`, `Flag
 (@GROUP_ID+10, 'Temple of Ahn''Qiraj - Battleguard Sartura (4)', 0, 0, 0, 3),
 (@GROUP_ID+11, 'Temple of Ahn\'Qiraj - Vekniss Hive Crawler (2) Patrol 000', 0, 0, 0, 1),
 (@GROUP_ID+12, 'Temple of Ahn\'Qiraj - Vekniss Hive Crawler (2) Patrol 001', 0, 0, 0, 1),
-(@GROUP_ID+13, 'Temple of Ahn\'Qiraj - Vekniss Hive Crawler (2) Patrol 002', 0, 0, 0, 1);
+(@GROUP_ID+13, 'Temple of Ahn\'Qiraj - Vekniss Hive Crawler (2) Patrol 002', 0, 0, 0, 1),
+(@GROUP_ID+14, 'Temple of Ahn\'Qiraj - Battleguard Sartura - Trash mobs', 0, 0, 6033, 1);
 
 INSERT INTO `spawn_group_spawn` (`Id`, `Guid`, `SlotId`) VALUES
 (@GROUP_ID+0, @CGUID+159, 0),
@@ -1350,6 +1331,9 @@ INSERT INTO `spawn_group_spawn` (`Id`, `Guid`, `SlotId`) VALUES
 (@GROUP_ID+13, @CGUID+76, 0),
 (@GROUP_ID+13, @CGUID+77, 1);
 
+INSERT INTO spawn_group_spawn (Id, Guid) SELECT 5310014, guid AS guid FROM creature WHERE id=15233; -- Vekniss Guardian
+INSERT INTO spawn_group_spawn (Id, Guid) SELECT 5310014, guid AS guid FROM creature WHERE id=15247; -- Qiraji Brainwasher
+
 INSERT INTO `spawn_group_formation` (`Id`, `FormationType`, `FormationSpread`, `FormationOptions`, `PathId`, `MovementType`, `Comment`) VALUES
 (@GROUP_ID+0, 6, 6, 0, @PATH_ID+0, 4, 'Temple of Ahn\'Qiraj - Qiraji Champion (5) Patrol 000'),
 (@GROUP_ID+1, 6, 6, 0, @PATH_ID+1, 4, 'Temple of Ahn\'Qiraj - Qiraji Champion (5) Patrol 001'),
@@ -1365,6 +1349,22 @@ INSERT INTO `spawn_group_formation` (`Id`, `FormationType`, `FormationSpread`, `
 (@GROUP_ID+11, 2, 10, 0, @PATH_ID+11, 4, 'Temple of Ahn\'Qiraj - Vekniss Hive Crawler (2) Patrol 000'),
 (@GROUP_ID+12, 2, 10, 0, @PATH_ID+12, 4, 'Temple of Ahn\'Qiraj - Vekniss Hive Crawler (2) Patrol 001'),
 (@GROUP_ID+13, 2, 10, 0, @PATH_ID+13, 2, 'Temple of Ahn\'Qiraj - Vekniss Hive Crawler (2) Patrol 002');
+
+INSERT INTO `waypoint_path_name` (`PathId`, `Name`) VALUES
+(@PATH_ID+0,'Temple of Ahn\'Qiraj - Qiraji Champion (5) Patrol 000'),
+(@PATH_ID+1,'Temple of Ahn\'Qiraj - Qiraji Champion (5) Patrol 001'),
+(@PATH_ID+2,'Temple of Ahn\'Qiraj - Qiraji Champion (5) Patrol 002'),
+(@PATH_ID+3,'Temple of Ahn\'Qiraj - Qiraji Champion (5) Patrol 003'),
+(@PATH_ID+4,'Temple of Ahn\'Qiraj - Qiraji Champion (5) Patrol 004'),
+(@PATH_ID+5,'Temple of Ahn\'Qiraj - Qiraji Champion (5) Patrol 005'),
+(@PATH_ID+6,'Temple of Ahn\'Qiraj - Qiraji Champion (5) Patrol 006'),
+(@PATH_ID+7,'Temple of Ahn\'Qiraj - Qiraji Champion (5) Patrol 007'),
+(@PATH_ID+8,'Temple of Ahn\'Qiraj - Vekniss Warrior (3) Patrol 000'),
+(@PATH_ID+9,'Temple of Ahn\'Qiraj - Vekniss Warrior (3) Patrol 001'),
+(@PATH_ID+10,'Temple of Ahn''Qiraj - Battleguard Sartura (4)'),
+(@PATH_ID+11,'Temple of Ahn\'Qiraj - Vekniss Hive Crawler (2) Patrol 000'),
+(@PATH_ID+12,'Temple of Ahn\'Qiraj - Vekniss Hive Crawler (2) Patrol 001'),
+(@PATH_ID+13,'Temple of Ahn\'Qiraj - Vekniss Hive Crawler (2) Patrol 002');
 
 INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `DeathState`, `MovementType`) VALUES
 (@CGUID+1, 15229, 531, -7955.62, 1322.46, -90.46, 4.38823, 600, 600, 0, 0, 0, 2), -- Vekniss Soldier
@@ -1835,7 +1835,14 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+490, 15475, 531, -9165.88, 2029.25, -61.2332, 0.80424, 25, 25, 5, 0, 0, 1),
 -- World Trigger 15384
 (@CGUID+491, 15384, 531, -8546.25, 1987.52, -96.4368, 0.331613, 604800, 604800, 0, 0, 0, 0),
-(@CGUID+492, 15384, 531, -8577.317, 1988.1116, 101.22037, 0.471239, 604800, 604800, 0, 0, 0, 2);
+(@CGUID+492, 15384, 531, -8577.317, 1988.1116, 101.22037, 0.471239, 604800, 604800, 0, 0, 0, 2),
+(@CGUID+493, 15426, 531, -8983.97, 1392.38, -82.8312, 3.63028, 120, 120, 0, 0, 0, 0), -- Ahn'Qiraj Trigger
+(@CGUID+494, 15426, 531, -8337.53, 1731.16, 31.2425, 5.95157, 120, 120, 0, 0, 0, 0), -- Ahn'Qiraj Trigger
+(@CGUID+495, 15426, 531, -8336.39, 2176.26, 127.997, 2.1293, 120, 120, 0, 0, 0, 0), -- Ahn'Qiraj Trigger
+(@CGUID+496, 15426, 531, -8313.15, 2045.8, 137.829, 4.18879, 120, 120, 0, 0, 0, 0), -- Ahn'Qiraj Trigger
+(@CGUID+497, 15426, 531, -8163.71, 2179.06, 130.421, 5.51524, 120, 120, 0, 0, 0, 0), -- Ahn'Qiraj Trigger
+(@CGUID+498, 15426, 531, -7994.35, 1000.06, 2.59934, 2.60054, 120, 120, 0, 0, 0, 0), -- Ahn'Qiraj Trigger
+(@CGUID+499, 15426, 531, -8651.2, 2071.6, 20.505, 2.49582, 120, 120, 0, 0, 0, 0); -- Ahn'Qiraj Trigger
 
 -- ===========
 -- GAMEOBJECTS
