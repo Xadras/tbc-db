@@ -139,10 +139,6 @@ UPDATE creature_template SET `modelid2` = 0, `modelid3` = 0, `modelid4` = 0 WHER
 5764 -- Guardian of B
 );
 
-UPDATE creature_template SET `modelid1` = 0, `modelid3` = 0, `modelid4` = 0 WHERE `entry` IN (
-12999 -- World Invisible Trigger (11686)
-);
-
 -- ============================================================
 -- TBC section
 -- ============================================================
@@ -224,10 +220,15 @@ UPDATE creature_template SET `modelid2` = 0, `modelid3` = 0, `modelid4` = 0 WHER
 
 UPDATE creature_template SET `modelid1` = 0, `modelid3` = 0, `modelid4` = 0 WHERE `entry` IN (
 21419, -- Infernal Attacker - modelid1 (17312)
-22418 -- Archimonde Channel Target (18783)
+22418, -- Archimonde Channel Target (18783)
+24536 -- Dark Iron Herald - modelid1 (825)
 );
 
 UPDATE creature_template SET `modelid2` = 17188 WHERE `entry` = 22332; -- Brood of Neltharaku (19980)
+
+-- Shattered Halls Dummys add not_attackable and imun by npcs flags
+-- Before: update creature_template set UnitFlags = '2304' where entry = 17578;
+UPDATE creature_template SET UnitFlags = UnitFlags|640 WHERE entry = 17578;
 
 -- -------------------------------
 
